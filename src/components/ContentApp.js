@@ -3,7 +3,7 @@ import './ContentApp.css';
 import { Navigate } from "react-router-dom";
 import Navbar from './Navbar';
 import Footer from './Footer';
-import profile from '../img/profile.png';
+import profile from '../img/profile.jpeg';
 
 function ContentApp() {
 
@@ -21,7 +21,7 @@ function ContentApp() {
                 <div id="about" className="about">
                     <div className="flex-container">
                         <div className='img_profile'>
-                            <img src={profile} width="200" height="200" alt=""></img>
+                        <img src={profile} className="profile-image" alt="Profile"></img>
                         </div>
                     </div>
                     <div className="flex-container">

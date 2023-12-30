@@ -1,54 +1,69 @@
-
-
 .microred {
     height: 550px;
-    font-size: 26px;
-    font-family: 'Montserrat', sans-serif;
+    /* font-size: 26px;
+    font-family: 'Montserrat', sans-serif; */
+    font-family: Helvetica Neue;
     padding: 40px;
     text-align: justify;
     text-justify: inter-word;
-    background-color:#1c1c1c;
-  
+    background-color: #1c1c1c;
+
 }
 
 .about {
     /* height: 550px; */
     font-size: 26px;
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: Helvetica Neue;
     padding: 40px;
     text-align: justify;
     text-justify: inter-word;
-    background-color:#1c1c1c;
-  
+    background-color: black
+
 }
+
+
+.profile-image {
+    border-radius: 50%; /* Esto hace la imagen circular */
+    width: 300px; /* Ajusta el tamaño como desees */
+    height: 300px; /* Asegúrate de que el ancho y la altura sean iguales para mantener la imagen circular */
+    margin-top: 50px;
+}
+
+
+
 
 .microred_clase {
 
-padding: 50px;
-margin-top: 0px;
+    padding: 50px;
+    margin-top: 0px;
 }
+
 .about_class {
 
-    padding: 5px;
+    padding: 10px;
     margin-top: 0px;
-    }
+}
 
 
 .about_class h1 {
+    /* margin-top: 40px; */
+    font-family: Helvetica Neue;
+    width: 400;
+    font-weight: normal; 
+    font-size: 70px;
+}
 
-    
-    margin-top: 40px;
-    }
 .microred_clase h1 {
 
-    
+
     margin-top: 40px;
-    }
+}
 
 .microred_clase p {
 
     margin-top: -10px;
-    }
+}
 
 /* .imagen_microrred{
     padding-right: 70px;
@@ -56,64 +71,65 @@ margin-top: 0px;
 
 .boton_center {
     /* padding: 30px; */
-     text-align: justify;
+    text-align: justify;
     display: flex;
     align-items: center;
     flex-direction: column;
     /* padding-left: 35px; */
 }
+
 .name {
     /* padding: 30px; */
-     text-align: justify;
+    text-align: justify;
     display: flex;
     align-items: center;
     flex-direction: column;
     /* padding-left: 35px; */
 }
 
-.btn{
- 
-   font-family:  'Montserrat', sans-serif;
-   font-weight: 80;
-   font-weight: bold;
-   font-size: 20px;
-   text-align: center;
-   vertical-align: middle;
-   color: #fff;
-   background-color: #4f7df2;
-   padding: 10px ;
-   border: none;
-   box-shadow: rgb(61, 61, 61) 2px 4px 12px -3px;
-   border-radius: 14px;
-   transition : 1000ms;
+.btn {
 
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
-  
-   }
-   
-   .btn:hover{
-   transition : 1000ms;
-   background-color: #fff;
-   color: #282a36;
-   
-   }
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 80;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #4f7df2;
+    padding: 10px;
+    border: none;
+    box-shadow: rgb(61, 61, 61) 2px 4px 12px -3px;
+    border-radius: 14px;
+    transition: 1000ms;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.btn:hover {
+    transition: 1000ms;
+    background-color: #fff;
+    color: #282a36;
+
+}
 
 p.parrafo_microred {
     line-height: 1;
-  }
+}
 
 
-.logomr360{
+.logomr360 {
     position: absolute;
     margin-left: -420px;
     padding-top: 200px;
 }
 
-.flex-container{
+.flex-container {
     padding-top: 40px;
     display: flex;
     gap: 10px;
@@ -124,22 +140,23 @@ p.parrafo_microred {
 }
 
 
-.como_usar {height: 550px;
+.como_usar {
+    height: 550px;
     font-size: 24px;
-    font-family:  'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-align: justify;
     text-justify: inter-word;
     padding: 40px;
     margin-top: 15px;
-    background-color:#ffffff;
+    background-color: #ffffff;
     display: grid;
     grid-template-columns: 50% 50%;
-    
+
     align-items: center;
     align-content: center;
 }
 
-.texto_como_usar{
+.texto_como_usar {
 
     padding-right: 40px;
 }
@@ -149,14 +166,15 @@ p.parrafo_microred {
     padding-left: 40px;
 }
 
-.que_obtiene {height: 500px;
+.que_obtiene {
+    height: 500px;
     font-size: 26px;
     font-family: 'Montserrat', sans-serif;
     text-align: justify;
     text-justify: inter-word;
     padding: 40px;
     margin-top: 15px;
-    background-color:#c9e4ff;
+    background-color: #c9e4ff;
     display: grid;
     grid-template-columns: 50% 50%;
     gap: 2em;
@@ -167,25 +185,26 @@ p.parrafo_microred {
 .patrocinadores {
     height: 500px;
     font-size: 22px;
-    font-family:  'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     padding: 30px;
     margin-top: 15px;
-    background-color:#ffffff;
+    background-color: #ffffff;
     grid-template-columns: 100%;
     gap: 1em;
 }
 
-.texto_patrocinadores{
+.texto_patrocinadores {
     text-align: center;
     height: 30px;
 }
 
-h1{
+h1 {
     text-align: center;
 }
+
 .grid_patrocinadores {
     display: grid;
-    grid-template-columns: 50% 50% ;
+    grid-template-columns: 50% 50%;
     align-items: center;
     align-items: baseline;
     justify-content: space-between;
@@ -194,22 +213,22 @@ h1{
     gap: 20px;
 }
 
-.convocatoria{
+.convocatoria {
     width: 780px;
     padding-left: 200px;
 }
 
-.ganadores{
+.ganadores {
     width: 428px;
     padding-left: 120px;
 }
 
-.redes{
+.redes {
 
-    flex-direction: column ;
+    flex-direction: column;
 }
 
-h4{
+h4 {
     margin-bottom: 0;
 }
 
@@ -234,10 +253,10 @@ h4{
 
 
 
-.flex-container-footer{
+.flex-container-footer {
     display: flex;
     flex-direction: column;
- 
+
 }
 
 
@@ -251,8 +270,8 @@ h4{
         height: auto;
     }
 }
-  
-  /* Tablets y pantallas más pequeñas */
+
+/* Tablets y pantallas más pequeñas */
 
 
 
@@ -261,7 +280,7 @@ h4{
         display: flex;
         flex-direction: column;
         height: auto;
-      
+
     }
 }
 
@@ -317,7 +336,8 @@ h4{
         flex-direction: column;
         align-items: center;
     }
-    .imagen_microrred{
+
+    .imagen_microrred {
         margin-left: 70px;
         margin-top: 10px;
     }
@@ -356,30 +376,31 @@ h4{
 }
 
 @media(max-width: 768px) {
-    
+
     .nav-list {
         display: flex;
-      flex-direction: column;
+        flex-direction: column;
+        
     }
 
-    .texto_patrocinadores{
+    .texto_patrocinadores {
         text-align: center;
         height: 60px;
     }
 
-    .grid_patrocinadores{
-        gap:30px;
+    .grid_patrocinadores {
+        gap: 30px;
     }
 
 
-    .ganadores{
+    .ganadores {
         width: 500px;
         padding-left: 10px;
-     }
+    }
 
-     .convocatoria{
+    .convocatoria {
         width: 600px;
-         padding-left: 10px;
+        padding-left: 10px;
     }
 
 }
@@ -387,12 +408,12 @@ h4{
 
 @media(max-width: 500px) {
     nav {
-      height: 100px;
+        height: 100px;
     }
 
     .nav .flex {
         flex-direction: column;
-      }
+    }
 }
 
 
@@ -406,14 +427,15 @@ h4{
     }
 
 
-    .ganadores{
-       width: 350px; 
-       padding-left: 10px;
-    }
-    .convocatoria{
+    .ganadores {
         width: 350px;
         padding-left: 10px;
-     }
+    }
+
+    .convocatoria {
+        width: 350px;
+        padding-left: 10px;
+    }
 }
 
 
@@ -428,14 +450,14 @@ h4{
 
 @media(max-width: 500px) {
     .btn {
-        font-family:  'Montserrat', sans-serif;
-        
+        font-family: 'Montserrat', sans-serif;
+
         font-size: 16px;
-   
-   
-   font-size: 15px;
-   text-align: center;
-   vertical-align: middle;
+
+
+        font-size: 15px;
+        text-align: center;
+        vertical-align: middle;
         font-size: 15px;
     }
 }
@@ -456,6 +478,6 @@ h4{
         display: flex;
         flex-direction: column;
         height: auto;
-      
+
     }
 }

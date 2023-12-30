@@ -9,6 +9,7 @@ html, body {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    
   
 }
 
@@ -18,23 +19,29 @@ html {
 
 
   .main-navigation {
-    background-color:#1c1c1c;
-    overflow: hidden;
-   position: fixed;
+    background-color:blue;
+    /* overflow: hidden; */
+    position: fixed;
     top: 0;
-    width: 100%;
+    /* width: 100%; */
+    
+    
+
 }
 
 header {
-
     grid-column-start: 1;
     grid-column-end: -1;
+    
+    
 }
 a.navbar-brand {
     float: center;
     height: 3px;
     padding: 15px 15px;
     line-height: 20px;
+    
+    
 
 }
 
@@ -44,9 +51,12 @@ nav.main-navigation ul.nav-list {
     margin: 0;
     padding: 0;
     list-style: none;
-    position: relative;
+    position: flex;
     text-align: center;
     margin-right: 30px;
+    display: flex; /* Esto hace que los elementos de la lista se muestren en línea */
+    justify-content: center; /* Esto centra los elementos de la lista horizontalmente */
+    align-items: center;
 }
 
 .nav-list li.nav-list-item {
@@ -54,6 +64,9 @@ nav.main-navigation ul.nav-list {
     line-height: 40px;
     margin-left: 30px;
     margin-top: 15px;
+    
+    
+    
 }
 
 a.nav-link {
@@ -64,6 +77,8 @@ a.nav-link {
     cursor: pointer;
     position: relative;
     color: #ffff;
+    
+    
 }
 
 @keyframes FadeIn {
@@ -90,6 +105,7 @@ a.nav-link {
 .nav-list li {
     animation: FadeIn 1s cubic-bezier(0.65, 0.05, 0.36, 1);
     animation-fill-mode: both;
+    
 }
 
 .nav-list li:nth-child(1) {
