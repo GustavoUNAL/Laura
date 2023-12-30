@@ -18,7 +18,7 @@ html {
 
 
   .main-navigation {
-    background-color:#ffffff;
+    background-color:#1c1c1c;
     overflow: hidden;
    position: fixed;
     top: 0;
@@ -31,8 +31,8 @@ header {
     grid-column-end: -1;
 }
 a.navbar-brand {
-    float: left;
-    height: 35px;
+    float: center;
+    height: 3px;
     padding: 15px 15px;
     line-height: 20px;
 
@@ -45,7 +45,7 @@ nav.main-navigation ul.nav-list {
     padding: 0;
     list-style: none;
     position: relative;
-    text-align: right;
+    text-align: center;
     margin-right: 30px;
 }
 
@@ -63,7 +63,7 @@ a.nav-link {
     /* font-weight: 500; */
     cursor: pointer;
     position: relative;
-    color: #000000;
+    color: #ffff;
 }
 
 @keyframes FadeIn {
@@ -182,7 +182,7 @@ a.nav-link {
        top: 65px;
        right: 0;
        width: 100%;
-       background-color: #fff;
+       background-color: #282a36;
        border-top: 2px solid #2131c2;
    }
 

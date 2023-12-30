@@ -3,6 +3,7 @@ import { Link} from 'react-router-dom';
 import './Navbar.css';
 import MobileNavigation from './MobileNavigation';
 import NormalNavigation from './NormalNavigation';
+import profile from '../img/profile.png';
 
 
 function Navbar() {
@@ -12,10 +13,15 @@ function Navbar() {
     <nav className="main-navigation">
     <div className="navbar-header animated fadeInUp">
         <a className="navbar-brand" href="/#"><Link to="/" className="navbar-logo">
-                    <img src="https://mr360bucket.s3.amazonaws.com/mr360_images/logo_1981png.png" alt="description "/>
+                    <img src={profile} alt="description "  width="40" height="40"/>
                     </Link>
         </a>
-    </div>
+        
+      </div>
+      {/* <div className="navbar-header animated fadeInUp">
+        <a href="#que_obtiene" className="nav-link">Gustavo Arteaga</a>
+
+      </div> */}
     <NormalNavigation />
     <MobileNavigation />
 </nav>

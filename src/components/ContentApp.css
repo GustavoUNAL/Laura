@@ -6,10 +6,19 @@
     font-family: 'Montserrat', sans-serif;
     padding: 40px;
     text-align: justify;
-    
+    text-justify: inter-word;
+    background-color:#1c1c1c;
+  
+}
+
+.about {
+    /* height: 550px; */
+    font-size: 26px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 40px;
     text-align: justify;
     text-justify: inter-word;
-    background-color:#c9e4ff;
+    background-color:#1c1c1c;
   
 }
 
@@ -18,7 +27,18 @@
 padding: 50px;
 margin-top: 0px;
 }
+.about_class {
 
+    padding: 5px;
+    margin-top: 0px;
+    }
+
+
+.about_class h1 {
+
+    
+    margin-top: 40px;
+    }
 .microred_clase h1 {
 
     
@@ -30,9 +50,9 @@ margin-top: 0px;
     margin-top: -10px;
     }
 
-.imagen_microrred{
+/* .imagen_microrred{
     padding-right: 70px;
-}
+} */
 
 .boton_center {
     /* padding: 30px; */
@@ -42,7 +62,14 @@ margin-top: 0px;
     flex-direction: column;
     /* padding-left: 35px; */
 }
-
+.name {
+    /* padding: 30px; */
+     text-align: justify;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* padding-left: 35px; */
+}
 
 .btn{
  
@@ -71,7 +98,7 @@ margin-top: 0px;
    .btn:hover{
    transition : 1000ms;
    background-color: #fff;
-   color: #0066cc;
+   color: #282a36;
    
    }
 
@@ -93,6 +120,7 @@ p.parrafo_microred {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    color: #ffff;
 }
 
 
@@ -291,7 +319,7 @@ h4{
     }
     .imagen_microrred{
         margin-left: 70px;
-        margin-top: 50px;
+        margin-top: 10px;
     }
 }
 
