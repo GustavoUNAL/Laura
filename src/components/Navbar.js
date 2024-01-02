@@ -21,7 +21,7 @@ function Navbar() {
       </div>
       <div className='name-header'>
 
-        <span >Gustavo Arteaga</span>
+        <span >Gustavo Arte</span>
       </div>
       <NormalNavigation />
       <MobileNavigation />

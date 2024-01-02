@@ -3,7 +3,7 @@ import './ContentApp.css';
 import { Navigate } from "react-router-dom";
 import Navbar from './Navbar';
 import Footer from './Footer';
-import profile from '../img/profile.jpeg';
+import profile from '../img/profile2.jpeg';
 
 function ContentApp() {
 
@@ -28,7 +28,7 @@ function ContentApp() {
                         <div className="about_class" >
                             {/* <div className="name"> <h1> GUSTAVO ARTEAGA</h1>
                             </div> */}
-                            <h1> GUSTAVO ARTEAGA</h1>
+                            <h1> GUSTAVO ARTE</h1>
                             <div className="name">
                                 <p>Sistemas energéticos | Ciencia de datos | Desarrollo de software</p>
                                 {/* <button onClick={() => { setGoToLogin(true) }} className="btn">CALCULA TU MICRORRED</button> */}

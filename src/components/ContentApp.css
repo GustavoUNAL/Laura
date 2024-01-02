@@ -25,8 +25,8 @@
 
 .profile-image {
     border-radius: 50%; /* Esto hace la imagen circular */
-    width: 300px; /* Ajusta el tamaño como desees */
-    height: 300px; /* Asegúrate de que el ancho y la altura sean iguales para mantener la imagen circular */
+    width: 200px; /* Ajusta el tamaño como desees */
+    height: 200px; /* Asegúrate de que el ancho y la altura sean iguales para mantener la imagen circular */
     margin-top: 50px;
 }
 
