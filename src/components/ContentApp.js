@@ -124,12 +124,12 @@ function ContentApp() {
                     <h1 className="texto_patrocinadores">Noticias</h1>
                     <div className="patrocinadores2">
                         <div className="grid_patrocinadores">
-                            <div>
+                            {/* <div>
                                 <img className="convocatoria" src="https://mr360bucket.s3.amazonaws.com/convocatoria.png" alt=""  ></img>
                             </div>
                             <div>
                                 <img className="ganadores" src="https://mr360bucket.s3.amazonaws.com/mr360_images/Ganadores.jpg" alt="" ></img>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

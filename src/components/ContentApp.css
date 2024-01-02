@@ -6,7 +6,7 @@
     padding: 40px;
     text-align: justify;
     text-justify: inter-word;
-    background-color: #1c1c1c;
+    background-color: green;
 
 }
 
@@ -238,6 +238,14 @@ h4 {
     align-items: center;
     justify-content: center;
 }
+.social-header {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Esto alineará los elementos a la izquierda */
+    margin-top: -45px;
+    margin-right: 20px;
+}
 
 .logo_gers {
 
@@ -380,7 +388,6 @@ h4 {
     .nav-list {
         display: flex;
         flex-direction: column;
-        
     }
 
     .texto_patrocinadores {

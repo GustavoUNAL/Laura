@@ -151,9 +151,9 @@ a.nav-link {
     -webkit-animation-name: fadeInUp;
 }
 
-.MobileNavigation{
+/* .MobileNavigation{
     display: none;
-}
+} */
 
 @media(max-width: 990px) {
     

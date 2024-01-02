@@ -56,5 +56,6 @@ h4{
 @media(max-width: 500px) {
     .logos_footer{
       width: 50px;
+      margin: 0 10px;
     }
 }

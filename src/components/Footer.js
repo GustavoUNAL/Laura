@@ -15,14 +15,11 @@ function Footer() {
 
 <footer className="footer">
     <div className="logo_gers">
-    <img src={logo_gers} alt="description "/>
+    {/* <img src={logo_gers} alt="description "/> */}
 </div>
 <div className="flex-container-footer">
     <h4>Oficina principal</h4>
-    <div> Calle 3A # 65-118</div>
-    <div>602 489 700</div>
-    <div>gers@gers.com.co</div>
-    <div>Cali - Colombia</div>
+    <div> Gustavo Arteaga</div>
 </div>
 <div className="redes">
     <h4 className="titulo_redes">Nuestras redes sociales:</h4>
