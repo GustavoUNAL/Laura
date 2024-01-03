@@ -17,10 +17,6 @@ const NormalNavigation = () => {
             <NavLinks></NavLinks>
             <div className="social-header">
                 <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={linkedin} alt="" className="icons-header" width="20" height="20"></img></a></div>
-
-                
-
-
                 <div> <a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank" ><img src={instagram} alt="" className="icons-header" width="27" height="27"></img></a></div>
                 <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={github} alt="" className="icons-header" width="20" height="20"></img></a></div>
                 <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={X} alt="" className="icons-header" width="30" height="30"></img></a></div>

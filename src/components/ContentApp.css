@@ -23,6 +23,23 @@
 }
 
 
+.recent-blog {
+   
+    /* padding: 40px; */
+    align-items: justify;
+    color: #ffff;
+    /* background-color: gray; */
+    background-color: black;
+
+}
+
+.recent-projects {
+    /* height: 550px; */
+    /* padding: 40px; */
+    align-items: justify;
+    color: #ffff;
+    background-color: black;
+}
 .profile-image {
     border-radius: 50%; /* Esto hace la imagen circular */
     width: 200px; /* Ajusta el tamaño como desees */
@@ -78,13 +95,37 @@
     /* padding-left: 35px; */
 }
 
-.name {
-    /* padding: 30px; */
-    text-align: justify;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    /* padding-left: 35px; */
+
+.title {
+    font-size: 30px; /* Tamaño de fuente por defecto */
+}
+
+/* Media query para pantallas con un ancho de 600px o menos */
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 10px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    }
+}
+
+/* Media query para pantallas con un ancho de 1200px o menos */
+@media screen and (max-width: 1200px) {
+    .title {
+        font-size: 25px; /* Ajusta el tamaño de la fuente para pantallas medianas */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.titular {
+    text-align: center; /* Esto centrará el texto */
+    font-size: 22px; /* Esto hará que la letra sea más pequeña */
 }
 
 .btn {

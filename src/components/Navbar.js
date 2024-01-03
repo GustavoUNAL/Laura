@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import MobileNavigation from './MobileNavigation';
 import NormalNavigation from './NormalNavigation';
-import profile from '../img/profile.jpeg';
+import profile from '../img/profile2.jpeg';
 // import profile from '../img/profile.png';
 
 function Navbar() {
@@ -21,7 +21,7 @@ function Navbar() {
       </div>
       <div className='name-header'>
 
-        <span >Gustavo Arte</span>
+        <span >G. ARTE</span>
       </div>
       <NormalNavigation />
       <MobileNavigation />

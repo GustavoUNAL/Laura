@@ -1,9 +1,11 @@
 import React from 'react';
 import './Footer.css';
-import logo_gers from './logo_gers.png';
-import linkedinglogo from './linkeding-logo.png';
-import facebookLogo from './facebook-logo.png';
-import twiterLogo from './twiter-logo.png';
+import X from '../img/x.jpg'
+import github from '../img/github.png'
+import instagram from '../img/instagram.png'
+import linkedin from '../img/linkedin.png'
+
+import NormalNavigation from './NormalNavigation';
 
 
 
@@ -13,23 +15,21 @@ function Footer() {
 
   return (
 
-<footer className="footer">
-    <div className="logo_gers">
-    {/* <img src={logo_gers} alt="description "/> */}
-</div>
-<div className="flex-container-footer">
-    <h4>Oficina principal</h4>
-    <div> Gustavo Arteaga</div>
-</div>
-<div className="redes">
-    <h4 className="titulo_redes">Nuestras redes sociales:</h4>
-    <div className="redes_sociales">
-    <div><a href={"https://twitter.com/gers_sa"} rel="noreferrer" target="_blank"> <img src={twiterLogo} alt=""  className="logos_footer" width="30" height="30"></img></a></div>
-    <div><a href={"https://www.linkedin.com/company/gers-s-a"} rel="noreferrer" target="_blank"> <img src={linkedinglogo} alt=""  className="logos_footer" width="33" height="33"></img></a></div>
-    <div> <a href={"https://www.facebook.com/gerscolombia/"} rel="noreferrer" target="_blank" ><img src={facebookLogo} alt=""  className="logos_footer" width="27" height="27"></img></a></div>
-    </div>
-</div>
-  </footer>
+    <footer className="footer">
+      <div className="flex-container-footer">
+        <div className="social-footer">
+
+          <div className="social-footer">
+            <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={linkedin} alt="" className="icons-footer" width="40" height="40"></img></a></div>
+            <div> <a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank" ><img src={instagram} alt="" className="icons-footer" width="47" height="47"></img></a></div>
+            <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={github} alt="" className="icons-footer" width="40" height="40"></img></a></div>
+            <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={X} alt="" className="icons-footer" width="45" height="45"></img></a></div>
+          </div>
+        </div>
+        <p className="copyright">© Gustavo Arte, Colombia.</p>
+      </div>
+      {/* <NormalNavigation /> */}
+    </footer>
   )
 }
 
