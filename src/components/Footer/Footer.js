@@ -6,7 +6,7 @@ import github from '../../img/github.png'
 import instagram from '../../img/instagram.png'
 import linkedin from '../../img/linkedin.png'
 
-import NormalNavigation from '../NormalNavigation';
+import NormalNavigation from '../Header/NormalNavigation';
 
 
 

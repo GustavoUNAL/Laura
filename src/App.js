@@ -1,8 +1,8 @@
 
 import React from 'react';
 import './App.css';
-import ContentApp from './components/ContentApp';
-import ErrorPage from './components/ErrorPage';
+import ContentApp from './containers/HomePage/ContentApp';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
