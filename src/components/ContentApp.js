@@ -2,7 +2,7 @@ import React from 'react';
 import './ContentApp.css';
 import { Navigate } from "react-router-dom";
 import Navbar from './Navbar';
-import Footer from './Footer';
+import Footer from './Footer/Footer';
 import profile from '../img/profile.jpeg';
 import card from '../img/card.png';
 
