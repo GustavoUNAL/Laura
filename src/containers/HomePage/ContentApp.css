@@ -1,14 +1,15 @@
-.microred {
-    height: 550px;
-    /* font-size: 26px;
-    font-family: 'Montserrat', sans-serif; */
-    font-family: Helvetica Neue;
-    padding: 40px;
-    text-align: justify;
-    text-justify: inter-word;
-    background-color: green;
 
+
+.iframe-grid {
+    display: flex;
+    justify-content: space-between; /* Esto distribuirá los iframes uniformemente a lo largo del eje horizontal */
+    flex-wrap: wrap; /* Esto permitirá que los iframes se envuelvan a la siguiente línea si no hay suficiente espacio */
+    gap: 40px; /* Esto agregará un espacio de 10px entre los iframes */
 }
+
+
+
+
 
 .about {
     /* height: 550px; */
@@ -42,9 +43,9 @@
 }
 .profile-image {
     border-radius: 50%; /* Esto hace la imagen circular */
-    width: 200px; /* Ajusta el tamaño como desees */
-    height: 200px; /* Asegúrate de que el ancho y la altura sean iguales para mantener la imagen circular */
-    margin-top: 50px;
+    width: 250px; /* Ajusta el tamaño como desees */
+    height: 250px; /* Asegúrate de que el ancho y la altura sean iguales para mantener la imagen circular */
+    margin-top: 30px;
 }
 
 
@@ -62,7 +63,7 @@
 
 
 .about_class h1 {
-    /* margin-top: 40px; */
+    margin-top: -10px;
     font-family: Helvetica Neue;
     width: 400;
     font-weight: normal; 
