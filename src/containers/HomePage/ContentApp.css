@@ -27,18 +27,6 @@
 }
 
 
-.recent-blog {
-
-    /* padding: 40px; */
-    align-items: justify;
-    color: #ffff;
-    /* background-color: gray; */
-    background-color: black;
-
-}
-
-
-
 .recent-projects {
     color: #ffff;
     background-color: black;
@@ -187,6 +175,111 @@
         order: 2; /* Esto hará que container-projects-description aparezca después */
     }
 }
+
+
+.recent-blog {
+    align-items: justify;
+    color: #ffff;
+    /* background-color: gray; */
+    background-color: black;
+    border: none; 
+
+}
+
+.recent-blog h1 {
+    font-family: Helvetica Neue;
+    font-weight: normal;
+    font-size: 38px;
+    margin-top: -32px;
+    /* margin-bottom: 0px; */
+    text-align: center;
+    background-color: black;
+    padding-top: 70px;
+    
+}
+
+.grid-container-publications {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    /* gap: -10px;  */
+    background-color: black;
+    /* background-color: gray; */
+    /* background-color: blueviolet; */
+    text-justify: inter-word;
+    margin-left: 150px;
+    margin-right: 50px;
+    /* margin-right: -20px;
+    margin-left: 100px; */
+    /* width: 100%; */
+}
+
+.my-card {
+    display: flex; 
+    width: 80%; 
+    height: 89%;
+    margin-left: 10px;
+}
+
+.grid-container-publications a {
+    text-decoration: none; /* Esto quitará el subrayado de los enlaces */
+}
+
+.my-card-media {
+    width: 40%; /* Esto hará que CardMedia ocupe el 50% del ancho */
+    /* height: 40%; */
+}
+
+.my-card-content {
+    width: 50%; /* Esto hará que CardContent ocupe el 50% del ancho */
+    text-align: justify;
+}
+
+@media (max-width: 600px) {
+    .my-card {
+        width: 400px;  /* Esto hará que los elementos se apilen verticalmente */
+        height: 130px;
+        margin-left: -90px;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .grid-container-publications {
+        grid-template-columns: 1fr; /* Esto hará que solo haya una columna */
+    }
+}
+
+.my-card-content h2 {
+    font-size: 17px;
+    margin-top: -3px;
+}
+
+
+
+@media (max-width: 600px) {
+    .my-card-content h2 {
+        font-size: 12px;
+    }
+    .my-card-content p {
+        font-size: 9.5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
