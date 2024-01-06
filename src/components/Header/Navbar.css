@@ -212,6 +212,7 @@ a.nav-link {
        cursor: pointer;
        /* padding-top: 1px; */
        color: #fff;
+       margin-top: -20px;
        
    }
 
@@ -259,8 +260,19 @@ a.nav-link {
         cursor: pointer;
         /* padding-top: 10px; */
         border-radius: 50%; /* Esto hace la imagen circular */
+        margin-top: 10px;
   
     
+    }
+    .name-header {
+        color: #fff; 
+        font-family: 'Roboto', sans-serif; 
+        margin-left: 65px;
+        font-size: 18px;
+        text-align: left;
+        display: flex;
+        margin-top: -29px; 
+        
     }
 }
 

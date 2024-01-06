@@ -61,7 +61,7 @@
     /* Esto hará que la imagen ocupe todo el espacio disponible */
     height: auto;
     /* Esto hará que la altura de la imagen se ajuste automáticamente */
-    border-radius: 20px;
+    border-radius: 10px;
     /* gap: 10px; */
     
     margin-left: 10%;
@@ -119,11 +119,11 @@
 
     .grid-container-projects img {
         order: 1; /* Esto hará que la imagen aparezca primero */
-        width: 60%;
+        width: 70%;
         align-items: center;
         text-align: center;
         display: flex;
-        margin-left: 20%;
+        margin-left: 15%;
         /* margin-left: 120px; */
     }
     .container-projects-description {
@@ -236,8 +236,8 @@
 
 @media (max-width: 600px) {
     .my-card {
-        width: 400px;  /* Esto hará que los elementos se apilen verticalmente */
-        height: 130px;
+        width: 320px;  /* Esto hará que los elementos se apilen verticalmente */
+        height: 150px;
         margin-left: -90px;
         margin-bottom: 20px;
     }
