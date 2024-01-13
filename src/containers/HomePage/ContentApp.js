@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ContentApp.css';
 import { Navigate } from "react-router-dom";
 import Navbar from '../../components/Header/Navbar';
@@ -17,13 +17,20 @@ import CardMedia from '@mui/material/CardMedia';
 
 function ContentApp() {
 
-    const [goToLogin, setGoToLogin] = React.useState(false);
+  
+    const [clicked, setClicked] = React.useState(false);
 
-
-    if (goToLogin) {
-        return <Navigate to="/Login"></Navigate>;
+    useEffect(() => {
+    if (clicked) {
+      const element = document.getElementById('recent-projects');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+  }, [clicked]);
 
+
+    
     return (
         <>
             <Navbar />
@@ -49,7 +56,7 @@ function ContentApp() {
 
                 <div id="recent-projects" className="recent-projects">
 
-                    <h1>Proyectos Recientes</h1>
+                    <h1  >Proyectos Recientes</h1>
                     <div className='flex-container'>
                         <div className="grid-container-projects">
                             <img src={presentacion} alt="Image description" className="grid-container-projects" />
@@ -65,8 +72,8 @@ function ContentApp() {
                     </div>
                 </div>
 
-                <div id="recent-blog" className="recent-blog">
-                    <h1 >Últimas
+                <div className="recent-blog">
+                    <h1 id="recent-blog" >Últimas
                         Publicaciones</h1>
                     <div className='flex-container'>
 

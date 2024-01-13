@@ -18,6 +18,7 @@ function Navbar() {
       </div>
       <NormalNavigation />
       <MobileNavigation />
+      
 
     </nav>
 

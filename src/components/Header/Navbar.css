@@ -30,6 +30,7 @@ html {
 }
 
 
+
 .name-header {
     color: #fff; 
     font-family: 'Roboto', sans-serif; 
@@ -37,7 +38,7 @@ html {
     font-size: 23px;
     /* text-align: left; */
     display: flex;
-    margin-top: -32px; 
+    margin-top: -35px; 
     text-decoration: none;
     
 }
@@ -74,7 +75,7 @@ nav.main-navigation ul.nav-list {
 .nav-list li.nav-list-item {
     display: inline-block;
     line-height: 40px;
-    margin-left: 30px;
+    margin-left: -30px;
     margin-top: 15px;
     
     
@@ -122,29 +123,29 @@ a.nav-link {
 }
 
 .nav-list li {
-    animation: FadeIn 1s cubic-bezier(0.65, 0.05, 0.36, 1);
+    animation: FadeIn 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
     animation-fill-mode: both;
     
 }
 
 .nav-list li:nth-child(1) {
-    animation-delay: .3s;
+    animation-delay: .1s;
 }
 
 .nav-list li:nth-child(2) {
-    animation-delay: .6s;
+    animation-delay: .2s;
 }
 
 .nav-list li:nth-child(3) {
-    animation-delay: .9s;
+    animation-delay: .3s;
 }
 
 .nav-list li:nth-child(4) {
-    animation-delay: 1.2s;
+    animation-delay: .4s;
 }
 
 .nav-list li:nth-child(5) {
-    animation-delay: 1.5s;
+    animation-delay: .0s;
 }
 
 /* Animation */
@@ -230,8 +231,11 @@ a.nav-link {
        top: 95px;
        right: 0;
        width: 100%;
-       background-color: #282a36;
+       /* height: 200px; */
+       background-color: black;
+       /* background-color: #282a36; */
        border-top: 2px solid black;
+       align-items: center;
    }
 
    nav.main-navigation ul.nav-list {
@@ -241,7 +245,7 @@ a.nav-link {
 
    a:hover{
        border-bottom: none;
-       color: yellow;
+       color: #fff;
    }
 
    ul li {
@@ -280,11 +284,28 @@ a.nav-link {
         font-size: 18px;
         text-align: left;
         display: flex;
-        margin-top: -29px; 
+        margin-top: -25px; 
         
+    }
+    .social-header {
+        margin-top: 10px;
+        /* left: 30px; */
+        align-items: center;
+        margin-right: -29px; 
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .social-header {
+        margin-top: 1px;
+        /* left: 30px; */
+        /* align-items: end; */
+        margin-right: -560px;
+        margin-left: 390px; 
     }
 }
 
 .icons-header {
     margin:  10px;  /* Esto añadirá un margen a la izquierda y a la derecha de cada icono */
 }
+
