@@ -1,20 +1,19 @@
 import React   from 'react';
+import { Link } from 'react-router-dom';
+
 
 const NavLinks = (props) => {
     return (
         <ul className="nav-list">
         <li className="nav-list-item" >
-            <a href="#microred" className="nav-link" onClick={() => props.isMobile && props.closeMobileMenu()}>Acerca de</a>
+            <Link to="/about" className="nav-link">Acerca de</Link>
         </li>
-        <li className="nav-list-item" onClick={() => props.isMobile && props.closeMobileMenu()}>
-            <a href="#como_usar" className="nav-link">Proyectos</a>
+        <li className="nav-list-item" >
+            <Link to="/" className="nav-link">Proyectos</Link>
         </li>
-        <li className="nav-list-item" onClick={() => props.isMobile && props.closeMobileMenu()}>
-            <a href="#que_obtiene" className="nav-link">Blog</a>
+        <li className="nav-list-item" >
+            <Link to="/" className="nav-link">Blog</Link>
         </li>
-        {/* <li className="nav-list-item" onClick={() => props.isMobile && props.closeMobileMenu()}>
-            <a href="#patrocinadores" className="nav-link">Contacto</a>
-        </li> */}
         </ul>
      );
 }

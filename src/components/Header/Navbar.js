@@ -19,8 +19,7 @@ function Navbar() {
 
       </div>
       <div className='name-header'>
-
-        <span >G. ARTE</span>
+        <Link to="/" className="nav-link">G. ARTE</Link>
       </div>
       <NormalNavigation />
       <MobileNavigation />

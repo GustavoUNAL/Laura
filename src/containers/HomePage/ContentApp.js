@@ -4,17 +4,13 @@ import { Navigate } from "react-router-dom";
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 import profile from '../../img/profile.jpeg';
-import card from '../../img/card.png';
 import presentacion from '../../img/presentacion_mr360.jpeg';
 
 
 
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 
 
 
@@ -32,7 +28,6 @@ function ContentApp() {
         <>
             <Navbar />
             <div className="container">
-
 
                 <div id="about" className="about">
                     <div className="flex-container">
@@ -70,19 +65,6 @@ function ContentApp() {
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <div id="recent-blog" className="recent-blog">
                     <h1 >Últimas
                         Publicaciones</h1>
@@ -118,26 +100,6 @@ function ContentApp() {
                                     </CardContent>
                                 </Card>
                             </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                         
 
                         </div>
 
