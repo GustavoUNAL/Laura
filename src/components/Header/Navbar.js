@@ -11,19 +11,14 @@ function Navbar() {
   return (
     <nav className="main-navigation">
       <div className="navbar-header animated fadeInUp">
-        <a className="navbar-brand" href="/#"><Link to="/" className="navbar-logo">
+        <Link to="/" className="navbar-logo">
           <img src={profile} alt="description" width="40" height="40" className="header-image" />
-
         </Link>
-        </a>
-
-      </div>
-      <div className='name-header'>
-        <Link to="/" className="nav-link">G. ARTE</Link>
+        <Link to="/" className="name-header">G. ARTE</Link>
       </div>
       <NormalNavigation />
       <MobileNavigation />
-     
+
     </nav>
 
 

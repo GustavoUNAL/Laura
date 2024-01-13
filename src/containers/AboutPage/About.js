@@ -11,7 +11,7 @@ function About() {
             <Navbar />
             <div className="container">
 
-                <div id="about" className="about">
+                <div id="about-page" className="about-page">
                     <div className="flex-container">
                         <div className='img_profile'>
                             {/* <img src={profile} className="profile-image" alt="Profile"></img> */}

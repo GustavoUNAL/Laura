@@ -1,4 +1,4 @@
-.about {
+.about-page {
     /* height: 550px; */
     font-size: 26px;
     /* font-family: 'Montserrat', sans-serif; */
@@ -28,7 +28,7 @@
     }
 }
 
-.about_class {
+.about-page {
 
     padding: 10px;
     margin-top: 0px;
@@ -36,7 +36,7 @@
 }
 
 
-.about_class h1 {
+.about-page h1 {
     margin-top: -10px;
     font-family: Helvetica Neue;
     width: 400;
@@ -47,7 +47,7 @@
     
 }
 
-.about_class h2 {
+.about-page h2 {
     font-size: 30px;
     font-family: Helvetica Neue;
     font-weight: normal;
@@ -58,7 +58,7 @@
     font-weight: bold;
 }
 
-.about_class h3 {
+.about-page h3 {
     font-size: 20px;
     font-family: Helvetica Neue;
     font-weight: normal;

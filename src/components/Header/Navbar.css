@@ -34,10 +34,11 @@ html {
     color: #fff; 
     font-family: 'Roboto', sans-serif; 
     margin-left: 65px;
-    font-size: 18px;
-    text-align: left;
+    font-size: 23px;
+    /* text-align: left; */
     display: flex;
-    margin-top: -35px; 
+    margin-top: -32px; 
+    text-decoration: none;
     
 }
 
@@ -66,7 +67,7 @@ nav.main-navigation ul.nav-list {
     display: flex; /* Esto hace que los elementos de la lista se muestren en línea */
     justify-content: center; /* Esto centra los elementos de la lista horizontalmente */
     align-items: center;
-    margin-top: -45px;
+    margin-top: -41px;
     margin-right: 70px;
 }
 
@@ -80,15 +81,21 @@ nav.main-navigation ul.nav-list {
     
 }
 
+
 a.nav-link {
     text-decoration: none;
     font-size: 22px;
     font-family: 'Montserrat', sans-serif;
     /* font-weight: 500; */
     cursor: pointer;
-    /* position: relative; */
+    /* position: flex; */
     color: #ffff;
-    /* margin-left: 5px */
+    margin-left: 55px;
+    margin-top: -10px;
+    /* margin-bottom: 10px; */
+    display: flex;
+    /* width: auto; */
+    
     
     
 }
@@ -246,7 +253,9 @@ a.nav-link {
 .header-image {
     width: 40px; /* Ajusta el tamaño como desees */
     height: 40px; /* Asegúrate de que el ancho y la altura sean iguales para mantener la imagen circular */
-    margin-top: 10px; 
+    margin-top: 15px; 
+    margin-left: 16px;
+    display: flex;
     border-radius: 50%;/* position: center;  */
 
 }
