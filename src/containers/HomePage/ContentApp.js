@@ -49,7 +49,7 @@ function ContentApp() {
 
                             <div className="container-projects-description">
                                 <h2>Microrred360</h2>
-                                <p>La aplicación "Microrred 360" posibilita la estimación del potencial energético fotovoltaico de una microrred al relacionar datos técnicos y económicos en un punto geográfico específico. Este innovador proyecto fue desarrollado en conjunto con el equipo de trabajo de GERS SAS Colombia, siendo el fruto del Premio a la Innovación 2023 de Colombia Inteligente.</p>
+                                <p>La aplicación "Microrred 360" permite estimar el potencial energético fotovoltaico de una microrred al relacionar datos técnicos y económicos en un punto geográfico específico. Este innovador proyecto fue desarrollado en conjunto con el equipo de trabajo de GERS SAS Colombia, siendo el fruto del Premio a la Innovación 2023 de Colombia Inteligente.</p>
                                 <a href="https://mr360.gers.com/" target="_blank">Explorar</a>
                             </div>
 
