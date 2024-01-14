@@ -23,9 +23,9 @@ function Footer() {
 
           <div className="social-footer">
             <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={linkedin} alt="" className="icons-footer" width="40" height="40"></img></a></div>
-            <div> <a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank" ><img src={instagram} alt="" className="icons-footer" width="47" height="47"></img></a></div>
-            <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={github} alt="" className="icons-footer" width="40" height="40"></img></a></div>
-            <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={X} alt="" className="icons-footer" width="45" height="45"></img></a></div>
+            <div> <a href={"https://www.instagram.com/gustavo.art3/"} rel="noreferrer" target="_blank" ><img src={instagram} alt="" className="icons-footer" width="47" height="47"></img></a></div>
+            <div><a href={"https://github.com/GustavoUNAL"} rel="noreferrer" target="_blank"> <img src={github} alt="" className="icons-footer" width="40" height="40"></img></a></div>
+            <div><a href={"https://twitter.com/gustavo_arte_"} rel="noreferrer" target="_blank"> <img src={X} alt="" className="icons-footer" width="45" height="45"></img></a></div>
           </div>
         </div>
         <p className="copyright">© Gustavo Arte, Colombia.</p>
