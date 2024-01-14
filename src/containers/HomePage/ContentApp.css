@@ -67,37 +67,27 @@
     margin-left: 10%;
 }
 
-.container-projects-description {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color:  black;
-    /* background-color:  blue; */
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    margin-right: 45px;
-    margin-left: 5px;
-    text-align: justify;
-    text-justify: inter-word;
-    gap: 20px;
-}
-.container-projects-description h1 {
+
+.container-projects-description h2 {
     font-family: Helvetica Neue;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: -10px;
     margin-bottom: 0px;
     text-align: left;
+    /* background-color: green; */
+    text-align: center;
+    
 }
 
 .container-projects-description p {
     font-family: Helvetica Neue;
     font-weight: normal;
     font-size: 20px;
-    margin-top: -10px;
+    margin-top: 10px;
     margin-bottom: 0px;
     text-align: justify;
+    /* background-color: green; */
 }
 
 .container-projects-description a {
@@ -110,6 +100,7 @@
     color: #ffff;
     text-decoration: none;
     text-decoration: underline;
+    /* background-color: green; */
 }
 
 @media (max-width: 600px) {
@@ -133,7 +124,7 @@
         background-color:  black;
         /* background-color:  blue; */
         border-radius: 10px;
-        margin-top: -30px;
+        /* margin-top: -60px; */
         margin-bottom: 40px;
         margin-right: 20px;
         margin-left: 20px;
@@ -141,35 +132,41 @@
         text-justify: inter-word;
         gap: 20px;
     }
-    .container-projects-description h1 {
+    .container-projects-description h2 {
         font-family: Helvetica Neue;
         font-weight: normal;
         font-size: 20px;
-        /* margin-top: -10px; */
+        margin-top: -50px;
         margin-bottom: 0px;
         text-align: left;
+        /* background-color: burlywood; */
+        text-align: center;
+        
     }
     
     .container-projects-description p {
         font-family: Helvetica Neue;
         font-weight: normal;
-        font-size: 13px;
+        font-size: 16px;
         margin-top: -10px;
         margin-bottom: 0px;
         text-align: justify;
+        /* background-color: burlywood; */
     }
     
     .container-projects-description a {
         font-family: Helvetica Neue;
         font-weight: normal;
-        font-size: 13px;
+        font-size: 14px;
         margin-top: -10px;
         margin-bottom: 0px;
         text-align: justify;
         color: #ffff;
         text-decoration: none;
         text-decoration: underline;
+        /* background-color: burlywood; */
     }
+   
 
     .container-projects-description {
         order: 2; /* Esto hará que container-projects-description aparezca después */
@@ -190,7 +187,7 @@
     font-family: Helvetica Neue;
     font-weight: normal;
     font-size: 38px;
-    margin-top: -32px;
+    margin-top: -12px;
     /* margin-bottom: 0px; */
     text-align: center;
     background-color: black;
@@ -215,9 +212,9 @@
 
 .my-card {
     display: flex; 
-    width: 80%; 
+    width: 96%; 
     height: 89%;
-    margin-left: 10px;
+    margin-left: -45px;
 }
 
 .grid-container-publications a {
@@ -265,6 +262,51 @@
     .my-card-content p {
         font-size: 9.5px;
     }
+    .about-home h1 {
+        font-family: Helvetica Neue;
+        font-weight: normal;
+        font-size: 39px;
+        margin-top: -40px;
+        margin-bottom: 20px;
+        text-align: center;
+        background-color: black;
+        padding-top: 70px;
+        color: #ffff;
+    }
+    .about-home p {
+        font-family: Helvetica Neue;
+        font-weight: normal;
+        font-size:16px;
+        margin-top: -10px;
+        margin-bottom: 0px;
+        text-align: center;
+        color: #ffff;
+    }
+    .recent-projects h1 {
+        font-family: Helvetica Neue;
+        font-weight: normal;
+        font-size: 35px;
+        margin-top: -10px;
+        margin-bottom: 0px;
+        text-align: center;
+        background-color: black;
+        padding-top: 70px;
+        
+    }
+    .recent-blog h1 {
+        font-family: Helvetica Neue;
+        font-weight: normal;
+        font-size: 35px;
+        margin-top: -10px;
+        margin-bottom: -20px;
+        text-align: center;
+        background-color: black;
+        padding-top: 70px;
+        
+    }
+
+    
+    
 }
 
 
@@ -316,6 +358,14 @@
     width: 400;
     font-weight: normal;
     font-size: 70px;
+}
+.about_class p {
+    font-family: Helvetica Neue;
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 

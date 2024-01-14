@@ -1,38 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ContentApp.css';
 import { Navigate } from "react-router-dom";
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 import profile from '../../img/profile.jpeg';
-import card from '../../img/card.png';
 import presentacion from '../../img/presentacion_mr360.jpeg';
 
 
 
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 
 
 
 
 function ContentApp() {
 
-    const [goToLogin, setGoToLogin] = React.useState(false);
-
-
-    if (goToLogin) {
-        return <Navigate to="/Login"></Navigate>;
-    }
-
     return (
         <>
             <Navbar />
             <div className="container">
-
 
                 <div id="about" className="about">
                     <div className="flex-container">
@@ -43,7 +31,7 @@ function ContentApp() {
                     <div className="flex-container">
                         <div className="about_class" >
                             <h1 className="title">GUSTAVO <strong>ARTE</strong></h1>
-                            <div className="titular">
+                            <div id="recent-projects" className="titular">
                                 <p>Sistemas energéticos | Ciencia de datos | Desarrollo de software</p>
                             </div>
 
@@ -52,15 +40,15 @@ function ContentApp() {
                 </div>
 
 
-                <div id="recent-projects" className="recent-projects">
+                <div  className="recent-projects">
 
-                    <h1>Proyectos Recientes</h1>
+                    <h1  >Proyectos Recientes</h1>
                     <div className='flex-container'>
                         <div className="grid-container-projects">
                             <img src={presentacion} alt="Image description" className="grid-container-projects" />
 
                             <div className="container-projects-description">
-                                <h1>Microrred360</h1>
+                                <h2>Microrred360</h2>
                                 <p>La aplicación "Microrred 360" posibilita la estimación del potencial energético fotovoltaico de una microrred al relacionar datos técnicos y económicos en un punto geográfico específico. Este innovador proyecto fue desarrollado en conjunto con el equipo de trabajo de GERS SAS Colombia, siendo el fruto del Premio a la Innovación 2023 de Colombia Inteligente.</p>
                                 <a href="https://mr360.gers.com/" target="_blank">Explorar</a>
                             </div>
@@ -70,21 +58,8 @@ function ContentApp() {
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div id="recent-blog" className="recent-blog">
-                    <h1 >Últimas
+                <div className="recent-blog">
+                    <h1 id="recent-blog" >Últimas
                         Publicaciones</h1>
                     <div className='flex-container'>
 
@@ -118,26 +93,6 @@ function ContentApp() {
                                     </CardContent>
                                 </Card>
                             </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                         
 
                         </div>
 
