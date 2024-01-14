@@ -23,7 +23,7 @@ function About() {
                             <div className="titular">
                                 <p>Innovador y apasionado con un propósito claro: impactar el futuro a través de las decisiones tecnológicas del presente. Mi misión es generar un impacto significativo en el mundo, centrándome en la optimización de sistemas de energía. Creo firmemente que los datos son el activo más valioso en la era actual, y estoy comprometido a desbloquear su potencial para transformar nuestro entorno.
 
-                                    Enfoco mis esfuerzos en convertir los datos de los sistemas deenergía en una herramienta poderosa para generar valor y mejorarla eficiencia de los sistemas, contribuyendo así de manera significativa a un impacto positivo.</p>
+                                    Enfoco mis esfuerzos en convertir los datos de los sistemas de energía en una herramienta poderosa para generar valor y mejorarla eficiencia de los sistemas, contribuyendo así de manera significativa a un impacto positivo.</p>
                             </div>
                             <div className="frase">
                                 <p>“Cada bit de información se convierte en una oportunidad para construir un futuro más sostenible.”</p>
