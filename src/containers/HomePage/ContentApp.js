@@ -17,20 +17,6 @@ import CardMedia from '@mui/material/CardMedia';
 
 function ContentApp() {
 
-  
-    const [clicked, setClicked] = React.useState(false);
-
-    useEffect(() => {
-    if (clicked) {
-      const element = document.getElementById('recent-projects');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, [clicked]);
-
-
-    
     return (
         <>
             <Navbar />
@@ -45,7 +31,7 @@ function ContentApp() {
                     <div className="flex-container">
                         <div className="about_class" >
                             <h1 className="title">GUSTAVO <strong>ARTE</strong></h1>
-                            <div className="titular">
+                            <div id="recent-projects" className="titular">
                                 <p>Sistemas energéticos | Ciencia de datos | Desarrollo de software</p>
                             </div>
 
@@ -54,7 +40,7 @@ function ContentApp() {
                 </div>
 
 
-                <div id="recent-projects" className="recent-projects">
+                <div  className="recent-projects">
 
                     <h1  >Proyectos Recientes</h1>
                     <div className='flex-container'>
@@ -62,7 +48,7 @@ function ContentApp() {
                             <img src={presentacion} alt="Image description" className="grid-container-projects" />
 
                             <div className="container-projects-description">
-                                <h1>Microrred360</h1>
+                                <h2>Microrred360</h2>
                                 <p>La aplicación "Microrred 360" posibilita la estimación del potencial energético fotovoltaico de una microrred al relacionar datos técnicos y económicos en un punto geográfico específico. Este innovador proyecto fue desarrollado en conjunto con el equipo de trabajo de GERS SAS Colombia, siendo el fruto del Premio a la Innovación 2023 de Colombia Inteligente.</p>
                                 <a href="https://mr360.gers.com/" target="_blank">Explorar</a>
                             </div>

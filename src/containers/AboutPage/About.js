@@ -18,7 +18,7 @@ function About() {
                         </div>
                     </div>
                     <div className="flex-container">
-                        <div className="about_class" >
+                        <div className="about-class" >
                             <h1>GUSTAVO ARTEAGA</h1>
                             <div className="titular">
                                 <p>Innovador y apasionado con un propósito claro: impactar el futuro a través de las decisiones tecnológicas del presente. Mi misión es generar un impacto significativo en el mundo, centrándome en la optimización de sistemas de energía. Creo firmemente que los datos son el activo más valioso en la era actual, y estoy comprometido a desbloquear su potencial para transformar nuestro entorno.

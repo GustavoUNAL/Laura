@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './App.css';
 import ContentApp from './containers/HomePage/ContentApp';
 import ErrorPage from './components/ErrorPage/ErrorPage';
@@ -8,6 +8,7 @@ import About from './containers/AboutPage/About';
 
 
 function App() {
+  
   return (
     <>
       <Router>

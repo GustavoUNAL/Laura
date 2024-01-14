@@ -18,6 +18,8 @@
     justify-content: space-around;
     align-items: center;
     color: #ffff;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 @media(max-width: 768px) {
     .flex-container {
@@ -83,3 +85,37 @@
     font-style: italic;
 }
 
+
+@media (max-width: 600px) {
+    .flex-container {
+        padding-top: 40px;
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        color: #ffff;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .about-class {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .about-class h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+    .about-class h2 {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: -50px;
+    }
+    .about-class h3 {
+        font-size: 15px;
+        text-align: center;
+    }
+    .about-class p {
+        font-size: 14.5px;
+    }
+}
