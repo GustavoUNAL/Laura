@@ -3,28 +3,28 @@ import './Background.css';
 
 const Background = () => {
 
-    const handleWhatsAppContact = () => {
-        const phoneNumber = '+573134593201';
-        const message = 'Hola, me gustaría obtener más información sobre los servicios de GRAP Ingeniería.';
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
+    const handleEmailContact = () => {
+        const subject = 'Contacto desde Experiencia';
+        const body = 'Hola Gustavo,\n\nMe gustaría contactarme contigo para hablar sobre tu experiencia y posibles oportunidades.\n\nSaludos cordiales.';
+        const mailtoUrl = `mailto:gustavoarteaga0508@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
     };
 
     const experiences = [
         {
-            icon: '☀️🏗️',
+            icon: '☀️',
             value: '+120 kW',
             title: 'De energía solar instalada',
             description: 'Instalaciones solares completas en diferentes proyectos'
         },
         {
-            icon: '💻📱',
+            icon: '💻',
             value: '7',
             title: 'Desarrollos de Software',
             description: 'a la medida.'
         },
         {
-            icon: '🐸👷',
+            icon: '👷',
             value: '2 MW',
             title: 'Diseñados',
             description: 'Perfil ingeniería granja solar y PCH.'
@@ -34,9 +34,10 @@ const Background = () => {
     return (
         <section className="experience-section">
             <div className="container">
-                {/* Título principal */}
-                <div className="text-center mb-16">
-                    <h2 className="experience-title">EXPERIENCIA</h2>
+                {/* Encabezado al estilo de Tecnologías */}
+                <div className="experience-header">
+                    <h2>Experiencia</h2>
+                    <p>Trayectoria y logros en energía y desarrollo de software</p>
                 </div>
                 
                 {/* Grid de tres columnas */}
@@ -72,10 +73,10 @@ const Background = () => {
                 </div>
                 <div className="text-center mb-16">
                     <button
-                        onClick={handleWhatsAppContact}
+                        onClick={handleEmailContact}
                         className="contact-button"
                     >
-                        <span>Contactanos</span>
+                        <span>Contactar</span>
                     </button>
                 </div>
             </div>

@@ -1,11 +1,9 @@
 .experience-section {
     background-color: #1E1E1E;
     color: white;
-    padding: 100px 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 80px 0 60px 0;
+    min-height: 80vh;
+    display: block;
     width: 100vw;
     margin: 0;
     box-sizing: border-box;
@@ -22,18 +20,66 @@
     box-sizing: border-box;
 }
 
-.experience-title {
+/* Encabezado estilo Tecnologías */
+.experience-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.experience-header h2 {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 48px;
     font-weight: 300;
     color: #ffffff;
-    margin-bottom: 80px;
-    text-align: center;
-    letter-spacing: 1px;
-    width: 100%;
-    box-sizing: border-box;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
+.experience-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4ecdc4, #45b7d1);
+    transform: translateX(-50%);
+    transition: width 0.8s ease;
+    animation: expandLine 2s ease-in-out forwards;
+}
+
+@keyframes expandLine {
+    0% { width: 0; }
+    100% { width: 120px; }
+}
+
+.experience-header p {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    color: #cccccc;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Grid existente */
 .experience-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -122,6 +168,8 @@
     box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
     text-transform: none;
     letter-spacing: 0.5px;
+    display: block;
+    margin: 0 auto;
 }
 
 .contact-button:hover {
@@ -142,9 +190,22 @@
 /* Responsive */
 @media (max-width: 768px) {
     .experience-section {
-        padding: 80px 0;
-        min-height: 80vh;
+        padding: 60px 0 40px 0;
+        min-height: auto;
         width: 100vw;
+    }
+    
+    .experience-header {
+        margin-bottom: 40px;
+    }
+
+    .experience-header h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .experience-header p {
+        font-size: 18px;
     }
     
     .experience-grid {
@@ -156,65 +217,34 @@
     .vertical-divider {
         display: none;
     }
-    
-    .experience-title {
-        font-size: 36px;
-        margin-bottom: 60px;
-        width: 100%;
-    }
-    
-    .experience-value {
-        font-size: 32px;
-    }
-    
-    .experience-title-text {
-        font-size: 20px;
-    }
-    
+
     .contact-button {
         padding: 15px 40px;
         font-size: 16px;
-    }
-    
-    .experience-icon {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .icon-text {
-        font-size: 32px;
     }
 }
 
 @media (max-width: 500px) {
     .experience-section {
-        padding: 60px 0;
+        padding: 50px 0 30px 0;
         width: 100vw;
     }
-    
-    .experience-title {
+
+    .experience-header {
+        margin-bottom: 30px;
+    }
+
+    .experience-header h2 {
         font-size: 30px;
-        width: 100%;
+        margin-bottom: 12px;
     }
-    
-    .experience-icon {
-        width: 70px;
-        height: 70px;
+
+    .experience-header p {
+        font-size: 16px;
     }
-    
-    .icon-text {
-        font-size: 28px;
-    }
-    
-    .experience-value {
-        font-size: 28px;
-    }
-    
-    .experience-title-text {
-        font-size: 18px;
-    }
-    
-    .experience-description {
-        font-size: 14px;
+
+    .contact-button {
+        padding: 12px 25px;
+        font-size: 15px;
     }
 } 
