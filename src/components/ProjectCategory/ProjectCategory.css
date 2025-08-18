@@ -1,0 +1,155 @@
+.project-category {
+    margin-bottom: 80px;
+}
+
+.project-category h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-card .MuiCardContent-root {
+    padding: 25px !important;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card h3 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.project-card p {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: justify;
+    color: #f0f0f0;
+    flex-grow: 1;
+}
+
+.whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+    margin-top: auto;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background-color: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-category h2 {
+        font-size: 28px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .project-card .MuiCardContent-root {
+        padding: 20px !important;
+    }
+    
+    .project-card h3 {
+        font-size: 20px;
+    }
+    
+    .project-card p {
+        font-size: 15px;
+    }
+    
+    .whatsapp-btn {
+        font-size: 13px;
+        padding: 10px 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .project-card .MuiCardContent-root {
+        padding: 20px !important;
+    }
+    
+    .project-card h3 {
+        font-size: 20px;
+    }
+    
+    .project-card p {
+        font-size: 14px;
+    }
+    
+    .whatsapp-btn {
+        font-size: 13px;
+        padding: 10px 16px;
+    }
+} 

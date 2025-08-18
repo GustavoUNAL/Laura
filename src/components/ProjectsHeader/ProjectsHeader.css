@@ -1,0 +1,48 @@
+.projects-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, #696969, #808080);
+}
+
+.projects-header h1 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.projects-header p {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    color: #e0e0e0;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-header h1 {
+        font-size: 36px;
+    }
+    
+    .projects-header p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .projects-header {
+        padding: 40px 15px 30px;
+    }
+    
+    .projects-header h1 {
+        font-size: 30px;
+    }
+    
+    .projects-header p {
+        font-size: 16px;
+    }
+} 

@@ -1,70 +1,193 @@
-# Getting Started with Create React App
+# Portafolio Personal - Gustavo Arteaga
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Portafolio profesional desarrollado en React con una arquitectura modular y componentes reutilizables.
 
-## Available Scripts
+## 🏗️ Estructura del Proyecto
 
-In the project directory, you can run:
+### **Componentes Principales**
 
-### `npm start`
+#### **Header & Navegación**
+- `src/components/Header/` - Barra de navegación principal
+  - `Navbar.js` - Componente principal del header
+  - `NavLinks.js` - Enlaces de navegación
+  - `MobileNavigation.js` - Navegación móvil
+  - `NormalNavigation.js` - Navegación desktop
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### **Página Principal (Home)**
+- `src/components/HomeAbout/` - Sección "Acerca de" de la página principal
+  - `HomeAbout.js` - Componente de presentación
+  - `HomeAbout.css` - Estilos específicos
+- `src/components/FeaturedProjects/` - Proyectos destacados
+  - `FeaturedProjects.js` - Grid de proyectos principales
+  - `FeaturedProjects.css` - Estilos de las tarjetas
+- `src/components/Background/` - Sección de experiencia
+  - `Background.js` - Métricas y estadísticas
+  - `Background.css` - Estilos de la experiencia
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### **Layout & Estructura**
+- `src/components/MainLayout/` - Layout principal
+  - `MainLayout.js` - Contenedor principal
+  - `MainLayout.css` - Estilos del layout
 
-### `npm test`
+#### **Página de Proyectos**
+- `src/components/ProjectsHeader/` - Header de la página de proyectos
+  - `ProjectsHeader.js` - Título y descripción
+  - `ProjectsHeader.css` - Estilos del header
+- `src/components/ProjectCategory/` - Categorías de proyectos
+  - `ProjectCategory.js` - Grid de proyectos por categoría
+  - `ProjectCategory.css` - Estilos de las categorías
+- `src/components/ProjectDialog/` - Popup de detalles del proyecto
+  - `ProjectDialog.js` - Modal con información completa
+  - `ProjectDialog.css` - Estilos del popup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### **Páginas Completas**
+- `src/containers/HomePage/` - Página principal
+  - `ContentApp.js` - Orquestador de componentes
+- `src/containers/AboutPage/` - Página "Acerca de"
+  - `About.js` - Información personal completa
+  - `About.css` - Estilos de la página
+- `src/containers/ProjectsPage/` - Página de proyectos
+  - `Projects.js` - Lista completa de proyectos
+  - `Projects.css` - Estilos generales de la página
 
-### `npm run build`
+#### **Componentes de UI**
+- `src/components/Footer/` - Pie de página
+  - `Footer.js` - Información de contacto
+  - `Footer.css` - Estilos del footer
+- `src/components/ErrorPage/` - Página de error 404
+  - `ErrorPage.js` - Manejo de rutas no encontradas
+  - `ErrorPage.css` - Estilos de la página de error
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🎨 Sistema de Estilos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Colores Principales**
+- **Header/Footer**: `#121212` (negro oscuro)
+- **Página Principal**: `#1E1E1E` (negro medio)
+- **Páginas Secundarias**: `#808080` (gris)
+- **Acentos**: `#4ecdc4` (turquesa), `#ff6b6b` (coral)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Tipografías**
+- **Títulos**: Helvetica Neue (300, 400)
+- **Texto**: Montserrat, Roboto
+- **Responsive**: Tamaños adaptativos para móvil, tablet y desktop
 
-### `npm run eject`
+## 📱 Características Responsive
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Breakpoints**
+- **Desktop**: > 768px
+- **Tablet**: ≤ 768px
+- **Móvil**: ≤ 500px
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **Adaptaciones**
+- Navegación hamburguesa en móviles
+- Grids adaptativos para proyectos
+- Imágenes y textos escalables
+- Espaciado optimizado por dispositivo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Funcionalidades
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **Navegación**
+- Header fijo con navegación suave
+- Menú responsive para móviles
+- Enlaces a todas las secciones
 
-## Learn More
+### **Proyectos**
+- Categorización automática
+- Popups con información detallada
+- Botones de contacto WhatsApp
+- Grid responsive de tarjetas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Experiencia**
+- Métricas destacadas
+- Iconos animados
+- Botón de contacto directo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🛠️ Tecnologías Utilizadas
 
-### Code Splitting
+- **Frontend**: React 18
+- **Routing**: React Router DOM
+- **UI Components**: Material-UI (MUI)
+- **Estilos**: CSS3 con variables y media queries
+- **Iconos**: Material Icons
+- **Build**: Create React App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📁 Organización de Archivos
 
-### Analyzing the Bundle Size
+```
+src/
+├── components/           # Componentes reutilizables
+│   ├── Header/          # Navegación
+│   ├── HomeAbout/       # Sección principal
+│   ├── FeaturedProjects/ # Proyectos destacados
+│   ├── Background/      # Experiencia
+│   ├── ProjectsHeader/  # Header de proyectos
+│   ├── ProjectCategory/ # Categorías
+│   ├── ProjectDialog/   # Popups
+│   ├── MainLayout/      # Layout principal
+│   ├── Footer/          # Pie de página
+│   └── ErrorPage/       # Página de error
+├── containers/           # Páginas completas
+│   ├── HomePage/        # Página principal
+│   ├── AboutPage/       # Acerca de
+│   └── ProjectsPage/    # Proyectos
+├── img/                 # Imágenes estáticas
+└── index.js             # Punto de entrada
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔧 Instalación y Uso
 
-### Making a Progressive Web App
+1. **Clonar el repositorio**
+   ```bash
+   git clone [url-del-repositorio]
+   cd portafolio
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
 
-### Advanced Configuration
+3. **Ejecutar en desarrollo**
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. **Construir para producción**
+   ```bash
+   npm run build
+   ```
 
-### Deployment
+## ✨ Ventajas de la Nueva Estructura
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### **Modularidad**
+- Cada componente tiene su propio archivo CSS
+- Fácil mantenimiento y actualización
+- Componentes reutilizables
 
-### `npm run build` fails to minify
+### **Organización**
+- Estructura de carpetas clara y lógica
+- Separación de responsabilidades
+- Fácil navegación del código
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### **Escalabilidad**
+- Fácil agregar nuevos componentes
+- Estructura preparada para crecimiento
+- Patrones consistentes
+
+### **Mantenimiento**
+- Código más limpio y legible
+- Fácil debugging
+- Actualizaciones localizadas
+
+## 🎯 Próximos Pasos
+
+- [ ] Agregar tests unitarios
+- [ ] Implementar lazy loading
+- [ ] Optimizar imágenes
+- [ ] Agregar PWA capabilities
+- [ ] Implementar CMS para proyectos
+
+---
+
+**Desarrollado por Gustavo Arteaga**  
+*Ingeniero en Sistemas Energéticos y Desarrollo de Software*
