@@ -38,11 +38,6 @@ code {
         monospace;
 }
 
-/* Asegurar que no haya líneas blancas */
-* {
-    background-color: inherit;
-}
-
 /* Eliminar cualquier scroll horizontal y líneas blancas */
 html, body, #root, .App {
     overflow-x: hidden;

@@ -1,0 +1,108 @@
+.technologies-section {
+    background-color: #1E1E1E;
+    width: 100vw;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    padding: 80px 0 60px 0;
+}
+
+.technologies-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.technologies-header h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.technologies-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4ecdc4, #45b7d1);
+    transform: translateX(-50%);
+    transition: width 0.8s ease;
+    animation: expandLine 2s ease-in-out forwards;
+}
+
+@keyframes expandLine {
+    0% { width: 0; }
+    100% { width: 120px; }
+}
+
+.technologies-header p {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    color: #cccccc;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .technologies-section {
+        padding: 60px 0 40px 0;
+    }
+    
+    .technologies-header {
+        margin-bottom: 40px;
+    }
+    
+    .technologies-header h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+    
+    .technologies-header p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .technologies-section {
+        padding: 50px 0 30px 0;
+    }
+    
+    .technologies-header {
+        margin-bottom: 30px;
+    }
+    
+    .technologies-header h2 {
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+    
+    .technologies-header p {
+        font-size: 16px;
+    }
+} 
