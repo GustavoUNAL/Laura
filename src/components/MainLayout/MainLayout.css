@@ -1,8 +1,11 @@
 .main-layout {
     background-color: #1E1E1E;
-    width: 100%;
+    width: 100vw;
     min-height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 80px 0 0 0;
     overflow-x: hidden;
+    position: relative;
+    left: 0;
+    right: 0;
 } 

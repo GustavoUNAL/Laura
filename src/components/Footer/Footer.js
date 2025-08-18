@@ -1,38 +1,33 @@
 import React from 'react';
-// import './Footer.css';
-import '../Footer/Footer.css';
-import X from '../../img/x.jpg'
-import github from '../../img/github.png'
-import instagram from '../../img/instagram.png'
-import linkedin from '../../img/linkedin.png'
-
-import NormalNavigation from '../Header/NormalNavigation';
-
-
-
-
+import './Footer.css';
+import github from '../../img/github.png';
+import linkedin from '../../img/linkedin.png';
 
 function Footer() {
-
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:gustavoarteaga0508@gmail.com';
+  };
 
   return (
-
     <footer className="footer">
       <div className="flex-container-footer">
         <div className="social-footer">
-
-          <div className="social-footer">
-            <div><a href={"https://www.linkedin.com/in/gustavo-arteaga/"} rel="noreferrer" target="_blank"> <img src={linkedin} alt="" className="icons-footer" width="40" height="40"></img></a></div>
-            <div> <a href={"https://www.instagram.com/gustavo.art3/"} rel="noreferrer" target="_blank" ><img src={instagram} alt="" className="icons-footer" width="47" height="47"></img></a></div>
-            <div><a href={"https://github.com/GustavoUNAL"} rel="noreferrer" target="_blank"> <img src={github} alt="" className="icons-footer" width="40" height="40"></img></a></div>
-            <div><a href={"https://twitter.com/gustavo_arte_"} rel="noreferrer" target="_blank"> <img src={X} alt="" className="icons-footer" width="45" height="45"></img></a></div>
-          </div>
+          <a href="https://github.com/GustavoUNAL">
+            <img src={github} alt="GitHub" className="icons-footer" />
+          </a>
+          <a href="https://www.linkedin.com/in/gustavo-arteaga/">
+            <img src={linkedin} alt="LinkedIn" className="icons-footer" />
+          </a>
+          <button onClick={handleEmailClick} className="email-footer-button">
+            <svg className="icons-footer" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </button>
         </div>
-        <p className="copyright">© Gustavo Arte, Colombia.</p>
+        <p className="copyright">© Gustavo Arteaga, Colombia.</p>
       </div>
-      {/* <NormalNavigation /> */}
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

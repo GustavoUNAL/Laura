@@ -4,12 +4,9 @@
     box-sizing: border-box;
 }
 
-html, body, #root {
-    background-color: #1E1E1E;
-    margin: 0;
-    padding: 0;
+html {
+    scroll-behavior: smooth;
     width: 100%;
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -20,17 +17,13 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #1E1E1E;
-    width: 100%;
     margin: 0;
     padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
-}
-
-/* Asegurar que no haya espacios en blanco */
 #root {
     background-color: #1E1E1E;
     min-height: 100vh;
@@ -40,14 +33,19 @@ code {
     overflow-x: hidden;
 }
 
-/* Asegurar que todos los elementos hereden el ancho completo */
-div, section, article, aside, header, footer, nav, main {
-    width: 100%;
-    box-sizing: border-box;
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
-/* Eliminar cualquier scroll horizontal */
-html, body {
+/* Asegurar que no haya líneas blancas */
+* {
+    background-color: inherit;
+}
+
+/* Eliminar cualquier scroll horizontal y líneas blancas */
+html, body, #root, .App {
     overflow-x: hidden;
     width: 100%;
+    max-width: 100%;
 }

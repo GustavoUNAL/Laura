@@ -1,5 +1,5 @@
 .error-page {
-    background-color: #808080;
+    background-color: #1E1E1E;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,13 @@
     text-align: center;
     color: white;
     padding: 20px;
+    width: 100vw;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
 }
 
 .error-container {

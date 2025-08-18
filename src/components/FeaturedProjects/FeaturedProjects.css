@@ -6,9 +6,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     margin: 0;
     box-sizing: border-box;
+    position: relative;
+    left: 0;
+    right: 0;
 }
 
 .featured-projects h2 {
@@ -20,6 +23,7 @@
     margin-bottom: 80px;
     letter-spacing: 2px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .featured-projects-grid {
@@ -168,7 +172,7 @@
     .featured-projects {
         padding: 80px 20px;
         min-height: 80vh;
-        width: 100%;
+        width: 100vw;
     }
     
     .featured-projects h2 {
@@ -202,7 +206,7 @@
 @media (max-width: 500px) {
     .featured-projects {
         padding: 60px 15px;
-        width: 100%;
+        width: 100vw;
     }
     
     .featured-projects h2 {

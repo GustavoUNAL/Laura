@@ -1,33 +1,46 @@
 .projects-page {
-    background-color: #808080;
+    background-color: #1E1E1E;
     min-height: 100vh;
     color: white;
     padding-top: 80px;
+    width: 100vw;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
 }
 
 .projects-content {
     padding: 40px 20px;
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .projects-page {
         padding-top: 60px;
+        width: 100vw;
     }
     
     .projects-content {
         padding: 20px 15px;
+        width: 100%;
     }
 }
 
 @media (max-width: 500px) {
     .projects-page {
         padding-top: 60px;
+        width: 100vw;
     }
     
     .projects-content {
         padding: 20px 15px;
+        width: 100%;
     }
 } 

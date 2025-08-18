@@ -1,14 +1,19 @@
 /* Estilos del popup */
 .project-dialog .MuiDialog-paper {
-    background-color: #696969 !important;
+    background-color: #1E1E1E !important;
     color: white !important;
     border-radius: 20px !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    width: 100% !important;
+    max-width: 90vw !important;
+    box-sizing: border-box !important;
 }
 
 .dialog-title {
-    background: linear-gradient(135deg, #696969, #808080);
+    background: linear-gradient(135deg, #2a2a2a, #1E1E1E);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .dialog-header {

@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import './App.css';
 import ContentApp from './containers/HomePage/ContentApp';
 import ErrorPage from './components/ErrorPage/ErrorPage';

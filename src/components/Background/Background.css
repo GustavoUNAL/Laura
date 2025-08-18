@@ -6,9 +6,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 100vw;
     margin: 0;
     box-sizing: border-box;
+    position: relative;
+    left: 0;
+    right: 0;
 }
 
 .container {
@@ -28,6 +31,7 @@
     text-align: center;
     letter-spacing: 1px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .experience-grid {
@@ -140,7 +144,7 @@
     .experience-section {
         padding: 80px 0;
         min-height: 80vh;
-        width: 100%;
+        width: 100vw;
     }
     
     .experience-grid {
@@ -185,7 +189,7 @@
 @media (max-width: 500px) {
     .experience-section {
         padding: 60px 0;
-        width: 100%;
+        width: 100vw;
     }
     
     .experience-title {

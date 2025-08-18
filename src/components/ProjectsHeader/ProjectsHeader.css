@@ -1,7 +1,13 @@
 .projects-header {
     text-align: center;
     padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #696969, #808080);
+    background: linear-gradient(135deg, #2a2a2a, #1E1E1E);
+    width: 100vw;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
+    right: 0;
 }
 
 .projects-header h1 {
@@ -24,6 +30,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .projects-header {
+        width: 100vw;
+    }
+    
     .projects-header h1 {
         font-size: 36px;
     }
@@ -36,6 +46,7 @@
 @media (max-width: 500px) {
     .projects-header {
         padding: 40px 15px 30px;
+        width: 100vw;
     }
     
     .projects-header h1 {
