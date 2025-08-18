@@ -24,6 +24,10 @@ function About() {
                         <p className="subtitle">Ingeniero apasionado por la innovación en sistemas energéticos y desarrollo de software</p>
                         
                         <div className="about-description">
+                            <p className="main-description">
+                                Desarrollador de software e ingeniero electricista con experiencia en inteligencia artificial, desarrollo web y sistemas en la nube. He participado en proyectos de innovación tecnológica en energía y automatización, integrando investigación y desarrollo para la industria y la academia.
+                            </p>
+                            
                             <p>
                                 Soy un ingeniero con amplia experiencia en sistemas energéticos, especializado en microrredes, 
                                 protecciones inteligentes y control avanzado de sistemas de potencia. Mi pasión por la tecnología 

@@ -1,10 +1,10 @@
 .home-about {
     font-size: 26px;
     font-family: Helvetica Neue;
-    padding: 40px 40px 60px;
+    padding: 30px 40px 30px;
     text-align: center;
     background-color: #1E1E1E;
-    min-height: 60vh;
+    min-height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,15 +20,15 @@
 /* Responsive */
 @media (max-width: 768px) {
     .home-about {
-        padding: 30px 20px 40px;
-        min-height: 50vh;
+        padding: 25px 20px 25px;
+        min-height: 30vh;
         width: 100vw;
     }
 }
 
 @media (max-width: 500px) {
     .home-about {
-        padding: 25px 15px 30px;
+        padding: 20px 15px 20px;
         width: 100vw;
     }
 } 

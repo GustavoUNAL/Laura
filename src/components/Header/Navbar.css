@@ -84,6 +84,7 @@
 .social-links-desktop {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     flex-shrink: 0;
     height: 60px;
@@ -114,10 +115,19 @@
     align-items: center;
     justify-content: center;
     height: 22px;
+    width: 22px;
+    margin: 0;
 }
 
 .email-button:hover .social-icon {
     color: #4ecdc4;
+}
+
+/* Asegurar que el SVG del email esté centrado */
+.email-button svg {
+    width: 22px;
+    height: 22px;
+    display: block;
 }
 
 /* Botón Menú Móvil */

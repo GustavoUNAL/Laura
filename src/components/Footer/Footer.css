@@ -74,6 +74,7 @@ h4{
     align-items: center;
     justify-content: center;
     height: 30px;
+    width: 30px;
 }
 
 .email-footer-button:hover .icons-footer {

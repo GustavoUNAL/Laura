@@ -90,6 +90,20 @@
     margin-bottom: 40px;
 }
 
+.main-description {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #f0f0f0;
+    margin-bottom: 25px;
+    text-align: justify;
+    font-weight: 400;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 4px solid #4ecdc4;
+}
+
 .about-description p {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 16px;
