@@ -1,0 +1,216 @@
+.experience-section {
+    background-color: #1E1E1E;
+    color: white;
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.experience-title {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: 80px;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    position: relative;
+    margin-bottom: 80px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.experience-column {
+    text-align: center;
+    position: relative;
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.experience-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.experience-icon:hover {
+    transform: scale(1.1);
+}
+
+.icon-text {
+    font-size: 40px;
+    line-height: 1;
+}
+
+.experience-value {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: #4ecdc4;
+    margin-bottom: 20px;
+}
+
+.experience-title-text {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.experience-description {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.vertical-divider {
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 80%;
+    background: linear-gradient(to bottom, transparent, #4ecdc4, transparent);
+}
+
+.contact-button {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    border-radius: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+.contact-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+    background: linear-gradient(135deg, #ee5a52, #d63031);
+}
+
+.contact-button span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.contact-button:hover span {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 80px 0;
+        min-height: 80vh;
+        width: 100%;
+    }
+    
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        width: 100%;
+    }
+    
+    .vertical-divider {
+        display: none;
+    }
+    
+    .experience-title {
+        font-size: 36px;
+        margin-bottom: 60px;
+        width: 100%;
+    }
+    
+    .experience-value {
+        font-size: 32px;
+    }
+    
+    .experience-title-text {
+        font-size: 20px;
+    }
+    
+    .contact-button {
+        padding: 15px 40px;
+        font-size: 16px;
+    }
+    
+    .experience-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .icon-text {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 500px) {
+    .experience-section {
+        padding: 60px 0;
+        width: 100%;
+    }
+    
+    .experience-title {
+        font-size: 30px;
+        width: 100%;
+    }
+    
+    .experience-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .icon-text {
+        font-size: 28px;
+    }
+    
+    .experience-value {
+        font-size: 28px;
+    }
+    
+    .experience-title-text {
+        font-size: 18px;
+    }
+    
+    .experience-description {
+        font-size: 14px;
+    }
+} 

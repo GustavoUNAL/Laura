@@ -19,28 +19,22 @@ html {
 
 
   .main-navigation {
-    background-color: black;
-    /* background-color: gray; */
+    background-color: #121212;
     position: fixed;
     height: 60px;
     width: 100%;
-
-    
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
 }
-
-
 
 .name-header {
     color: #fff; 
     font-family: 'Roboto', sans-serif; 
-    margin-left: 65px;
     font-size: 23px;
-    /* text-align: left; */
-    display: flex;
-    margin-top: -35px; 
     text-decoration: none;
-    
+    margin: 0;
 }
 
 header {
@@ -65,21 +59,15 @@ nav.main-navigation ul.nav-list {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex; /* Esto hace que los elementos de la lista se muestren en línea */
-    justify-content: center; /* Esto centra los elementos de la lista horizontalmente */
+    display: flex;
     align-items: center;
-    margin-top: -41px;
-    margin-right: 70px;
+    gap: 40px;
 }
 
 .nav-list li.nav-list-item {
     display: inline-block;
     line-height: 40px;
-    margin-left: -30px;
-    margin-top: 15px;
-    
-    
-    
+    margin: 0;
 }
 
 
@@ -87,18 +75,11 @@ a.nav-link {
     text-decoration: none;
     font-size: 22px;
     font-family: 'Montserrat', sans-serif;
-    /* font-weight: 500; */
     cursor: pointer;
-    /* position: flex; */
     color: #ffff;
-    margin-left: 55px;
-    margin-top: -10px;
-    /* margin-bottom: 10px; */
     display: flex;
-    /* width: auto; */
-    
-    
-    
+    align-items: center;
+    height: 60px;
 }
 
 @keyframes FadeIn {
@@ -218,9 +199,9 @@ a.nav-link {
        position: absolute; 
        right: 3%;
        cursor: pointer;
-       /* padding-top: 1px; */
        color: #fff;
-       margin-top: -20px;
+       top: 50%;
+       transform: translateY(-50%);
        
    }
 
@@ -281,11 +262,10 @@ a.nav-link {
     .name-header {
         color: #fff; 
         font-family: 'Roboto', sans-serif; 
-        margin-left: 65px;
+        margin: 0;
         font-size: 18px;
         text-align: left;
         display: flex;
-        margin-top: -25px; 
         
     }
     .social-header {
