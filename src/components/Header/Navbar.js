@@ -56,6 +56,7 @@ function Navbar() {
       left: 0,
       right: 0,
       height: '70px',
+      width: '100%',
       background: isScrolled 
         ? 'linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(26, 26, 26, 0.95))' 
         : 'linear-gradient(135deg, #121212, #1a1a1a)',
@@ -64,17 +65,22 @@ function Navbar() {
       boxShadow: '0 4px 30px rgba(0, 0, 0, 0.4)',
       borderBottom: '1px solid rgba(78, 205, 196, 0.1)',
       zIndex: 1000,
-      transition: 'all 0.3s ease'
+      transition: 'all 0.3s ease',
+      margin: 0,
+      padding: 0,
+      boxSizing: 'border-box'
     }}>
       {/* Desktop Navigation */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        maxWidth: '1200px',
-        margin: '0 auto',
+        width: '100%',
+        maxWidth: '100%',
+        margin: '0',
         padding: '0 20px',
-        height: '100%'
+        height: '100%',
+        boxSizing: 'border-box'
       }}>
         {/* Logo */}
         <Link to="/" style={{
@@ -296,9 +302,11 @@ function Navbar() {
           animation: 'slideDown 0.3s ease-out'
         }}>
           <div style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '0 20px'
+            width: '100%',
+            maxWidth: '100%',
+            margin: '0',
+            padding: '0 20px',
+            boxSizing: 'border-box'
           }}>
             <Link to="/about" onClick={closeMobileMenu} style={{
               display: 'flex',
@@ -500,6 +508,72 @@ function Navbar() {
           }
         }
         
+        /* Ensure full width on all devices */
+        .main-navigation {
+          width: 100vw !important;
+          max-width: 100vw !important;
+          left: 0 !important;
+          right: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        
+        .mobile-menu {
+          width: 100vw !important;
+          max-width: 100vw !important;
+          left: 0 !important;
+          right: 0 !important;
+          margin: 0 !important;
+        }
+        
+        /* Specific iPhone and mobile device rules */
+        @media screen and (max-device-width: 768px) {
+          .main-navigation {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: fixed !important;
+            top: 0 !important;
+          }
+          
+          .mobile-menu {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            position: fixed !important;
+            top: 70px !important;
+          }
+        }
+        
+        /* Specific iPhone rules */
+        @media screen and (max-device-width: 428px) {
+          .main-navigation {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: fixed !important;
+            top: 0 !important;
+          }
+          
+          .mobile-menu {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            position: fixed !important;
+            top: 70px !important;
+          }
+        }
+        
         @media (max-width: 768px) {
           .desktop-menu, .desktop-social {
             display: none !important;
@@ -507,11 +581,36 @@ function Navbar() {
           .mobile-hamburger {
             display: flex !important;
           }
+          
+          .main-navigation {
+            width: 100vw !important;
+            max-width: 100vw !important;
+          }
         }
         
         @media (min-width: 769px) {
           .mobile-hamburger {
             display: none !important;
+          }
+        }
+        
+        /* Ensure no horizontal scroll */
+        body, html {
+          overflow-x: hidden !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+        
+        /* Force full width on mobile */
+        @media screen and (max-width: 768px) {
+          body, html, #root, .App {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden !important;
           }
         }
       `}</style>
