@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './FeaturedProjects.css';
 
 function FeaturedProjects() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
     const projects = [
         {
@@ -44,16 +45,28 @@ function FeaturedProjects() {
         }
     ];
 
+    // Detectar si es dispositivo móvil
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const nextProjects = () => {
         setCurrentIndex((prevIndex) => {
-            const maxIndex = projects.length - 3;
+            const maxIndex = projects.length - (isMobile ? 1 : 3);
             return prevIndex >= maxIndex ? 0 : prevIndex + 1;
         });
     };
 
     const prevProjects = () => {
         setCurrentIndex((prevIndex) => {
-            const maxIndex = projects.length - 3;
+            const maxIndex = projects.length - (isMobile ? 1 : 3);
             return prevIndex <= 0 ? maxIndex : prevIndex - 1;
         });
     };
@@ -65,7 +78,17 @@ function FeaturedProjects() {
         window.location.href = mailtoUrl;
     };
 
-    const visibleProjects = projects.slice(currentIndex, currentIndex + 3);
+    // En móviles mostrar solo 1 proyecto, en desktop mostrar 3
+    const visibleProjects = isMobile 
+        ? [projects[currentIndex]]
+        : projects.slice(currentIndex, currentIndex + 3);
+
+    // Solo mostrar paginación en móviles
+    const totalPages = projects.length;
+
+    const goToPage = (pageIndex) => {
+        setCurrentIndex(pageIndex);
+    };
 
     return (
         <div className="featured-projects">
@@ -75,7 +98,12 @@ function FeaturedProjects() {
             </div>
             
             <div className="project-carousel">
-                <button className="nav-arrow prev-arrow" onClick={prevProjects}>
+                <button 
+                    className="nav-arrow prev-arrow" 
+                    onClick={prevProjects} 
+                    aria-label="Proyectos anteriores"
+                    disabled={currentIndex === 0}
+                >
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
                     </svg>
@@ -96,6 +124,7 @@ function FeaturedProjects() {
                                 <button 
                                     className="project-btn primary-btn"
                                     onClick={() => handleEmailContact(project.title)}
+                                    aria-label={`Contactar sobre ${project.title}`}
                                 >
                                     Contactar
                                 </button>
@@ -104,22 +133,33 @@ function FeaturedProjects() {
                     ))}
                 </div>
                 
-                <button className="nav-arrow next-arrow" onClick={nextProjects}>
+                <button 
+                    className="nav-arrow next-arrow" 
+                    onClick={nextProjects} 
+                    aria-label="Siguientes proyectos"
+                    disabled={isMobile ? currentIndex === projects.length - 1 : currentIndex >= projects.length - 3}
+                >
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
                     </svg>
                 </button>
             </div>
             
-            <div className="carousel-indicators">
-                {Array.from({ length: Math.ceil(projects.length / 3) }, (_, index) => (
-                    <button
-                        key={index}
-                        className={`indicator ${Math.floor(currentIndex / 3) === index ? 'active' : ''}`}
-                        onClick={() => setCurrentIndex(index * 3)}
-                    />
-                ))}
-            </div>
+            {/* Solo mostrar paginación en móviles */}
+            {isMobile && (
+                <div className="mobile-pagination">
+                    <div className="pagination-dots">
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button
+                                key={index}
+                                className={`pagination-dot ${currentIndex === index ? 'active' : ''}`}
+                                onClick={() => goToPage(index)}
+                                aria-label={`Ir a proyecto ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
             
             <div className="view-more-section">
                 <Link to="/projects" className="view-more-btn">

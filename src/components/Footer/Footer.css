@@ -31,6 +31,9 @@ h4{
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    position: relative;
 }
 
 .flex-container-footer {
@@ -58,6 +61,9 @@ h4{
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
 }
 
 .icons-footer:hover {
@@ -75,6 +81,8 @@ h4{
     justify-content: center;
     height: 30px;
     width: 30px;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .email-footer-button:hover .icons-footer {
@@ -94,6 +102,7 @@ h4{
     .footer {
         height: 180px;
         padding: 20px;
+        width: 100%;
     }
     
     .social-footer {
@@ -103,10 +112,15 @@ h4{
     .icons-footer {
         width: 28px;
         height: 28px;
+        min-height: 44px;
+        min-width: 44px;
     }
     
     .email-footer-button {
         height: 28px;
+        width: 28px;
+        min-height: 44px;
+        min-width: 44px;
     }
     
     .copyright {
@@ -118,6 +132,7 @@ h4{
     .footer {
         height: 160px;
         padding: 15px;
+        width: 100%;
     }
     
     .social-footer {
@@ -127,13 +142,72 @@ h4{
     .icons-footer {
         width: 25px;
         height: 25px;
+        min-height: 44px;
+        min-width: 44px;
     }
     
     .email-footer-button {
         height: 25px;
+        width: 25px;
+        min-height: 44px;
+        min-width: 44px;
     }
     
     .copyright {
         font-size: 14px;
+    }
+}
+
+/* Optimizaciones específicas para iPhone 12 */
+@media (max-width: 390px) {
+    .footer {
+        height: 150px;
+        padding: 12px;
+    }
+    
+    .social-footer {
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .icons-footer {
+        width: 24px;
+        height: 24px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .email-footer-button {
+        height: 24px;
+        width: 24px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .copyright {
+        font-size: 13px;
+    }
+    
+    .flex-container-footer {
+        gap: 25px;
+    }
+}
+
+/* Soporte para iPhone con notch */
+@supports (padding: max(0px)) {
+    .footer {
+        padding-left: max(20px, env(safe-area-inset-left) + 10px);
+        padding-right: max(20px, env(safe-area-inset-right) + 10px);
+    }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .icons-footer:hover {
+        transform: none;
+    }
+    
+    .icons-footer:active {
+        transform: scale(1.1);
     }
 }

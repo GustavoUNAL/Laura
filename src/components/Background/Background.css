@@ -4,12 +4,11 @@
     padding: 80px 0 60px 0;
     min-height: 80vh;
     display: block;
-    width: 100vw;
+    width: 100%;
     margin: 0;
     box-sizing: border-box;
     position: relative;
-    left: 0;
-    right: 0;
+    overflow-x: hidden;
 }
 
 .container {
@@ -170,6 +169,8 @@
     letter-spacing: 0.5px;
     display: block;
     margin: 0 auto;
+    min-height: 44px;
+    touch-action: manipulation;
 }
 
 .contact-button:hover {
@@ -188,15 +189,26 @@
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+    .experience-grid {
+        gap: 40px;
+    }
+    
+    .experience-column {
+        padding: 25px;
+    }
+}
+
 @media (max-width: 768px) {
     .experience-section {
         padding: 60px 0 40px 0;
         min-height: auto;
-        width: 100vw;
+        width: 100%;
     }
     
     .experience-header {
         margin-bottom: 40px;
+        padding: 0 15px;
     }
 
     .experience-header h2 {
@@ -217,21 +229,45 @@
     .vertical-divider {
         display: none;
     }
+    
+    .experience-column {
+        padding: 20px;
+    }
+    
+    .experience-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 25px;
+    }
+    
+    .icon-text {
+        font-size: 32px;
+    }
+    
+    .experience-value {
+        font-size: 36px;
+    }
+    
+    .experience-title-text {
+        font-size: 20px;
+    }
 
     .contact-button {
         padding: 15px 40px;
         font-size: 16px;
+        min-height: 44px;
     }
 }
 
 @media (max-width: 500px) {
     .experience-section {
         padding: 50px 0 30px 0;
-        width: 100vw;
+        width: 100%;
     }
 
     .experience-header {
         margin-bottom: 30px;
+        padding: 0 10px;
     }
 
     .experience-header h2 {
@@ -242,9 +278,135 @@
     .experience-header p {
         font-size: 16px;
     }
+    
+    .experience-grid {
+        gap: 30px;
+    }
+    
+    .experience-column {
+        padding: 15px;
+    }
+    
+    .experience-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+    }
+    
+    .icon-text {
+        font-size: 28px;
+    }
+    
+    .experience-value {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .experience-title-text {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .experience-description {
+        font-size: 14px;
+    }
 
     .contact-button {
         padding: 12px 25px;
         font-size: 15px;
+        min-height: 44px;
+    }
+}
+
+/* Optimizaciones específicas para iPhone 12 */
+@media (max-width: 390px) {
+    .experience-section {
+        padding: 45px 0 25px 0;
+    }
+    
+    .experience-header {
+        margin-bottom: 25px;
+        padding: 0 8px;
+    }
+    
+    .experience-header h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    
+    .experience-header p {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+    
+    .experience-grid {
+        gap: 25px;
+    }
+    
+    .experience-column {
+        padding: 12px;
+    }
+    
+    .experience-icon {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 18px;
+    }
+    
+    .icon-text {
+        font-size: 26px;
+    }
+    
+    .experience-value {
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+    
+    .experience-title-text {
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+    
+    .experience-description {
+        font-size: 13px;
+    }
+    
+    .contact-button {
+        padding: 10px 22px;
+        font-size: 14px;
+        min-height: 44px;
+        border-radius: 25px;
+    }
+}
+
+/* Soporte para iPhone con notch */
+@supports (padding: max(0px)) {
+    .experience-section {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    .container {
+        padding-left: max(20px, env(safe-area-inset-left) + 10px);
+        padding-right: max(20px, env(safe-area-inset-right) + 10px);
+    }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .experience-icon:hover {
+        transform: none;
+    }
+    
+    .experience-icon:active {
+        transform: scale(1.1);
+    }
+    
+    .contact-button:hover {
+        transform: none;
+    }
+    
+    .contact-button:active {
+        transform: translateY(-3px);
     }
 } 

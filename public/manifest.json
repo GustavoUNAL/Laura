@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Gustavo Arteaga",
+  "name": "Portafolio de Gustavo Arteaga - Ingeniero en Sistemas Energéticos",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +8,23 @@
       "type": "image/x-icon"
     },
     {
-      "src": "../../img/profile.jpeg",
-      "type": "image/jpeg",
+      "src": "profile.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "../../img/profile.jpeg",
-      "type": "image/jpeg",
+      "src": "profile.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#1E1E1E",
+  "background_color": "#1E1E1E",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "utilities"],
+  "description": "Portafolio profesional de Gustavo Arteaga, especialista en sistemas energéticos y desarrollo de software",
+  "lang": "es",
+  "dir": "ltr"
 }

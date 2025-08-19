@@ -3,6 +3,7 @@
     margin: 15px 0;
     width: 100%;
     box-sizing: border-box;
+    padding: 0 20px;
 }
 
 .name {
@@ -35,31 +36,52 @@
 @media (max-width: 768px) {
     .main-title {
         margin: 12px 0;
+        padding: 0 15px;
     }
     
     .name {
         font-size: 42px;
         letter-spacing: 2px;
         margin-bottom: 10px;
+        line-height: 1.1;
     }
     
     .subtitle-short {
         font-size: 18px;
+        line-height: 1.5;
     }
 }
 
 @media (max-width: 500px) {
     .main-title {
         margin: 10px 0;
+        padding: 0 10px;
     }
     
     .name {
         font-size: 32px;
         letter-spacing: 1px;
         margin-bottom: 8px;
+        line-height: 1.1;
     }
     
     .subtitle-short {
         font-size: 16px;
+        line-height: 1.4;
+    }
+}
+
+/* Soporte para iPhone con notch */
+@supports (padding: max(0px)) {
+    .main-title {
+        padding-left: max(20px, env(safe-area-inset-left) + 10px);
+        padding-right: max(20px, env(safe-area-inset-right) + 10px);
+    }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .name {
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
     }
 } 

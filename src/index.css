@@ -8,6 +8,8 @@ html {
     scroll-behavior: smooth;
     width: 100%;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
@@ -22,6 +24,7 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 #root {
@@ -43,4 +46,145 @@ html, body, #root, .App {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
+    background-color: #1E1E1E;
+    margin: 0;
+    padding: 0;
+}
+
+/* Asegurar que el navbar se extienda completamente */
+.main-navigation {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Asegurar que el menú móvil también se extienda completamente */
+.mobile-menu {
+    width: 100% !important;
+    left: 0 !important;
+    margin: 0 !important;
+}
+
+/* Asegurar que no haya líneas blancas en ningún breakpoint */
+@media (max-width: 768px) {
+    .main-navigation,
+    .mobile-menu {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .main-navigation,
+    .mobile-menu {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+@media (max-width: 390px) {
+    .main-navigation,
+    .mobile-menu {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .main-navigation,
+    .mobile-menu {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* Asegurar que el home esté perfectamente alineado con el header */
+.App {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+#root {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+body {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+html {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* Mejoras para dispositivos móviles */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    body {
+        font-size: 16px;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Soporte para iPhone y dispositivos con notch */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Mejoras de accesibilidad y usabilidad móvil */
+button, a, input, textarea {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+/* Prevenir zoom en inputs en iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input, textarea, select {
+        font-size: 16px;
+    }
 }

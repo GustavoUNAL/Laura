@@ -1,11 +1,32 @@
 .main-layout {
     background-color: #1E1E1E;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     margin: 0;
     padding: 60px 0 0 0;
     overflow-x: hidden;
     position: relative;
-    left: 0;
-    right: 0;
+    box-sizing: border-box;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    .main-layout {
+        padding: 50px 0 0 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .main-layout {
+        padding: 45px 0 0 0;
+    }
+}
+
+/* Soporte para iPhone con notch */
+@supports (padding: max(0px)) {
+    .main-layout {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
 } 
