@@ -27,23 +27,68 @@
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 20px !important;
-    transition: all 0.3s ease !important;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%) !important;
+    border: 2px solid transparent !important;
+    border-radius: 25px !important;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     cursor: pointer;
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
+    position: relative;
+    box-shadow: 
+        0 15px 45px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+}
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #a55eea);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.project-card:hover::before {
+    transform: translateX(100%);
+}
+
+.project-card:hover::after {
+    transform: scaleX(1);
 }
 
 .project-card:hover {
-    transform: translateY(-8px) !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(78, 205, 196, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(78, 205, 196, 0.5) !important;
 }
 
 .project-image {
@@ -57,11 +102,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .project-card .MuiCardContent-root {
@@ -69,15 +114,19 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    background: transparent !important;
 }
 
 .project-card h3 {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: 15px;
-    color: #ffffff;
+    color: #4ecdc4;
     text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(78, 205, 196, 0.3);
+    line-height: 1.2;
 }
 
 .project-card p {
@@ -88,10 +137,11 @@
     text-align: justify;
     color: #f0f0f0;
     flex-grow: 1;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .whatsapp-btn {
-    background-color: #25d366;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -104,12 +154,29 @@
     align-self: center;
     margin-top: auto;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.whatsapp-btn:hover::before {
+    left: 100%;
 }
 
 .whatsapp-btn:hover {
-    background-color: #128c7e;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, #128c7e 0%, #0d6b5f 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
 }
 
 /* Responsive */
@@ -121,6 +188,10 @@
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+    
+    .project-card {
+        border-radius: 20px !important;
     }
     
     .project-card .MuiCardContent-root {
@@ -142,6 +213,10 @@
 }
 
 @media (max-width: 500px) {
+    .project-card {
+        border-radius: 18px !important;
+    }
+    
     .project-card .MuiCardContent-root {
         padding: 20px !important;
     }
@@ -157,5 +232,32 @@
     .whatsapp-btn {
         font-size: 13px;
         padding: 10px 16px;
+    }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .project-card:hover {
+        transform: none;
+    }
+    
+    .project-card:active {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .project-card:hover .project-image img {
+        transform: scale(1.05);
+    }
+    
+    .project-card:active .project-image img {
+        transform: scale(1.08);
+    }
+    
+    .whatsapp-btn:hover {
+        transform: none;
+    }
+    
+    .whatsapp-btn:active {
+        transform: translateY(-2px);
     }
 } 
