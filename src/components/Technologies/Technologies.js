@@ -1,147 +1,159 @@
 import React, { useState, useEffect } from 'react';
-import TechGraph from '../TechGraph/TechGraph';
 import './Technologies.css';
 
 const Technologies = () => {
-    const [currentPage, setCurrentPage] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        const checkIfMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        checkIfMobile();
-        window.addEventListener('resize', checkIfMobile);
-
-        return () => window.removeEventListener('resize', checkIfMobile);
-    }, []);
-
-    const handlePageChange = (newPage) => {
-        setCurrentPage(newPage);
-    };
-
-    const nextPage = () => {
-        const totalPages = Math.ceil(techCategories.length / (isMobile ? 1 : 2));
-        setCurrentPage((prev) => (prev + 1) % totalPages);
-    };
-
-    const prevPage = () => {
-        const totalPages = Math.ceil(techCategories.length / (isMobile ? 1 : 2));
-        setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
-    };
-
-    // Datos de tecnologías
-    const techCategories = [
+    const technologies = [
         {
-            name: "Frontend",
+            title: "Frontend Development",
+            description: "Tecnologías modernas para crear interfaces de usuario atractivas y funcionales.",
             icon: "🎨",
-            description: "Tecnologías para la interfaz de usuario",
-            technologies: [
-                { name: "React", description: "Biblioteca para interfaces de usuario" },
-                { name: "JavaScript", description: "Lenguaje de programación" },
-                { name: "HTML5", description: "Marcado semántico" },
-                { name: "CSS3", description: "Estilos y animaciones" },
-                { name: "TypeScript", description: "JavaScript tipado" }
-            ]
+            highlights: ["React", "JavaScript", "HTML5", "CSS3", "TypeScript"]
         },
         {
-            name: "Backend",
+            title: "Backend Development",
+            description: "Servidores robustos y APIs escalables para aplicaciones web y móviles.",
             icon: "⚙️",
-            description: "Tecnologías del lado del servidor",
-            technologies: [
-                { name: "Node.js", description: "Runtime de JavaScript" },
-                { name: "Express", description: "Framework web minimalista" },
-                { name: "Python", description: "Lenguaje versátil" },
-                { name: "MongoDB", description: "Base de datos NoSQL" },
-                { name: "PostgreSQL", description: "Base de datos relacional" }
-            ]
+            highlights: ["Node.js", "Express", "Python", "MongoDB", "PostgreSQL"]
         },
         {
-            name: "DevOps",
+            title: "DevOps & Cloud",
+            description: "Herramientas de desarrollo, despliegue y gestión de infraestructura en la nube.",
             icon: "🚀",
-            description: "Herramientas de desarrollo y despliegue",
-            technologies: [
-                { name: "Docker", description: "Contenedores de aplicaciones" },
-                { name: "Git", description: "Control de versiones" },
-                { name: "AWS", description: "Servicios en la nube" },
-                { name: "CI/CD", description: "Integración continua" },
-                { name: "Linux", description: "Sistema operativo" }
-            ]
+            highlights: ["Docker", "Git", "AWS", "CI/CD", "Linux"]
         },
         {
-            name: "Mobile",
+            title: "Mobile Development",
+            description: "Aplicaciones móviles nativas y multiplataforma para iOS y Android.",
             icon: "📱",
-            description: "Desarrollo de aplicaciones móviles",
-            technologies: [
-                { name: "React Native", description: "Apps nativas multiplataforma" },
-                { name: "Flutter", description: "Framework de Google" },
-                { name: "iOS", description: "Desarrollo para Apple" },
-                { name: "Android", description: "Desarrollo para Google" },
-                { name: "PWA", description: "Aplicaciones web progresivas" }
-            ]
+            highlights: ["React Native", "Flutter", "iOS", "Android", "PWA"]
         }
     ];
 
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const nextTechnologies = () => {
+        if (isMobile) {
+            setCurrentIndex(prev => prev < technologies.length - 1 ? prev + 1 : prev);
+        } else {
+            setCurrentIndex(prev => prev < technologies.length - 3 ? prev + 1 : prev);
+        }
+    };
+
+    const prevTechnologies = () => {
+        setCurrentIndex(prev => prev > 0 ? prev - 1 : prev);
+    };
+
+    const handleEmailContact = (techTitle) => {
+        const subject = encodeURIComponent(`Consulta sobre tecnología: ${techTitle}`);
+        const body = encodeURIComponent(`Hola Gustavo,\n\nMe interesa tu experiencia en "${techTitle}". ¿Podrías contarme más detalles?\n\nSaludos,`);
+        window.location.href = `mailto:gustavo@example.com?subject=${subject}&body=${body}`;
+    };
+
+    const visibleTechnologies = isMobile 
+        ? [technologies[currentIndex]]
+        : technologies.slice(currentIndex, currentIndex + 3);
+
+    // Solo mostrar paginación en móviles
+    const totalPages = technologies.length;
+
+    const renderPagination = () => {
+        return (
+            <div className="pagination-progress">
+                <div 
+                    className="pagination-progress-bar" 
+                    style={{ width: `${((currentIndex + 1) / totalPages) * 100}%` }}
+                />
+            </div>
+        );
+    };
+
     return (
-        <section className="technologies-section">
-            <div className="technologies-content">
-                <div className="technologies-header">
-                    <h2>Tecnologías</h2>
-                    <p>Herramientas y tecnologías que utilizo para crear soluciones digitales</p>
+        <div className="featured-technologies">
+            <div className="technologies-header">
+                <h2>Tecnologías</h2>
+                <p>Herramientas y tecnologías que utilizo para crear soluciones digitales</p>
+            </div>
+            
+            <div className="technology-carousel">
+                <div className="technologies-grid">
+                    {visibleTechnologies.map((technology, index) => (
+                        <div key={currentIndex + index} className="technology-card">
+                            <div className="technology-icon">
+                                {technology.icon}
+                            </div>
+                            <h3 className="technology-title">{technology.title}</h3>
+                            <p className="technology-description">{technology.description}</p>
+                            <div className="technology-highlight">{technology.highlights.map((highlight, highlightIndex) => (
+                                <span key={highlightIndex} className="technology-highlight">{highlight}</span>
+                            ))}</div>
+                            <div className="technology-actions">
+                                <button 
+                                    className="technology-btn primary-btn"
+                                    onClick={() => handleEmailContact(technology.title)}
+                                    aria-label={`Contactar sobre ${technology.title}`}
+                                >
+                                    Contactar
+                                </button>
+                            </div>
+                        </div>
+                    ))}
                 </div>
                 
-                <div className="technologies-carousel">
-                    {/* Flecha izquierda */}
+                {/* Mobile Navigation Container */}
+                <div className="mobile-nav-container">
                     <button 
-                        className="tech-nav-arrow prev-arrow"
-                        onClick={prevPage}
-                        aria-label="Página anterior"
+                        className="nav-arrow prev-arrow" 
+                        onClick={prevTechnologies}
+                        disabled={currentIndex === 0}
+                        aria-label="Tecnología anterior"
                     >
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M15 18l-6-6 6-6"/>
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
                         </svg>
                     </button>
-
-                    {/* Contenido de tecnologías */}
-                    <div className="tech-content">
-                        <TechGraph 
-                            currentPage={currentPage} 
-                            isMobile={isMobile}
-                            techCategories={techCategories}
-                        />
+                    
+                    {/* Mobile Pagination - Now in the middle */}
+                    <div className="mobile-pagination">
+                        <div className="pagination-info">
+                            <span className="pagination-text">Tecnología</span>
+                            <span className="pagination-counter">{currentIndex + 1} de {totalPages}</span>
+                        </div>
+                        
+                        {renderPagination()}
                     </div>
-
-                    {/* Flecha derecha */}
+                    
                     <button 
-                        className="tech-nav-arrow next-arrow"
-                        onClick={nextPage}
-                        aria-label="Página siguiente"
+                        className="nav-arrow next-arrow" 
+                        onClick={nextTechnologies}
+                        disabled={isMobile ? currentIndex === technologies.length - 1 : currentIndex >= technologies.length - 3}
+                        aria-label="Tecnología siguiente"
                     >
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M9 18l6-6-6-6"/>
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
                         </svg>
                     </button>
                 </div>
-
-                {/* Paginación solo en móviles */}
-                {isMobile && (
-                    <div className="tech-pagination">
-                        <div className="tech-pagination-dots">
-                            {Array.from({ length: Math.ceil(techCategories.length / (isMobile ? 1 : 2)) }, (_, index) => (
-                                <button
-                                    key={index}
-                                    className={`tech-pagination-dot ${currentPage === index ? 'active' : ''}`}
-                                    onClick={() => handlePageChange(index)}
-                                    aria-label={`Ir a página ${index + 1}`}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                )}
             </div>
-        </section>
+            
+            <div className="view-more-section">
+                <a href="#about" className="view-more-btn">
+                    Ver más sobre mí
+                </a>
+            </div>
+        </div>
     );
-};
+}
 
-export default Technologies; 
+export default Technologies;

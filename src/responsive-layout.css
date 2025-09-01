@@ -32,7 +32,7 @@
 /* Mejoras para dispositivos móviles */
 @media (max-width: 768px) {
     .main-layout {
-        padding-top: 65px;
+        padding-top: 70px;
         width: 100%;
         left: 0;
         right: 0;
@@ -40,6 +40,7 @@
         padding-left: 0;
         padding-right: 0;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
     
     /* Espaciado optimizado para móviles */
@@ -58,8 +59,8 @@
     .projects-header,
     .technologies-header,
     .experience-header {
-        padding: 0 15px;
-        margin-bottom: 30px;
+        padding: 0 20px;
+        margin-bottom: 40px;
         width: 100%;
         left: 0;
         right: 0;
@@ -68,6 +69,7 @@
         box-sizing: border-box;
         overflow-x: hidden;
         text-align: center;
+        overflow: visible;
     }
     
     .projects-header h2,
@@ -144,7 +146,7 @@
 
 @media (max-width: 500px) {
     .main-layout {
-        padding-top: 60px;
+        padding-top: 70px;
         width: 100%;
         left: 0;
         right: 0;
@@ -152,48 +154,54 @@
         padding-left: 0;
         padding-right: 0;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
     
     .featured-projects,
     .technologies-section,
     .experience-section {
-        padding: 30px 0;
+        padding: 40px 0;
         width: 100%;
         left: 0;
         right: 0;
         margin: 0;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
     
     .projects-header,
     .technologies-header,
     .experience-header {
-        padding: 0 12px;
-        margin-bottom: 25px;
+        padding: 0 20px;
+        margin-bottom: 30px;
         width: 100%;
         left: 0;
         right: 0;
         margin-left: 0;
         margin-right: 0;
         overflow-x: hidden;
+        box-sizing: border-box;
+        overflow: visible;
     }
     
     .projects-grid,
     .tech-graph,
     .experience-grid {
-        padding: 0 8px;
-        gap: 15px;
+        padding: 0 15px;
+        gap: 25px;
         width: 100%;
         left: 0;
         right: 0;
         margin: 0;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
     
     .project-card,
     .tech-category {
-        padding: 16px;
+        padding: 18px;
         border-radius: 10px;
+        box-sizing: border-box;
     }
 }
 
@@ -420,6 +428,28 @@
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
     }
+    
+    /* Manejo del zoom en mobile */
+    .project-card {
+        overflow: visible !important;
+        transform-origin: center center !important;
+        -webkit-transform-origin: center center !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .project-card .MuiCardContent-root {
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Prevenir corte durante zoom */
+    .projects-grid {
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        padding: 0 15px !important;
+    }
 }
 
 /* Mejoras de accesibilidad móvil */
@@ -615,5 +645,50 @@
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+        overflow: visible;
+        transform-origin: center center;
+        -webkit-transform-origin: center center;
+    }
+}
+
+/* Reglas específicas para manejar zoom en mobile */
+@media (max-width: 768px) {
+    /* Prevenir corte durante zoom */
+    .project-card {
+        overflow: visible !important;
+        transform-origin: center center !important;
+        -webkit-transform-origin: center center !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .project-card .MuiCardContent-root {
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .projects-grid {
+        overflow: visible !important;
+        box-sizing: border-box !important;
+        padding: 0 15px !important;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    /* Mejorar el manejo del zoom */
+    .project-card:hover {
+        transform: translateY(-10px) scale(1.02) !important;
+        -webkit-transform: translateY(-10px) scale(1.02) !important;
+    }
+    
+    /* Asegurar que el contenido no se corte */
+    .project-card * {
+        box-sizing: border-box;
+        overflow: visible;
     }
 } 
