@@ -6,6 +6,7 @@
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
+    max-width: 100%;
     left: 0;
     right: 0;
     margin: 0;
@@ -17,9 +18,11 @@
 
 /* Contenedores principales */
 .featured-projects,
+.featured-technologies,
 .technologies-section,
 .experience-section {
     width: 100%;
+    max-width: 100%;
     left: 0;
     right: 0;
     margin: 0;
@@ -34,6 +37,7 @@
     .main-layout {
         padding-top: 70px;
         width: 100%;
+        max-width: 100%;
         left: 0;
         right: 0;
         margin: 0;
@@ -45,650 +49,238 @@
     
     /* Espaciado optimizado para móviles */
     .featured-projects,
+    .featured-technologies,
     .technologies-section,
     .experience-section {
         padding: 40px 0;
         width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        overflow-x: hidden;
-    }
-    
-    /* Contenedores centrados */
-    .projects-header,
-    .technologies-header,
-    .experience-header {
-        padding: 0 20px;
-        margin-bottom: 40px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin-left: 0;
-        margin-right: 0;
-        box-sizing: border-box;
-        overflow-x: hidden;
-        text-align: center;
-        overflow: visible;
-    }
-    
-    .projects-header h2,
-    .technologies-header h2,
-    .experience-header h2 {
-        width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        text-align: center;
-        margin: 0 auto 15px auto;
-    }
-    
-    .projects-header p,
-    .technologies-header p,
-    .experience-header p {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0 10px;
-    }
-    
-    /* Grid responsive */
-    .projects-grid {
-        padding: 0 10px;
-        gap: 20px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    
-    .tech-graph {
-        padding: 0 10px;
-        gap: 20px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    
-    .experience-grid {
-        padding: 0 10px;
-        gap: 20px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    
-    /* Tarjetas centradas */
-    .project-card,
-    .tech-category {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 12px;
-        box-sizing: border-box;
         overflow-x: hidden;
     }
 }
 
-@media (max-width: 500px) {
+/* Estilos para MacBook Air M1 y pantallas similares */
+@media (max-width: 1440px) {
     .main-layout {
-        padding-top: 70px;
         width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        padding-left: 0;
-        padding-right: 0;
-        overflow-x: hidden;
-        box-sizing: border-box;
-    }
-    
-    .featured-projects,
-    .technologies-section,
-    .experience-section {
-        padding: 40px 0;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        overflow-x: hidden;
-        box-sizing: border-box;
-    }
-    
-    .projects-header,
-    .technologies-header,
-    .experience-header {
-        padding: 0 20px;
-        margin-bottom: 30px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin-left: 0;
-        margin-right: 0;
-        overflow-x: hidden;
-        box-sizing: border-box;
-        overflow: visible;
-    }
-    
-    .projects-grid,
-    .tech-graph,
-    .experience-grid {
-        padding: 0 15px;
-        gap: 25px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        overflow-x: hidden;
-        box-sizing: border-box;
-    }
-    
-    .project-card,
-    .tech-category {
-        padding: 18px;
-        border-radius: 10px;
-        box-sizing: border-box;
-    }
-}
-
-@media (max-width: 390px) {
-    .main-layout {
-        padding-top: 55px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        padding-left: 0;
-        padding-right: 0;
+        max-width: 100%;
         overflow-x: hidden;
     }
     
     .featured-projects,
+    .featured-technologies,
     .technologies-section,
     .experience-section {
-        padding: 25px 0;
         width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
+        max-width: 100%;
         overflow-x: hidden;
-    }
-    
-    .projects-header,
-    .technologies-header,
-    .experience-header {
-        padding: 0 10px;
-        margin-bottom: 20px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin-left: 0;
-        margin-right: 0;
-        overflow-x: hidden;
-    }
-    
-    .projects-grid,
-    .tech-graph,
-    .experience-grid {
-        padding: 0 6px;
-        gap: 12px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        overflow-x: hidden;
-    }
-    
-    .project-card,
-    .tech-category {
-        padding: 14px;
-        border-radius: 8px;
     }
 }
 
-@media (max-width: 320px) {
+/* Estilos para pantallas medianas */
+@media (max-width: 1024px) {
     .main-layout {
-        padding-top: 50px;
         width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        padding-left: 0;
-        padding-right: 0;
+        max-width: 100%;
         overflow-x: hidden;
     }
     
     .featured-projects,
+    .featured-technologies,
     .technologies-section,
     .experience-section {
-        padding: 20px 0;
         width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
+        max-width: 100%;
         overflow-x: hidden;
-    }
-    
-    .projects-header,
-    .technologies-header,
-    .experience-header {
-        padding: 0 8px;
-        margin-bottom: 18px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin-left: 0;
-        margin-right: 0;
-        overflow-x: hidden;
-    }
-    
-    .projects-grid,
-    .tech-graph,
-    .experience-grid {
-        padding: 0 5px;
-        gap: 10px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        overflow-x: hidden;
-    }
-    
-    .project-card,
-    .tech-category {
-        padding: 12px;
-        border-radius: 6px;
     }
 }
 
-/* Mejoras de espaciado vertical */
+/* Estilos para tablets */
 @media (max-width: 768px) {
-    .home-about {
-        margin-bottom: 20px;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .featured-projects {
-        margin-bottom: 20px;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .technologies-section {
-        margin-bottom: 20px;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .experience-section {
-        margin-bottom: 20px;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-}
-
-/* Optimizaciones para orientación landscape en móviles */
-@media (max-width: 768px) and (orientation: landscape) {
     .main-layout {
-        padding-top: 40px;
         width: 100%;
+        max-width: 100%;
         overflow-x: hidden;
     }
     
     .featured-projects,
+    .featured-technologies,
     .technologies-section,
     .experience-section {
-        padding: 25px 0;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .projects-header,
-    .technologies-header,
-    .experience-header {
-        margin-bottom: 20px;
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
     }
 }
 
-/* Mejoras de contraste y legibilidad en móviles */
-@media (max-width: 768px) {
-    .project-card,
-    .tech-category {
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    
-    .project-card:hover,
-    .tech-category:hover {
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-    }
-    
-    /* Asegurar que las tarjetas no se desborden */
-    .project-card {
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 20px;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .tech-category {
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 20px;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-}
-
-/* Optimizaciones de rendimiento para móviles */
-@media (max-width: 768px) {
-    * {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-    }
-    
-    .project-card,
-    .tech-category,
-    .nav-arrow {
-        will-change: transform;
-    }
-    
-    /* Mejorar el rendimiento del scroll */
-    .projects-grid,
-    .tech-graph {
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-    }
-    
-    /* Manejo del zoom en mobile */
-    .project-card {
-        overflow: visible !important;
-        transform-origin: center center !important;
-        -webkit-transform-origin: center center !important;
-        box-sizing: border-box !important;
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    .project-card .MuiCardContent-root {
-        overflow: visible !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Prevenir corte durante zoom */
-    .projects-grid {
-        overflow: visible !important;
-        box-sizing: border-box !important;
-        padding: 0 15px !important;
-    }
-}
-
-/* Mejoras de accesibilidad móvil */
-@media (max-width: 768px) {
-    /* Asegurar que los elementos interactivos sean fáciles de tocar */
-    button,
-    .project-btn,
-    .nav-arrow {
-        min-height: 44px;
-        min-width: 44px;
-    }
-    
-    /* Mejorar espaciado para dedos */
-    .project-actions {
-        gap: 12px;
-    }
-    
-    /* Asegurar que las tarjetas sean táctiles */
-    .project-card,
-    .tech-category {
-        cursor: pointer;
-        -webkit-tap-highlight-color: rgba(78, 205, 196, 0.1);
-    }
-}
-
-/* Soporte para iPhone con notch */
-@supports (padding: max(0px)) {
+/* Estilos para móviles */
+@media (max-width: 480px) {
     .main-layout {
-        padding-left: max(0px, env(safe-area-inset-left));
-        padding-right: max(0px, env(safe-area-inset-right));
-    }
-    
-    .featured-projects,
-    .technologies-section,
-    .experience-section {
-        padding-left: max(0px, env(safe-area-inset-left));
-        padding-right: max(0px, env(safe-area-inset-right));
-    }
-    
-    .projects-header,
-    .technologies-header,
-    .experience-header {
-        padding-left: max(0px, env(safe-area-inset-left) + 10px);
-        padding-right: max(0px, env(safe-area-inset-right) + 10px);
-    }
-}
-
-/* Mejoras para dispositivos de alta densidad */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .project-card,
-    .tech-category {
-        border-width: 1px;
-    }
-    
-    .nav-arrow {
-        border-width: 1px;
-    }
-}
-
-/* Optimizaciones para dispositivos con pantallas OLED */
-@media (prefers-color-scheme: dark) {
-    .project-card,
-    .tech-category {
-        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-    }
-}
-
-/* Mejoras para dispositivos con modo de ahorro de batería */
-@media (prefers-reduced-motion: reduce) {
-    .project-card,
-    .tech-category,
-    .nav-arrow {
-        transition: none;
-    }
-    
-    .project-icon {
-        animation: none;
-    }
-}
-
-/* Mejoras específicas para el carrusel en móviles */
-@media (max-width: 768px) {
-    .project-carousel {
-        position: relative;
-        overflow: hidden;
         width: 100%;
         max-width: 100%;
-    }
-    
-    .projects-grid {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .nav-arrow {
-        position: absolute;
-        z-index: 10;
-        background: rgba(0, 0, 0, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-    
-    .nav-arrow.prev-arrow {
-        left: 8px;
-    }
-    
-    .nav-arrow.next-arrow {
-        right: 8px;
-    }
-    
-    .nav-arrow:active {
-        background: rgba(78, 205, 196, 0.3);
-        border-color: #4ecdc4;
-    }
-}
-
-/* Mejoras para pantallas muy pequeñas */
-@media (max-width: 320px) {
-    .main-layout {
-        padding-top: 35px;
-        width: 100%;
         overflow-x: hidden;
     }
     
     .featured-projects,
+    .featured-technologies,
     .technologies-section,
     .experience-section {
-        padding: 20px 0;
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
-    }
-    
-    .projects-header,
-    .technologies-header,
-    .experience-header {
-        padding: 0 6px;
-        margin-bottom: 15px;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .projects-header h2,
-    .technologies-header h2,
-    .experience-header h2 {
-        width: 100%;
-        max-width: 100%;
-        font-size: 26px;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-    }
-    
-    .projects-header p,
-    .technologies-header p,
-    .experience-header p {
-        width: 100%;
-        max-width: 100%;
-        font-size: 14px;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        padding: 0 5px;
-    }
-    
-    .projects-grid {
-        padding: 0 5px;
-        gap: 10px;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .tech-graph {
-        padding: 0 5px;
-        gap: 10px;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .project-card,
-    .tech-category {
-        padding: 15px;
-        border-radius: 15px;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow: visible;
-        transform-origin: center center;
-        -webkit-transform-origin: center center;
     }
 }
 
-/* Reglas específicas para manejar zoom en mobile */
-@media (max-width: 768px) {
-    /* Prevenir corte durante zoom */
-    .project-card {
-        overflow: visible !important;
-        transform-origin: center center !important;
-        -webkit-transform-origin: center center !important;
-        box-sizing: border-box !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+/* Asegurar que todos los elementos no causen overflow horizontal */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos específicos para contenedores de grid */
+.projects-grid,
+.technologies-grid {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Estilos para tarjetas */
+.project-card,
+.technology-card {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Estilos para navegación móvil */
+.mobile-nav-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Estilos para botones */
+.project-btn,
+.technology-btn,
+.nav-arrow {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos para texto */
+.project-title,
+.technology-title,
+.project-description,
+.technology-description {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Estilos para highlights */
+.project-highlight,
+.technology-highlight {
+    max-width: 100%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+/* Estilos para iconos */
+.project-icon,
+.technology-icon {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos para headers */
+.projects-header,
+.technologies-header {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Estilos para carruseles */
+.project-carousel,
+.technology-carousel {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Estilos para secciones de ver más */
+.view-more-section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Estilos para botones de ver más */
+.view-more-btn {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Prevenir overflow en elementos con position absolute */
+.absolute-positioned {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos para elementos con transform */
+.transformed {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos para pseudo-elementos */
+*::before,
+*::after {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos específicos para Safari */
+@supports (-webkit-appearance: none) {
+    .main-layout,
+    .featured-projects,
+    .featured-technologies,
+    .technologies-section,
+    .experience-section {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
-    
-    .project-card .MuiCardContent-root {
-        overflow: visible !important;
-        box-sizing: border-box !important;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+}
+
+/* Estilos para Chrome */
+@supports (display: grid) {
+    .main-layout,
+    .featured-projects,
+    .featured-technologies,
+    .technologies-section,
+    .experience-section {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
-    
-    .projects-grid {
-        overflow: visible !important;
-        box-sizing: border-box !important;
-        padding: 0 15px !important;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+}
+
+/* Estilos para Firefox */
+@-moz-document url-prefix() {
+    .main-layout,
+    .featured-projects,
+    .featured-technologies,
+    .technologies-section,
+    .experience-section {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
-    
-    /* Mejorar el manejo del zoom */
-    .project-card:hover {
-        transform: translateY(-10px) scale(1.02) !important;
-        -webkit-transform: translateY(-10px) scale(1.02) !important;
-    }
-    
-    /* Asegurar que el contenido no se corte */
-    .project-card * {
-        box-sizing: border-box;
-        overflow: visible;
-    }
-} 
+}

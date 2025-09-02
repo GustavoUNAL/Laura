@@ -1,0 +1,73 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vrGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2d2d2d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="vrAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#vrGradient)"/>
+  
+  <!-- VR Headset -->
+  <g transform="translate(200, 125)">
+    <!-- Main headset body -->
+    <ellipse cx="0" cy="0" rx="80" ry="50" fill="url(#vrAccent)" opacity="0.8"/>
+    <ellipse cx="0" cy="0" rx="70" ry="40" fill="#1a1a1a"/>
+    
+    <!-- Lenses -->
+    <ellipse cx="-25" cy="0" rx="20" ry="15" fill="#000000" opacity="0.8"/>
+    <ellipse cx="25" cy="0" rx="20" ry="15" fill="#000000" opacity="0.8"/>
+    
+    <!-- Headband -->
+    <path d="M-60 -30 Q-80 -20 -60 -10 L-60 10 Q-80 20 -60 30" stroke="url(#vrAccent)" stroke-width="8" fill="none"/>
+    <path d="M60 -30 Q80 -20 60 -10 L60 10 Q80 20 60 30" stroke="url(#vrAccent)" stroke-width="8" fill="none"/>
+  </g>
+  
+  <!-- STEAM elements floating around -->
+  <g fill="url(#vrAccent)" opacity="0.6">
+    <!-- Science -->
+    <circle cx="80" cy="60" r="8"/>
+    <text x="80" y="65" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10">S</text>
+    
+    <!-- Technology -->
+    <circle cx="320" cy="80" r="8"/>
+    <text x="320" y="85" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10">T</text>
+    
+    <!-- Engineering -->
+    <circle cx="70" cy="180" r="8"/>
+    <text x="70" y="185" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10">E</text>
+    
+    <!-- Arts -->
+    <circle cx="330" cy="170" r="8"/>
+    <text x="330" y="175" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10">A</text>
+    
+    <!-- Mathematics -->
+    <circle cx="200" cy="50" r="8"/>
+    <text x="200" y="55" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="10">M</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="url(#vrAccent)" stroke-width="2" opacity="0.4" fill="none">
+    <path d="M80 60 L160 100"/>
+    <path d="M320 80 L240 100"/>
+    <path d="M70 180 L160 140"/>
+    <path d="M330 170 L240 140"/>
+    <path d="M200 50 L200 100"/>
+  </g>
+  
+  <!-- Unity logo representation -->
+  <g transform="translate(50, 200)">
+    <rect x="0" y="0" width="30" height="20" fill="url(#vrAccent)" opacity="0.7" rx="3"/>
+    <text x="15" y="13" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="8">U</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="30" text-anchor="middle" fill="#4ecdc4" font-family="Arial, sans-serif" font-size="18" font-weight="bold">EXPERIENCIAS VR STEAM</text>
+  <text x="200" y="50" text-anchor="middle" fill="#45b7d1" font-family="Arial, sans-serif" font-size="14">Oculus Quest 3</text>
+</svg>

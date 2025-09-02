@@ -1,0 +1,169 @@
+/* Home Layout Specific Styles - MacBook Air M1 Optimized */
+
+/* Ensure all home sections have proper width constraints */
+.featured-projects,
+.featured-technologies,
+.home-about,
+.main-layout {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+}
+
+/* Fix any potential overflow issues */
+.featured-projects *,
+.featured-technologies *,
+.home-about * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure project and technology cards don't overflow */
+.project-card,
+.technology-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix grid layouts */
+.projects-grid,
+.technologies-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure carousels don't overflow */
+.project-carousel,
+.technology-carousel {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix mobile navigation containers */
+.mobile-nav-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure headers don't overflow */
+.projects-header,
+.technologies-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix view more sections */
+.view-more-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* MacBook Air M1 specific adjustments */
+@media (max-width: 1440px) {
+    .featured-projects,
+    .featured-technologies,
+    .home-about,
+    .main-layout {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1441px) {
+    .featured-projects,
+    .featured-technologies,
+    .home-about,
+    .main-layout {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .featured-projects,
+    .featured-technologies,
+    .home-about,
+    .main-layout {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .featured-projects,
+    .featured-technologies,
+    .home-about,
+    .main-layout {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+    .featured-projects,
+    .featured-technologies,
+    .home-about,
+    .main-layout {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* Prevent any element from causing horizontal scroll */
+* {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Specific fixes for common overflow culprits */
+img, svg, video, canvas {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Fix for flex containers */
+.flex-container {
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+}
+
+/* Fix for grid containers */
+.grid-container {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+/* Fix for absolute positioned elements */
+.absolute-positioned {
+    max-width: 100% !important;
+}
+
+/* Fix for transformed elements */
+.transformed {
+    max-width: 100% !important;
+}

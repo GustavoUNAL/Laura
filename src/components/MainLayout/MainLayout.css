@@ -1,7 +1,7 @@
 .main-layout {
     background-color: #1E1E1E;
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     margin: 0;
     padding: 70px 0 0 0;
@@ -16,8 +16,8 @@
 @media (max-width: 768px) {
     .main-layout {
         padding: 65px 0 0 0;
-        width: 100vw;
-        max-width: 100vw;
+        width: 100%;
+        max-width: 100%;
         left: 0;
         right: 0;
         margin: 0;
@@ -43,4 +43,4 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-} 
+}

@@ -7,28 +7,28 @@ const Technologies = () => {
 
     const technologies = [
         {
-            title: "Frontend Development",
-            description: "Tecnologías modernas para crear interfaces de usuario atractivas y funcionales.",
-            icon: "🎨",
-            highlights: ["React", "JavaScript", "HTML5", "CSS3", "TypeScript"]
+            title: "Energías Renovables",
+            description: "Especialización en sistemas fotovoltaicos, hidroeléctricos y microrredes. Diseño, implementación y certificación RETIE de proyectos de generación distribuida.",
+            icon: "⚡",
+            highlights: ["Sistemas FV", "Hidroeléctricas", "Microrredes", "RETIE", "CEDENAR"]
         },
         {
-            title: "Backend Development",
-            description: "Servidores robustos y APIs escalables para aplicaciones web y móviles.",
-            icon: "⚙️",
-            highlights: ["Node.js", "Express", "Python", "MongoDB", "PostgreSQL"]
+            title: "Desarrollo de Software",
+            description: "Plataformas web, middleware industrial y aplicaciones VR. Desarrollo de soluciones tecnológicas para el sector energético y educativo.",
+            icon: "💻",
+            highlights: ["React", "Unity", "AWS", "DNP3", "SCADA"]
         },
         {
-            title: "DevOps & Cloud",
-            description: "Herramientas de desarrollo, despliegue y gestión de infraestructura en la nube.",
-            icon: "🚀",
-            highlights: ["Docker", "Git", "AWS", "CI/CD", "Linux"]
+            title: "Ingeniería Eléctrica",
+            description: "Diseño de sistemas eléctricos de potencia, protecciones adaptativas y análisis de confiabilidad. Especialización en transformadores y coordinación de protecciones.",
+            icon: "🔌",
+            highlights: ["Sistemas de Potencia", "Protecciones", "Transformadores", "NEPLAN", "Análisis"]
         },
         {
-            title: "Mobile Development",
-            description: "Aplicaciones móviles nativas y multiplataforma para iOS y Android.",
-            icon: "📱",
-            highlights: ["React Native", "Flutter", "iOS", "Android", "PWA"]
+            title: "Investigación & Innovación",
+            description: "Investigación académica en eficiencia energética, automatización y digitalización. Desarrollo de gemelos digitales y plataformas educativas STEAM.",
+            icon: "🔬",
+            highlights: ["Investigación", "STEAM", "Gemelos Digitales", "LMS", "VR/AR"]
         }
     ];
 
@@ -58,7 +58,7 @@ const Technologies = () => {
     const handleEmailContact = (techTitle) => {
         const subject = encodeURIComponent(`Consulta sobre tecnología: ${techTitle}`);
         const body = encodeURIComponent(`Hola Gustavo,\n\nMe interesa tu experiencia en "${techTitle}". ¿Podrías contarme más detalles?\n\nSaludos,`);
-        window.location.href = `mailto:gustavo@example.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:gustavoarteaga0508@gmail.com?subject=${subject}&body=${body}`;
     };
 
     const visibleTechnologies = isMobile 
@@ -83,7 +83,7 @@ const Technologies = () => {
         <div className="featured-technologies">
             <div className="technologies-header">
                 <h2>Tecnologías</h2>
-                <p>Herramientas y tecnologías que utilizo para crear soluciones digitales</p>
+                <p>Especializaciones técnicas en energías renovables, desarrollo de software e ingeniería eléctrica</p>
             </div>
             
             <div className="technology-carousel">

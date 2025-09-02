@@ -9,14 +9,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     margin: 0;
     box-sizing: border-box;
     position: relative;
     left: 0;
     right: 0;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Responsive */
@@ -24,48 +25,43 @@
     .home-about {
         padding: 25px 15px 25px;
         min-height: 30vh;
-        width: 100vw;
-        max-width: 100vw;
+        width: 100%;
+        max-width: 100%;
         font-size: 22px;
         line-height: 1.5;
         left: 0;
         right: 0;
         margin: 0;
+        overflow-x: hidden;
     }
 }
 
 @media (max-width: 500px) {
     .home-about {
         padding: 20px 10px 20px;
-        width: 100vw;
-        max-width: 100vw;
+        width: 100%;
+        max-width: 100%;
         font-size: 20px;
         line-height: 1.4;
         min-height: 25vh;
         left: 0;
         right: 0;
         margin: 0;
+        overflow-x: hidden;
     }
 }
 
-/* Soporte para iPhone con notch */
-@supports (padding: max(0px)) {
+/* MacBook Air M1 specific adjustments */
+@media (max-width: 1440px) {
     .home-about {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
-    
-    @media (max-width: 768px) {
-        .home-about {
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-        }
-    }
-    
-    @media (max-width: 500px) {
-        .home-about {
-            padding-left: 10px !important;
-            padding-right: 10px !important;
-        }
-    }
-} 
+}
+
+/* Ensure no horizontal overflow */
+.home-about * {
+    max-width: 100%;
+    box-sizing: border-box;
+}

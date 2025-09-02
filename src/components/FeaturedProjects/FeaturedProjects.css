@@ -2124,3 +2124,71 @@
         100% { width: 70px; }
     }
 } 
+/* Project Cover Image Styles */
+.project-cover {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 20px;
+}
+
+.project-cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-icon-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(78, 205, 196, 0.9);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-cover-image {
+    transform: scale(1.05);
+}
+
+.project-card:hover .project-icon-overlay {
+    transform: scale(1.1);
+    background: rgba(78, 205, 196, 1);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.5);
+}
+
+/* Responsive adjustments for project covers */
+@media (max-width: 768px) {
+    .project-cover {
+        height: 180px;
+    }
+    
+    .project-icon-overlay {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-cover {
+        height: 160px;
+    }
+    
+    .project-icon-overlay {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}

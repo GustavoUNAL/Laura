@@ -1,0 +1,64 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4682B4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E90FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="damGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#696969;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2F4F4F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="400" height="150" fill="#87CEEB"/>
+  
+  <!-- Water reservoir -->
+  <rect x="0" y="100" width="400" height="150" fill="url(#waterGradient)"/>
+  
+  <!-- Dam structure -->
+  <path d="M200 100 L250 100 L250 200 L200 200 Z" fill="url(#damGradient)"/>
+  
+  <!-- Water flow -->
+  <g stroke="#1E90FF" stroke-width="3" fill="none">
+    <path d="M250 120 L280 120"/>
+    <path d="M250 140 L280 140"/>
+    <path d="M250 160 L280 160"/>
+    <path d="M250 180 L280 180"/>
+  </g>
+  
+  <!-- Turbine house -->
+  <rect x="280" y="150" width="60" height="50" fill="url(#damGradient)" rx="5"/>
+  <rect x="290" y="160" width="40" height="30" fill="#1a1a1a" rx="3"/>
+  
+  <!-- Power lines -->
+  <g stroke="#4ecdc4" stroke-width="2" fill="none">
+    <path d="M340 175 L380 175"/>
+    <path d="M340 180 L380 180"/>
+    <path d="M340 185 L380 185"/>
+  </g>
+  
+  <!-- Power poles -->
+  <g stroke="#696969" stroke-width="3" fill="none">
+    <path d="M360 175 L360 200"/>
+    <path d="M380 175 L380 200"/>
+  </g>
+  
+  <!-- Water waves -->
+  <g stroke="#FFFFFF" stroke-width="1" fill="none" opacity="0.6">
+    <path d="M50 120 Q70 115 90 120 T130 120"/>
+    <path d="M50 140 Q70 135 90 140 T130 140"/>
+    <path d="M50 160 Q70 155 90 160 T130 160"/>
+  </g>
+  
+  <!-- Mountains in background -->
+  <g fill="#2F4F4F" opacity="0.7">
+    <path d="M0 100 L50 60 L100 100 Z"/>
+    <path d="M80 100 L130 50 L180 100 Z"/>
+    <path d="M160 100 L210 70 L260 100 Z"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="30" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="bold">PCH DE 1 MW</text>
+  <text x="200" y="50" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="14">Perfil de Ingeniería</text>
+</svg>
