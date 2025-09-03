@@ -228,40 +228,46 @@ function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Hamburger Button - Floating Futuristic */}
         <button 
           onClick={toggleMobileMenu}
           style={{
-            display: 'none',
-            background: 'linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(78, 205, 196, 0.05))',
-            border: '1px solid rgba(78, 205, 196, 0.2)',
-            borderRadius: '12px',
-            padding: '8px',
-            width: '50px',
-            height: '50px',
+            display: isMobileMenuOpen ? 'none' : 'flex',
+            background: 'linear-gradient(135deg, rgba(78, 205, 196, 0.9), rgba(69, 183, 209, 0.8))',
+            border: '2px solid rgba(78, 205, 196, 0.6)',
+            borderRadius: '50%',
+            width: '60px',
+            height: '60px',
             cursor: 'pointer',
             alignItems: 'center',
             justifyContent: 'center',
             transition: 'all 0.3s ease',
-            position: 'relative',
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
             zIndex: 10001,
             WebkitTapHighlightColor: 'transparent',
             WebkitTouchCallout: 'none',
             WebkitUserSelect: 'none',
-            userSelect: 'none'
+            userSelect: 'none',
+            boxShadow: '0 8px 25px rgba(78, 205, 196, 0.4), 0 0 20px rgba(78, 205, 196, 0.2)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)'
           }} className="mobile-hamburger"
           onMouseEnter={(e) => {
-            e.target.style.background = 'linear-gradient(135deg, rgba(78, 205, 196, 0.2), rgba(78, 205, 196, 0.1))';
-            e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
-            e.target.style.transform = 'translateY(-2px)';
+            e.target.style.background = 'linear-gradient(135deg, rgba(78, 205, 196, 1), rgba(69, 183, 209, 0.9))';
+            e.target.style.borderColor = 'rgba(78, 205, 196, 0.8)';
+            e.target.style.transform = 'translateY(-3px) scale(1.05)';
+            e.target.style.boxShadow = '0 12px 35px rgba(78, 205, 196, 0.6), 0 0 30px rgba(78, 205, 196, 0.3)';
           }} onMouseLeave={(e) => {
-            e.target.style.background = 'linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(78, 205, 196, 0.05))';
-            e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
-            e.target.style.transform = 'translateY(0)';
+            e.target.style.background = 'linear-gradient(135deg, rgba(78, 205, 196, 0.9), rgba(69, 183, 209, 0.8))';
+            e.target.style.borderColor = 'rgba(78, 205, 196, 0.6)';
+            e.target.style.transform = 'translateY(0) scale(1)';
+            e.target.style.boxShadow = '0 8px 25px rgba(78, 205, 196, 0.4), 0 0 20px rgba(78, 205, 196, 0.2)';
           }}>
           <div style={{
-            width: '24px',
-            height: '18px',
+            width: '28px',
+            height: '20px',
             position: 'relative',
             display: 'flex',
             flexDirection: 'column',
@@ -269,30 +275,32 @@ function Navbar() {
           }}>
             <span style={{
               width: '100%',
-              height: '2px',
-              background: isMobileMenuOpen ? '#4ecdc4' : '#ffffff',
-              borderRadius: '2px',
+              height: '3px',
+              background: '#ffffff',
+              borderRadius: '3px',
               transition: 'all 0.3s ease',
-              transform: isMobileMenuOpen ? 'rotate(45deg) translate(6px, 6px)' : 'none',
-              transformOrigin: 'center'
+              transform: isMobileMenuOpen ? 'rotate(45deg) translate(7px, 7px)' : 'none',
+              transformOrigin: 'center',
+              boxShadow: '0 0 8px rgba(255, 255, 255, 0.5)'
             }}></span>
             <span style={{
               width: '100%',
-              height: '2px',
-              background: '#ffffff',
-              borderRadius: '2px',
+              height: '3px',
+              background: isMobileMenuOpen ? 'transparent' : '#ffffff',
+              borderRadius: '3px',
               transition: 'all 0.3s ease',
               opacity: isMobileMenuOpen ? 0 : 1,
-              transform: isMobileMenuOpen ? 'scale(0)' : 'none'
+              boxShadow: '0 0 8px rgba(255, 255, 255, 0.5)'
             }}></span>
             <span style={{
               width: '100%',
-              height: '2px',
-              background: isMobileMenuOpen ? '#4ecdc4' : '#ffffff',
-              borderRadius: '2px',
+              height: '3px',
+              background: '#ffffff',
+              borderRadius: '3px',
               transition: 'all 0.3s ease',
-              transform: isMobileMenuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none',
-              transformOrigin: 'center'
+              transform: isMobileMenuOpen ? 'rotate(-45deg) translate(7px, -7px)' : 'none',
+              transformOrigin: 'center',
+              boxShadow: '0 0 8px rgba(255, 255, 255, 0.5)'
             }}></span>
           </div>
         </button>
