@@ -55,7 +55,7 @@ function Navbar() {
       top: 0,
       left: 0,
       right: 0,
-      height: '70px',
+      height: isMobileMenuOpen ? '100vh' : '70px',
       width: '100vw',
       maxWidth: '100vw',
       background: isScrolled 
@@ -66,13 +66,13 @@ function Navbar() {
       boxShadow: '0 4px 30px rgba(0, 0, 0, 0.4)',
       borderBottom: '1px solid rgba(78, 205, 196, 0.1)',
       zIndex: 10000,
-      transition: 'all 0.3s ease',
+      transition: 'all 0.4s ease',
       margin: 0,
       padding: 0,
       boxSizing: 'border-box',
-      overflow: 'hidden',
+      overflow: isMobileMenuOpen ? 'auto' : 'hidden',
       paddingTop: 'env(safe-area-inset-top)',
-      minHeight: 'calc(70px + env(safe-area-inset-top))'
+      minHeight: isMobileMenuOpen ? '100vh' : 'calc(70px + env(safe-area-inset-top))'
     }}>
       {/* Desktop Navigation */}
       <div className="main-navigation" style={{
@@ -309,414 +309,269 @@ function Navbar() {
         </div>
       </button>
 
-      {/* Mobile Menu - Professional Popup */}
+      {/* Mobile Menu - Expanded Navbar */}
       {isMobileMenuOpen && (
-        <>
-          {/* Overlay Background */}
-          <div style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.7)',
-            zIndex: 9998,
-            backdropFilter: 'blur(5px)',
-            WebkitBackdropFilter: 'blur(5px)'
-          }} onClick={closeMobileMenu}></div>
-          
-          {/* Popup Menu */}
-          <div style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '90%',
-          maxWidth: '400px',
-          maxHeight: '80vh',
-          background: 'rgba(20, 20, 20, 0.98)',
+        <div style={{
+          position: 'absolute',
+          top: '70px',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(26, 26, 26, 0.95))',
           backdropFilter: 'blur(25px)',
           WebkitBackdropFilter: 'blur(25px)',
-          border: '2px solid rgba(78, 205, 196, 0.3)',
-          borderRadius: '20px',
-          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(78, 205, 196, 0.2)',
-          zIndex: 9999,
-          padding: '30px 25px',
+          padding: '40px 30px',
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
-          pointerEvents: 'auto',
-          touchAction: 'manipulation',
-          animation: 'popupFadeIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+          animation: 'slideDown 0.4s ease-out'
         }}>
-          
           {/* Close Button */}
-          <button
+          <button 
             onClick={closeMobileMenu}
             style={{
               position: 'absolute',
               top: '15px',
               right: '15px',
-              width: '35px',
-              height: '35px',
               background: 'rgba(78, 205, 196, 0.1)',
               border: '1px solid rgba(78, 205, 196, 0.3)',
               borderRadius: '50%',
+              width: '35px',
+              height: '35px',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#ffffff',
+              color: '#4ECDC4',
               fontSize: '18px',
-              transition: 'all 0.3s ease'
+              transition: 'all 0.3s ease',
+              zIndex: 10001
             }}
             onMouseEnter={(e) => {
               e.target.style.background = 'rgba(78, 205, 196, 0.2)';
-              e.target.style.borderColor = 'rgba(78, 205, 196, 0.5)';
+              e.target.style.transform = 'scale(1.1)';
             }}
             onMouseLeave={(e) => {
               e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-              e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-            }}
-          >
+              e.target.style.transform = 'scale(1)';
+            }}>
             ×
           </button>
 
           {/* Menu Title */}
           <div style={{
             textAlign: 'center',
-            marginBottom: '30px',
-            paddingTop: '10px'
+            marginBottom: '40px',
+            marginTop: '20px'
           }}>
-            <h3 style={{
+            <h2 style={{
               color: '#ffffff',
-              fontSize: '24px',
-              fontWeight: '600',
-              fontFamily: "'Helvetica Neue', sans-serif",
-              margin: '0 0 8px 0',
-              background: 'linear-gradient(45deg, #4ecdc4, #45b7d1)',
+              fontSize: '32px',
+              fontWeight: '700',
+              margin: '0 0 15px 0',
+              background: 'linear-gradient(135deg, #4ECDC4, #44A08D)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text'
             }}>
-              Navegación
-            </h3>
+              Menú
+            </h2>
             <p style={{
-              color: 'rgba(255, 255, 255, 0.6)',
-              fontSize: '14px',
-              margin: '0',
-              fontFamily: "'Helvetica Neue', sans-serif"
+              color: 'rgba(255, 255, 255, 0.7)',
+              fontSize: '18px',
+              margin: 0
             }}>
-              Gustavo Arteaga - Ingeniero Eléctrico
+              Navegación y redes sociales
             </p>
           </div>
 
-          <div className="mobile-menu" style={{
-            width: '100%',
-            maxWidth: '100%',
-            margin: '0',
-            padding: '0',
-            boxSizing: 'border-box'
+          {/* Navigation Links */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+            marginBottom: '40px'
           }}>
-            {/* Navigation Links - Professional Layout */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px',
-              marginBottom: '30px'
-            }}>
-              <Link to="/about" onClick={closeMobileMenu} style={{
+            <Link 
+              to="/about" 
+              onClick={closeMobileMenu}
+              style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
-                color: '#ffffff',
+                gap: '20px',
+                padding: '20px 25px',
+                background: 'rgba(78, 205, 196, 0.05)',
+                border: '1px solid rgba(78, 205, 196, 0.1)',
+                borderRadius: '15px',
                 textDecoration: 'none',
-                fontSize: '18px',
-                fontWeight: '500',
-                fontFamily: "'Helvetica Neue', sans-serif",
-                padding: '16px 20px',
-                background: 'rgba(78, 205, 196, 0.1)',
-                border: '1px solid rgba(78, 205, 196, 0.2)',
-                borderRadius: '12px',
-                transition: 'all 0.3s ease'
-              }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
-                e.target.style.transform = 'translateX(5px)';
-                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
-              }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
-                e.target.style.transform = 'translateX(0)';
-                e.target.style.boxShadow = 'none';
-              }}>
-                <span>👤 Acerca de</span>
-                <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
-              </Link>
-              
-              <Link to="/projects" onClick={closeMobileMenu} style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
                 color: '#ffffff',
-                textDecoration: 'none',
-                fontSize: '18px',
+                fontSize: '20px',
                 fontWeight: '500',
-                fontFamily: "'Helvetica Neue', sans-serif",
-                padding: '16px 20px',
-                background: 'rgba(78, 205, 196, 0.1)',
-                border: '1px solid rgba(78, 205, 196, 0.2)',
-                borderRadius: '12px',
                 transition: 'all 0.3s ease'
-              }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
-                e.target.style.transform = 'translateX(5px)';
-                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
-              }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
-                e.target.style.transform = 'translateX(0)';
-                e.target.style.boxShadow = 'none';
-              }}>
-                <span>💼 Proyectos</span>
-                <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
-              </Link>
-              
-              <Link to="/community" onClick={closeMobileMenu} style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                color: '#ffffff',
-                textDecoration: 'none',
-                fontSize: '18px',
-                fontWeight: '500',
-                fontFamily: "'Helvetica Neue', sans-serif",
-                padding: '16px 20px',
-                background: 'rgba(78, 205, 196, 0.1)',
-                border: '1px solid rgba(78, 205, 196, 0.2)',
-                borderRadius: '12px',
-                transition: 'all 0.3s ease'
-              }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
-                e.target.style.transform = 'translateX(5px)';
-                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
-              }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
-                e.target.style.transform = 'translateX(0)';
-                e.target.style.boxShadow = 'none';
-              }}>
-                <span>🌐 Comunidad</span>
-                <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
-              </Link>
-            </div>
-
-            {/* Social Networks Section */}
-            <div style={{
-              borderTop: '1px solid rgba(78, 205, 196, 0.2)',
-              paddingTop: '25px',
-              marginTop: '20px'
-            }}>
-              <h4 style={{
-                color: '#ffffff',
-                fontSize: '18px',
-                fontWeight: '600',
-                fontFamily: "'Helvetica Neue', sans-serif",
-                margin: '0 0 20px 0',
-                textAlign: 'center'
-              }}>
-                Redes Sociales
-              </h4>
-              
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                gap: '12px'
-              }}>
-                <a href="https://github.com/GustavoUNAL" target="_blank" rel="noopener noreferrer" style={{
-                  flex: 1,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: 'rgba(78, 205, 196, 0.1)',
-                  border: '1px solid rgba(78, 205, 196, 0.2)',
-                  borderRadius: '12px',
-                  padding: '15px',
-                  textDecoration: 'none',
-                  transition: 'all 0.3s ease'
-                }} onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(78, 205, 196, 0.2)';
-                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
-                  e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
-                }} onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = 'none';
-                }}>
-                  <span style={{color: '#ffffff', fontSize: '20px'}}>🐙</span>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/gustavo-arteaga-rodriguez-4b1b1b1b1/" target="_blank" rel="noopener noreferrer" style={{
-                  flex: 1,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: 'rgba(78, 205, 196, 0.1)',
-                  border: '1px solid rgba(78, 205, 196, 0.2)',
-                  borderRadius: '12px',
-                  padding: '15px',
-                  textDecoration: 'none',
-                  transition: 'all 0.3s ease'
-                }} onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(78, 205, 196, 0.2)';
-                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
-                  e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
-                }} onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.boxShadow = 'none';
-                }}>
-                  <span style={{color: '#ffffff', fontSize: '20px'}}>💼</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Mobile Social Links - Compact 3 in a row */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '15px 10px',
-              borderTop: '1px solid rgba(78, 205, 196, 0.2)',
-              background: 'rgba(78, 205, 196, 0.05)',
-              borderRadius: '12px',
-              margin: '0 5px'
-            }}>
-              <a href="https://github.com/GustavoUNAL" target="_blank" rel="noopener noreferrer" style={{
-                flex: 1,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '10px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none'
-              }} onMouseEnter={(e) => {
+              }}
+              onMouseEnter={(e) => {
                 e.target.style.background = 'rgba(78, 205, 196, 0.1)';
                 e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'scale(1.05)';
-              }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.target.style.transform = 'scale(1)';
+                e.target.style.transform = 'translateX(10px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.05)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.transform = 'translateX(0)';
               }}>
-                <img src={github} alt="GitHub" style={{
-                  width: '24px',
-                  height: '24px',
-                  filter: 'brightness(0.9)'
-                }} />
+              <span style={{ fontSize: '24px' }}>👤</span>
+              <span>Acerca de</span>
+              <span style={{ marginLeft: 'auto', fontSize: '18px', color: '#4ECDC4' }}>→</span>
+            </Link>
+
+            <Link 
+              to="/projects" 
+              onClick={closeMobileMenu}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '20px',
+                padding: '20px 25px',
+                background: 'rgba(78, 205, 196, 0.05)',
+                border: '1px solid rgba(78, 205, 196, 0.1)',
+                borderRadius: '15px',
+                textDecoration: 'none',
+                color: '#ffffff',
+                fontSize: '20px',
+                fontWeight: '500',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
+                e.target.style.transform = 'translateX(10px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.05)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.transform = 'translateX(0)';
+              }}>
+              <span style={{ fontSize: '24px' }}>💼</span>
+              <span>Proyectos</span>
+              <span style={{ marginLeft: 'auto', fontSize: '18px', color: '#4ECDC4' }}>→</span>
+            </Link>
+
+            <Link 
+              to="/community" 
+              onClick={closeMobileMenu}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '20px',
+                padding: '20px 25px',
+                background: 'rgba(78, 205, 196, 0.05)',
+                border: '1px solid rgba(78, 205, 196, 0.1)',
+                borderRadius: '15px',
+                textDecoration: 'none',
+                color: '#ffffff',
+                fontSize: '20px',
+                fontWeight: '500',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
+                e.target.style.transform = 'translateX(10px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.05)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.transform = 'translateX(0)';
+              }}>
+              <span style={{ fontSize: '24px' }}>🌐</span>
+              <span>Comunidad</span>
+              <span style={{ marginLeft: 'auto', fontSize: '18px', color: '#4ECDC4' }}>→</span>
+            </Link>
+          </div>
+
+          {/* Social Networks Section */}
+          <div style={{
+            borderTop: '1px solid rgba(78, 205, 196, 0.1)',
+            paddingTop: '30px'
+          }}>
+            <h3 style={{
+              color: '#4ECDC4',
+              fontSize: '22px',
+              fontWeight: '600',
+              margin: '0 0 25px 0',
+              textAlign: 'center'
+            }}>
+              Redes Sociales
+            </h3>
+            
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '25px',
+              flexWrap: 'wrap'
+            }}>
+              <a 
+                href="https://github.com/gustavoarteaga0508" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '15px 25px',
+                  background: 'rgba(78, 205, 196, 0.1)',
+                  border: '1px solid rgba(78, 205, 196, 0.2)',
+                  borderRadius: '12px',
+                  textDecoration: 'none',
+                  color: '#ffffff',
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                  e.target.style.transform = 'scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                  e.target.style.transform = 'scale(1)';
+                }}>
+                <span style={{ fontSize: '20px' }}>🐙</span>
+                <span>GitHub</span>
               </a>
-              
-              <button onClick={handleEmailClick} style={{
-                flex: 1,
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                borderRadius: '8px',
-                padding: '10px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all 0.3s ease'
-              }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'scale(1.05)';
-              }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.target.style.transform = 'scale(1)';
-              }}>
-                <svg style={{
-                  width: '24px',
-                  height: '24px',
-                  color: '#ffffff'
-                }} viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-              </button>
-              
-              <a href="https://www.linkedin.com/in/gustavo-arteaga/" target="_blank" rel="noopener noreferrer" style={{
-                flex: 1,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '10px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none'
-              }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'scale(1.05)';
-              }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.target.style.transform = 'scale(1)';
-              }}>
-                <img src={linkedin} alt="LinkedIn" style={{
-                  width: '24px',
-                  height: '24px',
-                  filter: 'brightness(0.9)'
-                }} />
+
+              <a 
+                href="https://www.linkedin.com/in/gustavo-arteaga-0508/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '15px 25px',
+                  background: 'rgba(78, 205, 196, 0.1)',
+                  border: '1px solid rgba(78, 205, 196, 0.2)',
+                  borderRadius: '12px',
+                  textDecoration: 'none',
+                  color: '#ffffff',
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                  e.target.style.transform = 'scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                  e.target.style.transform = 'scale(1)';
+                }}>
+                <span style={{ fontSize: '20px' }}>💼</span>
+                <span>LinkedIn</span>
               </a>
             </div>
           </div>
         </div>
-        </>
       )}
-
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes popupFadeIn {
-          from {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.8);
-          }
-          to {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-          }
-        }
-      `}</style>
-
-      {/* Simple Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div 
-          onClick={closeMobileMenu}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.3)',
-            zIndex: 1001,
-            pointerEvents: 'auto'
-          }}
-        />
-      )}
-
 
       {/* CSS for animations */}
       <style>{`
@@ -730,300 +585,9 @@ function Navbar() {
             transform: translateY(0);
           }
         }
-        
-        /* Ensure full screen width on all devices */
-        .main-navigation {
-          width: 100vw !important;
-          max-width: 100vw !important;
-          min-width: 100vw !important;
-          left: 0 !important;
-          right: 0 !important;
-          margin: 0 !important;
-          padding: 0 40px !important;
-        }
-        
-        .mobile-menu {
-          width: 100vw !important;
-          max-width: 100vw !important;
-          left: 0 !important;
-          right: 0 !important;
-          margin: 0 !important;
-          z-index: 9999 !important;
-          position: relative !important;
-        }
-        
-        /* iPhone 12 Pro and devices with notch */
-        @supports (padding: max(0px)) {
-          nav {
-            padding-top: max(env(safe-area-inset-top), 0px) !important;
-            min-height: calc(70px + max(env(safe-area-inset-top), 0px)) !important;
-          }
-          
-          .mobile-menu {
-            top: calc(70px + max(env(safe-area-inset-top), 0px)) !important;
-            padding-bottom: max(env(safe-area-inset-bottom), 15px) !important;
-            z-index: 9999 !important;
-          }
-        }
-        
-        /* Specific iPhone and mobile device rules */
-        @media screen and (max-device-width: 768px) {
-          .main-navigation {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            min-width: 100vw !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 !important;
-            padding: 0 15px !important;
-            position: fixed !important;
-            top: 0 !important;
-            padding-top: env(safe-area-inset-top) !important;
-          }
-          
-          .mobile-menu {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 !important;
-            position: fixed !important;
-            top: calc(70px + env(safe-area-inset-top)) !important;
-            padding-bottom: env(safe-area-inset-bottom) !important;
-          }
-        }
-        
-        /* iPhone 12 Pro specific (390x844) */
-        @media screen and (max-width: 390px) and (max-height: 844px) {
-          nav {
-            padding-top: env(safe-area-inset-top) !important;
-            min-height: calc(70px + env(safe-area-inset-top)) !important;
-          }
-          
-          .main-navigation {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            min-width: 100vw !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 !important;
-            padding: 0 15px !important;
-            position: fixed !important;
-            top: 0 !important;
-            padding-top: env(safe-area-inset-top) !important;
-          }
-          
-          .mobile-menu {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 !important;
-            position: fixed !important;
-            top: calc(70px + env(safe-area-inset-top)) !important;
-            padding-bottom: env(safe-area-inset-bottom) !important;
-            z-index: 9999 !important;
-          }
-          
-          .mobile-hamburger {
-            z-index: 10001 !important;
-            position: relative !important;
-          }
-        }
-        
-        /* Specific iPhone rules */
-        @media screen and (max-device-width: 428px) {
-          .main-navigation {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            min-width: 100vw !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 !important;
-            padding: 0 15px !important;
-            position: fixed !important;
-            top: 0 !important;
-            padding-top: env(safe-area-inset-top) !important;
-          }
-          
-          .mobile-menu {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 !important;
-            position: fixed !important;
-            top: calc(70px + env(safe-area-inset-top)) !important;
-            padding-bottom: env(safe-area-inset-bottom) !important;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .desktop-menu, .desktop-social {
-            display: none !important;
-          }
-          .mobile-hamburger {
-            display: flex !important;
-            position: relative !important;
-            z-index: 10000 !important;
-          }
-          
-          .main-navigation {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            min-width: 100vw !important;
-            padding: 0 15px !important;
-            position: relative !important;
-          }
-          
-          .mobile-menu {
-            padding: 0 15px !important;
-            position: relative !important;
-            z-index: 9999 !important;
-            width: 100% !important;
-            max-width: 100% !important;
-          }
-          
-          /* Ensure hamburger button is clickable */
-          .mobile-hamburger {
-            display: flex !important;
-            position: relative !important;
-            z-index: 10000 !important;
-            pointer-events: auto !important;
-            touch-action: manipulation !important;
-          }
-          
-          /* Fix touch targets for mobile */
-          .mobile-hamburger,
-          .mobile-menu a,
-          .mobile-menu button {
-            min-height: 44px !important;
-            min-width: 44px !important;
-          }
-        }
-        
-        @media (min-width: 769px) {
-          .mobile-hamburger {
-            display: none !important;
-          }
-          .mobile-hamburger-global {
-            display: none !important;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .mobile-hamburger-global {
-            display: flex !important;
-          }
-        }
-        
-        /* Ensure no horizontal scroll */
-        body, html {
-          overflow-x: hidden !important;
-          width: 100% !important;
-          max-width: 100% !important;
-        }
-        
-        /* Force full width on mobile */
-        @media screen and (max-width: 768px) {
-          body, html, #root, .App {
-            width: 100% !important;
-            max-width: 100% !important;
-            left: 0 !important;
-            right: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            overflow-x: hidden !important;
-          }
-        }
-        
-        /* Additional mobile optimizations */
-        @media (max-width: 768px) {
-          /* Improve touch responsiveness */
-          .mobile-hamburger:active {
-            transform: scale(0.95) !important;
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.3), rgba(78, 205, 196, 0.2)) !important;
-          }
-          
-          /* Better mobile menu animations and visibility */
-          .mobile-menu {
-            animation: slideDown 0.3s ease-out !important;
-            position: fixed !important;
-            top: calc(70px + env(safe-area-inset-top)) !important;
-            left: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            z-index: 9999 !important;
-            background: linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(26, 26, 26, 0.95)) !important;
-            backdrop-filter: blur(25px) !important;
-            -webkit-backdrop-filter: blur(25px) !important;
-            overflow-y: auto !important;
-            -webkit-overflow-scrolling: touch !important;
-            padding-bottom: env(safe-area-inset-bottom) !important;
-          }
-          
-          /* iOS Safari specific fixes */
-          @supports (-webkit-touch-callout: none) {
-            .mobile-menu {
-              -webkit-transform: translateZ(0) !important;
-              transform: translateZ(0) !important;
-              will-change: transform !important;
-            }
-            
-            .mobile-hamburger {
-              -webkit-tap-highlight-color: transparent !important;
-              -webkit-touch-callout: none !important;
-            }
-          }
-          
-          /* Improve social links layout for small screens */
-          .mobile-menu .social-links-container {
-            display: flex !important;
-            justify-content: space-between !important;
-            gap: 8px !important;
-            padding: 12px 8px !important;
-          }
-          
-          .mobile-menu .social-links-container a,
-          .mobile-menu .social-links-container button {
-            flex: 1 !important;
-            min-height: 44px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-          }
-        }
-        
-        /* Very small screens optimization */
-        @media (max-width: 375px) {
-          .mobile-menu {
-            padding: 10px 0 !important;
-          }
-          
-          .mobile-menu .navigation-links {
-            gap: 6px !important;
-            margin-bottom: 15px !important;
-          }
-          
-          .mobile-menu .navigation-links a {
-            padding: 10px 12px !important;
-            font-size: 15px !important;
-          }
-          
-          .mobile-menu .social-links-container {
-            padding: 10px 6px !important;
-            gap: 6px !important;
-          }
-          
-          .mobile-menu .social-links-container img,
-          .mobile-menu .social-links-container svg {
-            width: 20px !important;
-            height: 20px !important;
-          }
-        }
       `}</style>
     </nav>
   );
 }
 
-export default Navbar; 
+export default Navbar;
