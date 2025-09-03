@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 import './Community.css';
+import avatarImg from '../../img/profile3.jpeg';
 
 function Community() {
   const [username, setUsername] = useState('');
@@ -22,8 +23,10 @@ function Community() {
         <div className="login-card">
           <div className="login-header">
             <div className="login-badge">Comunidad</div>
+            <div className="login-avatar-wrap">
+              <img className="login-avatar" src={avatarImg} alt="Avatar" />
+            </div>
             <h1>Iniciar sesión</h1>
-            <p>Ingresa para participar en la comunidad.</p>
           </div>
 
           <form className="login-form" onSubmit={handleSubmit}>
