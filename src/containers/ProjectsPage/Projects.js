@@ -20,7 +20,6 @@ import digitalTwin from '../../img/projects/digital-twin.svg';
 import mobileApp from '../../img/projects/solar-commercial.svg';
 import vrIndustrial from '../../img/projects/vr-industrial.svg';
 import vrCurve from '../../img/projects/vr-curve.svg';
-import vrSteam from '../../img/projects/vr-steam.svg';
 import hologramGaleras from '../../img/projects/hologram-galeras.svg';
 import dnp3Gateway from '../../img/projects/dnp3-gateway.svg';
 import gatewayCurve from '../../img/projects/gateway-curve.svg';

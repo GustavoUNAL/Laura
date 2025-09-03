@@ -39,7 +39,7 @@ function Community() {
   <circle cx='128' cy='32' r='6' fill='rgba(78,205,196,0.6)'/>
   <circle cx='24' cy='120' r='4' fill='rgba(69,183,209,0.6)'/>
   <circle cx='136' cy='112' r='3' fill='rgba(69,183,209,0.6)'/>
-</svg>`)}" alt="Avatar" />
+</svg>`)}`} alt="Avatar" />
             </div>
           </div>
 

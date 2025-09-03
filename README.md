@@ -49,6 +49,9 @@ Portafolio profesional desarrollado en React con una arquitectura modular y comp
 - `src/containers/ProjectsPage/` - Página de proyectos
   - `Projects.js` - Lista completa de proyectos
   - `Projects.css` - Estilos generales de la página
+- `src/containers/CommunityPage/` - Comunidad (Login)
+  - `Community.js` - Vista de inicio de sesión
+  - `Community.css` - Estilos del login
 
 #### **Componentes de UI**
 - `src/components/Footer/` - Pie de página
@@ -96,6 +99,11 @@ Portafolio profesional desarrollado en React con una arquitectura modular y comp
 - Popups con información detallada
 - Botones de contacto WhatsApp
 - Grid responsive de tarjetas
+- Imágenes únicas generadas por tarjeta (SVG temáticos, colores en armonía con el tema)
+
+### **Comunidad**
+- Página `/community` con formulario de login (usuario/contraseña)
+- Avatar genérico SVG y tarjeta compacta, centrada y coherente con la paleta
 
 ### **Experiencia**
 - Métricas destacadas
@@ -156,6 +164,15 @@ src/
    ```bash
    npm run build
    ```
+
+5. **Despliegue**
+   - Realiza commit de cambios finales y push a `main`.
+   - Sirve la carpeta `build/` en tu hosting (Netlify/Vercel/GH Pages o servidor propio).
+
+## 📝 Notas de Implementación Reciente
+
+- Generador SVG por proyecto: ahora cada tarjeta tiene una imagen distinta basada en su contenido (paleta y iconografía temáticas), mejor integrada al esquema de color general.
+- Comunidad: nueva vista de login en `/community`, con tarjeta reducida al 50% de ancho (responsive), avatar genérico SVG y estilos consistentes con el tema.
 
 ## ✨ Ventajas de la Nueva Estructura
 
