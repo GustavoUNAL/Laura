@@ -489,23 +489,12 @@ function Navbar() {
             </Link>
           </div>
 
-          {/* Social Networks Section */}
+          {/* Contact Section */}
           <div style={{
             borderTop: '1px solid rgba(78, 205, 196, 0.2)',
             paddingTop: '25px',
             marginTop: '20px'
           }}>
-            <h4 style={{
-              color: '#ffffff',
-              fontSize: '18px',
-              fontWeight: '600',
-              fontFamily: "'Helvetica Neue', sans-serif",
-              margin: '0 0 20px 0',
-              textAlign: 'center'
-            }}>
-              Redes Sociales
-            </h4>
-            
             <div style={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -539,6 +528,37 @@ function Navbar() {
                   filter: 'brightness(0.9)'
                 }} />
               </a>
+              
+              <button onClick={handleEmailClick} style={{
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
+                padding: '15px',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }} onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
+              }} onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = 'none';
+              }}>
+                <svg style={{
+                  width: '24px',
+                  height: '24px',
+                  color: '#ffffff'
+                }} viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </button>
               
               <a href="https://www.linkedin.com/in/gustavo-arteaga-0508/" target="_blank" rel="noopener noreferrer" style={{
                 flex: 1,
