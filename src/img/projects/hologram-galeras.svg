@@ -1,0 +1,58 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="holoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#bgGradient)"/>
+  
+  <!-- Hologram pyramid -->
+  <g transform="translate(200, 125)">
+    <!-- Pyramid faces -->
+    <path d="M0 -70 L50 30 L-50 30 Z" fill="url(#holoGradient)" opacity="0.3"/>
+    <path d="M0 -70 L50 30 L0 0 Z" fill="url(#holoGradient)" opacity="0.4"/>
+    <path d="M0 -70 L-50 30 L0 0 Z" fill="url(#holoGradient)" opacity="0.2"/>
+    
+    <!-- Volcano hologram -->
+    <path d="M-30 0 L0 -40 L30 0 Z" fill="url(#holoGradient)" opacity="0.6">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Lava flow -->
+    <path d="M-5 -20 Q0 -15 5 -20 T15 -25" stroke="url(#holoGradient)" stroke-width="2" fill="none" opacity="0.8">
+      <animate attributeName="d" values="M-5 -20 Q0 -15 5 -20 T15 -25;M-5 -18 Q0 -13 5 -18 T15 -23;M-5 -20 Q0 -15 5 -20 T15 -25" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Holographic particles -->
+  <g fill="url(#holoGradient)">
+    <circle cx="180" cy="100" r="2" opacity="0.6">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="120" r="2" opacity="0.6">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="200" cy="140" r="2" opacity="0.6">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+  </g>
+  
+  <!-- Scan lines -->
+  <g stroke="url(#holoGradient)" stroke-width="1" opacity="0.2">
+    <line x1="100" y1="50" x2="300" y2="50">
+      <animate attributeName="y1" values="50;200;50" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;200;50" dur="4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="30" text-anchor="middle" fill="#4ecdc4" font-family="Arial, sans-serif" font-size="18" font-weight="bold">HOLOGRAFÍA VOLCÁN GALERAS</text>
+  <text x="200" y="50" text-anchor="middle" fill="#45b7d1" font-family="Arial, sans-serif" font-size="14">Visualización 3D</text>
+</svg>

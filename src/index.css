@@ -7,8 +7,8 @@
 html {
     scroll-behavior: smooth;
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width: none;
+    overflow-x: auto;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
@@ -23,9 +23,9 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    max-width: 100%;
+    max-width: none;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: auto;
     line-height: 1.6;
 }
 
@@ -33,10 +33,10 @@ body {
     background-color: #1E1E1E;
     min-height: 100vh;
     width: 100%;
-    max-width: 100%;
+    max-width: none;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 code {
@@ -44,14 +44,34 @@ code {
         monospace;
 }
 
-/* Eliminar cualquier scroll horizontal y líneas blancas */
+/* Cobertura perfecta de pantalla con scroll vertical y ancho perfecto */
 html, body, #root, .App {
     overflow-x: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    overflow-y: auto !important;
+    width: 100vw !important;
+    max-width: none !important;
     background-color: #1E1E1E !important;
     margin: 0 !important;
     padding: 0 !important;
+    min-height: 100vh !important;
+    min-width: 100vw !important;
+    box-sizing: border-box !important;
+}
+
+/* Eliminar líneas blancas y asegurar fondo completo */
+* {
+    background-color: #1E1E1E !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Específicamente para header y footer */
+nav, .footer, .main-layout, .home-about, .featured-projects, .featured-technologies {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
 }
 
 /* Asegurar que no haya elementos que causen overflow horizontal */
@@ -63,8 +83,8 @@ html, body, #root, .App {
 @media screen and (max-width: 1440px) {
     html, body, #root, .App {
         width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
+        max-width: none !important;
+        overflow-x: auto !important;
     }
 }
 
@@ -72,8 +92,8 @@ html, body, #root, .App {
 @media screen and (max-width: 1024px) {
     html, body, #root, .App {
         width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
+        max-width: none !important;
+        overflow-x: auto !important;
     }
 }
 
@@ -81,8 +101,8 @@ html, body, #root, .App {
 @media screen and (max-width: 768px) {
     html, body, #root, .App {
         width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
+        max-width: none !important;
+        overflow-x: auto !important;
     }
 }
 
@@ -90,23 +110,184 @@ html, body, #root, .App {
 @media screen and (max-width: 480px) {
     html, body, #root, .App {
         width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
+        max-width: none !important;
+        overflow-x: auto !important;
     }
 }
 
-/* Prevenir scroll horizontal en todos los contenedores */
-.container, .main-layout, .featured-projects, .featured-technologies {
+/* Permitir scroll horizontal en contenedores */
+.container, .featured-projects, .featured-technologies {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Main layout con ancho completo de pantalla */
+.main-layout {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    min-height: calc(100vh - 70px);
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+}
+
+/* Secciones con ancho completo de pantalla y espaciado optimizado */
+.featured-projects,
+.featured-technologies {
+    width: 100vw !important;
+    min-height: 100vh !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+}
+
+/* Footer con ancho completo de pantalla */
+.footer {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    left: 0 !important;
+    position: relative !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
+    margin: 0 !important;
+}
+
+/* Estilos globales para ocupar todo el ancho de pantalla */
+.navbar,
+.main-navigation,
+.main-layout,
+.footer {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* Asegurar que el contenido principal ocupe todo el ancho */
+.main-layout {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+/* Navbar específico para ocupar todo el ancho */
+.navbar,
+.main-navigation {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* Footer específico para ocupar todo el ancho */
+.footer {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    overflow-x: hidden !important;
 }
 
 /* Asegurar que las imágenes no causen overflow */
 img {
     max-width: 100% !important;
     height: auto !important;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    .navbar,
+    .main-navigation {
+        padding: 0 15px !important;
+    }
+    
+    .main-layout {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+    }
+    
+    .footer {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar,
+    .main-navigation {
+        padding: 0 10px !important;
+    }
+    
+    .main-layout {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+    }
+    
+    .footer {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+    }
+}
+
+/* Asegurar que el body y html también ocupen todo el ancho */
+html, body {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+}
+
+/* Asegurar que el contenedor raíz también ocupe todo el ancho */
+#root, .App {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
 }
 
 /* Prevenir que los elementos con width fijo causen problemas */
@@ -127,36 +308,36 @@ nav {
 /* Asegurar que los elementos flex no causen overflow */
 .flex-container {
     flex-wrap: wrap !important;
-    max-width: 100% !important;
+    max-width: none !important;
 }
 
 /* Estilos para grid layouts */
 .grid-container {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
+    max-width: none !important;
+    overflow-x: auto !important;
 }
 
-/* Prevenir overflow en elementos con position absolute */
+/* Permitir overflow en elementos con position absolute */
 .absolute-element {
-    max-width: 100% !important;
+    max-width: none !important;
 }
 
 /* Estilos para elementos con transform */
 .transformed-element {
-    max-width: 100% !important;
+    max-width: none !important;
 }
 
-/* Asegurar que los pseudo-elementos no causen overflow */
+/* Permitir overflow en pseudo-elementos */
 *::before, *::after {
-    max-width: 100% !important;
+    max-width: none !important;
 }
 
 /* Estilos específicos para Safari */
 @supports (-webkit-appearance: none) {
     html, body, #root, .App {
         width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
+        max-width: none !important;
+        overflow-x: auto !important;
     }
 }
 
@@ -164,8 +345,8 @@ nav {
 @supports (display: grid) {
     html, body, #root, .App {
         width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
+        max-width: none !important;
+        overflow-x: auto !important;
     }
 }
 
@@ -173,7 +354,7 @@ nav {
 @-moz-document url-prefix() {
     html, body, #root, .App {
         width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
+        max-width: none !important;
+        overflow-x: auto !important;
     }
 }

@@ -1,10 +1,18 @@
 .featured-technologies {
-    padding: 30px 20px;
-    min-height: auto;
+    padding: 80px 40px 60px 40px;
+    width: 100vw !important;
+    min-height: 100vh !important;
+    min-width: 100vw !important;
+    max-width: none !important;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    margin: 0;
+    background-color: #1E1E1E;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
 }
 
 .featured-technologies:hover {
@@ -68,21 +76,20 @@
 
 .technology-carousel {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
     box-sizing: border-box;
 }
 
 .technologies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .technology-card {

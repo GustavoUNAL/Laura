@@ -3,13 +3,6 @@ import './Background.css';
 
 const Background = () => {
 
-    const handleEmailContact = () => {
-        const subject = 'Contacto desde Experiencia';
-        const body = 'Hola Gustavo,\n\nMe gustaría contactarme contigo para hablar sobre tu experiencia y posibles oportunidades.\n\nSaludos cordiales.';
-        const mailtoUrl = `mailto:gustavoarteaga0508@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoUrl;
-    };
-
     const experiences = [
         {
             icon: '☀️',
@@ -70,14 +63,6 @@ const Background = () => {
                             )}
                         </div>
                     ))}
-                </div>
-                <div className="text-center mb-16">
-                    <button
-                        onClick={handleEmailContact}
-                        className="contact-button"
-                    >
-                        <span>Contactar</span>
-                    </button>
                 </div>
             </div>
         </section>

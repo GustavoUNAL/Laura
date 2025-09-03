@@ -56,7 +56,8 @@ function Navbar() {
       left: 0,
       right: 0,
       height: '70px',
-      width: '100%',
+      width: '100vw',
+      maxWidth: '100vw',
       background: isScrolled 
         ? 'linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(26, 26, 26, 0.95))' 
         : 'linear-gradient(135deg, #121212, #1a1a1a)',
@@ -68,17 +69,19 @@ function Navbar() {
       transition: 'all 0.3s ease',
       margin: 0,
       padding: 0,
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      overflow: 'hidden'
     }}>
       {/* Desktop Navigation */}
-      <div style={{
+      <div className="main-navigation" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        maxWidth: '100%',
-        margin: '0',
-        padding: '0 20px',
+        maxWidth: '1400px',
+        minWidth: '320px',
+        margin: '0 auto',
+        padding: '0 40px',
         height: '100%',
         boxSizing: 'border-box'
       }}>
@@ -301,11 +304,11 @@ function Navbar() {
           padding: '20px 0',
           animation: 'slideDown 0.3s ease-out'
         }}>
-          <div style={{
+          <div className="mobile-menu" style={{
             width: '100%',
             maxWidth: '100%',
             margin: '0',
-            padding: '0 20px',
+            padding: '0 15px',
             boxSizing: 'border-box'
           }}>
             <Link to="/about" onClick={closeMobileMenu} style={{
@@ -508,14 +511,15 @@ function Navbar() {
           }
         }
         
-        /* Ensure full width on all devices */
+        /* Ensure full screen width on all devices */
         .main-navigation {
           width: 100vw !important;
           max-width: 100vw !important;
+          min-width: 100vw !important;
           left: 0 !important;
           right: 0 !important;
           margin: 0 !important;
-          padding: 0 !important;
+          padding: 0 40px !important;
         }
         
         .mobile-menu {
@@ -531,10 +535,11 @@ function Navbar() {
           .main-navigation {
             width: 100vw !important;
             max-width: 100vw !important;
+            min-width: 100vw !important;
             left: 0 !important;
             right: 0 !important;
             margin: 0 !important;
-            padding: 0 !important;
+            padding: 0 15px !important;
             position: fixed !important;
             top: 0 !important;
           }
@@ -555,10 +560,11 @@ function Navbar() {
           .main-navigation {
             width: 100vw !important;
             max-width: 100vw !important;
+            min-width: 100vw !important;
             left: 0 !important;
             right: 0 !important;
             margin: 0 !important;
-            padding: 0 !important;
+            padding: 0 15px !important;
             position: fixed !important;
             top: 0 !important;
           }
@@ -585,6 +591,19 @@ function Navbar() {
           .main-navigation {
             width: 100vw !important;
             max-width: 100vw !important;
+            min-width: 100vw !important;
+          }
+          
+          /* Adjust padding for mobile */
+          .main-navigation {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            min-width: 100vw !important;
+            padding: 0 15px !important;
+          }
+          
+          .mobile-menu {
+            padding: 0 15px !important;
           }
         }
         
@@ -604,8 +623,8 @@ function Navbar() {
         /* Force full width on mobile */
         @media screen and (max-width: 768px) {
           body, html, #root, .App {
-            width: 100vw !important;
-            max-width: 100vw !important;
+            width: 100% !important;
+            max-width: 100% !important;
             left: 0 !important;
             right: 0 !important;
             margin: 0 !important;

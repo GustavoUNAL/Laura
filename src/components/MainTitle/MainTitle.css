@@ -1,9 +1,12 @@
 .main-title {
     text-align: center;
-    margin: 15px 0;
+    /* margin: 0 0 40px 0; */
     width: 100%;
+    margin-top: 8%;
+    /* margin-top: -1%;
+    margin-bottom: -12%;
     box-sizing: border-box;
-    padding: 0 20px;
+    /* padding: 0 20px; */
 }
 
 .name {
@@ -11,7 +14,7 @@
     font-size: 56px;
     font-weight: 700;
     color: #ffffff;
-    margin: 0 0 12px 0;
+    margin: 0 0 16px 0;
     letter-spacing: 3px;
     line-height: 1.2;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -35,14 +38,14 @@
 /* Responsive */
 @media (max-width: 768px) {
     .main-title {
-        margin: 12px 0;
+        margin: 0 0 30px 0;
         padding: 0 15px;
     }
     
     .name {
         font-size: 42px;
         letter-spacing: 2px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         line-height: 1.1;
     }
     
@@ -54,7 +57,7 @@
 
 @media (max-width: 500px) {
     .main-title {
-        margin: 10px 0;
+        margin: 0 0 25px 0;
         padding: 0 10px;
     }
     

@@ -1,0 +1,145 @@
+/* 
+ * Layout Styles - Estilos para ocupar todo el ancho de pantalla
+ * Asegura que navbar, mainlayout y footer ocupen correctamente el ancho completo
+ */
+
+/* Estilos base para todos los elementos principales */
+.navbar,
+.main-navigation,
+.main-layout,
+.footer {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* Navbar específico */
+.navbar,
+.main-navigation {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* MainLayout específico */
+.main-layout {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+/* Footer específico */
+.footer {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* Contenedores raíz */
+html, body {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+}
+
+#root, .App {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    .navbar,
+    .main-navigation {
+        padding: 0 15px !important;
+    }
+    
+    .main-layout {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+    }
+    
+    .footer {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar,
+    .main-navigation {
+        padding: 0 10px !important;
+    }
+    
+    .main-layout {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+    }
+    
+    .footer {
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: none !important;
+    }
+}
+
+/* Asegurar que todos los elementos usen border-box */
+* {
+    box-sizing: border-box !important;
+}
+
+/* Prevenir overflow horizontal en todos los elementos */
+* {
+    max-width: 100% !important;
+}
+
+/* Excepciones para elementos que necesitan ancho completo */
+.navbar,
+.main-navigation,
+.main-layout,
+.footer,
+html,
+body,
+#root,
+.App {
+    max-width: none !important;
+}

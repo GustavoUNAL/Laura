@@ -1,10 +1,19 @@
 .featured-projects {
-    padding: 30px 20px;
-    min-height: auto;
+    padding: 80px 40px 60px 40px;
+    width: 100vw !important;
+    min-height: 100vh !important;
+    min-width: 100vw !important;
+    max-width: none !important;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    margin: 0;
+    background-color: #1E1E1E;
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .featured-projects:hover {
@@ -68,21 +77,22 @@
 
 .project-carousel {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
     box-sizing: border-box;
+    padding: 20px 0;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    padding: 20px 0;
 }
 
 .project-card {
@@ -2124,71 +2134,37 @@
         100% { width: 70px; }
     }
 } 
-/* Project Cover Image Styles */
-.project-cover {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 15px 15px 0 0;
-    margin-bottom: 20px;
-}
-
-.project-cover-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.project-icon-overlay {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(78, 205, 196, 0.9);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+/* Project Icon Styles - Emoji Only */
+.project-icon {
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
-    transition: all 0.3s ease;
+    height: 80px;
 }
 
-.project-card:hover .project-cover-image {
-    transform: scale(1.05);
-}
-
-.project-card:hover .project-icon-overlay {
+.project-card:hover .project-icon {
     transform: scale(1.1);
-    background: rgba(78, 205, 196, 1);
-    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.5);
+    filter: drop-shadow(0 6px 20px rgba(78, 205, 196, 0.4));
 }
 
-/* Responsive adjustments for project covers */
+/* Responsive adjustments for project icons */
 @media (max-width: 768px) {
-    .project-cover {
-        height: 180px;
-    }
-    
-    .project-icon-overlay {
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
+    .project-icon {
+        font-size: 56px;
+        height: 70px;
+        margin-bottom: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .project-cover {
-        height: 160px;
-    }
-    
-    .project-icon-overlay {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
+    .project-icon {
+        font-size: 48px;
+        height: 60px;
+        margin-bottom: 18px;
     }
 }

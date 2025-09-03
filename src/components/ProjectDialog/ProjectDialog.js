@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 
-function ProjectDialog({ open, project, onClose, onWhatsAppContact }) {
+function ProjectDialog({ open, project, onClose }) {
     if (!project) return null;
 
     return (
@@ -59,13 +59,6 @@ function ProjectDialog({ open, project, onClose, onWhatsAppContact }) {
                     variant="outlined"
                 >
                     Cerrar
-                </Button>
-                <Button 
-                    onClick={() => onWhatsAppContact(project.title)}
-                    className="whatsapp-action-btn"
-                    variant="contained"
-                >
-                    Contactar por WhatsApp
                 </Button>
             </DialogActions>
         </Dialog>

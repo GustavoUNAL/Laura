@@ -6,14 +6,14 @@
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
-    max-width: 100%;
     left: 0;
     right: 0;
     margin: 0;
-    padding: 0;
+    padding: 0 50px;
     overflow-x: hidden;
+    /* background-color: #b72929; */
     background-color: #1E1E1E;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 /* Contenedores principales */
@@ -22,11 +22,10 @@
 .technologies-section,
 .experience-section {
     width: 100%;
-    max-width: 100%;
     left: 0;
     right: 0;
     margin: 0;
-    padding: 0;
+    padding: 0 50px;
     box-sizing: border-box;
     background-color: #1E1E1E;
     overflow-x: hidden;

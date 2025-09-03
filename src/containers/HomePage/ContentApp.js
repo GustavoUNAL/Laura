@@ -7,6 +7,7 @@ import FeaturedProjects from '../../components/FeaturedProjects/FeaturedProjects
 import Technologies from '../../components/Technologies/Technologies';
 import Background from '../../components/Background/Background';
 import '../../home-layout.css';
+import '../../layout-styles.css';
 
 function ContentApp() {
     return (

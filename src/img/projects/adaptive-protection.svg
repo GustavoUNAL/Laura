@@ -1,0 +1,49 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="protectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#bgGradient)"/>
+  
+  <!-- Protection curve -->
+  <g transform="translate(50, 50)">
+    <path d="M0 150 Q75 150 100 100 T200 50 T300 25" 
+          stroke="url(#protectionGradient)" 
+          stroke-width="3" 
+          fill="none"/>
+    
+    <!-- Curve points -->
+    <circle cx="0" cy="150" r="4" fill="url(#protectionGradient)"/>
+    <circle cx="100" cy="100" r="4" fill="url(#protectionGradient)"/>
+    <circle cx="200" cy="50" r="4" fill="url(#protectionGradient)"/>
+    <circle cx="300" cy="25" r="4" fill="url(#protectionGradient)"/>
+  </g>
+  
+  <!-- Grid lines -->
+  <g stroke="url(#protectionGradient)" stroke-width="1" opacity="0.2">
+    <line x1="50" y1="50" x2="50" y2="200"/>
+    <line x1="150" y1="50" x2="150" y2="200"/>
+    <line x1="250" y1="50" x2="250" y2="200"/>
+    <line x1="350" y1="50" x2="350" y2="200"/>
+    <line x1="50" y1="50" x2="350" y2="50"/>
+    <line x1="50" y1="100" x2="350" y2="100"/>
+    <line x1="50" y1="150" x2="350" y2="150"/>
+    <line x1="50" y1="200" x2="350" y2="200"/>
+  </g>
+  
+  <!-- Axis labels -->
+  <text x="30" y="125" text-anchor="middle" fill="#4ecdc4" font-family="Arial, sans-serif" font-size="12" transform="rotate(-90, 30, 125)">Tiempo (s)</text>
+  <text x="200" y="220" text-anchor="middle" fill="#4ecdc4" font-family="Arial, sans-serif" font-size="12">Corriente (A)</text>
+  
+  <!-- Title -->
+  <text x="200" y="30" text-anchor="middle" fill="#4ecdc4" font-family="Arial, sans-serif" font-size="18" font-weight="bold">PROTECCIONES ADAPTATIVAS</text>
+  <text x="200" y="50" text-anchor="middle" fill="#45b7d1" font-family="Arial, sans-serif" font-size="14">Curvas Inteligentes</text>
+</svg>

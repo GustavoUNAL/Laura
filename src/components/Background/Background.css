@@ -1,8 +1,8 @@
 .experience-section {
     background-color: #1E1E1E;
     color: white;
-    padding: 80px 0 60px 0;
-    min-height: 80vh;
+    padding: 8px 0 20px 0;
+    min-height: 48vh;
     display: block;
     width: 100%;
     margin: 0;
@@ -22,7 +22,7 @@
 /* Encabezado estilo Projects Header - Match Perfecto */
 .experience-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 12px;
     max-width: 700px;
     width: 100%;
     margin-left: auto;
@@ -79,9 +79,9 @@
 .experience-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    gap: 30px;
     position: relative;
-    margin-bottom: 80px;
+    margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
 }

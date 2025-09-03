@@ -55,25 +55,22 @@ const Technologies = () => {
         setCurrentIndex(prev => prev > 0 ? prev - 1 : prev);
     };
 
-    const handleEmailContact = (techTitle) => {
-        const subject = encodeURIComponent(`Consulta sobre tecnología: ${techTitle}`);
-        const body = encodeURIComponent(`Hola Gustavo,\n\nMe interesa tu experiencia en "${techTitle}". ¿Podrías contarme más detalles?\n\nSaludos,`);
-        window.location.href = `mailto:gustavoarteaga0508@gmail.com?subject=${subject}&body=${body}`;
-    };
+
 
     const visibleTechnologies = isMobile 
         ? [technologies[currentIndex]]
         : technologies.slice(currentIndex, currentIndex + 3);
 
-    // Solo mostrar paginación en móviles
-    const totalPages = technologies.length;
+    // Progreso de paginación basado en los pasos reales (1 en mobile, 3 en desktop)
+    const visibleCount = isMobile ? 1 : 3;
+    const totalSteps = Math.max(1, technologies.length - visibleCount + 1);
 
     const renderPagination = () => {
         return (
             <div className="pagination-progress">
                 <div 
                     className="pagination-progress-bar" 
-                    style={{ width: `${((currentIndex + 1) / totalPages) * 100}%` }}
+                    style={{ width: `${(Math.min(currentIndex + 1, totalSteps) / totalSteps) * 100}%` }}
                 />
             </div>
         );
@@ -98,15 +95,7 @@ const Technologies = () => {
                             <div className="technology-highlight">{technology.highlights.map((highlight, highlightIndex) => (
                                 <span key={highlightIndex} className="technology-highlight">{highlight}</span>
                             ))}</div>
-                            <div className="technology-actions">
-                                <button 
-                                    className="technology-btn primary-btn"
-                                    onClick={() => handleEmailContact(technology.title)}
-                                    aria-label={`Contactar sobre ${technology.title}`}
-                                >
-                                    Contactar
-                                </button>
-                            </div>
+
                         </div>
                     ))}
                 </div>
@@ -128,7 +117,7 @@ const Technologies = () => {
                     <div className="mobile-pagination">
                         <div className="pagination-info">
                             <span className="pagination-text">Tecnología</span>
-                            <span className="pagination-counter">{currentIndex + 1} de {totalPages}</span>
+                            <span className="pagination-counter">{Math.min(currentIndex + 1, totalSteps)} de {totalSteps}</span>
                         </div>
                         
                         {renderPagination()}
