@@ -9,6 +9,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
+    z-index: 1;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -27,6 +28,7 @@
         margin: 0 !important;
         overflow-x: hidden;
         overflow-y: auto;
+        z-index: 1;
         align-items: stretch;
     }
 }

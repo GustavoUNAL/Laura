@@ -65,7 +65,7 @@ function Navbar() {
       WebkitBackdropFilter: 'blur(20px)',
       boxShadow: '0 4px 30px rgba(0, 0, 0, 0.4)',
       borderBottom: '1px solid rgba(78, 205, 196, 0.1)',
-      zIndex: 1003,
+      zIndex: 10000,
       transition: 'all 0.3s ease',
       margin: 0,
       padding: 0,
@@ -244,7 +244,7 @@ function Navbar() {
             justifyContent: 'center',
             transition: 'all 0.3s ease',
             position: 'relative',
-            zIndex: 1004,
+            zIndex: 10001,
             WebkitTapHighlightColor: 'transparent',
             WebkitTouchCallout: 'none',
             WebkitUserSelect: 'none',
@@ -641,7 +641,7 @@ function Navbar() {
           }
           
           .mobile-hamburger {
-            z-index: 1003 !important;
+            z-index: 10001 !important;
             position: relative !important;
           }
         }
@@ -680,7 +680,7 @@ function Navbar() {
           .mobile-hamburger {
             display: flex !important;
             position: relative !important;
-            z-index: 1001 !important;
+            z-index: 10000 !important;
           }
           
           .main-navigation {
@@ -703,7 +703,7 @@ function Navbar() {
           .mobile-hamburger {
             display: flex !important;
             position: relative !important;
-            z-index: 1001 !important;
+            z-index: 10000 !important;
             pointer-events: auto !important;
             touch-action: manipulation !important;
           }
