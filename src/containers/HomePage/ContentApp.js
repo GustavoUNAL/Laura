@@ -6,7 +6,7 @@ import HomeAbout from '../../components/HomeAbout/HomeAbout';
 import FeaturedProjects from '../../components/FeaturedProjects/FeaturedProjects';
 import FeaturedSkills from '../../components/FeaturedSkills/FeaturedSkills';
 import Background from '../../components/Background/Background';
-import FloatingMenuButton from '../../components/FloatingMenuButton/FloatingMenuButton';
+
 import '../../home-layout.css';
 import '../../layout-styles.css';
 
@@ -20,7 +20,7 @@ function ContentApp() {
                 <FeaturedProjects />
                 <FeaturedSkills />
             </MainLayout>
-            <FloatingMenuButton />
+
             <Footer />
         </>
     );

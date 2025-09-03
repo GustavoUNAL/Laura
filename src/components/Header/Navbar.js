@@ -228,44 +228,198 @@ function Navbar() {
           </a>
         </div>
 
-
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div style={{
+      {/* Mobile Hamburger Button - Global */}
+      <button 
+        onClick={toggleMobileMenu}
+        style={{
+          display: 'flex',
           position: 'fixed',
-          top: 'calc(70px + env(safe-area-inset-top))',
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(18, 18, 18, 0.98)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderTop: '2px solid #4ecdc4',
-          boxShadow: '0 8px 40px rgba(0, 0, 0, 0.6)',
+          top: '20px',
+          right: '20px',
+          background: 'rgba(30, 30, 30, 0.9)',
+          border: '1px solid rgba(78, 205, 196, 0.4)',
+          borderRadius: '10px',
+          width: '50px',
+          height: '50px',
+          cursor: 'pointer',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'all 0.3s ease',
+          zIndex: 10001,
+          WebkitTapHighlightColor: 'transparent',
+          WebkitTouchCallout: 'none',
+          WebkitUserSelect: 'none',
+          userSelect: 'none',
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(78, 205, 196, 0.2)',
+          backdropFilter: 'blur(15px)',
+          WebkitBackdropFilter: 'blur(15px)'
+        }} className="mobile-hamburger"
+        onMouseEnter={(e) => {
+          e.target.style.background = 'rgba(50, 50, 50, 0.95)';
+          e.target.style.borderColor = 'rgba(78, 205, 196, 0.6)';
+          e.target.style.transform = 'scale(1.05)';
+          e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(78, 205, 196, 0.3)';
+        }} onMouseLeave={(e) => {
+          e.target.style.background = 'rgba(30, 30, 30, 0.9)';
+          e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+          e.target.style.transform = 'scale(1)';
+          e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(78, 205, 196, 0.2)';
+        }}>
+        
+        {/* Menu Icon */}
+        <div style={{
+          width: '22px',
+          height: '18px',
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between'
+        }}>
+          <span style={{
+            width: '100%',
+            height: '2px',
+            background: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '2px',
+            transition: 'all 0.3s ease',
+            transform: isMobileMenuOpen ? 'rotate(45deg) translate(6px, 6px)' : 'none',
+            transformOrigin: 'center'
+          }}></span>
+          <span style={{
+            width: '100%',
+            height: '2px',
+            background: isMobileMenuOpen ? 'transparent' : 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '2px',
+            transition: 'all 0.3s ease',
+            opacity: isMobileMenuOpen ? 0 : 1
+          }}></span>
+          <span style={{
+            width: '100%',
+            height: '2px',
+            background: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '2px',
+            transition: 'all 0.3s ease',
+            transform: isMobileMenuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none',
+            transformOrigin: 'center'
+          }}></span>
+        </div>
+      </button>
+
+      {/* Mobile Menu - Professional Popup */}
+      {isMobileMenuOpen && (
+        <>
+          {/* Overlay Background */}
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.7)',
+            zIndex: 9998,
+            backdropFilter: 'blur(5px)',
+            WebkitBackdropFilter: 'blur(5px)'
+          }} onClick={closeMobileMenu}></div>
+          
+          {/* Popup Menu */}
+          <div style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '90%',
+          maxWidth: '400px',
+          maxHeight: '80vh',
+          background: 'rgba(20, 20, 20, 0.98)',
+          backdropFilter: 'blur(25px)',
+          WebkitBackdropFilter: 'blur(25px)',
+          border: '2px solid rgba(78, 205, 196, 0.3)',
+          borderRadius: '20px',
+          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(78, 205, 196, 0.2)',
           zIndex: 9999,
-          padding: '20px 0',
-          paddingBottom: 'calc(20px + env(safe-area-inset-bottom))',
-          animation: 'slideDown 0.3s ease-out',
+          padding: '30px 25px',
           overflowY: 'auto',
           WebkitOverflowScrolling: 'touch',
           pointerEvents: 'auto',
-          touchAction: 'manipulation'
+          touchAction: 'manipulation',
+          animation: 'popupFadeIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
         }}>
+          
+          {/* Close Button */}
+          <button
+            onClick={closeMobileMenu}
+            style={{
+              position: 'absolute',
+              top: '15px',
+              right: '15px',
+              width: '35px',
+              height: '35px',
+              background: 'rgba(78, 205, 196, 0.1)',
+              border: '1px solid rgba(78, 205, 196, 0.3)',
+              borderRadius: '50%',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff',
+              fontSize: '18px',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+              e.target.style.borderColor = 'rgba(78, 205, 196, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+              e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
+            }}
+          >
+            ×
+          </button>
+
+          {/* Menu Title */}
+          <div style={{
+            textAlign: 'center',
+            marginBottom: '30px',
+            paddingTop: '10px'
+          }}>
+            <h3 style={{
+              color: '#ffffff',
+              fontSize: '24px',
+              fontWeight: '600',
+              fontFamily: "'Helvetica Neue', sans-serif",
+              margin: '0 0 8px 0',
+              background: 'linear-gradient(45deg, #4ecdc4, #45b7d1)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
+              Navegación
+            </h3>
+            <p style={{
+              color: 'rgba(255, 255, 255, 0.6)',
+              fontSize: '14px',
+              margin: '0',
+              fontFamily: "'Helvetica Neue', sans-serif"
+            }}>
+              Gustavo Arteaga - Ingeniero Eléctrico
+            </p>
+          </div>
+
           <div className="mobile-menu" style={{
             width: '100%',
             maxWidth: '100%',
             margin: '0',
-            padding: '0 15px',
+            padding: '0',
             boxSizing: 'border-box'
           }}>
-            {/* Navigation Links - Compact Layout */}
+            {/* Navigation Links - Professional Layout */}
             <div style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '8px',
-              marginBottom: '20px'
+              gap: '12px',
+              marginBottom: '30px'
             }}>
               <Link to="/about" onClick={closeMobileMenu} style={{
                 display: 'flex',
@@ -273,25 +427,27 @@ function Navbar() {
                 justifyContent: 'space-between',
                 color: '#ffffff',
                 textDecoration: 'none',
-                fontSize: '16px',
+                fontSize: '18px',
                 fontWeight: '500',
                 fontFamily: "'Helvetica Neue', sans-serif",
-                padding: '12px 16px',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
-                borderRadius: '10px',
+                padding: '16px 20px',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
                 transition: 'all 0.3s ease'
               }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.15)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'translateX(4px)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateX(5px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
               }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.03)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
                 e.target.style.transform = 'translateX(0)';
+                e.target.style.boxShadow = 'none';
               }}>
-                <span>Acerca de</span>
-                <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '16px'}}>→</span>
+                <span>👤 Acerca de</span>
+                <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
               </Link>
               
               <Link to="/projects" onClick={closeMobileMenu} style={{
@@ -300,25 +456,27 @@ function Navbar() {
                 justifyContent: 'space-between',
                 color: '#ffffff',
                 textDecoration: 'none',
-                fontSize: '16px',
+                fontSize: '18px',
                 fontWeight: '500',
                 fontFamily: "'Helvetica Neue', sans-serif",
-                padding: '12px 16px',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
-                borderRadius: '10px',
+                padding: '16px 20px',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
                 transition: 'all 0.3s ease'
               }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.15)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'translateX(4px)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateX(5px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
               }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.03)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
                 e.target.style.transform = 'translateX(0)';
+                e.target.style.boxShadow = 'none';
               }}>
-                <span>Proyectos</span>
-                <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '16px'}}>→</span>
+                <span>💼 Proyectos</span>
+                <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
               </Link>
               
               <Link to="/community" onClick={closeMobileMenu} style={{
@@ -327,26 +485,102 @@ function Navbar() {
                 justifyContent: 'space-between',
                 color: '#ffffff',
                 textDecoration: 'none',
-                fontSize: '16px',
+                fontSize: '18px',
                 fontWeight: '500',
                 fontFamily: "'Helvetica Neue', sans-serif",
-                padding: '12px 16px',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
-                borderRadius: '10px',
+                padding: '16px 20px',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
                 transition: 'all 0.3s ease'
               }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.15)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'translateX(4px)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateX(5px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
               }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.03)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
                 e.target.style.transform = 'translateX(0)';
+                e.target.style.boxShadow = 'none';
               }}>
-                <span>Comunidad</span>
-                <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '16px'}}>→</span>
+                <span>🌐 Comunidad</span>
+                <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
               </Link>
+            </div>
+
+            {/* Social Networks Section */}
+            <div style={{
+              borderTop: '1px solid rgba(78, 205, 196, 0.2)',
+              paddingTop: '25px',
+              marginTop: '20px'
+            }}>
+              <h4 style={{
+                color: '#ffffff',
+                fontSize: '18px',
+                fontWeight: '600',
+                fontFamily: "'Helvetica Neue', sans-serif",
+                margin: '0 0 20px 0',
+                textAlign: 'center'
+              }}>
+                Redes Sociales
+              </h4>
+              
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                gap: '12px'
+              }}>
+                <a href="https://github.com/GustavoUNAL" target="_blank" rel="noopener noreferrer" style={{
+                  flex: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'rgba(78, 205, 196, 0.1)',
+                  border: '1px solid rgba(78, 205, 196, 0.2)',
+                  borderRadius: '12px',
+                  padding: '15px',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s ease'
+                }} onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
+                }} onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}>
+                  <span style={{color: '#ffffff', fontSize: '20px'}}>🐙</span>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/gustavo-arteaga-rodriguez-4b1b1b1b1/" target="_blank" rel="noopener noreferrer" style={{
+                  flex: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'rgba(78, 205, 196, 0.1)',
+                  border: '1px solid rgba(78, 205, 196, 0.2)',
+                  borderRadius: '12px',
+                  padding: '15px',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s ease'
+                }} onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
+                }} onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = 'none';
+                }}>
+                  <span style={{color: '#ffffff', fontSize: '20px'}}>💼</span>
+                </a>
+              </div>
             </div>
 
             {/* Mobile Social Links - Compact 3 in a row */}
@@ -446,7 +680,22 @@ function Navbar() {
             </div>
           </div>
         </div>
+        </>
       )}
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes popupFadeIn {
+          from {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+      `}</style>
 
       {/* Simple Mobile Menu Overlay */}
       {isMobileMenuOpen && (
