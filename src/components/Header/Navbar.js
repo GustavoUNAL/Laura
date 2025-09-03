@@ -365,22 +365,20 @@ function Navbar() {
           }}>
             <h2 style={{
               color: '#ffffff',
-              fontSize: '32px',
-              fontWeight: '700',
-              margin: '0 0 15px 0',
-              background: 'linear-gradient(135deg, #4ECDC4, #44A08D)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              fontSize: '28px',
+              fontWeight: '600',
+              margin: '0 0 10px 0',
+              fontFamily: "'Helvetica Neue', sans-serif"
             }}>
-              Menú
+              Navegación
             </h2>
             <p style={{
-              color: 'rgba(255, 255, 255, 0.7)',
-              fontSize: '18px',
-              margin: 0
+              color: 'rgba(255, 255, 255, 0.6)',
+              fontSize: '16px',
+              margin: 0,
+              fontFamily: "'Helvetica Neue', sans-serif"
             }}>
-              Navegación y redes sociales
+              Gustavo Arteaga - Ingeniero Eléctrico
             </p>
           </div>
 
@@ -397,30 +395,32 @@ function Navbar() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '20px',
-                padding: '20px 25px',
-                background: 'rgba(78, 205, 196, 0.05)',
-                border: '1px solid rgba(78, 205, 196, 0.1)',
-                borderRadius: '15px',
+                justifyContent: 'space-between',
+                padding: '16px 20px',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
                 textDecoration: 'none',
                 color: '#ffffff',
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
+                fontFamily: "'Helvetica Neue', sans-serif",
                 transition: 'all 0.3s ease'
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'translateX(10px)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateX(5px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.05)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
                 e.target.style.transform = 'translateX(0)';
+                e.target.style.boxShadow = 'none';
               }}>
-              <span style={{ fontSize: '24px' }}>👤</span>
               <span>Acerca de</span>
-              <span style={{ marginLeft: 'auto', fontSize: '18px', color: '#4ECDC4' }}>→</span>
+              <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
             </Link>
 
             <Link 
@@ -429,30 +429,32 @@ function Navbar() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '20px',
-                padding: '20px 25px',
-                background: 'rgba(78, 205, 196, 0.05)',
-                border: '1px solid rgba(78, 205, 196, 0.1)',
-                borderRadius: '15px',
+                justifyContent: 'space-between',
+                padding: '16px 20px',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
                 textDecoration: 'none',
                 color: '#ffffff',
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
+                fontFamily: "'Helvetica Neue', sans-serif",
                 transition: 'all 0.3s ease'
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'translateX(10px)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateX(5px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.05)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
                 e.target.style.transform = 'translateX(0)';
+                e.target.style.boxShadow = 'none';
               }}>
-              <span style={{ fontSize: '24px' }}>💼</span>
               <span>Proyectos</span>
-              <span style={{ marginLeft: 'auto', fontSize: '18px', color: '#4ECDC4' }}>→</span>
+              <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
             </Link>
 
             <Link 
@@ -461,112 +463,113 @@ function Navbar() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '20px',
-                padding: '20px 25px',
-                background: 'rgba(78, 205, 196, 0.05)',
-                border: '1px solid rgba(78, 205, 196, 0.1)',
-                borderRadius: '15px',
+                justifyContent: 'space-between',
+                padding: '16px 20px',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
                 textDecoration: 'none',
                 color: '#ffffff',
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '500',
+                fontFamily: "'Helvetica Neue', sans-serif",
                 transition: 'all 0.3s ease'
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'translateX(10px)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateX(5px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(78, 205, 196, 0.05)';
-                e.target.style.borderColor = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
                 e.target.style.transform = 'translateX(0)';
+                e.target.style.boxShadow = 'none';
               }}>
-              <span style={{ fontSize: '24px' }}>🌐</span>
               <span>Comunidad</span>
-              <span style={{ marginLeft: 'auto', fontSize: '18px', color: '#4ECDC4' }}>→</span>
+              <span style={{color: 'rgba(78, 205, 196, 0.8)', fontSize: '18px'}}>→</span>
             </Link>
           </div>
 
           {/* Social Networks Section */}
           <div style={{
-            borderTop: '1px solid rgba(78, 205, 196, 0.1)',
-            paddingTop: '30px'
+            borderTop: '1px solid rgba(78, 205, 196, 0.2)',
+            paddingTop: '25px',
+            marginTop: '20px'
           }}>
-            <h3 style={{
-              color: '#4ECDC4',
-              fontSize: '22px',
+            <h4 style={{
+              color: '#ffffff',
+              fontSize: '18px',
               fontWeight: '600',
-              margin: '0 0 25px 0',
+              fontFamily: "'Helvetica Neue', sans-serif",
+              margin: '0 0 20px 0',
               textAlign: 'center'
             }}>
               Redes Sociales
-            </h3>
+            </h4>
             
             <div style={{
               display: 'flex',
-              justifyContent: 'center',
-              gap: '25px',
-              flexWrap: 'wrap'
+              justifyContent: 'space-between',
+              gap: '12px'
             }}>
-              <a 
-                href="https://github.com/gustavoarteaga0508" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '15px 25px',
-                  background: 'rgba(78, 205, 196, 0.1)',
-                  border: '1px solid rgba(78, 205, 196, 0.2)',
-                  borderRadius: '12px',
-                  textDecoration: 'none',
-                  color: '#ffffff',
-                  fontSize: '18px',
-                  fontWeight: '500',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(78, 205, 196, 0.2)';
-                  e.target.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                  e.target.style.transform = 'scale(1)';
-                }}>
-                <span style={{ fontSize: '20px' }}>🐙</span>
-                <span>GitHub</span>
+              <a href="https://github.com/gustavoarteaga0508" target="_blank" rel="noopener noreferrer" style={{
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
+                padding: '15px',
+                textDecoration: 'none',
+                transition: 'all 0.3s ease'
+              }} onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
+              }} onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = 'none';
+              }}>
+                <img src={github} alt="GitHub" style={{
+                  width: '24px',
+                  height: '24px',
+                  filter: 'brightness(0.9)'
+                }} />
               </a>
-
-              <a 
-                href="https://www.linkedin.com/in/gustavo-arteaga-0508/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '15px 25px',
-                  background: 'rgba(78, 205, 196, 0.1)',
-                  border: '1px solid rgba(78, 205, 196, 0.2)',
-                  borderRadius: '12px',
-                  textDecoration: 'none',
-                  color: '#ffffff',
-                  fontSize: '18px',
-                  fontWeight: '500',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(78, 205, 196, 0.2)';
-                  e.target.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                  e.target.style.transform = 'scale(1)';
-                }}>
-                <span style={{ fontSize: '20px' }}>💼</span>
-                <span>LinkedIn</span>
+              
+              <a href="https://www.linkedin.com/in/gustavo-arteaga-0508/" target="_blank" rel="noopener noreferrer" style={{
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'rgba(78, 205, 196, 0.1)',
+                border: '1px solid rgba(78, 205, 196, 0.2)',
+                borderRadius: '12px',
+                padding: '15px',
+                textDecoration: 'none',
+                transition: 'all 0.3s ease'
+              }} onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.4)';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 15px rgba(78, 205, 196, 0.2)';
+              }} onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.2)';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = 'none';
+              }}>
+                <img src={linkedin} alt="LinkedIn" style={{
+                  width: '24px',
+                  height: '24px',
+                  filter: 'brightness(0.9)'
+                }} />
               </a>
             </div>
           </div>
