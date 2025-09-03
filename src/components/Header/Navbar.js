@@ -230,19 +230,19 @@ function Navbar() {
 
       </div>
 
-      {/* Mobile Hamburger Button - Global Mobile */}
+      {/* Mobile Hamburger Button - Professional */}
       <button 
         onClick={toggleMobileMenu}
         style={{
           display: 'flex',
           position: 'fixed',
-          top: '20px',
-          right: '20px',
-          background: 'rgba(0, 0, 0, 0.95)',
-          border: '2px solid #4ECDC4',
-          borderRadius: '12px',
-          width: '60px',
-          height: '60px',
+          top: '15px',
+          right: '15px',
+          background: 'rgba(18, 18, 18, 0.95)',
+          border: '1px solid rgba(78, 205, 196, 0.3)',
+          borderRadius: '8px',
+          width: '48px',
+          height: '48px',
           cursor: 'pointer',
           alignItems: 'center',
           justifyContent: 'center',
@@ -252,26 +252,26 @@ function Navbar() {
           WebkitTouchCallout: 'none',
           WebkitUserSelect: 'none',
           userSelect: 'none',
-          boxShadow: '0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(78, 205, 196, 0.4)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)'
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(78, 205, 196, 0.2)',
+          backdropFilter: 'blur(15px)',
+          WebkitBackdropFilter: 'blur(15px)'
         }} className="mobile-hamburger-global"
         onMouseEnter={(e) => {
-          e.target.style.background = 'rgba(20, 20, 20, 0.98)';
-          e.target.style.borderColor = '#4ECDC4';
-          e.target.style.transform = 'scale(1.1)';
-          e.target.style.boxShadow = '0 12px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(78, 205, 196, 0.6)';
+          e.target.style.background = 'rgba(26, 26, 26, 0.98)';
+          e.target.style.borderColor = 'rgba(78, 205, 196, 0.5)';
+          e.target.style.transform = 'scale(1.05)';
+          e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(78, 205, 196, 0.3)';
         }} onMouseLeave={(e) => {
-          e.target.style.background = 'rgba(0, 0, 0, 0.95)';
-          e.target.style.borderColor = '#4ECDC4';
+          e.target.style.background = 'rgba(18, 18, 18, 0.95)';
+          e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
           e.target.style.transform = 'scale(1)';
-          e.target.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(78, 205, 196, 0.4)';
+          e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(78, 205, 196, 0.2)';
         }}>
         
         {/* Menu Icon */}
         <div style={{
-          width: '26px',
-          height: '20px',
+          width: '20px',
+          height: '16px',
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
@@ -279,32 +279,29 @@ function Navbar() {
         }}>
           <span style={{
             width: '100%',
-            height: '3px',
+            height: '2px',
             background: '#4ECDC4',
-            borderRadius: '3px',
+            borderRadius: '2px',
             transition: 'all 0.3s ease',
-            transform: isMobileMenuOpen ? 'rotate(45deg) translate(7px, 7px)' : 'none',
-            transformOrigin: 'center',
-            boxShadow: '0 0 8px rgba(78, 205, 196, 0.5)'
+            transform: isMobileMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
+            transformOrigin: 'center'
           }}></span>
           <span style={{
             width: '100%',
-            height: '3px',
+            height: '2px',
             background: isMobileMenuOpen ? 'transparent' : '#4ECDC4',
-            borderRadius: '3px',
+            borderRadius: '2px',
             transition: 'all 0.3s ease',
-            opacity: isMobileMenuOpen ? 0 : 1,
-            boxShadow: '0 0 8px rgba(78, 205, 196, 0.5)'
+            opacity: isMobileMenuOpen ? 0 : 1
           }}></span>
           <span style={{
             width: '100%',
-            height: '3px',
+            height: '2px',
             background: '#4ECDC4',
-            borderRadius: '3px',
+            borderRadius: '2px',
             transition: 'all 0.3s ease',
-            transform: isMobileMenuOpen ? 'rotate(-45deg) translate(7px, -7px)' : 'none',
-            transformOrigin: 'center',
-            boxShadow: '0 0 8px rgba(78, 205, 196, 0.5)'
+            transform: isMobileMenuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
+            transformOrigin: 'center'
           }}></span>
         </div>
       </button>
@@ -576,7 +573,7 @@ function Navbar() {
         </div>
       )}
 
-      {/* CSS for animations */}
+      {/* CSS for animations and responsive behavior */}
       <style>{`
         @keyframes slideDown {
           from {
@@ -587,6 +584,30 @@ function Navbar() {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+        
+        /* Hide hamburger button on desktop */
+        @media (min-width: 769px) {
+          .mobile-hamburger-global {
+            display: none !important;
+          }
+        }
+        
+        /* Show hamburger button only on mobile */
+        @media (max-width: 768px) {
+          .mobile-hamburger-global {
+            display: flex !important;
+          }
+        }
+        
+        /* Ensure proper z-index layering */
+        .mobile-hamburger-global {
+          z-index: 99999 !important;
+        }
+        
+        /* Prevent body scroll when menu is open */
+        body.menu-open {
+          overflow: hidden !important;
         }
       `}</style>
     </nav>
