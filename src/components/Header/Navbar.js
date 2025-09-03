@@ -146,7 +146,7 @@ function Navbar() {
           }}>
             Proyectos
           </Link>
-          <Link to="/#recent-blog" style={{
+          <Link to="/#recent-community" style={{
             color: '#ffffff',
             textDecoration: 'none',
             fontSize: '18px',
@@ -162,7 +162,7 @@ function Navbar() {
             e.target.style.color = '#ffffff';
             e.target.style.backgroundColor = 'transparent';
           }}>
-            Blog
+            Community
           </Link>
         </div>
 
@@ -367,7 +367,7 @@ function Navbar() {
               <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '20px'}}>→</span>
             </Link>
             
-            <Link to="/#recent-blog" onClick={closeMobileMenu} style={{
+            <Link to="/#recent-community" onClick={closeMobileMenu} style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -391,7 +391,7 @@ function Navbar() {
               e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
               e.target.style.transform = 'translateX(0)';
             }}>
-              <span>Blog</span>
+              <span>Community</span>
               <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '20px'}}>→</span>
             </Link>
 

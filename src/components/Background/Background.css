@@ -79,9 +79,9 @@
 .experience-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 24px;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -89,20 +89,20 @@
 .experience-column {
     text-align: center;
     position: relative;
-    padding: 30px;
+    padding: 20px;
     width: 100%;
     box-sizing: border-box;
 }
 
 .experience-icon {
-    width: 100px;
-    height: 100px;
+    width: 84px;
+    height: 84px;
     background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 30px;
+    margin: 0 auto 16px;
     box-shadow: 0 12px 35px rgba(255, 107, 107, 0.3);
     transition: transform 0.3s ease;
 }
@@ -112,32 +112,32 @@
 }
 
 .icon-text {
-    font-size: 40px;
+    font-size: 32px;
     line-height: 1;
 }
 
 .experience-value {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 600;
     color: #4ecdc4;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .experience-title-text {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
     color: white;
-    margin-bottom: 15px;
-    line-height: 1.4;
+    margin-bottom: 10px;
+    line-height: 1.35;
 }
 
 .experience-description {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     color: #cccccc;
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 .vertical-divider {

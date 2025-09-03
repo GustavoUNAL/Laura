@@ -99,62 +99,51 @@ const FeaturedProjects = () => {
             </div>
             
             <div className="project-carousel">
-                <div className="projects-grid">
-                    {visibleProjects.map((project, index) => (
-                        <div key={currentIndex + index} className="project-card">
-                            <div className="project-icon">
-                                {project.icon}
+                <div className="carousel-row">
+                    <div className="projects-grid">
+                        {visibleProjects.map((project, index) => (
+                            <div key={currentIndex + index} className="project-card">
+                                <div className="project-icon">
+                                    {project.icon}
+                                </div>
+                                <h3 className="project-title">{project.title}</h3>
+                                <p className="project-description">{project.description}</p>
                             </div>
-                            <h3 className="project-title">{project.title}</h3>
-                            <p className="project-description">{project.description}</p>
-                            <div className="project-highlight">{project.highlights.map((highlight, highlightIndex) => (
-                                <span key={highlightIndex} className="project-highlight">{highlight}</span>
-                            ))}</div>
-
-                        </div>
-                    ))}
-                </div>
-                
-                {/* New Mobile Navigation Container */}
-                <div className="mobile-nav-container">
-                    <button 
-                        className="nav-arrow prev-arrow" 
-                        onClick={prevProjects}
-                        disabled={currentIndex === 0}
-                        aria-label="Proyecto anterior"
-                    >
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                        </svg>
-                    </button>
-                    
-                    {/* Mobile Pagination - Now in the middle */}
-                    <div className="mobile-pagination">
-                        <div className="pagination-info">
-                            <span className="pagination-text">Proyecto</span>
-                            <span className="pagination-counter">{Math.min(currentIndex + 1, totalSteps)} de {totalSteps}</span>
-                        </div>
-                        
-                        {renderPagination()}
+                        ))}
                     </div>
-                    
-                    <button 
-                        className="nav-arrow next-arrow" 
-                        onClick={nextProjects}
-                        disabled={isMobile ? currentIndex === projects.length - 1 : currentIndex >= projects.length - 3}
-                        aria-label="Proyecto siguiente"
-                    >
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                        </svg>
-                    </button>
                 </div>
             </div>
-            
+
+            {/* Bottom controls: arrows + pagination */}
+            <div className="bottom-controls">
+                <button 
+                    className="nav-arrow prev-arrow" 
+                    onClick={prevProjects}
+                    disabled={currentIndex === 0}
+                    aria-label="Proyecto anterior"
+                >
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div className="carousel-progress">
+                    {renderPagination()}
+                </div>
+                <button 
+                    className="nav-arrow next-arrow" 
+                    onClick={nextProjects}
+                    disabled={isMobile ? currentIndex === projects.length - 1 : currentIndex >= projects.length - 2}
+                    aria-label="Proyecto siguiente"
+                >
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+
+            {/* View more button below */}
             <div className="view-more-section">
-                <Link to="/projects" className="view-more-btn">
-                    Ver todos los proyectos
-                </Link>
+                <Link to="/projects" className="view-more-btn">Ver todos los proyectos</Link>
             </div>
         </div>
     );

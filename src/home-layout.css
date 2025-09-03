@@ -24,6 +24,8 @@
 /* Ensure project and technology cards don't overflow */
 .project-card,
 .technology-card {
+    /* margin-top: 8%; */
+    /* margin-bottom: 8%; */
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
@@ -33,6 +35,8 @@
 /* Fix grid layouts */
 .projects-grid,
 .technologies-grid {
+    /* background-color: blue; */
+    /* margin-bottom: -13%; */
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
@@ -46,6 +50,7 @@
     max-width: 100% !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
+    /* background-color: #e22c2c; */
 }
 
 /* Fix mobile navigation containers */
