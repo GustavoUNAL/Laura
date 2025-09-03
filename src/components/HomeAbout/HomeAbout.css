@@ -1,13 +1,13 @@
 .home-about {
     font-size: 26px;
     font-family: Helvetica Neue;
-    padding: 30px 30px 8px 30px;
+    padding: 80px 30px 60px 30px;
     text-align: center;
     /* background-color: #c01515; */
     background-color: #1E1E1E;
     /* margin-bottom: -67%; */
     width: 100vw !important;
-    min-height: 38vh ;
+    min-height: 50vh ;
     min-width: 100vw !important;
     max-width: none !important;
     display: flex;

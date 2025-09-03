@@ -65,12 +65,14 @@ function Navbar() {
       WebkitBackdropFilter: 'blur(20px)',
       boxShadow: '0 4px 30px rgba(0, 0, 0, 0.4)',
       borderBottom: '1px solid rgba(78, 205, 196, 0.1)',
-      zIndex: 1000,
+      zIndex: 1003,
       transition: 'all 0.3s ease',
       margin: 0,
       padding: 0,
       boxSizing: 'border-box',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      paddingTop: 'env(safe-area-inset-top)',
+      minHeight: 'calc(70px + env(safe-area-inset-top))'
     }}>
       {/* Desktop Navigation */}
       <div className="main-navigation" style={{
@@ -240,7 +242,13 @@ function Navbar() {
             cursor: 'pointer',
             alignItems: 'center',
             justifyContent: 'center',
-            transition: 'all 0.3s ease'
+            transition: 'all 0.3s ease',
+            position: 'relative',
+            zIndex: 1004,
+            WebkitTapHighlightColor: 'transparent',
+            WebkitTouchCallout: 'none',
+            WebkitUserSelect: 'none',
+            userSelect: 'none'
           }} className="mobile-hamburger"
           onMouseEnter={(e) => {
             e.target.style.background = 'linear-gradient(135deg, rgba(78, 205, 196, 0.2), rgba(78, 205, 196, 0.1))';
@@ -265,7 +273,8 @@ function Navbar() {
               background: isMobileMenuOpen ? '#4ecdc4' : '#ffffff',
               borderRadius: '2px',
               transition: 'all 0.3s ease',
-              transform: isMobileMenuOpen ? 'rotate(45deg) translate(6px, 6px)' : 'none'
+              transform: isMobileMenuOpen ? 'rotate(45deg) translate(6px, 6px)' : 'none',
+              transformOrigin: 'center'
             }}></span>
             <span style={{
               width: '100%',
@@ -282,7 +291,8 @@ function Navbar() {
               background: isMobileMenuOpen ? '#4ecdc4' : '#ffffff',
               borderRadius: '2px',
               transition: 'all 0.3s ease',
-              transform: isMobileMenuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none'
+              transform: isMobileMenuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none',
+              transformOrigin: 'center'
             }}></span>
           </div>
         </button>
@@ -292,17 +302,21 @@ function Navbar() {
       {isMobileMenuOpen && (
         <div style={{
           position: 'fixed',
-          top: '70px',
+          top: 'calc(70px + env(safe-area-inset-top))',
           left: 0,
           right: 0,
+          bottom: 0,
           background: 'linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(26, 26, 26, 0.95))',
           backdropFilter: 'blur(25px)',
           WebkitBackdropFilter: 'blur(25px)',
           borderTop: '1px solid rgba(78, 205, 196, 0.2)',
           boxShadow: '0 8px 40px rgba(0, 0, 0, 0.4)',
-          zIndex: 999,
-          padding: '20px 0',
-          animation: 'slideDown 0.3s ease-out'
+          zIndex: 1002,
+          padding: '15px 0',
+          paddingBottom: 'calc(15px + env(safe-area-inset-bottom))',
+          animation: 'slideDown 0.3s ease-out',
+          overflowY: 'auto',
+          WebkitOverflowScrolling: 'touch'
         }}>
           <div className="mobile-menu" style={{
             width: '100%',
@@ -311,128 +325,140 @@ function Navbar() {
             padding: '0 15px',
             boxSizing: 'border-box'
           }}>
-            <Link to="/about" onClick={closeMobileMenu} style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              color: '#ffffff',
-              textDecoration: 'none',
-              fontSize: '18px',
-              fontWeight: '500',
-              fontFamily: "'Helvetica Neue', sans-serif",
-              padding: '18px 20px',
-              margin: '6px 0',
-              background: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid rgba(255, 255, 255, 0.05)',
-              borderRadius: '12px',
-              transition: 'all 0.3s ease'
-            }} onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(78, 205, 196, 0.15)';
-              e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-              e.target.style.transform = 'translateX(8px)';
-            }} onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(255, 255, 255, 0.03)';
-              e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
-              e.target.style.transform = 'translateX(0)';
-            }}>
-              <span>Acerca de</span>
-              <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '20px'}}>→</span>
-            </Link>
-            
-            <Link to="/projects" onClick={closeMobileMenu} style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              color: '#ffffff',
-              textDecoration: 'none',
-              fontSize: '18px',
-              fontWeight: '500',
-              fontFamily: "'Helvetica Neue', sans-serif",
-              padding: '18px 20px',
-              margin: '6px 0',
-              background: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid rgba(255, 255, 255, 0.05)',
-              borderRadius: '12px',
-              transition: 'all 0.3s ease'
-            }} onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(78, 205, 196, 0.15)';
-              e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-              e.target.style.transform = 'translateX(8px)';
-            }} onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(255, 255, 255, 0.03)';
-              e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
-              e.target.style.transform = 'translateX(0)';
-            }}>
-              <span>Proyectos</span>
-              <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '20px'}}>→</span>
-            </Link>
-            
-            <Link to="/community" onClick={closeMobileMenu} style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              color: '#ffffff',
-              textDecoration: 'none',
-              fontSize: '18px',
-              fontWeight: '500',
-              fontFamily: "'Helvetica Neue', sans-serif",
-              padding: '18px 20px',
-              margin: '6px 0',
-              background: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid rgba(255, 255, 255, 0.05)',
-              borderRadius: '12px',
-              transition: 'all 0.3s ease'
-            }} onMouseEnter={(e) => {
-              e.target.style.background = 'rgba(78, 205, 196, 0.15)';
-              e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-              e.target.style.transform = 'translateX(8px)';
-            }} onMouseLeave={(e) => {
-              e.target.style.background = 'rgba(255, 255, 255, 0.03)';
-              e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
-              e.target.style.transform = 'translateX(0)';
-            }}>
-              <span>Comunidad</span>
-              <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '20px'}}>→</span>
-            </Link>
-
-            {/* Mobile Social Links */}
+            {/* Navigation Links - Compact Layout */}
             <div style={{
               display: 'flex',
-              justifyContent: 'center',
-              gap: '25px',
-              marginTop: '25px',
-              padding: '25px 0',
+              flexDirection: 'column',
+              gap: '8px',
+              marginBottom: '20px'
+            }}>
+              <Link to="/about" onClick={closeMobileMenu} style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                color: '#ffffff',
+                textDecoration: 'none',
+                fontSize: '16px',
+                fontWeight: '500',
+                fontFamily: "'Helvetica Neue', sans-serif",
+                padding: '12px 16px',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                borderRadius: '10px',
+                transition: 'all 0.3s ease'
+              }} onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.15)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
+                e.target.style.transform = 'translateX(4px)';
+              }} onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.03)';
+                e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                e.target.style.transform = 'translateX(0)';
+              }}>
+                <span>Acerca de</span>
+                <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '16px'}}>→</span>
+              </Link>
+              
+              <Link to="/projects" onClick={closeMobileMenu} style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                color: '#ffffff',
+                textDecoration: 'none',
+                fontSize: '16px',
+                fontWeight: '500',
+                fontFamily: "'Helvetica Neue', sans-serif",
+                padding: '12px 16px',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                borderRadius: '10px',
+                transition: 'all 0.3s ease'
+              }} onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.15)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
+                e.target.style.transform = 'translateX(4px)';
+              }} onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.03)';
+                e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                e.target.style.transform = 'translateX(0)';
+              }}>
+                <span>Proyectos</span>
+                <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '16px'}}>→</span>
+              </Link>
+              
+              <Link to="/community" onClick={closeMobileMenu} style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                color: '#ffffff',
+                textDecoration: 'none',
+                fontSize: '16px',
+                fontWeight: '500',
+                fontFamily: "'Helvetica Neue', sans-serif",
+                padding: '12px 16px',
+                background: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                borderRadius: '10px',
+                transition: 'all 0.3s ease'
+              }} onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.15)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
+                e.target.style.transform = 'translateX(4px)';
+              }} onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.03)';
+                e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                e.target.style.transform = 'translateX(0)';
+              }}>
+                <span>Comunidad</span>
+                <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '16px'}}>→</span>
+              </Link>
+            </div>
+
+            {/* Mobile Social Links - Compact 3 in a row */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '15px 10px',
               borderTop: '1px solid rgba(78, 205, 196, 0.2)',
               background: 'rgba(78, 205, 196, 0.05)',
-              borderRadius: '16px',
-              marginLeft: '10px',
-              marginRight: '10px'
+              borderRadius: '12px',
+              margin: '0 5px'
             }}>
-              <a href="https://github.com/GustavoUNAL" target="_blank" rel="noopener noreferrer">
-                <img src={github} alt="GitHub" style={{
-                  width: '32px',
-                  height: '32px',
-                  filter: 'brightness(0.9)',
-                  padding: '8px',
-                  borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  transition: 'all 0.3s ease'
-                }} onMouseEnter={(e) => {
-                  e.target.style.transform = 'scale(1.25) rotate(8deg)';
-                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                }} onMouseLeave={(e) => {
-                  e.target.style.transform = 'scale(1) rotate(0deg)';
-                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                }} />
-              </a>
-              <button onClick={handleEmailClick} style={{
+              <a href="https://github.com/GustavoUNAL" target="_blank" rel="noopener noreferrer" style={{
+                flex: 1,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '10px',
                 background: 'rgba(255, 255, 255, 0.05)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
                 borderRadius: '8px',
-                padding: '8px',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none'
+              }} onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
+                e.target.style.transform = 'scale(1.05)';
+              }} onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                e.target.style.transform = 'scale(1)';
+              }}>
+                <img src={github} alt="GitHub" style={{
+                  width: '24px',
+                  height: '24px',
+                  filter: 'brightness(0.9)'
+                }} />
+              </a>
+              
+              <button onClick={handleEmailClick} style={{
+                flex: 1,
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '8px',
+                padding: '10px',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -441,38 +467,45 @@ function Navbar() {
               }} onMouseEnter={(e) => {
                 e.target.style.background = 'rgba(78, 205, 196, 0.1)';
                 e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                e.target.style.transform = 'scale(1.25) rotate(8deg)';
+                e.target.style.transform = 'scale(1.05)';
               }} onMouseLeave={(e) => {
                 e.target.style.background = 'rgba(255, 255, 255, 0.05)';
                 e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.target.style.transform = 'scale(1) rotate(0deg)';
+                e.target.style.transform = 'scale(1)';
               }}>
                 <svg style={{
-                  width: '32px',
-                  height: '32px',
+                  width: '24px',
+                  height: '24px',
                   color: '#ffffff'
                 }} viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
               </button>
-              <a href="https://www.linkedin.com/in/gustavo-arteaga/" target="_blank" rel="noopener noreferrer">
+              
+              <a href="https://www.linkedin.com/in/gustavo-arteaga/" target="_blank" rel="noopener noreferrer" style={{
+                flex: 1,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '10px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none'
+              }} onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(78, 205, 196, 0.1)';
+                e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
+                e.target.style.transform = 'scale(1.05)';
+              }} onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                e.target.style.transform = 'scale(1)';
+              }}>
                 <img src={linkedin} alt="LinkedIn" style={{
-                  width: '32px',
-                  height: '32px',
-                  filter: 'brightness(0.9)',
-                  padding: '8px',
-                  borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  transition: 'all 0.3s ease'
-                }} onMouseEnter={(e) => {
-                  e.target.style.transform = 'scale(1.25) rotate(8deg)';
-                  e.target.style.background = 'rgba(78, 205, 196, 0.1)';
-                  e.target.style.borderColor = 'rgba(78, 205, 196, 0.3)';
-                }} onMouseLeave={(e) => {
-                  e.target.style.transform = 'scale(1) rotate(0deg)';
-                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  width: '24px',
+                  height: '24px',
+                  filter: 'brightness(0.9)'
                 }} />
               </a>
             </div>
@@ -480,23 +513,23 @@ function Navbar() {
         </div>
       )}
 
-      {/* Mobile Menu Overlay */}
+      {/* Simple Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div 
           onClick={closeMobileMenu}
           style={{
             position: 'fixed',
-            top: '70px',
+            top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'rgba(0, 0, 0, 0.5)',
-            backdropFilter: 'blur(5px)',
-            WebkitBackdropFilter: 'blur(5px)',
-            zIndex: 998
+            background: 'rgba(0, 0, 0, 0.3)',
+            zIndex: 1001,
+            pointerEvents: 'auto'
           }}
         />
       )}
+
 
       {/* CSS for animations */}
       <style>{`
@@ -530,6 +563,19 @@ function Navbar() {
           margin: 0 !important;
         }
         
+        /* iPhone 12 Pro and devices with notch */
+        @supports (padding: max(0px)) {
+          nav {
+            padding-top: max(env(safe-area-inset-top), 0px) !important;
+            min-height: calc(70px + max(env(safe-area-inset-top), 0px)) !important;
+          }
+          
+          .mobile-menu {
+            top: calc(70px + max(env(safe-area-inset-top), 0px)) !important;
+            padding-bottom: max(env(safe-area-inset-bottom), 15px) !important;
+          }
+        }
+        
         /* Specific iPhone and mobile device rules */
         @media screen and (max-device-width: 768px) {
           .main-navigation {
@@ -542,6 +588,7 @@ function Navbar() {
             padding: 0 15px !important;
             position: fixed !important;
             top: 0 !important;
+            padding-top: env(safe-area-inset-top) !important;
           }
           
           .mobile-menu {
@@ -551,7 +598,46 @@ function Navbar() {
             right: 0 !important;
             margin: 0 !important;
             position: fixed !important;
-            top: 70px !important;
+            top: calc(70px + env(safe-area-inset-top)) !important;
+            padding-bottom: env(safe-area-inset-bottom) !important;
+          }
+        }
+        
+        /* iPhone 12 Pro specific (390x844) */
+        @media screen and (max-width: 390px) and (max-height: 844px) {
+          nav {
+            padding-top: env(safe-area-inset-top) !important;
+            min-height: calc(70px + env(safe-area-inset-top)) !important;
+          }
+          
+          .main-navigation {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            min-width: 100vw !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            padding: 0 15px !important;
+            position: fixed !important;
+            top: 0 !important;
+            padding-top: env(safe-area-inset-top) !important;
+          }
+          
+          .mobile-menu {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 !important;
+            position: fixed !important;
+            top: calc(70px + env(safe-area-inset-top)) !important;
+            padding-bottom: env(safe-area-inset-bottom) !important;
+            z-index: 1002 !important;
+          }
+          
+          .mobile-hamburger {
+            z-index: 1003 !important;
+            position: relative !important;
           }
         }
         
@@ -567,6 +653,7 @@ function Navbar() {
             padding: 0 15px !important;
             position: fixed !important;
             top: 0 !important;
+            padding-top: env(safe-area-inset-top) !important;
           }
           
           .mobile-menu {
@@ -576,7 +663,8 @@ function Navbar() {
             right: 0 !important;
             margin: 0 !important;
             position: fixed !important;
-            top: 70px !important;
+            top: calc(70px + env(safe-area-inset-top)) !important;
+            padding-bottom: env(safe-area-inset-bottom) !important;
           }
         }
         
@@ -586,24 +674,41 @@ function Navbar() {
           }
           .mobile-hamburger {
             display: flex !important;
+            position: relative !important;
+            z-index: 1001 !important;
           }
           
-          .main-navigation {
-            width: 100vw !important;
-            max-width: 100vw !important;
-            min-width: 100vw !important;
-          }
-          
-          /* Adjust padding for mobile */
           .main-navigation {
             width: 100vw !important;
             max-width: 100vw !important;
             min-width: 100vw !important;
             padding: 0 15px !important;
+            position: relative !important;
           }
           
           .mobile-menu {
             padding: 0 15px !important;
+            position: relative !important;
+            z-index: 1002 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          
+          /* Ensure hamburger button is clickable */
+          .mobile-hamburger {
+            display: flex !important;
+            position: relative !important;
+            z-index: 1001 !important;
+            pointer-events: auto !important;
+            touch-action: manipulation !important;
+          }
+          
+          /* Fix touch targets for mobile */
+          .mobile-hamburger,
+          .mobile-menu a,
+          .mobile-menu button {
+            min-height: 44px !important;
+            min-width: 44px !important;
           }
         }
         
@@ -630,6 +735,91 @@ function Navbar() {
             margin: 0 !important;
             padding: 0 !important;
             overflow-x: hidden !important;
+          }
+        }
+        
+        /* Additional mobile optimizations */
+        @media (max-width: 768px) {
+          /* Improve touch responsiveness */
+          .mobile-hamburger:active {
+            transform: scale(0.95) !important;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.3), rgba(78, 205, 196, 0.2)) !important;
+          }
+          
+          /* Better mobile menu animations and visibility */
+          .mobile-menu {
+            animation: slideDown 0.3s ease-out !important;
+            position: fixed !important;
+            top: calc(70px + env(safe-area-inset-top)) !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            z-index: 1002 !important;
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(26, 26, 26, 0.95)) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            padding-bottom: env(safe-area-inset-bottom) !important;
+          }
+          
+          /* iOS Safari specific fixes */
+          @supports (-webkit-touch-callout: none) {
+            .mobile-menu {
+              -webkit-transform: translateZ(0) !important;
+              transform: translateZ(0) !important;
+              will-change: transform !important;
+            }
+            
+            .mobile-hamburger {
+              -webkit-tap-highlight-color: transparent !important;
+              -webkit-touch-callout: none !important;
+            }
+          }
+          
+          /* Improve social links layout for small screens */
+          .mobile-menu .social-links-container {
+            display: flex !important;
+            justify-content: space-between !important;
+            gap: 8px !important;
+            padding: 12px 8px !important;
+          }
+          
+          .mobile-menu .social-links-container a,
+          .mobile-menu .social-links-container button {
+            flex: 1 !important;
+            min-height: 44px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+        }
+        
+        /* Very small screens optimization */
+        @media (max-width: 375px) {
+          .mobile-menu {
+            padding: 10px 0 !important;
+          }
+          
+          .mobile-menu .navigation-links {
+            gap: 6px !important;
+            margin-bottom: 15px !important;
+          }
+          
+          .mobile-menu .navigation-links a {
+            padding: 10px 12px !important;
+            font-size: 15px !important;
+          }
+          
+          .mobile-menu .social-links-container {
+            padding: 10px 6px !important;
+            gap: 6px !important;
+          }
+          
+          .mobile-menu .social-links-container img,
+          .mobile-menu .social-links-container svg {
+            width: 20px !important;
+            height: 20px !important;
           }
         }
       `}</style>

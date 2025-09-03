@@ -1,8 +1,8 @@
 .experience-section {
     background-color: #1E1E1E;
     color: white;
-    padding: 8px 0 20px 0;
-    min-height: 48vh;
+    padding: 60px 0 80px 0;
+    min-height: 60vh;
     display: block;
     width: 100%;
     margin: 0;
@@ -196,6 +196,240 @@
     }
 }
 
+/* Carrusel futurista móvil */
+.experience-carousel-futuristic {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 40px;
+    perspective: 1000px;
+}
+
+.futuristic-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateZ(-100px) rotateY(45deg) scale(0.8);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+}
+
+.futuristic-slide.active {
+    opacity: 1;
+    transform: translateZ(0) rotateY(0deg) scale(1);
+    pointer-events: auto;
+}
+
+.futuristic-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.futuristic-slide.active .futuristic-bg {
+    opacity: 1;
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { 
+        background: radial-gradient(circle at center, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
+        transform: scale(1);
+    }
+    100% { 
+        background: radial-gradient(circle at center, rgba(78, 205, 196, 0.2) 0%, transparent 70%);
+        transform: scale(1.05);
+    }
+}
+
+.experience-icon-futuristic {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(30px) scale(0.5);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.futuristic-slide.active .experience-icon-futuristic {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 0.2s;
+}
+
+.icon-glow {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1, #a55eea);
+    border-radius: 50%;
+    filter: blur(25px);
+    opacity: 0;
+    animation: iconGlow 3s ease-in-out infinite;
+}
+
+.futuristic-slide.active .icon-glow {
+    opacity: 0.6;
+}
+
+@keyframes iconGlow {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        filter: blur(20px);
+    }
+    50% { 
+        transform: scale(1.2) rotate(180deg);
+        filter: blur(25px);
+    }
+}
+
+.experience-icon-futuristic .icon-text {
+    position: relative;
+    z-index: 2;
+    font-size: 50px;
+    filter: drop-shadow(0 0 15px rgba(78, 205, 196, 0.6));
+}
+
+.experience-value-futuristic {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #4ecdc4;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    text-shadow: 0 0 25px rgba(78, 205, 196, 0.6);
+    background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.futuristic-slide.active .experience-value-futuristic {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+    animation: valueGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes valueGlow {
+    0% { 
+        text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        transform: scale(1);
+    }
+    100% { 
+        text-shadow: 0 0 30px rgba(78, 205, 196, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+.experience-title-futuristic {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+.futuristic-slide.active .experience-title-futuristic {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.experience-description-futuristic {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 320px;
+}
+
+.futuristic-slide.active .experience-description-futuristic {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+.connection-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, #4ecdc4, transparent);
+    height: 1px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.line-1 {
+    top: 20%;
+    left: 10%;
+    width: 80%;
+    animation: lineFlow 3s ease-in-out infinite;
+}
+
+.line-2 {
+    top: 60%;
+    left: 15%;
+    width: 70%;
+    animation: lineFlow 3s ease-in-out infinite 1s;
+}
+
+.line-3 {
+    top: 80%;
+    left: 20%;
+    width: 60%;
+    animation: lineFlow 3s ease-in-out infinite 2s;
+}
+
+.futuristic-slide.active .line {
+    opacity: 0.6;
+}
+
+@keyframes lineFlow {
+    0%, 100% { 
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% { 
+        transform: translateX(0);
+        opacity: 0.6;
+    }
+}
+
 /* Responsive Design - iPhone Optimized */
 @media (max-width: 768px) {
     .experience-header {
@@ -241,18 +475,17 @@
         font-size: 16px;
     }
     
+    /* Ocultar grid en móvil */
     .experience-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 40px;
+        display: none;
     }
     
     .vertical-divider {
         display: none;
     }
     
-    .experience-column {
-        padding: 20px;
+    .carousel-slide {
+        padding: 25px 15px;
     }
     
     .experience-icon {
@@ -329,38 +562,42 @@
         font-size: 15px;
     }
     
-    .experience-grid {
-        gap: 25px;
-        margin-bottom: 30px;
+    /* Carrusel futurista para pantallas pequeñas */
+    .experience-carousel-futuristic {
+        height: 280px;
     }
     
-    .experience-column {
-        padding: 18px;
+    .experience-icon-futuristic {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
     }
     
-    .experience-icon {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 18px;
+    .icon-glow {
+        width: 100px;
+        height: 100px;
     }
     
-    .icon-text {
-        font-size: 28px;
+    .experience-icon-futuristic .icon-text {
+        font-size: 32px;
     }
     
-    .experience-value {
+    .experience-value-futuristic {
         font-size: 28px;
         margin-bottom: 12px;
     }
     
-    .experience-title-text {
-        font-size: 16px;
+    .experience-title-futuristic {
+        font-size: 18px;
         margin-bottom: 10px;
     }
     
-    .experience-description {
+    .experience-description-futuristic {
         font-size: 13px;
+        max-width: 250px;
     }
+    
+
     
     .contact-button {
         padding: 10px 25px;
