@@ -123,12 +123,7 @@ const Background = () => {
                                     {exp.description}
                                 </div>
                                 
-                                {/* Líneas de conexión futuristas */}
-                                <div className="connection-lines">
-                                    <div className="line line-1"></div>
-                                    <div className="line line-2"></div>
-                                    <div className="line line-3"></div>
-                                </div>
+
                             </div>
                         ))}
                     </div>
