@@ -598,6 +598,12 @@ function Navbar() {
           .mobile-hamburger-global {
             display: flex !important;
           }
+          .desktop-menu {
+            display: none !important;
+          }
+          .desktop-social {
+            display: none !important;
+          }
         }
         
         /* Ensure proper z-index layering */
