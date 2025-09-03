@@ -14,7 +14,7 @@ const Background = () => {
         },
         {
             icon: '💻',
-            value: '7',
+            value: '+13',
             title: 'Desarrollos de Software',
             description: 'a la medida.'
         },

@@ -306,17 +306,19 @@ function Navbar() {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(26, 26, 26, 0.95))',
-          backdropFilter: 'blur(25px)',
-          WebkitBackdropFilter: 'blur(25px)',
-          borderTop: '1px solid rgba(78, 205, 196, 0.2)',
-          boxShadow: '0 8px 40px rgba(0, 0, 0, 0.4)',
-          zIndex: 1002,
-          padding: '15px 0',
-          paddingBottom: 'calc(15px + env(safe-area-inset-bottom))',
+          background: 'rgba(18, 18, 18, 0.98)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderTop: '2px solid #4ecdc4',
+          boxShadow: '0 8px 40px rgba(0, 0, 0, 0.6)',
+          zIndex: 9999,
+          padding: '20px 0',
+          paddingBottom: 'calc(20px + env(safe-area-inset-bottom))',
           animation: 'slideDown 0.3s ease-out',
           overflowY: 'auto',
-          WebkitOverflowScrolling: 'touch'
+          WebkitOverflowScrolling: 'touch',
+          pointerEvents: 'auto',
+          touchAction: 'manipulation'
         }}>
           <div className="mobile-menu" style={{
             width: '100%',
@@ -561,6 +563,8 @@ function Navbar() {
           left: 0 !important;
           right: 0 !important;
           margin: 0 !important;
+          z-index: 9999 !important;
+          position: relative !important;
         }
         
         /* iPhone 12 Pro and devices with notch */
@@ -573,6 +577,7 @@ function Navbar() {
           .mobile-menu {
             top: calc(70px + max(env(safe-area-inset-top), 0px)) !important;
             padding-bottom: max(env(safe-area-inset-bottom), 15px) !important;
+            z-index: 9999 !important;
           }
         }
         
@@ -632,7 +637,7 @@ function Navbar() {
             position: fixed !important;
             top: calc(70px + env(safe-area-inset-top)) !important;
             padding-bottom: env(safe-area-inset-bottom) !important;
-            z-index: 1002 !important;
+            z-index: 9999 !important;
           }
           
           .mobile-hamburger {
@@ -689,7 +694,7 @@ function Navbar() {
           .mobile-menu {
             padding: 0 15px !important;
             position: relative !important;
-            z-index: 1002 !important;
+            z-index: 9999 !important;
             width: 100% !important;
             max-width: 100% !important;
           }
@@ -754,7 +759,7 @@ function Navbar() {
             left: 0 !important;
             right: 0 !important;
             bottom: 0 !important;
-            z-index: 1002 !important;
+            z-index: 9999 !important;
             background: linear-gradient(180deg, rgba(18, 18, 18, 0.98), rgba(26, 26, 26, 0.95)) !important;
             backdrop-filter: blur(25px) !important;
             -webkit-backdrop-filter: blur(25px) !important;

@@ -35,17 +35,10 @@ function Projects() {
         // Energía y Servicios Eléctricos (detallados)
         {
             title: "SFV CIDTCA SOLAR – 70,11 kWp",
-            description: "114 módulos Jinko 615 Wp, inversor Huawei SUN2000-80K-MGL0, ~95 MWh/año. Cálculos eléctricos/estructurales (NSR-10), RETIE/NTC 2050, AGPE CEDENAR.",
+            description: "Sistema fotovoltaico completo de 114 módulos Jinko 615 Wp sobre cubierta metálica, con inversor trifásico Huawei SUN2000-80K-MGL0. Genera ~95 MWh/año cubriendo hasta 80% de la demanda energética del Centro de Investigación. Incluye cálculos eléctricos/estructurales (NSR-10), cumplimiento RETIE/NTC 2050 y certificación AGPE CEDENAR. Sistema on-grid optimizado para autoconsumo industrial.",
             category: "Energía y Servicios Eléctricos",
             image: solarCidtcaSvg,
-            technologies: ["Jinko 615 Wp", "Huawei 80K", "RETIE", "NSR-10", "AGPE"]
-        },
-        {
-            title: "Techo Solar – 70,11 kW",
-            description: "Sistema on-grid en cubierta metálica. 114 paneles, inversor 80 kW, optimizado para autoconsumo.",
-            category: "Energía y Servicios Eléctricos",
-            image: solarCurve2,
-            technologies: ["On-Grid", "80 kW", "Autoconsumo", "Optimización"]
+            technologies: ["Jinko 615 Wp", "Huawei 80K", "RETIE", "NSR-10", "AGPE", "On-Grid", "Autoconsumo"]
         },
         {
             title: "Sistema FV – Cadena Láctea",
