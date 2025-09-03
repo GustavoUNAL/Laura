@@ -9,13 +9,14 @@
 }
 
 .login-card {
-    width: 100%;
-    max-width: 360px;
+    width: 50%;
+    max-width: 640px;
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 60%, #1a1a1a 100%);
     border: 1px solid rgba(78, 205, 196, 0.15);
     border-radius: 18px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     padding: 22px;
+    margin: 0 auto;
 }
 
 .login-header {
@@ -23,24 +24,9 @@
     margin-bottom: 12px;
 }
 
-.login-badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(78, 205, 196, 0.12);
-    border: 1px solid rgba(78, 205, 196, 0.35);
-    color: #4ecdc4;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-}
+.login-badge { display: none; }
 
-.login-header h1 {
-    margin: 10px 0 0 0;
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 700;
-}
+.login-header h1 { display: none; }
 
 .login-avatar-wrap {
     display: flex;
@@ -50,8 +36,8 @@
 }
 
 .login-avatar {
-    width: 84px;
-    height: 84px;
+    width: 72px;
+    height: 72px;
     border-radius: 999px;
     object-fit: cover;
     border: 2px solid rgba(78, 205, 196, 0.35);
@@ -148,7 +134,9 @@
 
 @media (max-width: 480px) {
     .login-card {
-        padding: 22px;
+        width: 92%;
+        max-width: 92%;
+        padding: 20px;
         border-radius: 16px;
     }
     .login-header h1 {
