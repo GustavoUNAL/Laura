@@ -228,86 +228,83 @@ function Navbar() {
           </a>
         </div>
 
-      </div>
+        {/* Mobile Hamburger Button - Header */}
+        <button 
+          onClick={toggleMobileMenu}
+          style={{
+            display: 'flex',
+            background: 'rgba(0, 0, 0, 0.8)',
+            border: '2px solid #4ECDC4',
+            borderRadius: '10px',
+            width: '50px',
+            height: '50px',
+            cursor: 'pointer',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.3s ease',
+            zIndex: 10001,
+            WebkitTapHighlightColor: 'transparent',
+            WebkitTouchCallout: 'none',
+            WebkitUserSelect: 'none',
+            userSelect: 'none',
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(78, 205, 196, 0.3)',
+            backdropFilter: 'blur(15px)',
+            WebkitBackdropFilter: 'blur(15px)'
+          }} className="mobile-hamburger"
+          onMouseEnter={(e) => {
+            e.target.style.background = 'rgba(20, 20, 20, 0.9)';
+            e.target.style.borderColor = '#4ECDC4';
+            e.target.style.transform = 'scale(1.05)';
+            e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(78, 205, 196, 0.4)';
+          }} onMouseLeave={(e) => {
+            e.target.style.background = 'rgba(0, 0, 0, 0.8)';
+            e.target.style.borderColor = '#4ECDC4';
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(78, 205, 196, 0.3)';
+          }}>
+          
+          {/* Menu Icon */}
+          <div style={{
+            width: '22px',
+            height: '18px',
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+          }}>
+            <span style={{
+              width: '100%',
+              height: '2px',
+              background: '#4ECDC4',
+              borderRadius: '2px',
+              transition: 'all 0.3s ease',
+              transform: isMobileMenuOpen ? 'rotate(45deg) translate(6px, 6px)' : 'none',
+              transformOrigin: 'center',
+              boxShadow: '0 0 6px rgba(78, 205, 196, 0.4)'
+            }}></span>
+            <span style={{
+              width: '100%',
+              height: '2px',
+              background: isMobileMenuOpen ? 'transparent' : '#4ECDC4',
+              borderRadius: '2px',
+              transition: 'all 0.3s ease',
+              opacity: isMobileMenuOpen ? 0 : 1,
+              boxShadow: '0 0 6px rgba(78, 205, 196, 0.4)'
+            }}></span>
+            <span style={{
+              width: '100%',
+              height: '2px',
+              background: '#4ECDC4',
+              borderRadius: '2px',
+              transition: 'all 0.3s ease',
+              transform: isMobileMenuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none',
+              transformOrigin: 'center',
+              boxShadow: '0 0 6px rgba(78, 205, 196, 0.4)'
+            }}></span>
+          </div>
+        </button>
 
-      {/* Mobile Hamburger Button - Global */}
-      <button 
-        onClick={toggleMobileMenu}
-        style={{
-          display: 'flex',
-          position: 'fixed',
-          top: '20px',
-          right: '20px',
-          background: 'rgba(0, 0, 0, 0.95)',
-          border: '2px solid #4ECDC4',
-          borderRadius: '12px',
-          width: '60px',
-          height: '60px',
-          cursor: 'pointer',
-          alignItems: 'center',
-          justifyContent: 'center',
-          transition: 'all 0.3s ease',
-          zIndex: 99999,
-          WebkitTapHighlightColor: 'transparent',
-          WebkitTouchCallout: 'none',
-          WebkitUserSelect: 'none',
-          userSelect: 'none',
-          boxShadow: '0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(78, 205, 196, 0.4)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)'
-        }} className="mobile-hamburger"
-        onMouseEnter={(e) => {
-          e.target.style.background = 'rgba(20, 20, 20, 0.98)';
-          e.target.style.borderColor = '#4ECDC4';
-          e.target.style.transform = 'scale(1.1)';
-          e.target.style.boxShadow = '0 12px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(78, 205, 196, 0.6)';
-        }} onMouseLeave={(e) => {
-          e.target.style.background = 'rgba(0, 0, 0, 0.95)';
-          e.target.style.borderColor = '#4ECDC4';
-          e.target.style.transform = 'scale(1)';
-          e.target.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(78, 205, 196, 0.4)';
-        }}>
-        
-        {/* Menu Icon */}
-        <div style={{
-          width: '26px',
-          height: '20px',
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between'
-        }}>
-          <span style={{
-            width: '100%',
-            height: '3px',
-            background: '#4ECDC4',
-            borderRadius: '3px',
-            transition: 'all 0.3s ease',
-            transform: isMobileMenuOpen ? 'rotate(45deg) translate(7px, 7px)' : 'none',
-            transformOrigin: 'center',
-            boxShadow: '0 0 8px rgba(78, 205, 196, 0.5)'
-          }}></span>
-          <span style={{
-            width: '100%',
-            height: '3px',
-            background: isMobileMenuOpen ? 'transparent' : '#4ECDC4',
-            borderRadius: '3px',
-            transition: 'all 0.3s ease',
-            opacity: isMobileMenuOpen ? 0 : 1,
-            boxShadow: '0 0 8px rgba(78, 205, 196, 0.5)'
-          }}></span>
-          <span style={{
-            width: '100%',
-            height: '3px',
-            background: '#4ECDC4',
-            borderRadius: '3px',
-            transition: 'all 0.3s ease',
-            transform: isMobileMenuOpen ? 'rotate(-45deg) translate(7px, -7px)' : 'none',
-            transformOrigin: 'center',
-            boxShadow: '0 0 8px rgba(78, 205, 196, 0.5)'
-          }}></span>
-        </div>
-      </button>
+      </div>
 
       {/* Mobile Menu - Professional Popup */}
       {isMobileMenuOpen && (
