@@ -146,7 +146,7 @@ function Navbar() {
           }}>
             Proyectos
           </Link>
-          <Link to="/#recent-community" style={{
+          <Link to="/community" style={{
             color: '#ffffff',
             textDecoration: 'none',
             fontSize: '18px',
@@ -367,7 +367,7 @@ function Navbar() {
               <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '20px'}}>→</span>
             </Link>
             
-            <Link to="/#recent-community" onClick={closeMobileMenu} style={{
+            <Link to="/community" onClick={closeMobileMenu} style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
