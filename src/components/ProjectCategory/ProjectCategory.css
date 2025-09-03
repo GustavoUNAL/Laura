@@ -22,16 +22,14 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: visible;
-    justify-items: center;
-    padding: 20px 0;
+    overflow: hidden;
+    padding: 12px 8px 18px 8px;
 }
 
 .project-card {
@@ -48,11 +46,12 @@
     position: relative;
     z-index: 10;
     width: 100%;
-    max-width: 400px;
+    max-width: 280px;
     box-sizing: border-box;
     box-shadow: 
         0 15px 45px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    /* no scroll snapping in grid layout */
 }
 
 .project-card::before {
@@ -105,11 +104,11 @@
 
 .project-image {
     width: 100%;
-    height: 220px;
+    height: 200px;
     overflow: hidden;
     position: relative;
     background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-    border-radius: 15px 15px 0 0;
+    border-radius: 14px 14px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,12 +117,12 @@
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: block;
     max-width: 100%;
-    padding: 20px;
+    padding: 12px;
 }
 
 /* SVG specific fixes */
@@ -138,8 +137,50 @@
     transform: scale(1.08);
 }
 
+/* Content-aware image themes */
+.project-image.image-theme-solar {
+    background: radial-gradient(120px 60px at 30% 20%, rgba(255,215,0,0.18), transparent 60%),
+                linear-gradient(135deg, #2f2a1a 0%, #15110a 100%);
+}
+.project-image.image-theme-microgrid {
+    background: radial-gradient(120px 60px at 70% 30%, rgba(78,205,196,0.18), transparent 60%),
+                linear-gradient(135deg, #1a2a2a 0%, #0d1414 100%);
+}
+.project-image.image-theme-dnp3 {
+    background: radial-gradient(120px 60px at 40% 70%, rgba(69,183,209,0.18), transparent 60%),
+                linear-gradient(135deg, #1a2230 0%, #0b0f16 100%);
+}
+.project-image.image-theme-vr {
+    background: radial-gradient(120px 60px at 70% 20%, rgba(165,94,234,0.18), transparent 60%),
+                linear-gradient(135deg, #261a2f 0%, #120a16 100%);
+}
+.project-image.image-theme-reliability {
+    background: radial-gradient(120px 60px at 25% 60%, rgba(46,213,115,0.18), transparent 60%),
+                linear-gradient(135deg, #1a2f21 0%, #0a160d 100%);
+}
+.project-image.image-theme-scada {
+    background: radial-gradient(120px 60px at 65% 35%, rgba(255,107,107,0.18), transparent 60%),
+                linear-gradient(135deg, #2f1a1a 0%, #160a0a 100%);
+}
+.project-image.image-theme-ai {
+    background: radial-gradient(120px 60px at 35% 25%, rgba(78,205,196,0.18), transparent 60%),
+                linear-gradient(135deg, #1a1f2f 0%, #0a0c16 100%);
+}
+.project-image.image-theme-twin {
+    background: radial-gradient(120px 60px at 55% 45%, rgba(255,255,255,0.12), transparent 60%),
+                linear-gradient(135deg, #2b2b2b 0%, #151515 100%);
+}
+.project-image.image-theme-software {
+    background: radial-gradient(120px 60px at 50% 30%, rgba(69,183,209,0.16), transparent 60%),
+                linear-gradient(135deg, #1a2430 0%, #0a0f14 100%);
+}
+.project-image.image-theme-research {
+    background: radial-gradient(120px 60px at 50% 30%, rgba(255,255,255,0.10), transparent 60%),
+                linear-gradient(135deg, #232323 0%, #101010 100%);
+}
+
 .project-card .MuiCardContent-root {
-    padding: 25px !important;
+    padding: 18px !important;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -148,9 +189,9 @@
 
 .project-card h3 {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #4ecdc4;
     text-align: center;
     letter-spacing: 0.5px;
@@ -160,9 +201,9 @@
 
 .project-card p {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 14px;
     text-align: justify;
     color: #f0f0f0;
     flex-grow: 1;
@@ -173,10 +214,10 @@
     background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
+    padding: 10px 16px;
+    border-radius: 18px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;

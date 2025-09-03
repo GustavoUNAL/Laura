@@ -162,7 +162,7 @@ function Navbar() {
             e.target.style.color = '#ffffff';
             e.target.style.backgroundColor = 'transparent';
           }}>
-            Community
+            Comunidad
           </Link>
         </div>
 
@@ -391,7 +391,7 @@ function Navbar() {
               e.target.style.borderColor = 'rgba(255, 255, 255, 0.05)';
               e.target.style.transform = 'translateX(0)';
             }}>
-              <span>Community</span>
+              <span>Comunidad</span>
               <span style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: '20px'}}>→</span>
             </Link>
 

@@ -1,0 +1,28 @@
+<svg width="400" height="240" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4ecdc4"/>
+      <stop offset="100%" stop-color="#45b7d1"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0f0f0f"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" rx="16" fill="url(#bg)"/>
+  <g opacity="0.25">
+    <path d="M0,170 C60,150 120,120 180,130 C240,140 300,190 360,170 L400,160 L400,240 L0,240 Z" fill="#4ecdc4"/>
+  </g>
+  <g fill="none" stroke="url(#g1)" stroke-width="4">
+    <path d="M20,160 C80,120 140,90 200,100 C260,110 320,170 380,150"/>
+    <path d="M20,190 C90,150 150,130 220,135 C290,140 330,170 380,165" opacity="0.5"/>
+  </g>
+  <g fill="#45b7d1" opacity="0.9">
+    <circle cx="60" cy="180" r="3"/>
+    <circle cx="140" cy="140" r="3"/>
+    <circle cx="220" cy="130" r="3"/>
+    <circle cx="300" cy="160" r="3"/>
+    <circle cx="360" cy="150" r="3"/>
+  </g>
+</svg>
+
