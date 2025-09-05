@@ -75,6 +75,8 @@ function Community() {
     const [sessionStartTime, setSessionStartTime] = useState(null);
     const [sessionReports, setSessionReports] = useState([]);
     const [sessionTimer, setSessionTimer] = useState(0);
+    const [monthlyClassCount, setMonthlyClassCount] = useState(0);
+    const [classReviews, setClassReviews] = useState({});
     // In-app call state
     const videoRef = useRef(null);
     const mediaStreamRef = useRef(null);
@@ -248,7 +250,50 @@ function Community() {
     // Load sessions on mount
     useEffect(() => {
         loadSessions();
+        loadMonthlyStats();
+        loadClassReviews();
     }, []);
+
+    // Load monthly statistics
+    const loadMonthlyStats = () => {
+        const currentMonth = new Date().toISOString().slice(0, 7); // YYYY-MM
+        const reports = JSON.parse(localStorage.getItem('session-reports') || '[]');
+        const monthlySessions = reports.filter(report => 
+            report.startTime && report.startTime.startsWith(currentMonth)
+        );
+        setMonthlyClassCount(monthlySessions.length);
+    };
+
+    // Load class reviews
+    const loadClassReviews = () => {
+        const reviews = JSON.parse(localStorage.getItem('class-reviews') || '{}');
+        setClassReviews(reviews);
+    };
+
+    // Save class review
+    const saveClassReview = (lessonId, review) => {
+        const updatedReviews = {
+            ...classReviews,
+            [lessonId]: {
+                ...review,
+                lessonId,
+                updatedAt: new Date().toISOString()
+            }
+        };
+        setClassReviews(updatedReviews);
+        localStorage.setItem('class-reviews', JSON.stringify(updatedReviews));
+    };
+
+    // Get class review
+    const getClassReview = (lessonId) => {
+        return classReviews[lessonId] || {
+            rating: 0,
+            notes: '',
+            completed: false,
+            homework: '',
+            nextTopics: ''
+        };
+    };
 
     // Session timer
     useEffect(() => {
@@ -277,15 +322,26 @@ function Community() {
         }
     }, [currentLesson, currentCourse]);
 
-    // Editor commands
-    const exec = (cmd) => {
-        document.execCommand(cmd, false, null);
-        if (editorRef.current) setEditorHtml(editorRef.current.innerHTML);
+    // Modern editor commands
+    const execCommand = (command, value = null) => {
+        if (editorRef.current) {
+            editorRef.current.focus();
+            document.execCommand(command, false, value);
+            setEditorHtml(editorRef.current.innerHTML);
+        }
     };
-    const addBullet = () => { exec('insertUnorderedList'); };
-    const makeBold = () => { exec('bold'); };
-    const makeItalic = () => { exec('italic'); };
-    const makeUnderline = () => { exec('underline'); };
+
+    const makeBold = () => execCommand('bold');
+    const makeItalic = () => execCommand('italic');
+    const makeUnderline = () => execCommand('underline');
+    const addBullet = () => execCommand('insertUnorderedList');
+    const addNumberedList = () => execCommand('insertOrderedList');
+    const addHeading = () => execCommand('formatBlock', 'h3');
+    const addParagraph = () => execCommand('formatBlock', 'p');
+    const addLink = () => {
+        const url = prompt('Enter URL:');
+        if (url) execCommand('createLink', url);
+    };
 
     // Call controls
     const startCall = async () => {
@@ -554,10 +610,15 @@ function Community() {
                             >
                                 <div className="panel-title">Notes Editor</div>
                                 <div className="editor-toolbar">
-                                    <button onClick={makeBold}>B</button>
-                                    <button onClick={makeItalic}>I</button>
-                                    <button onClick={makeUnderline}>U</button>
-                                    <button onClick={addBullet}>• List</button>
+                                    <div className="editor-buttons">
+                                        <button onClick={makeBold} title="Bold">B</button>
+                                        <button onClick={makeItalic} title="Italic">I</button>
+                                        <button onClick={makeUnderline} title="Underline">U</button>
+                                        <button onClick={addHeading} title="Heading">H</button>
+                                        <button onClick={addBullet} title="Bullet List">•</button>
+                                        <button onClick={addNumberedList} title="Numbered List">1.</button>
+                                        <button onClick={addLink} title="Add Link">🔗</button>
+                                    </div>
                                     <div className="session-controls">
                                         {!sessionStartTime ? (
                                             <button onClick={startSession} className="start-session-btn">Start Session</button>
@@ -566,14 +627,17 @@ function Community() {
                                         )}
                                         <button onClick={generateReport} className="report-btn">Generate Report</button>
                                     </div>
-                                    <span className="session-info">
-                                        {sessions.length} sessions saved
+                                    <div className="session-info">
+                                        <div className="session-stats">
+                                            <span>{sessions.length} sessions saved</span>
+                                            <span className="monthly-count">📅 {monthlyClassCount} this month</span>
+                                        </div>
                                         {sessionStartTime && (
                                             <span className="session-timer">
-                                                • {sessionTimer}s
+                                                ⏱️ {sessionTimer}s
                                             </span>
                                         )}
-                                    </span>
+                                    </div>
                                 </div>
                                 <div
                                     className="editor-surface"
@@ -583,6 +647,97 @@ function Community() {
                                     onInput={(e) => setEditorHtml(e.currentTarget.innerHTML)}
                                     dangerouslySetInnerHTML={{ __html: editorHtml }}
                                 />
+                                
+                                {/* Class Review Section */}
+                                {currentLesson && (
+                                    <div className="class-review-section">
+                                        <div className="review-header">
+                                            <h4>📝 Class Review - {currentLesson.title}</h4>
+                                        </div>
+                                        <div className="review-content">
+                                            <div className="review-rating">
+                                                <label>Rating:</label>
+                                                <div className="star-rating">
+                                                    {[1, 2, 3, 4, 5].map(star => (
+                                                        <button
+                                                            key={star}
+                                                            className={`star ${star <= getClassReview(currentLesson.id).rating ? 'active' : ''}`}
+                                                            onClick={() => {
+                                                                const currentReview = getClassReview(currentLesson.id);
+                                                                saveClassReview(currentLesson.id, {
+                                                                    ...currentReview,
+                                                                    rating: star
+                                                                });
+                                                            }}
+                                                        >
+                                                            ⭐
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div className="review-fields">
+                                                <div className="review-field">
+                                                    <label>Notes:</label>
+                                                    <textarea
+                                                        placeholder="Class notes and observations..."
+                                                        value={getClassReview(currentLesson.id).notes}
+                                                        onChange={(e) => {
+                                                            const currentReview = getClassReview(currentLesson.id);
+                                                            saveClassReview(currentLesson.id, {
+                                                                ...currentReview,
+                                                                notes: e.target.value
+                                                            });
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div className="review-field">
+                                                    <label>Homework:</label>
+                                                    <textarea
+                                                        placeholder="Assignments and homework..."
+                                                        value={getClassReview(currentLesson.id).homework}
+                                                        onChange={(e) => {
+                                                            const currentReview = getClassReview(currentLesson.id);
+                                                            saveClassReview(currentLesson.id, {
+                                                                ...currentReview,
+                                                                homework: e.target.value
+                                                            });
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div className="review-field">
+                                                    <label>Next Topics:</label>
+                                                    <textarea
+                                                        placeholder="Topics for next class..."
+                                                        value={getClassReview(currentLesson.id).nextTopics}
+                                                        onChange={(e) => {
+                                                            const currentReview = getClassReview(currentLesson.id);
+                                                            saveClassReview(currentLesson.id, {
+                                                                ...currentReview,
+                                                                nextTopics: e.target.value
+                                                            });
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div className="review-checkbox">
+                                                    <label>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={getClassReview(currentLesson.id).completed}
+                                                            onChange={(e) => {
+                                                                const currentReview = getClassReview(currentLesson.id);
+                                                                saveClassReview(currentLesson.id, {
+                                                                    ...currentReview,
+                                                                    completed: e.target.checked
+                                                                });
+                                                            }}
+                                                        />
+                                                        Class Completed
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                             
                             <div 

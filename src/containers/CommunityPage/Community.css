@@ -398,11 +398,12 @@
 /* Editor */
 .editor-toolbar { 
     display: flex; 
-    gap: 6px; 
-    padding: 6px 8px; 
+    gap: 8px; 
+    padding: 8px 12px; 
     border-bottom: 1px solid rgba(255, 0, 255, 0.15); 
     background: rgba(0,0,0,0.2); 
     align-items: center;
+    flex-wrap: wrap;
 }
 .editor-toolbar button { 
     background: rgba(255,255,255,0.15); 
@@ -416,10 +417,16 @@
     min-width: 24px;
 }
 .editor-toolbar button:hover { background: rgba(255,0,255,0.2); color: #FF00FF; }
+.editor-buttons { 
+    display: flex; 
+    gap: 4px; 
+    flex-wrap: wrap;
+}
 .session-controls { 
     display: flex; 
     gap: 6px; 
-    margin-left: 12px; 
+    margin-left: auto; 
+    flex-wrap: wrap;
 }
 .start-session-btn, .end-session-btn, .report-btn { 
     background: rgba(255,255,255,0.2); 
@@ -446,13 +453,23 @@
     color: #FF0000; 
 }
 .session-info { 
-    margin-left: auto; 
     color: rgba(255,255,255,0.7); 
     font-size: 10px; 
     font-family: 'Orbitron', monospace; 
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin-left: 12px;
+}
+.session-stats { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+    gap: 2px;
+}
+.monthly-count { 
+    color: #00FF88; 
+    font-weight: bold; 
 }
 .session-timer { 
     color: #ffffff; 
@@ -477,6 +494,128 @@
 .editor-surface h3 { font-size: 13px; }
 .editor-surface p { margin: 4px 0; }
 .editor-surface a { color: #FF00FF; }
+
+/* Class Review Section */
+.class-review-section {
+    border-top: 1px solid rgba(255, 0, 255, 0.2);
+    background: rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    margin-top: 8px;
+}
+
+.review-header h4 {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.review-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.review-rating label {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.star-rating {
+    display: flex;
+    gap: 4px;
+}
+
+.star {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    filter: grayscale(1);
+}
+
+.star.active {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+.star:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+}
+
+.review-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.review-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.review-field label {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.review-field textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    padding: 6px 8px;
+    resize: vertical;
+    min-height: 40px;
+    outline: none;
+}
+
+.review-field textarea:focus {
+    border-color: rgba(255, 0, 255, 0.5);
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.2);
+}
+
+.review-field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.review-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.review-checkbox label {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.review-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #FF00FF;
+}
 
 /* Call */
 .call-toolbar { display: flex; align-items: center; gap: 10px; padding: 8px; border-bottom: 1px solid rgba(0, 191, 255, 0.15); background: rgba(0,0,0,0.2); }
