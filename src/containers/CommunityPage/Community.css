@@ -1,5 +1,4 @@
-/* Community Page - Futuristic Design */
-/* Uses CSS variables for theme support */
+/* Community Page - Ultra Minimalist Design */
 
 .community-page {
     background: #2d2d2d;
@@ -15,17 +14,7 @@
 }
 
 .community-page::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(0, 191, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
-    pointer-events: none;
+    display: none;
 }
 
 .community-header {
@@ -36,52 +25,37 @@
 }
 
 .community-header h1 {
-    font-family: 'Orbitron', monospace;
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
     color: #ffffff;
     margin: 0 0 20px 0;
-    letter-spacing: 3px;
-    text-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 20px rgba(0, 191, 255, 0.8); }
-    to { text-shadow: 0 0 30px rgba(0, 191, 255, 1), 0 0 40px rgba(255, 0, 255, 0.5); }
 }
 
 .community-header p {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.3rem;
-    color: #FF00FF;
-    font-style: italic;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
     margin: 0;
     position: relative;
     z-index: 2;
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
 
 .logout-btn {
-    background: linear-gradient(135deg, #FF00FF, #8A2BE2);
-    border: 2px solid rgba(255, 0, 255, 0.3);
-    border-radius: 25px;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
     color: #ffffff;
     padding: 12px 25px;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
-    transition: all 0.3s ease;
     margin-top: 20px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
 }
 
 .logout-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
-    background: linear-gradient(135deg, #8A2BE2, #FF00FF);
+    background: #ffffff;
+    color: #2d2d2d;
 }
 
 .login-container {
@@ -98,29 +72,24 @@
 }
 
 .login-header h1 {
-    font-family: 'Orbitron', monospace;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
     color: #ffffff;
     margin: 0 0 15px 0;
-    text-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
 }
 
 .login-header p {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.1rem;
-    color: #FF00FF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
     margin: 0;
-    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
 }
 
 .login-form {
-    background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(0, 191, 255, 0.1));
-    border: 2px solid rgba(0, 191, 255, 0.3);
-    border-radius: 20px;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
     padding: 40px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .form-group {
@@ -129,45 +98,41 @@
 
 .form-group label {
     display: block;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     color: #ffffff;
     margin-bottom: 8px;
-    text-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
 }
 
 .form-group input {
     width: 100%;
     padding: 15px 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(0, 191, 255, 0.3);
-    border-radius: 10px;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
     color: #ffffff;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 16px;
-    transition: all 0.3s ease;
     box-sizing: border-box;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #FF00FF;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
-    background: rgba(0, 0, 0, 0.5);
+    border-color: #ffffff;
+    background: #ffffff;
+    color: #2d2d2d;
 }
 
 .form-group input::placeholder {
-    color: rgba(0, 191, 255, 0.5);
+    color: #ffffff;
 }
 
 .error-message {
-    background: rgba(255, 0, 0, 0.2);
-    border: 1px solid rgba(255, 0, 0, 0.5);
-    border-radius: 8px;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
     padding: 12px;
-    color: #ff6b6b;
-    font-family: 'Orbitron', monospace;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 14px;
     margin-bottom: 20px;
     text-align: center;
@@ -175,41 +140,34 @@
 
 .login-btn {
     width: 100%;
-    background: linear-gradient(135deg, #ffffff, #8A2BE2);
-    border: 2px solid rgba(0, 191, 255, 0.3);
-    border-radius: 15px;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
     color: #ffffff;
     padding: 18px;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
 }
 
 .login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
-    background: linear-gradient(135deg, #8A2BE2, #FF00FF);
+    background: #ffffff;
+    color: #2d2d2d;
 }
 
 .login-hint {
     text-align: center;
     margin-top: 30px;
     padding: 20px;
-    background: rgba(0, 191, 255, 0.1);
-    border: 1px solid rgba(0, 191, 255, 0.2);
-    border-radius: 10px;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
 }
 
 .login-hint p {
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 14px;
     color: #ffffff;
     margin: 0;
-    text-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
 }
 
 .community-content {
@@ -292,6 +250,7 @@
     color: #ffffff;
     font-size: 13px;
     font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .course-item:hover { 
@@ -306,6 +265,7 @@
     font-size: 13px; 
     font-weight: 400;
     color: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .course-tree {
@@ -350,6 +310,7 @@
     font-size: 13px;
     font-weight: 400;
     min-height: 36px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 .lesson-item:hover { 
     background: #ffffff;
@@ -363,6 +324,7 @@
     font-size: 13px; 
     color: inherit;
     font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 .course-right {
@@ -421,7 +383,6 @@
     border: 1px solid #ffffff; 
     color: #ffffff; 
     padding: 6px 10px; 
-    border-radius: 0; 
     font-size: 12px; 
     cursor: pointer; 
     white-space: nowrap;
@@ -429,6 +390,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 .tab-btn:hover { 
     background: #ffffff;
@@ -441,13 +403,12 @@
 
 /* Lesson Status Indicators */
 .lesson-status {
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 11px;
     padding: 4px 8px;
-    border-radius: 12px;
     margin-top: 4px;
     display: inline-block;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .lesson-status.past {
@@ -462,10 +423,7 @@
     border: none;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
+/* Animations removed for minimal design */
 
 .viewer-frame { flex: 1; position: relative; }
 .viewer-frame iframe { width: 100%; height: calc(100% - 0px); border: none; background: rgba(0, 0, 0, 0.3); }
@@ -560,17 +518,16 @@
     flex-wrap: wrap;
 }
 .editor-toolbar button { 
-    background: rgba(255,255,255,0.15); 
-    border: 1px solid rgba(255,255,255,0.3); 
+    background: #2d2d2d; 
+    border: 1px solid #ffffff; 
     color: #ffffff; 
     padding: 4px 8px; 
-    border-radius: 6px; 
-    font-family: 'Orbitron', monospace; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; 
     font-size: 11px; 
     cursor: pointer; 
     min-width: 24px;
 }
-.editor-toolbar button:hover { background: rgba(255,255,255,0.3); color: #ffffff; }
+.editor-toolbar button:hover { background: #ffffff; color: #2d2d2d; }
 .editor-buttons { 
     display: flex; 
     gap: 4px; 
@@ -583,33 +540,31 @@
     flex-wrap: wrap;
 }
 .start-session-btn, .end-session-btn, .report-btn, .analytics-btn { 
-    background: rgba(255,255,255,0.2); 
-    border: 1px solid rgba(255,255,255,0.4); 
+    background: #2d2d2d; 
+    border: 1px solid #ffffff; 
     color: #ffffff; 
     padding: 4px 8px; 
-    border-radius: 6px; 
-    font-family: 'Orbitron', monospace; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; 
     font-size: 10px; 
     cursor: pointer; 
-    transition: all 0.2s ease;
 }
 .start-session-btn:hover, .end-session-btn:hover, .report-btn:hover, .analytics-btn:hover { 
-    background: rgba(255,255,255,0.3); 
-    color: #ffffff; 
+    background: #ffffff; 
+    color: #2d2d2d; 
 }
 .end-session-btn { 
-    background: rgba(255,69,0,0.2); 
-    border-color: rgba(255,69,0,0.4); 
-    color: #FF4500; 
+    background: #2d2d2d; 
+    border: 1px solid #ffffff; 
+    color: #ffffff; 
 }
 .end-session-btn:hover { 
-    background: rgba(255,0,0,0.2); 
-    color: #FF0000; 
+    background: #ffffff; 
+    color: #2d2d2d; 
 }
 .session-info { 
-    color: rgba(255,255,255,0.7); 
+    color: #ffffff; 
     font-size: 10px; 
-    font-family: 'Orbitron', monospace; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; 
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -622,47 +577,45 @@
     gap: 2px;
 }
 .monthly-count { 
-    color: #00FF88; 
-    font-weight: bold; 
+    color: #ffffff; 
+    font-weight: 400; 
 }
 .session-timer { 
     color: #ffffff; 
-    font-weight: bold; 
+    font-weight: 400; 
 }
 .editor-surface { 
     flex: 1; 
     padding: 8px; 
     outline: none; 
     overflow: auto; 
-    font-family: 'Orbitron', monospace; 
-    color: #fff; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; 
+    color: #ffffff; 
     font-size: 13px;
     line-height: 1.4;
 }
 .editor-surface h1, .editor-surface h2, .editor-surface h3 { 
     color: #ffffff; 
-    text-shadow: 0 0 10px rgba(255,255,255,0.4); 
     margin: 8px 0 4px 0;
     font-size: 14px;
 }
 .editor-surface h3 { font-size: 13px; }
 .editor-surface p { margin: 4px 0; }
-.editor-surface a { color: #FF00FF; }
+.editor-surface a { color: #ffffff; }
 
 /* Class Review Section */
 .class-review-section {
-    border-top: 1px solid rgba(255, 0, 255, 0.2);
-    background: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #ffffff;
+    background: #2d2d2d;
     padding: 12px;
     margin-top: 8px;
 }
 
 .review-header h4 {
     color: #ffffff;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 14px;
     margin: 0 0 12px 0;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .review-content {
@@ -679,9 +632,9 @@
 
 .review-rating label {
     color: #ffffff;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .star-rating {
@@ -694,18 +647,15 @@
     border: none;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    filter: grayscale(1);
+    color: #ffffff;
 }
 
 .star.active {
-    filter: grayscale(0);
-    transform: scale(1.1);
+    color: #ffffff;
 }
 
 .star:hover {
-    transform: scale(1.2);
-    filter: grayscale(0);
+    color: #ffffff;
 }
 
 .review-fields {
@@ -722,17 +672,16 @@
 
 .review-field label {
     color: #ffffff;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 11px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .review-field textarea {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
     color: #ffffff;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 11px;
     padding: 6px 8px;
     resize: vertical;
@@ -741,12 +690,13 @@
 }
 
 .review-field textarea:focus {
-    border-color: rgba(255, 0, 255, 0.5);
-    box-shadow: 0 0 8px rgba(255, 0, 255, 0.2);
+    border-color: #ffffff;
+    background: #ffffff;
+    color: #2d2d2d;
 }
 
 .review-field textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
 }
 
 .review-checkbox {
@@ -757,7 +707,7 @@
 
 .review-checkbox label {
     color: #ffffff;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 11px;
     display: flex;
     align-items: center;
@@ -786,9 +736,8 @@
 }
 
 .reports-content {
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
     width: 90%;
     max-width: 800px;
     max-height: 80vh;
@@ -808,18 +757,17 @@
 
 .reports-header h3 {
     color: #ffffff;
-    font-family: 'Orbitron', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 18px;
     margin: 0;
 }
 
 .close-reports-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
     color: #ffffff;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -828,7 +776,8 @@
 }
 
 .close-reports-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #ffffff;
+    color: #2d2d2d;
 }
 
 .reports-stats {
@@ -932,10 +881,7 @@
     border: none;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
+/* Animations removed for minimal design */
 
 /* Fullscreen button */
 .fullscreen-btn {
