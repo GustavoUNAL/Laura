@@ -396,11 +396,11 @@
     font-family: 'Orbitron', monospace;
     font-size: 2rem;
     font-weight: 600;
-    color: #00BFFF;
+    color: #ffffff;
     margin-bottom: 30px;
     text-align: center;
     position: relative;
-    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .passions-section h3::after,
@@ -414,9 +414,9 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #8A2BE2, #00BFFF, #FF00FF);
+    background: linear-gradient(90deg, #8A2BE2, #ffffff, #FF00FF);
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .passions-grid {
@@ -427,8 +427,8 @@
 }
 
 .passion-card {
-    background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(0, 191, 255, 0.15));
-    border: 2px solid rgba(0, 191, 255, 0.3);
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(255, 255, 255, 0.15));
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     padding: 30px 25px;
     text-align: center;

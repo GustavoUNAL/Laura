@@ -177,12 +177,33 @@ function Community() {
                 notes: editorHtml,
                 startTime: new Date(sessionStartTime).toISOString(),
                 endTime: new Date().toISOString(),
-                createdAt: new Date().toISOString()
+                createdAt: new Date().toISOString(),
+                type: 'live_session'
             };
             
-            setSessionReports(prev => [...prev, report]);
-            localStorage.setItem('session-reports', JSON.stringify([...sessionReports, report]));
+            // Auto-save report
+            const existingReports = JSON.parse(localStorage.getItem('session-reports') || '[]');
+            const updatedReports = [...existingReports, report];
+            localStorage.setItem('session-reports', JSON.stringify(updatedReports));
             
+            // Auto-generate and download report
+            const reportData = {
+                generatedAt: new Date().toISOString(),
+                totalSessions: updatedReports.length,
+                totalDuration: updatedReports.reduce((sum, r) => sum + r.duration, 0),
+                sessions: updatedReports,
+                lastSession: report
+            };
+            
+            const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `live-session-report-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            setSessionReports(updatedReports);
             setSessionStartTime(null);
             setCurrentSessionId(null);
             setEditorHtml('<h3>Class Notes</h3><p>Write here...</p>');

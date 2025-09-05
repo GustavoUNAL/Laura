@@ -374,10 +374,10 @@
 }
 
 .live-panel { display: flex; flex-direction: column; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255, 0, 255, 0.2); border-radius: 12px; overflow: hidden; }
-.panel-title { padding: 8px 12px; font-family: 'Orbitron', monospace; color: #00FF88; border-bottom: 1px solid rgba(255, 0, 255, 0.15); background: rgba(0,0,0,0.2); }
+.panel-title { padding: 8px 12px; font-family: 'Orbitron', monospace; color: #ffffff; border-bottom: 1px solid rgba(255, 0, 255, 0.15); background: rgba(0,0,0,0.2); }
 .live-panel iframe { flex: 1; width: 100%; border: none; background: rgba(0,0,0,0.3); }
 .panel-body { position: relative; display: flex; flex: 1; }
-.open-btn { position: absolute; bottom: 10px; right: 10px; background: rgba(0,255,136,0.2); border: 1px solid rgba(0,255,136,0.4); color: #00FF88; padding: 6px 10px; border-radius: 8px; font-family: 'Orbitron', monospace; font-size: 12px; text-decoration: none; backdrop-filter: blur(6px); }
+.open-btn { position: absolute; bottom: 10px; right: 10px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #ffffff; padding: 6px 10px; border-radius: 8px; font-family: 'Orbitron', monospace; font-size: 12px; text-decoration: none; backdrop-filter: blur(6px); }
 .open-btn:hover { background: rgba(255,0,255,0.2); color: #FF00FF; }
 
 /* Center Google Docs page and constrain width */
@@ -405,9 +405,9 @@
     align-items: center;
 }
 .editor-toolbar button { 
-    background: rgba(0,255,136,0.15); 
-    border: 1px solid rgba(0,255,136,0.3); 
-    color: #00FF88; 
+    background: rgba(255,255,255,0.15); 
+    border: 1px solid rgba(255,255,255,0.3); 
+    color: #ffffff; 
     padding: 4px 8px; 
     border-radius: 6px; 
     font-family: 'Orbitron', monospace; 
@@ -422,9 +422,9 @@
     margin-left: 12px; 
 }
 .start-session-btn, .end-session-btn, .report-btn { 
-    background: rgba(0,255,136,0.2); 
-    border: 1px solid rgba(0,255,136,0.4); 
-    color: #00FF88; 
+    background: rgba(255,255,255,0.2); 
+    border: 1px solid rgba(255,255,255,0.4); 
+    color: #ffffff; 
     padding: 4px 8px; 
     border-radius: 6px; 
     font-family: 'Orbitron', monospace; 
@@ -455,7 +455,7 @@
     align-items: flex-end;
 }
 .session-timer { 
-    color: #00FF88; 
+    color: #ffffff; 
     font-weight: bold; 
 }
 .editor-surface { 
@@ -469,8 +469,8 @@
     line-height: 1.4;
 }
 .editor-surface h1, .editor-surface h2, .editor-surface h3 { 
-    color: #00FF88; 
-    text-shadow: 0 0 10px rgba(0,255,136,0.4); 
+    color: #ffffff; 
+    text-shadow: 0 0 10px rgba(255,255,255,0.4); 
     margin: 8px 0 4px 0;
     font-size: 14px;
 }
@@ -514,11 +514,11 @@
 .live-top-left { display: flex; align-items: center; gap: 10px; }
 .live-dot { color: #FF4D6D; font-size: 16px; }
 .live-label { color: #FF4D6D; font-family: 'Orbitron', monospace; font-weight: 700; letter-spacing: 1px; }
-.live-crumb { color: #00FF88; font-family: 'Orbitron', monospace; font-size: 0.9rem; opacity: 0.95; }
+.live-crumb { color: #ffffff; font-family: 'Orbitron', monospace; font-size: 0.9rem; opacity: 0.95; }
 .live-top-right { display: flex; align-items: center; gap: 10px; }
 .live-clock { display: flex; align-items: baseline; gap: 8px; color: #fff; font-family: 'Orbitron', monospace; }
 .live-date { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
-.live-time { color: #00FF88; font-weight: 700; font-size: 1rem; text-shadow: 0 0 10px rgba(0,255,136,0.6); }
+.live-time { color: #ffffff; font-weight: 700; font-size: 1rem; text-shadow: 0 0 10px rgba(255,255,255,0.6); }
 .live-tz { color: rgba(255,255,255,0.7); font-size: 0.75rem; }
 
 .welcome-section {
