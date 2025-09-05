@@ -330,7 +330,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #8A2BE2, #ffffff, #FF00FF);
+    background: #ffffff;
     border-radius: 2px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
@@ -407,7 +407,7 @@
 
 .trait-item:hover {
     transform: translateX(10px);
-    border-color: #FF00FF;
+    border-color: #ffffff;
     box-shadow: 0 10px 25px rgba(255, 0, 255, 0.2);
 }
 
@@ -418,7 +418,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #8A2BE2, #ffffff);
+    background: #2d2d2d;
     border-radius: 50%;
     flex-shrink: 0;
     box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
@@ -462,7 +462,7 @@
 
 .interest-item:hover {
     transform: translateY(-5px);
-    border-color: #FF00FF;
+    border-color: #ffffff;
     box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3);
 }
 

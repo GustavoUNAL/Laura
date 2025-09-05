@@ -98,7 +98,7 @@ function Navbar() {
           textShadow: '0 0 20px rgba(0, 191, 255, 0.8)',
           transition: 'all 0.3s ease'
         }} onMouseEnter={(e) => {
-          e.target.style.color = '#FF00FF';
+          e.target.style.color = '#ffffff';
           e.target.style.textShadow = '0 0 30px rgba(255, 0, 255, 0.8)';
         }} onMouseLeave={(e) => {
           e.target.style.color = '#00BFFF';
@@ -126,7 +126,7 @@ function Navbar() {
             background: 'rgba(255, 255, 255, 0.1)',
             textShadow: '0 0 10px rgba(255, 255, 255, 0.5)'
           }} onMouseEnter={(e) => {
-            e.target.style.color = '#FF00FF';
+            e.target.style.color = '#ffffff';
             e.target.style.backgroundColor = 'rgba(255, 0, 255, 0.2)';
             e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
             e.target.style.transform = 'scale(1.05)';
@@ -153,7 +153,7 @@ function Navbar() {
             background: 'rgba(255, 255, 255, 0.1)',
             textShadow: '0 0 10px rgba(255, 255, 255, 0.5)'
           }} onMouseEnter={(e) => {
-            e.target.style.color = '#FF00FF';
+            e.target.style.color = '#ffffff';
             e.target.style.backgroundColor = 'rgba(255, 0, 255, 0.2)';
             e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
             e.target.style.transform = 'scale(1.05)';
@@ -201,7 +201,7 @@ function Navbar() {
               color: '#ffffff',
               transition: 'all 0.3s ease'
             }} onMouseEnter={(e) => {
-              e.target.style.color = '#FF00FF';
+              e.target.style.color = '#ffffff';
             }} onMouseLeave={(e) => {
               e.target.style.color = '#ffffff';
             }}>
@@ -226,7 +226,7 @@ function Navbar() {
               color: '#ffffff',
               transition: 'all 0.3s ease'
             }} viewBox="0 0 24 24" fill="currentColor" onMouseEnter={(e) => {
-              e.target.style.color = '#FF00FF';
+              e.target.style.color = '#ffffff';
               e.target.style.transform = 'scale(1.2)';
             }} onMouseLeave={(e) => {
               e.target.style.color = '#ffffff';
@@ -313,7 +313,7 @@ function Navbar() {
           <span style={{
             width: '100%',
             height: '3px',
-            background: 'linear-gradient(90deg, #ffffff, #FF00FF)',
+            background: '#2d2d2d',
             borderRadius: '2px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             transform: isMobileMenuOpen ? 'rotate(45deg) translate(7px, 7px)' : 'none',
@@ -324,7 +324,7 @@ function Navbar() {
           <span style={{
             width: '100%',
             height: '3px',
-            background: isMobileMenuOpen ? 'transparent' : 'linear-gradient(90deg, #00BFFF, #FF00FF)',
+            background: isMobileMenuOpen ? 'transparent' : '#2d2d2d',
             borderRadius: '2px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             opacity: isMobileMenuOpen ? 0 : 1,
@@ -334,7 +334,7 @@ function Navbar() {
           <span style={{
             width: '100%',
             height: '3px',
-            background: 'linear-gradient(90deg, #ffffff, #FF00FF)',
+            background: '#2d2d2d',
             borderRadius: '2px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             transform: isMobileMenuOpen ? 'rotate(-45deg) translate(7px, -7px)' : 'none',
@@ -385,7 +385,7 @@ function Navbar() {
             }}
             onMouseEnter={(e) => {
               e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-              e.target.style.color = '#FF00FF';
+              e.target.style.color = '#ffffff';
               e.target.style.transform = 'scale(1.1)';
               e.target.style.boxShadow = '0 0 15px rgba(255, 0, 255, 0.5)';
             }}
@@ -455,7 +455,7 @@ function Navbar() {
               onMouseEnter={(e) => {
                 e.target.style.background = 'rgba(255, 0, 255, 0.4)';
                 e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
-                e.target.style.color = '#FF00FF';
+                e.target.style.color = '#ffffff';
                 e.target.style.transform = 'translateX(5px) scale(1.02)';
                 e.target.style.boxShadow = '0 8px 25px rgba(255, 0, 255, 0.3)';
                 e.target.style.textShadow = '0 0 15px rgba(255, 0, 255, 0.8)';
@@ -493,7 +493,7 @@ function Navbar() {
               onMouseEnter={(e) => {
                 e.target.style.background = 'rgba(255, 0, 255, 0.4)';
                 e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
-                e.target.style.color = '#FF00FF';
+                e.target.style.color = '#ffffff';
                 e.target.style.transform = 'translateX(5px) scale(1.02)';
                 e.target.style.boxShadow = '0 8px 25px rgba(255, 0, 255, 0.3)';
                 e.target.style.textShadow = '0 0 15px rgba(255, 0, 255, 0.8)';
@@ -551,7 +551,7 @@ function Navbar() {
                   color: '#ffffff',
                   transition: 'all 0.3s ease'
                 }} onMouseEnter={(e) => {
-                  e.target.style.color = '#FF00FF';
+                  e.target.style.color = '#ffffff';
                 }} onMouseLeave={(e) => {
                   e.target.style.color = '#ffffff';
                 }}>

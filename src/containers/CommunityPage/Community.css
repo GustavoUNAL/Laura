@@ -13,6 +13,13 @@
     overflow-x: hidden;
 }
 
+.community-page.logged-in {
+    padding-top: 0;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .community-page::before {
     display: none;
 }
@@ -22,6 +29,26 @@
     padding: 80px 20px 60px;
     position: relative;
     z-index: 2;
+}
+
+.community-page.logged-in .community-header {
+    padding: 20px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.community-page.logged-in .community-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.community-page.logged-in .community-header p {
+    font-size: 1rem;
+    margin: 0;
 }
 
 .community-header h1 {
@@ -191,6 +218,11 @@
     background: #2d2d2d;
 }
 
+.community-page.logged-in .course-split {
+    min-height: calc(100vh - 80px);
+    height: calc(100vh - 80px);
+}
+
 .course-left {
     background: #2d2d2d;
     border-right: 1px solid #ffffff;
@@ -217,7 +249,7 @@
 }
 
 .add-course-btn {
-    background: linear-gradient(135deg, #ffffff, #8A2BE2);
+    background: #2d2d2d;
     border: 2px solid rgba(0, 191, 255, 0.4);
     color: #fff;
     padding: 8px 12px;
@@ -474,7 +506,7 @@
 
 .live-title { display: flex; gap: 12px; align-items: baseline; color: #FF4D6D; font-family: 'Orbitron', monospace; font-weight: 700; }
 .live-sub { color: #ffffff; font-size: 0.9rem; opacity: 0.9; }
-.exit-live-btn { background: linear-gradient(135deg, #ffffff, #8A2BE2); border: 2px solid rgba(255, 255, 255, 0.3); color: #fff; border-radius: 12px; padding: 8px 12px; font-family: 'Orbitron', monospace; cursor: pointer; }
+.exit-live-btn { background: #2d2d2d; border: 1px solid #ffffff; color: #ffffff; padding: 8px 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; cursor: pointer; }
 .exit-live-btn:hover { transform: translateY(-1px); }
 
 .live-grid-horizontal { 
@@ -490,7 +522,7 @@
 .live-panel iframe { flex: 1; width: 100%; border: none; background: rgba(0,0,0,0.3); }
 .panel-body { position: relative; display: flex; flex: 1; }
 .open-btn { position: absolute; bottom: 10px; right: 10px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #ffffff; padding: 6px 10px; border-radius: 8px; font-family: 'Orbitron', monospace; font-size: 12px; text-decoration: none; backdrop-filter: blur(6px); }
-.open-btn:hover { background: rgba(255,0,255,0.2); color: #FF00FF; }
+.open-btn:hover { background: #ffffff; color: #2d2d2d; }
 
 /* Center Google Docs page and constrain width */
 .doc-center { justify-content: center; align-items: center; padding: 10px; }
@@ -1060,7 +1092,7 @@
 .call-toolbar { display: flex; align-items: center; gap: 10px; padding: 8px; border-bottom: 1px solid rgba(0, 191, 255, 0.15); background: rgba(0,0,0,0.2); }
 .call-toolbar button { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #ffffff; padding: 6px 10px; border-radius: 8px; font-family: 'Orbitron', monospace; font-size: 12px; cursor: pointer; }
 .call-toolbar button[disabled] { opacity: 0.5; cursor: not-allowed; }
-.call-counter { margin-left: auto; color: #FF00FF; font-family: 'Orbitron', monospace; text-shadow: 0 0 10px rgba(255,0,255,0.4); }
+.call-counter { margin-left: auto; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
 .call-video { width: 100%; height: 100%; object-fit: cover; background: #000; }
 
 @media (max-width: 1200px) { 
@@ -1116,7 +1148,7 @@
 .welcome-section p {
     font-family: 'Orbitron', monospace;
     font-size: 1.2rem;
-    color: #FF00FF;
+    color: #ffffff;
     margin: 0;
     text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
 }
@@ -1153,7 +1185,7 @@
 
 .feature-card:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: #FF00FF;
+    border-color: #ffffff;
     box-shadow: 0 20px 40px rgba(255, 0, 255, 0.3);
 }
 
@@ -1223,7 +1255,7 @@
     font-family: 'Orbitron', monospace;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #FF00FF;
+    color: #ffffff;
     text-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
 }
 

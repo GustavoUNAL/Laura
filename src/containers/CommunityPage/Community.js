@@ -664,8 +664,7 @@ function Community() {
     if (isLoggedIn) {
   return (
     <>
-      <Navbar />
-                <div className={`community-page ${isDarkMode ? 'dark-theme' : 'light-theme'}`}>
+                <div className={`community-page logged-in ${isDarkMode ? 'dark-theme' : 'light-theme'}`}>
                     <div className="community-header">
                         <h1>🌟 Community Portal</h1>
                         <p>{role === 'admin' ? 'Admin Dashboard' : 'Student Dashboard'}</p>
@@ -790,7 +789,6 @@ function Community() {
                         </div>
                     </div>
                 </div>
-                <Footer />
 
                 {/* Live full-screen overlay */}
                 {liveMode && (
