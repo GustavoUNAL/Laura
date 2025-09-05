@@ -2,10 +2,10 @@
 /* Uses CSS variables for theme support */
 
 .community-page {
-    background: #282a36;
+    background: #1e1e1e;
     min-height: 100vh;
     padding-top: 80px;
-    color: #f8f8f2;
+    color: #cccccc;
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -224,19 +224,19 @@
 /* Split layout for course viewer */
 .course-split {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 0;
     max-width: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     min-height: calc(100vh - 80px);
-    background: #282a36;
+    background: #1e1e1e;
 }
 
 .course-left {
-    background: #21222c;
-    border-right: 1px solid #44475a;
+    background: #252526;
+    border-right: 1px solid #3c3c3c;
     padding: 0;
     overflow-y: auto;
     height: calc(100vh - 80px);
@@ -285,27 +285,27 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 16px 20px;
+    padding: 12px 16px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #44475a;
-    color: #f8f8f2;
-    font-size: 14px;
-    font-weight: 500;
+    border-bottom: 1px solid #3c3c3c;
+    color: #cccccc;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 .course-item:hover { 
-    background: #44475a;
+    background: #2a2d2e;
 }
 .course-item.active { 
-    background: #6272a4;
-    color: #f8f8f2;
+    background: #094771;
+    color: #ffffff;
 }
 .course-name { 
-    font-size: 14px; 
-    font-weight: 500;
+    font-size: 13px; 
+    font-weight: 400;
     color: inherit;
 }
 
@@ -339,35 +339,35 @@
     display: none;
 }
 .lesson-item { 
-    padding: 16px 20px; 
+    padding: 10px 16px; 
     cursor: pointer; 
     display: flex; 
-    gap: 12px; 
+    gap: 8px; 
     align-items: center;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #44475a;
-    transition: all 0.2s ease;
-    color: #f8f8f2;
-    font-size: 14px;
+    border-bottom: 1px solid #3c3c3c;
+    transition: all 0.15s ease;
+    color: #cccccc;
+    font-size: 13px;
     font-weight: 400;
-    min-height: 48px;
+    min-height: 36px;
 }
 .lesson-item:hover { 
-    background: #44475a;
+    background: #2a2d2e;
 }
 .lesson-item.selected { 
-    background: #6272a4;
-    color: #f8f8f2;
+    background: #094771;
+    color: #ffffff;
 }
 .lesson-name { 
-    font-size: 14px; 
+    font-size: 13px; 
     color: inherit;
     font-weight: 400;
 }
 
 .course-right {
-    background: #282a36;
+    background: #1e1e1e;
     border: none;
     border-radius: 0;
     padding: 0;
@@ -380,11 +380,11 @@
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
-    padding: 16px 20px; 
-    border-bottom: 1px solid #44475a; 
-    background: #21222c; 
-    min-height: 60px;
-    gap: 16px;
+    padding: 12px 16px; 
+    border-bottom: 1px solid #3c3c3c; 
+    background: #252526; 
+    min-height: 48px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 .viewer-title { 
@@ -395,16 +395,16 @@
     min-width: 0;
 }
 .crumb-course { 
-    color: #f8f8f2; 
-    font-size: 14px; 
-    font-weight: 500;
+    color: #cccccc; 
+    font-size: 13px; 
+    font-weight: 400;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .crumb-lesson { 
-    color: #50fa7b; 
-    font-size: 14px; 
+    color: #cccccc; 
+    font-size: 13px; 
     font-weight: 400;
     white-space: nowrap;
     overflow: hidden;
@@ -419,27 +419,27 @@
 }
 .tab-btn { 
     background: transparent; 
-    border: 1px solid #44475a; 
-    color: #f8f8f2; 
-    padding: 8px 12px; 
-    border-radius: 4px; 
+    border: 1px solid #3c3c3c; 
+    color: #cccccc; 
+    padding: 6px 10px; 
+    border-radius: 2px; 
     font-size: 12px; 
     cursor: pointer; 
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     white-space: nowrap;
-    min-height: 32px;
+    min-height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .tab-btn:hover { 
-    background: #44475a;
-    border-color: #6272a4;
+    background: #2a2d2e;
+    border-color: #3c3c3c;
 }
 .tab-btn.active { 
-    background: #6272a4; 
-    border-color: #50fa7b; 
-    color: #f8f8f2;
+    background: #094771; 
+    border-color: #007acc; 
+    color: #ffffff;
 }
 
 /* Lesson Status Indicators */
@@ -454,14 +454,14 @@
 }
 
 .lesson-status.past {
-    background: #ff5555;
-    color: #282a36;
+    background: #6c6c6c;
+    color: #ffffff;
     border: none;
 }
 
 .lesson-status.live {
-    background: #50fa7b;
-    color: #282a36;
+    background: #007acc;
+    color: #ffffff;
     border: none;
     animation: pulse 2s infinite;
 }
@@ -925,14 +925,14 @@
 }
 
 .lesson-status.past {
-    background: #ff5555;
-    color: #282a36;
+    background: #6c6c6c;
+    color: #ffffff;
     border: none;
 }
 
 .lesson-status.live {
-    background: #50fa7b;
-    color: #282a36;
+    background: #007acc;
+    color: #ffffff;
     border: none;
     animation: pulse 2s infinite;
 }
