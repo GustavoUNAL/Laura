@@ -37,7 +37,7 @@
     font-family: 'Orbitron', monospace;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #00BFFF;
+    color: #ffffff;
     margin: 0 0 20px 0;
     letter-spacing: 4px;
     text-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
@@ -58,7 +58,7 @@
 .header-line {
     width: 200px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #00BFFF, #FF00FF, #8A2BE2, transparent);
+    background: linear-gradient(90deg, transparent, #ffffff, #FF00FF, #8A2BE2, transparent);
     margin: 0 auto;
     border-radius: 2px;
     animation: lineGlow 2s ease-in-out infinite alternate;
@@ -182,7 +182,7 @@
     position: absolute;
     width: 4px;
     height: 4px;
-    background: #00BFFF;
+    background: #ffffff;
     border-radius: 50%;
     animation: particleFloat 4s linear infinite;
     box-shadow: 0 0 6px currentColor;

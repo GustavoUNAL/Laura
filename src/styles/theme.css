@@ -30,7 +30,7 @@
   --shadow-secondary: rgba(255, 0, 255, 0.2);
   --gradient-primary: linear-gradient(135deg, #ffffff, #f8f9fa);
   --gradient-secondary: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(0, 191, 255, 0.1));
-  --gradient-accent: linear-gradient(135deg, #8A2BE2, #00BFFF, #FF00FF);
+  --gradient-accent: linear-gradient(135deg, #8A2BE2, #ffffff, #FF00FF);
 }
 
 /* Global Styles */

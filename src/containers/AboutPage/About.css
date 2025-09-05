@@ -147,7 +147,7 @@
     border-radius: 50%;
     border: 4px solid #8A2BE2;
     box-shadow: 
-        0 0 0 3px #00BFFF,
+        0 0 0 3px #ffffff,
         0 0 0 6px #FF00FF,
         0 15px 30px rgba(138, 43, 226, 0.4),
         inset 0 1px 0 rgba(0, 191, 255, 0.2);
@@ -268,7 +268,7 @@
     top: 50px;
     width: 5px;
     height: 8px;
-    background: linear-gradient(135deg, #00BFFF, #FF00FF);
+    background: linear-gradient(135deg, #ffffff, #FF00FF);
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 191, 255, 0.3);
 }
@@ -320,7 +320,7 @@
     font-family: 'Orbitron', monospace;
     font-size: 1.8rem;
     font-weight: 600;
-    color: #00BFFF;
+    color: #ffffff;
     margin: 0 0 10px 0;
     letter-spacing: 1px;
     text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
@@ -345,7 +345,7 @@
     font-family: 'Orbitron', monospace;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #00BFFF;
+    color: #ffffff;
     margin-bottom: 20px;
     letter-spacing: 1px;
     text-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
@@ -471,7 +471,7 @@
     font-family: 'Orbitron', monospace;
     font-size: 1.4rem;
     font-weight: 600;
-    color: #00BFFF;
+    color: #ffffff;
     margin: 0 0 15px 0;
     position: relative;
     z-index: 2;
@@ -518,7 +518,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #8A2BE2, #00BFFF);
+    background: linear-gradient(135deg, #8A2BE2, #ffffff);
     border-radius: 50%;
     flex-shrink: 0;
     box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
@@ -528,7 +528,7 @@
     font-family: 'Orbitron', monospace;
     font-size: 1.3rem;
     font-weight: 600;
-    color: #00BFFF;
+    color: #ffffff;
     margin: 0 0 10px 0;
     text-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
 }
