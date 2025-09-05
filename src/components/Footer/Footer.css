@@ -21,10 +21,10 @@ h4{
 
 .footer {
     font-size: 17px;
-    font-family: 'Montserrat', sans-serif;
-    color: #e1dada;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    color: #ffffff;
     text-align: center;
-    background-color: #121212;
+    background-color: #2d2d2d;
     height: 200px;
     display: flex;
     align-items: center;
@@ -38,6 +38,7 @@ h4{
     position: relative;
     left: 0;
     transform: translateX(0);
+    border-top: 1px solid #ffffff;
 }
 
 .flex-container-footer {
@@ -59,25 +60,28 @@ h4{
 .icons-footer {
     width: 30px;
     height: 30px;
-    transition: all 0.3s ease;
     cursor: pointer;
-    color: #e1dada;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 44px;
     min-width: 44px;
     touch-action: manipulation;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
 }
 
 .icons-footer:hover {
-    transform: scale(1.1);
-    color: #4ecdc4;
+    background: #ffffff;
+    color: #2d2d2d;
 }
 
 .email-footer-button {
-    background: none;
-    border: none;
+    background: #2d2d2d;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
     padding: 0;
     cursor: pointer;
     display: flex;
@@ -89,13 +93,17 @@ h4{
     min-width: 44px;
 }
 
+.email-footer-button:hover {
+    background: #ffffff;
+}
+
 .email-footer-button:hover .icons-footer {
-    color: #4ecdc4;
+    color: #2d2d2d;
 }
 
 .copyright {
     font-size: 16px;
-    color: #cccccc;
+    color: #ffffff;
     margin: 0;
     font-weight: 400;
     line-height: 1.4;
