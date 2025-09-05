@@ -4,8 +4,9 @@ import './MainTitle.css';
 function MainTitle() {
     return (
         <div className="main-title">
-            <h1 className="name">GUSTAVO ARTEAGA</h1>
-            <p className="subtitle-short"> Desarrollo de software |  Energía |  Inteligencia Artificial</p>
+            <div className="name-container">
+                <h1 className="name">LAURA MARÍA CHAVES TIMARÁN</h1>
+            </div>
         </div>
     );
 }

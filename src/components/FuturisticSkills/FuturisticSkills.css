@@ -1,0 +1,332 @@
+/* Futuristic Skills Animation */
+/* Uses CSS variables for theme support */
+
+.futuristic-skills-container {
+    background: var(--gradient-primary);
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.futuristic-skills-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-secondary);
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.skills-header h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00BFFF;
+    margin: 0 0 20px 0;
+    letter-spacing: 4px;
+    text-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+    animation: headerGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes headerGlow {
+    from { 
+        text-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+        transform: scale(1);
+    }
+    to { 
+        text-shadow: 0 0 30px rgba(0, 191, 255, 1), 0 0 40px rgba(255, 0, 255, 0.5);
+        transform: scale(1.02);
+    }
+}
+
+.header-line {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00BFFF, #FF00FF, #8A2BE2, transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+    animation: lineGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes lineGlow {
+    from { box-shadow: 0 0 10px rgba(0, 191, 255, 0.5); }
+    to { box-shadow: 0 0 20px rgba(0, 191, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.4); }
+}
+
+.skill-display {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.skill-card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 10, 46, 0.8));
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skill-card.visible {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    animation: skillAppear 0.5s ease-out;
+}
+
+.skill-card.hidden {
+    opacity: 0;
+    transform: scale(0.8) rotateY(90deg);
+}
+
+@keyframes skillAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotateY(90deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1) rotateY(45deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateY(0deg);
+    }
+}
+
+.skill-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: iconFloat 2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+@keyframes iconFloat {
+    from { transform: translateY(0px) rotate(0deg); }
+    to { transform: translateY(-10px) rotate(5deg); }
+}
+
+.skill-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px currentColor;
+    animation: nameGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+    from { text-shadow: 0 0 15px currentColor; }
+    to { text-shadow: 0 0 25px currentColor, 0 0 35px currentColor; }
+}
+
+.skill-glow {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    border-radius: 50%;
+    animation: glowPulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes glowPulse {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+.skill-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00BFFF;
+    border-radius: 50%;
+    animation: particleFloat 4s linear infinite;
+    box-shadow: 0 0 6px currentColor;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(80px) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(-80px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0);
+    }
+}
+
+.skills-indicators {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.indicator.active {
+    transform: scale(1.3);
+    box-shadow: 0 0 20px currentColor;
+    animation: indicatorPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes indicatorPulse {
+    from { 
+        transform: scale(1.3);
+        box-shadow: 0 0 20px currentColor;
+    }
+    to { 
+        transform: scale(1.5);
+        box-shadow: 0 0 30px currentColor;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .futuristic-skills-container {
+        padding: 60px 20px;
+        min-height: 350px;
+    }
+    
+    .skills-header h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .header-line {
+        width: 150px;
+    }
+    
+    .skill-display {
+        width: 300px;
+        height: 250px;
+    }
+    
+    .skill-card {
+        width: 250px;
+        height: 180px;
+    }
+    
+    .skill-icon {
+        font-size: 3rem;
+    }
+    
+    .skill-name {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .futuristic-skills-container {
+        padding: 40px 15px;
+        min-height: 300px;
+    }
+    
+    .skills-header h2 {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+    
+    .header-line {
+        width: 100px;
+    }
+    
+    .skill-display {
+        width: 250px;
+        height: 200px;
+    }
+    
+    .skill-card {
+        width: 200px;
+        height: 150px;
+    }
+    
+    .skill-icon {
+        font-size: 2.5rem;
+    }
+    
+    .skill-name {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .skills-indicators {
+        gap: 10px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Ensure no horizontal overflow */
+.futuristic-skills-container,
+.skill-display,
+.skill-card,
+.skills-indicators {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
