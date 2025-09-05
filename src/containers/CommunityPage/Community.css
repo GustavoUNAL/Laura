@@ -2,17 +2,16 @@
 /* Uses CSS variables for theme support */
 
 .community-page {
-    background: #1e1e1e;
+    background: #2d2d2d;
     min-height: 100vh;
     padding-top: 80px;
-    color: #cccccc;
+    color: #ffffff;
     width: 100%;
     max-width: 100%;
     margin: 0;
     box-sizing: border-box;
     position: relative;
     overflow-x: hidden;
-    transition: all 0.3s ease;
 }
 
 .community-page::before {
@@ -231,12 +230,12 @@
     padding: 0;
     box-sizing: border-box;
     min-height: calc(100vh - 80px);
-    background: #1e1e1e;
+    background: #2d2d2d;
 }
 
 .course-left {
-    background: #252526;
-    border-right: 1px solid #3c3c3c;
+    background: #2d2d2d;
+    border-right: 1px solid #ffffff;
     padding: 0;
     overflow-y: auto;
     height: calc(100vh - 80px);
@@ -287,21 +286,21 @@
     gap: 12px;
     padding: 12px 16px;
     cursor: pointer;
-    transition: all 0.15s ease;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #3c3c3c;
-    color: #cccccc;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 400;
 }
 
 .course-item:hover { 
-    background: #2a2d2e;
+    background: #ffffff;
+    color: #2d2d2d;
 }
 .course-item.active { 
-    background: #094771;
-    color: #ffffff;
+    background: #ffffff;
+    color: #2d2d2d;
 }
 .course-name { 
     font-size: 13px; 
@@ -346,19 +345,19 @@
     align-items: center;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #3c3c3c;
-    transition: all 0.15s ease;
-    color: #cccccc;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 400;
     min-height: 36px;
 }
 .lesson-item:hover { 
-    background: #2a2d2e;
+    background: #ffffff;
+    color: #2d2d2d;
 }
 .lesson-item.selected { 
-    background: #094771;
-    color: #ffffff;
+    background: #ffffff;
+    color: #2d2d2d;
 }
 .lesson-name { 
     font-size: 13px; 
@@ -367,7 +366,7 @@
 }
 
 .course-right {
-    background: #1e1e1e;
+    background: #2d2d2d;
     border: none;
     border-radius: 0;
     padding: 0;
@@ -381,8 +380,8 @@
     align-items: center; 
     justify-content: space-between; 
     padding: 12px 16px; 
-    border-bottom: 1px solid #3c3c3c; 
-    background: #252526; 
+    border-bottom: 1px solid #ffffff; 
+    background: #2d2d2d; 
     min-height: 48px;
     gap: 12px;
     flex-wrap: wrap;
@@ -395,7 +394,7 @@
     min-width: 0;
 }
 .crumb-course { 
-    color: #cccccc; 
+    color: #ffffff; 
     font-size: 13px; 
     font-weight: 400;
     white-space: nowrap;
@@ -403,7 +402,7 @@
     text-overflow: ellipsis;
 }
 .crumb-lesson { 
-    color: #cccccc; 
+    color: #ffffff; 
     font-size: 13px; 
     font-weight: 400;
     white-space: nowrap;
@@ -419,13 +418,12 @@
 }
 .tab-btn { 
     background: transparent; 
-    border: 1px solid #3c3c3c; 
-    color: #cccccc; 
+    border: 1px solid #ffffff; 
+    color: #ffffff; 
     padding: 6px 10px; 
-    border-radius: 2px; 
+    border-radius: 0; 
     font-size: 12px; 
     cursor: pointer; 
-    transition: all 0.15s ease;
     white-space: nowrap;
     min-height: 28px;
     display: flex;
@@ -433,13 +431,12 @@
     justify-content: center;
 }
 .tab-btn:hover { 
-    background: #2a2d2e;
-    border-color: #3c3c3c;
+    background: #ffffff;
+    color: #2d2d2d;
 }
 .tab-btn.active { 
-    background: #094771; 
-    border-color: #007acc; 
-    color: #ffffff;
+    background: #ffffff; 
+    color: #2d2d2d;
 }
 
 /* Lesson Status Indicators */
@@ -454,16 +451,15 @@
 }
 
 .lesson-status.past {
-    background: #6c6c6c;
-    color: #ffffff;
+    background: #ffffff;
+    color: #2d2d2d;
     border: none;
 }
 
 .lesson-status.live {
-    background: #007acc;
-    color: #ffffff;
+    background: #ffffff;
+    color: #2d2d2d;
     border: none;
-    animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
@@ -925,16 +921,15 @@
 }
 
 .lesson-status.past {
-    background: #6c6c6c;
-    color: #ffffff;
+    background: #ffffff;
+    color: #2d2d2d;
     border: none;
 }
 
 .lesson-status.live {
-    background: #007acc;
-    color: #ffffff;
+    background: #ffffff;
+    color: #2d2d2d;
     border: none;
-    animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
