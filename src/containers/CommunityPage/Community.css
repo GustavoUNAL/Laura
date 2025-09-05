@@ -2,10 +2,10 @@
 /* Uses CSS variables for theme support */
 
 .community-page {
-    background: var(--gradient-primary);
+    background: #282a36;
     min-height: 100vh;
     padding-top: 80px;
-    color: var(--text-primary);
+    color: #f8f8f2;
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -224,32 +224,26 @@
 /* Split layout for course viewer */
 .course-split {
     display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 32px;
-    max-width: 1600px;
-    margin: 0 auto 60px;
-    padding: 0 40px;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - 80px);
+    background: #282a36;
 }
 
 .course-left {
-    background: linear-gradient(135deg, rgba(138, 43, 226, 0.12), rgba(0, 191, 255, 0.12));
-    border: 2px solid rgba(0, 191, 255, 0.3);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    background: #21222c;
+    border-right: 1px solid #44475a;
+    padding: 0;
     overflow-y: auto;
-    max-height: calc(100vh - 120px);
+    height: calc(100vh - 80px);
 }
 
 .course-list-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    display: none;
 }
 
 .course-list-header h3 {
@@ -282,59 +276,47 @@
 .course-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
 }
 
 .course-item {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 16px;
-    border-radius: 12px;
+    padding: 16px 20px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    min-height: 60px;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #44475a;
+    color: #f8f8f2;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .course-item:hover { 
-    background: rgba(0, 191, 255, 0.15); 
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.2);
-    border-color: rgba(0, 191, 255, 0.3);
+    background: #44475a;
 }
 .course-item.active { 
-    background: rgba(0, 255, 136, 0.15); 
-    border-color: rgba(0, 255, 136, 0.4);
-    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
+    background: #6272a4;
+    color: #f8f8f2;
 }
 .course-name { 
-    font-family: 'Orbitron', monospace; 
-    font-size: 15px; 
-    font-weight: bold;
-    color: #ffffff;
+    font-size: 14px; 
+    font-weight: 500;
+    color: inherit;
 }
 
 .course-tree {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 .course-tree h4 {
-    font-family: 'Orbitron', monospace;
-    color: #ffffff;
-    margin: 0 0 16px 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-    background: linear-gradient(45deg, #ffffff, #00BFFF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    display: none;
 }
 
 .empty-tree { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; }
@@ -342,74 +324,67 @@
 .unit-list,
 .lesson-list { 
     list-style: none; 
-    padding: 0 0 0 12px; 
+    padding: 0; 
     margin: 0; 
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 .unit-item { 
-    margin-bottom: 12px; 
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 8px;
+    margin: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 .unit-title { 
-    font-weight: bold; 
-    font-size: 1rem; 
-    color: #00FF88; 
-    margin-bottom: 8px;
-    font-family: 'Orbitron', monospace;
+    display: none;
 }
 .lesson-item { 
-    padding: 12px; 
-    border-radius: 8px; 
+    padding: 16px 20px; 
     cursor: pointer; 
     display: flex; 
-    gap: 10px; 
+    gap: 12px; 
     align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #44475a;
     transition: all 0.2s ease;
-    min-height: 44px;
+    color: #f8f8f2;
+    font-size: 14px;
+    font-weight: 400;
+    min-height: 48px;
 }
 .lesson-item:hover { 
-    background: rgba(0, 191, 255, 0.15); 
-    transform: translateX(4px);
-    border-color: rgba(0, 191, 255, 0.3);
+    background: #44475a;
 }
 .lesson-item.selected { 
-    background: rgba(0, 255, 136, 0.15); 
-    border-color: rgba(0, 255, 136, 0.4);
-    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.2);
+    background: #6272a4;
+    color: #f8f8f2;
 }
 .lesson-name { 
-    font-size: 0.95rem; 
-    font-family: 'Orbitron', monospace;
-    color: #ffffff;
-    font-weight: 500;
+    font-size: 14px; 
+    color: inherit;
+    font-weight: 400;
 }
 
 .course-right {
-    background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(0, 191, 255, 0.1));
-    border: 2px solid rgba(0, 191, 255, 0.3);
-    border-radius: 20px;
+    background: #282a36;
+    border: none;
+    border-radius: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .viewer-header { 
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
-    padding: 20px 24px; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
-    background: rgba(0, 0, 0, 0.3); 
-    min-height: 80px;
-    gap: 20px;
+    padding: 16px 20px; 
+    border-bottom: 1px solid #44475a; 
+    background: #21222c; 
+    min-height: 60px;
+    gap: 16px;
     flex-wrap: wrap;
 }
 .viewer-title { 
@@ -420,19 +395,17 @@
     min-width: 0;
 }
 .crumb-course { 
-    font-family: 'Orbitron', monospace; 
-    color: #ffffff; 
-    font-size: 1.1rem; 
-    font-weight: bold;
+    color: #f8f8f2; 
+    font-size: 14px; 
+    font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .crumb-lesson { 
-    font-family: 'Orbitron', monospace; 
-    color: #00FF88; 
-    font-size: 1rem; 
-    opacity: 0.9;
+    color: #50fa7b; 
+    font-size: 14px; 
+    font-weight: 400;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -445,31 +418,28 @@
     align-items: center;
 }
 .tab-btn { 
-    background: rgba(255, 255, 255, 0.15); 
-    border: 1px solid rgba(255, 255, 255, 0.3); 
-    color: #ffffff; 
-    padding: 10px 16px; 
-    border-radius: 8px; 
-    font-family: 'Orbitron', monospace; 
-    font-size: 13px; 
+    background: transparent; 
+    border: 1px solid #44475a; 
+    color: #f8f8f2; 
+    padding: 8px 12px; 
+    border-radius: 4px; 
+    font-size: 12px; 
     cursor: pointer; 
     transition: all 0.2s ease;
     white-space: nowrap;
-    min-height: 40px;
+    min-height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .tab-btn:hover { 
-    transform: translateY(-2px); 
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: #44475a;
+    border-color: #6272a4;
 }
 .tab-btn.active { 
-    background: rgba(0, 255, 136, 0.2); 
-    border-color: rgba(0, 255, 136, 0.5); 
-    color: #00FF88;
-    font-weight: bold;
+    background: #6272a4; 
+    border-color: #50fa7b; 
+    color: #f8f8f2;
 }
 
 /* Lesson Status Indicators */
@@ -484,15 +454,15 @@
 }
 
 .lesson-status.past {
-    background: rgba(255, 69, 0, 0.2);
-    color: #FF4500;
-    border: 1px solid rgba(255, 69, 0, 0.3);
+    background: #ff5555;
+    color: #282a36;
+    border: none;
 }
 
 .lesson-status.live {
-    background: rgba(255, 0, 0, 0.2);
-    color: #FF0000;
-    border: 1px solid rgba(255, 0, 0, 0.3);
+    background: #50fa7b;
+    color: #282a36;
+    border: none;
     animation: pulse 2s infinite;
 }
 
@@ -955,15 +925,15 @@
 }
 
 .lesson-status.past {
-    background: rgba(255, 69, 0, 0.2);
-    color: #FF4500;
-    border: 1px solid rgba(255, 69, 0, 0.3);
+    background: #ff5555;
+    color: #282a36;
+    border: none;
 }
 
 .lesson-status.live {
-    background: rgba(255, 0, 0, 0.2);
-    color: #FF0000;
-    border: 1px solid rgba(255, 0, 0, 0.3);
+    background: #50fa7b;
+    color: #282a36;
+    border: none;
     animation: pulse 2s infinite;
 }
 
