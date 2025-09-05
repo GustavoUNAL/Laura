@@ -3,6 +3,8 @@ import './Community.css';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 import AnalyticsDashboard from '../../components/AnalyticsDashboard/AnalyticsDashboard';
+import StudentCard from '../../components/StudentCard/StudentCard';
+import ClassSummary from '../../components/ClassSummary/ClassSummary';
 import backupService from '../../services/backupService';
 import { useTheme } from '../../contexts/ThemeContext';
 
@@ -82,6 +84,11 @@ function Community() {
     const [showReports, setShowReports] = useState(false);
     const [reports, setReports] = useState([]);
     const [showAnalytics, setShowAnalytics] = useState(false);
+    const [showClassSummary, setShowClassSummary] = useState(false);
+    const [selectedLesson, setSelectedLesson] = useState(null);
+    const [students, setStudents] = useState([]);
+    const [selectedStudent, setSelectedStudent] = useState(null);
+    const [selectedCourse, setSelectedCourse] = useState(null);
     // In-app call state
     const videoRef = useRef(null);
     const mediaStreamRef = useRef(null);
@@ -281,6 +288,7 @@ function Community() {
             loadMonthlyStats();
             loadClassReviews();
             loadReports();
+            loadStudents();
             
             // Initialize backup service
             backupService.start();
@@ -377,6 +385,81 @@ function Community() {
         const timeDiff = Math.abs(now - lessonDate);
         const thirtyMinutes = 30 * 60 * 1000;
         return timeDiff <= thirtyMinutes;
+    };
+
+    // Load students data
+    const loadStudents = () => {
+        try {
+            const studentsData = JSON.parse(localStorage.getItem('students') || '[]');
+            if (studentsData.length === 0) {
+                // Create sample students if none exist
+                const sampleStudents = [
+                    { id: 'student1', name: 'Ana García', email: 'ana@example.com', courses: ['course1'] },
+                    { id: 'student2', name: 'Carlos López', email: 'carlos@example.com', courses: ['course1', 'course2'] },
+                    { id: 'student3', name: 'María Rodríguez', email: 'maria@example.com', courses: ['course2'] },
+                    { id: 'student4', name: 'Pedro Martínez', email: 'pedro@example.com', courses: ['course1'] },
+                    { id: 'student5', name: 'Laura Sánchez', email: 'laura@example.com', courses: ['course2'] }
+                ];
+                localStorage.setItem('students', JSON.stringify(sampleStudents));
+                setStudents(sampleStudents);
+            } else {
+                setStudents(studentsData);
+            }
+        } catch (error) {
+            backupService.trackError('load_students_error', error);
+            backupService.log(`Load students error: ${error.message}`, 'error');
+        }
+    };
+
+    // Handle student card actions
+    const handleViewStudentDetails = (student, course) => {
+        setSelectedStudent(student);
+        setSelectedCourse(course);
+        // You can implement a detailed view here
+        backupService.trackEvent('student_details_viewed', { studentId: student.id, courseId: course.id });
+    };
+
+    const handleViewStudentProgress = (student, course) => {
+        setSelectedStudent(student);
+        setSelectedCourse(course);
+        // You can implement a progress view here
+        backupService.trackEvent('student_progress_viewed', { studentId: student.id, courseId: course.id });
+    };
+
+    // Handle class summary
+    const handleViewClassSummary = (lesson) => {
+        setSelectedLesson(lesson);
+        setShowClassSummary(true);
+        backupService.trackEvent('class_summary_viewed', { lessonId: lesson.id });
+    };
+
+    // Load course statistics for student view
+    const loadCourseStats = (courseId) => {
+        try {
+            const reports = JSON.parse(localStorage.getItem('session-reports') || '[]');
+            const courseReports = reports.filter(report => report.courseId === courseId);
+            
+            const currentMonth = new Date().toISOString().slice(0, 7);
+            const monthlyClasses = courseReports.filter(report => 
+                report.startTime && report.startTime.startsWith(currentMonth)
+            ).length;
+            
+            const totalDuration = courseReports.reduce((sum, report) => 
+                sum + (report.duration || 0), 0
+            );
+            
+            const completedClasses = courseReports.filter(report => 
+                report.completed
+            ).length;
+            
+            return {
+                monthlyClasses,
+                totalDuration: Math.floor(totalDuration / 60) + 'm',
+                completedClasses
+            };
+        } catch (error) {
+            return { monthlyClasses: 0, totalDuration: '0m', completedClasses: 0 };
+        }
     };
 
     // Session timer
@@ -600,13 +683,25 @@ function Community() {
                                 )}
                             </div>
                             <ul className="course-list">
-                                {visibleCourses.map(c => (
-                                    <li key={c.id} className={`course-item ${currentCourse && c.id === currentCourse.id ? 'active' : ''}`}
-                                        onClick={() => { setSelectedCourseId(c.id); setSelectedLesson(null); }}>
-                                        <span>📘</span>
-                                        <span className="course-name">{c.name}</span>
-                                    </li>
-                                ))}
+                                {visibleCourses.map(c => {
+                                    const courseStats = loadCourseStats(c.id);
+                                    return (
+                                        <li key={c.id} className={`course-item ${currentCourse && c.id === currentCourse.id ? 'active' : ''}`}
+                                            onClick={() => { setSelectedCourseId(c.id); setSelectedLesson(null); }}>
+                                            <span>📘</span>
+                                            <div className="course-info">
+                                                <span className="course-name">{c.name}</span>
+                                                {role === 'student' && (
+                                                    <div className="course-stats">
+                                                        <span className="stat">📅 {courseStats.monthlyClasses} this month</span>
+                                                        <span className="stat">⏱️ {courseStats.totalDuration}</span>
+                                                        <span className="stat">✅ {courseStats.completedClasses} done</span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </li>
+                                    );
+                                })}
                             </ul>
 
                             <div className="course-tree">
@@ -621,10 +716,23 @@ function Community() {
                                                 <ul className="lesson-list">
                                                     {unit.lessons.map(lesson => (
                                                         <li key={lesson.id}
-                                                            className={`lesson-item ${currentLesson && lesson.id === currentLesson.id ? 'selected' : ''}`}
-                                                            onClick={() => setSelectedLesson(lesson)}>
-                                                            <span>📄</span>
-                                                            <span className="lesson-name">{lesson.title}</span>
+                                                            className={`lesson-item ${currentLesson && lesson.id === currentLesson.id ? 'selected' : ''}`}>
+                                                            <div className="lesson-content" onClick={() => setSelectedLesson(lesson)}>
+                                                                <span>📄</span>
+                                                                <span className="lesson-name">{lesson.title}</span>
+                                                            </div>
+                                                            {role === 'student' && (
+                                                                <button 
+                                                                    className="summary-btn"
+                                                                    onClick={(e) => {
+                                                                        e.stopPropagation();
+                                                                        handleViewClassSummary(lesson);
+                                                                    }}
+                                                                    title="Ver resumen de la clase"
+                                                                >
+                                                                    📋
+                                                                </button>
+                                                            )}
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -913,6 +1021,13 @@ function Community() {
                 <AnalyticsDashboard 
                     isOpen={showAnalytics} 
                     onClose={() => setShowAnalytics(false)} 
+                />
+
+                {/* Class Summary Modal */}
+                <ClassSummary 
+                    lesson={selectedLesson}
+                    isOpen={showClassSummary} 
+                    onClose={() => setShowClassSummary(false)} 
                 />
             </>
         );

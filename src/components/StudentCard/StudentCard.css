@@ -1,0 +1,241 @@
+/* Student Card */
+.student-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.student-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.student-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.student-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00FF88, #00BFFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a1a1a;
+    flex-shrink: 0;
+}
+
+.student-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.student-name {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.student-email {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    margin: 0 0 6px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-badge {
+    background: rgba(0, 255, 136, 0.2);
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    color: #00FF88;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+.student-status {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #1a1a1a;
+}
+
+.student-stats {
+    margin-bottom: 16px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.stat-value {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 8px 0 4px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #00FF88;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    text-align: center;
+}
+
+.student-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.action-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.view-details:hover {
+    background: rgba(0, 191, 255, 0.2);
+    border-color: rgba(0, 191, 255, 0.4);
+    color: #00BFFF;
+}
+
+.view-progress:hover {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: rgba(0, 255, 136, 0.4);
+    color: #00FF88;
+}
+
+.last-activity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.activity-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+}
+
+.activity-date {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .student-card {
+        padding: 12px;
+    }
+    
+    .student-header {
+        gap: 8px;
+    }
+    
+    .student-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .student-name {
+        font-size: 14px;
+    }
+    
+    .student-email {
+        font-size: 10px;
+    }
+    
+    .stat-value {
+        font-size: 12px;
+    }
+    
+    .action-btn {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+}
