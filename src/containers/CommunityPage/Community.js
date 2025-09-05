@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import './Community.css';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
+import AnalyticsDashboard from '../../components/AnalyticsDashboard/AnalyticsDashboard';
+import backupService from '../../services/backupService';
 import { useTheme } from '../../contexts/ThemeContext';
 
 function Community() {
@@ -79,6 +81,7 @@ function Community() {
     const [classReviews, setClassReviews] = useState({});
     const [showReports, setShowReports] = useState(false);
     const [reports, setReports] = useState([]);
+    const [showAnalytics, setShowAnalytics] = useState(false);
     // In-app call state
     const videoRef = useRef(null);
     const mediaStreamRef = useRef(null);
@@ -163,9 +166,21 @@ function Community() {
 
     // Session management functions
     const startSession = () => {
-        setSessionStartTime(Date.now());
+        const startTime = Date.now();
+        setSessionStartTime(startTime);
         const sessionId = createNewSession();
         setCurrentSessionId(sessionId);
+        
+        // Track session start
+        backupService.trackEvent('session_started', { 
+            course: currentCourse?.name, 
+            lesson: currentLesson?.title,
+            sessionId,
+            timestamp: new Date(startTime).toISOString()
+        });
+        
+        // Track performance
+        backupService.trackPerformance('session_start_time', startTime);
     };
 
     const endSession = () => {
@@ -189,6 +204,25 @@ function Community() {
             const existingReports = JSON.parse(localStorage.getItem('session-reports') || '[]');
             const updatedReports = [...existingReports, report];
             localStorage.setItem('session-reports', JSON.stringify(updatedReports));
+            
+            // Track session analytics
+            backupService.trackSession({
+                ...report,
+                course: currentCourse?.name,
+                lesson: currentLesson?.title,
+                notesLength: editorHtml.length
+            });
+            
+            // Track session end
+            backupService.trackEvent('session_ended', { 
+                sessionId: currentSessionId,
+                duration,
+                notesLength: editorHtml.length,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Track performance
+            backupService.trackPerformance('session_duration', duration);
             
             // Auto-generate and download report
             const reportData = {
@@ -242,10 +276,29 @@ function Community() {
 
     // Load sessions on mount
     useEffect(() => {
-        loadSessions();
-        loadMonthlyStats();
-        loadClassReviews();
-        loadReports();
+        try {
+            loadSessions();
+            loadMonthlyStats();
+            loadClassReviews();
+            loadReports();
+            
+            // Initialize backup service
+            backupService.start();
+            
+            // Track page load
+            backupService.trackEvent('page_loaded', { page: 'community' });
+            
+            // Track performance
+            backupService.trackPerformance('page_load_time', performance.now());
+            
+        } catch (error) {
+            backupService.trackError('page_load_error', error);
+            backupService.log(`Page load error: ${error.message}`, 'error');
+        }
+        
+        return () => {
+            backupService.stop();
+        };
     }, []);
 
     // Load reports
@@ -272,16 +325,29 @@ function Community() {
 
     // Save class review
     const saveClassReview = (lessonId, review) => {
-        const updatedReviews = {
-            ...classReviews,
-            [lessonId]: {
-                ...review,
-                lessonId,
-                updatedAt: new Date().toISOString()
-            }
-        };
-        setClassReviews(updatedReviews);
-        localStorage.setItem('class-reviews', JSON.stringify(updatedReviews));
+        try {
+            const updatedReviews = {
+                ...classReviews,
+                [lessonId]: {
+                    ...review,
+                    lessonId,
+                    updatedAt: new Date().toISOString()
+                }
+            };
+            setClassReviews(updatedReviews);
+            localStorage.setItem('class-reviews', JSON.stringify(updatedReviews));
+            
+            // Track review save
+            backupService.trackEvent('class_review_saved', { 
+                lessonId, 
+                rating: review.rating,
+                completed: review.completed 
+            });
+            
+        } catch (error) {
+            backupService.trackError('class_review_save_error', error);
+            backupService.log(`Class review save error: ${error.message}`, 'error');
+        }
     };
 
     // Get class review
@@ -597,8 +663,8 @@ function Community() {
                                             document.documentElement.requestFullscreen();
                                         }
                                     }}>⛶ Fullscreen</button>
-                                </div>
-                            </div>
+            </div>
+          </div>
 
                             <div className="viewer-frame">
                                 {!currentLesson && (
@@ -657,6 +723,7 @@ function Community() {
                                             <button onClick={endSession} className="end-session-btn">End Session</button>
                                         )}
                                         <button onClick={generateReport} className="report-btn">Generate Report</button>
+                                        <button onClick={() => setShowAnalytics(true)} className="analytics-btn">📈 Analytics</button>
                                     </div>
                                     <div className="session-info">
                                         <div className="session-stats">
@@ -841,6 +908,12 @@ function Community() {
                         </div>
                     </div>
                 )}
+
+                {/* Analytics Dashboard */}
+                <AnalyticsDashboard 
+                    isOpen={showAnalytics} 
+                    onClose={() => setShowAnalytics(false)} 
+                />
             </>
         );
     }

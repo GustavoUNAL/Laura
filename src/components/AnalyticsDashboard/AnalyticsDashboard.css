@@ -1,0 +1,402 @@
+/* Analytics Dashboard */
+.analytics-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(10px);
+}
+
+.analytics-content {
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    width: 95%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.analytics-header h2 {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 24px;
+    margin: 0;
+    background: linear-gradient(45deg, #ffffff, #00FF88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.analytics-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 16px 24px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-x: auto;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 120px;
+    text-align: center;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.tab-btn.active {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: rgba(0, 255, 136, 0.4);
+    color: #00FF88;
+}
+
+.analytics-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+/* Overview Tab */
+.overview-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.stat-card h3 {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 28px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffffff, #00FF88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Retention Tab */
+.retention-tab, .progress-tab, .time-tab, .health-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.retention-tab h3, .progress-tab h3, .time-tab h3, .health-tab h3 {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 18px;
+    margin: 0;
+    border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+    padding-bottom: 8px;
+}
+
+.retention-stats, .progress-stats, .health-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.retention-item, .progress-item, .health-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.retention-item .label, .progress-item .label, .health-item .label {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+}
+
+.retention-item .value, .progress-item .value, .health-item .value {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.health-item .value.healthy {
+    color: #00FF88;
+}
+
+.health-item .value.unhealthy {
+    color: #FF4500;
+}
+
+/* Time Analysis */
+.time-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.time-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.peak-hours {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.peak-hours h4 {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+}
+
+.peak-hour {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.peak-hour:last-child {
+    border-bottom: none;
+}
+
+.peak-hour .hour {
+    color: #00FF88;
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.peak-hour .count {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+}
+
+/* Logs Tab */
+.logs-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.logs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logs-header h3 {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    font-size: 18px;
+    margin: 0;
+}
+
+.refresh-btn {
+    background: rgba(0, 255, 136, 0.2);
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    color: #00FF88;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.refresh-btn:hover {
+    background: rgba(0, 255, 136, 0.3);
+}
+
+.logs-list {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.log-entry {
+    display: grid;
+    grid-template-columns: 80px 140px 1fr;
+    gap: 12px;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.log-level {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.log-time {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.log-message {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Footer */
+.analytics-footer {
+    display: flex;
+    gap: 12px;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.export-btn, .backup-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.export-btn:hover, .backup-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.export-btn {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: rgba(0, 255, 136, 0.4);
+    color: #00FF88;
+}
+
+.export-btn:hover {
+    background: rgba(0, 255, 136, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .analytics-content {
+        width: 98%;
+        max-height: 95vh;
+    }
+    
+    .analytics-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        min-width: 100px;
+        font-size: 11px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .log-entry {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+    
+    .log-level, .log-time {
+        font-size: 10px;
+    }
+}

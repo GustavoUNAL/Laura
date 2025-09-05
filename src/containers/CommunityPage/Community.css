@@ -428,7 +428,7 @@
     margin-left: auto; 
     flex-wrap: wrap;
 }
-.start-session-btn, .end-session-btn, .report-btn { 
+.start-session-btn, .end-session-btn, .report-btn, .analytics-btn { 
     background: rgba(255,255,255,0.2); 
     border: 1px solid rgba(255,255,255,0.4); 
     color: #ffffff; 
@@ -439,7 +439,7 @@
     cursor: pointer; 
     transition: all 0.2s ease;
 }
-.start-session-btn:hover, .end-session-btn:hover, .report-btn:hover { 
+.start-session-btn:hover, .end-session-btn:hover, .report-btn:hover, .analytics-btn:hover { 
     background: rgba(255,255,255,0.3); 
     color: #ffffff; 
 }
@@ -794,6 +794,18 @@
 .fullscreen-btn:hover {
     background: rgba(0, 255, 136, 0.3) !important;
     color: #00FF88 !important;
+}
+
+/* Analytics button */
+.analytics-btn {
+    background: rgba(0, 191, 255, 0.2) !important;
+    border-color: rgba(0, 191, 255, 0.4) !important;
+    color: #00BFFF !important;
+}
+
+.analytics-btn:hover {
+    background: rgba(0, 191, 255, 0.3) !important;
+    color: #00BFFF !important;
 }
 
 /* Call */
