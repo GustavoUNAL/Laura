@@ -85,7 +85,6 @@ function Community() {
     const [reports, setReports] = useState([]);
     const [showAnalytics, setShowAnalytics] = useState(false);
     const [showClassSummary, setShowClassSummary] = useState(false);
-    const [selectedLesson, setSelectedLesson] = useState(null);
     const [students, setStudents] = useState([]);
     const [selectedStudent, setSelectedStudent] = useState(null);
     const [selectedCourse, setSelectedCourse] = useState(null);
