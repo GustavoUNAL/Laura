@@ -2,10 +2,10 @@
 /* Uses CSS variables for theme support */
 
 .about-page {
-    background: #2d2d2d;
+    background: var(--bg-primary);
     min-height: 100vh;
     padding-top: 80px;
-    color: #ffffff;
+    color: var(--text-primary);
     width: 100%;
     max-width: 100%;
     margin: 0;

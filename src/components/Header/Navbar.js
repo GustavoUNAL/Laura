@@ -313,7 +313,7 @@ function Navbar() {
           <span style={{
             width: '100%',
             height: '3px',
-            background: '#2d2d2d',
+            background: 'var(--bg-secondary)',
             borderRadius: '2px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             transform: isMobileMenuOpen ? 'rotate(45deg) translate(7px, 7px)' : 'none',
@@ -324,7 +324,7 @@ function Navbar() {
           <span style={{
             width: '100%',
             height: '3px',
-            background: isMobileMenuOpen ? 'transparent' : '#2d2d2d',
+            background: isMobileMenuOpen ? 'transparent' : 'var(--bg-secondary)',
             borderRadius: '2px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             opacity: isMobileMenuOpen ? 0 : 1,
@@ -334,7 +334,7 @@ function Navbar() {
           <span style={{
             width: '100%',
             height: '3px',
-            background: '#2d2d2d',
+            background: 'var(--bg-secondary)',
             borderRadius: '2px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             transform: isMobileMenuOpen ? 'rotate(-45deg) translate(7px, -7px)' : 'none',

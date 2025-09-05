@@ -22,9 +22,9 @@ h4{
 .footer {
     font-size: 17px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-    color: #ffffff;
+    color: var(--text-primary);
     text-align: center;
-    background-color: #2d2d2d;
+    background-color: var(--bg-secondary);
     height: 200px;
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@ h4{
     position: relative;
     left: 0;
     transform: translateX(0);
-    border-top: 1px solid #ffffff;
+    border-top: 1px solid var(--border-primary);
 }
 
 .flex-container-footer {
@@ -61,26 +61,30 @@ h4{
     width: 30px;
     height: 30px;
     cursor: pointer;
-    color: #ffffff;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 44px;
     min-width: 44px;
     touch-action: manipulation;
-    background: #2d2d2d;
-    border: 1px solid #ffffff;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
     border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow-primary);
 }
 
 .icons-footer:hover {
-    background: #ffffff;
-    color: #2d2d2d;
+    background: var(--accent-blue);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
 }
 
 .email-footer-button {
-    background: #2d2d2d;
-    border: 1px solid #ffffff;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
     border-radius: 50%;
     padding: 0;
     cursor: pointer;
@@ -91,19 +95,23 @@ h4{
     width: 30px;
     min-height: 44px;
     min-width: 44px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow-primary);
 }
 
 .email-footer-button:hover {
-    background: #ffffff;
+    background: var(--accent-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(129, 199, 132, 0.3);
 }
 
 .email-footer-button:hover .icons-footer {
-    color: #2d2d2d;
+    color: var(--text-primary);
 }
 
 .copyright {
     font-size: 16px;
-    color: #ffffff;
+    color: var(--text-secondary);
     margin: 0;
     font-weight: 400;
     line-height: 1.4;

@@ -14,24 +14,24 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #2d2d2d;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: none;
-    min-height: 100vh;
-    overflow-x: auto;
-    line-height: 1.6;
-    color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  overflow-x: auto;
+  line-height: 1.6;
+  color: var(--text-primary);
 }
 
 #root {
-    background-color: #2d2d2d;
+    background-color: var(--bg-primary);
     min-height: 100vh;
     width: 100%;
     max-width: none;
@@ -51,7 +51,7 @@ html, body, #root, .App {
     overflow-y: auto !important;
     width: 100vw !important;
     max-width: none !important;
-    background-color: #2d2d2d !important;
+    background-color: var(--bg-primary) !important;
     margin: 0 !important;
     padding: 0 !important;
     min-height: 100vh !important;
@@ -61,7 +61,7 @@ html, body, #root, .App {
 
 /* Eliminar líneas blancas y asegurar fondo completo */
 * {
-    background-color: #2d2d2d !important;
+    background-color: var(--bg-primary) !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;

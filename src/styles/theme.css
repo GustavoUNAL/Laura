@@ -1,36 +1,46 @@
 /* Global Theme Styles */
 :root {
-  /* Dark Mode Colors (Default) */
-  --bg-primary: #2d2d2d;
+  /* Dark Mode Colors - Coherent Palette */
+  --bg-primary: #1a1a1a;
   --bg-secondary: #2d2d2d;
-  --bg-tertiary: #2d2d2d;
+  --bg-tertiary: #404040;
+  --bg-card: #262626;
+  --bg-hover: #333333;
   --text-primary: #ffffff;
-  --text-secondary: #ffffff;
-  --text-accent: #ffffff;
-  --border-primary: #ffffff;
-  --border-secondary: #ffffff;
-  --shadow-primary: transparent;
-  --shadow-secondary: transparent;
-  --gradient-primary: #2d2d2d;
-  --gradient-secondary: #2d2d2d;
-  --gradient-accent: #2d2d2d;
+  --text-secondary: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --text-accent: #64b5f6;
+  --border-primary: #404040;
+  --border-secondary: #555555;
+  --border-accent: #64b5f6;
+  --shadow-primary: rgba(0, 0, 0, 0.3);
+  --shadow-secondary: rgba(0, 0, 0, 0.5);
+  --accent-blue: #64b5f6;
+  --accent-green: #81c784;
+  --accent-orange: #ffb74d;
+  --accent-red: #e57373;
 }
 
 [data-theme="light"] {
-  /* Light Mode Colors */
+  /* Light Mode Colors - Coherent Palette */
   --bg-primary: #ffffff;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #ffffff;
-  --text-primary: #2d2d2d;
-  --text-secondary: #2d2d2d;
-  --text-accent: #2d2d2d;
-  --border-primary: #2d2d2d;
-  --border-secondary: #2d2d2d;
-  --shadow-primary: transparent;
-  --shadow-secondary: transparent;
-  --gradient-primary: #ffffff;
-  --gradient-secondary: #ffffff;
-  --gradient-accent: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #eeeeee;
+  --bg-card: #fafafa;
+  --bg-hover: #f0f0f0;
+  --text-primary: #1a1a1a;
+  --text-secondary: #404040;
+  --text-muted: #666666;
+  --text-accent: #1976d2;
+  --border-primary: #e0e0e0;
+  --border-secondary: #cccccc;
+  --border-accent: #1976d2;
+  --shadow-primary: rgba(0, 0, 0, 0.1);
+  --shadow-secondary: rgba(0, 0, 0, 0.2);
+  --accent-blue: #1976d2;
+  --accent-green: #388e3c;
+  --accent-orange: #f57c00;
+  --accent-red: #d32f2f;
 }
 
 /* Global Styles */
