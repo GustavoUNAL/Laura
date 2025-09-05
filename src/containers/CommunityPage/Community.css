@@ -323,15 +323,105 @@
     overflow: hidden;
 }
 
-.viewer-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid rgba(0, 191, 255, 0.2); background: rgba(0, 0, 0, 0.2); }
-.viewer-title { display: flex; align-items: center; gap: 10px; }
-.crumb-course { font-family: 'Orbitron', monospace; color: #ffffff; font-size: 0.95rem; }
-.crumb-lesson { font-family: 'Orbitron', monospace; color: #FF00FF; font-size: 0.85rem; opacity: 0.9; }
+.viewer-header { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 20px 24px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+    background: rgba(0, 0, 0, 0.3); 
+    min-height: 80px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.viewer-title { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    flex: 1;
+    min-width: 0;
+}
+.crumb-course { 
+    font-family: 'Orbitron', monospace; 
+    color: #ffffff; 
+    font-size: 1.1rem; 
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.crumb-lesson { 
+    font-family: 'Orbitron', monospace; 
+    color: #00FF88; 
+    font-size: 1rem; 
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-.viewer-tabs { display: flex; gap: 10px; }
-.tab-btn { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); color: #ffffff; padding: 8px 12px; border-radius: 10px; font-family: 'Orbitron', monospace; font-size: 12px; cursor: pointer; transition: all 0.2s ease; }
-.tab-btn:hover { transform: translateY(-1px); }
-.tab-btn.active { background: rgba(255, 0, 255, 0.2); border-color: rgba(255, 0, 255, 0.5); color: #FF00FF; }
+.viewer-tabs { 
+    display: flex; 
+    gap: 12px; 
+    flex-wrap: wrap;
+    align-items: center;
+}
+.tab-btn { 
+    background: rgba(255, 255, 255, 0.15); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    color: #ffffff; 
+    padding: 10px 16px; 
+    border-radius: 8px; 
+    font-family: 'Orbitron', monospace; 
+    font-size: 13px; 
+    cursor: pointer; 
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tab-btn:hover { 
+    transform: translateY(-2px); 
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.tab-btn.active { 
+    background: rgba(0, 255, 136, 0.2); 
+    border-color: rgba(0, 255, 136, 0.5); 
+    color: #00FF88;
+    font-weight: bold;
+}
+
+/* Lesson Status Indicators */
+.lesson-status {
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-top: 4px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.lesson-status.past {
+    background: rgba(255, 69, 0, 0.2);
+    color: #FF4500;
+    border: 1px solid rgba(255, 69, 0, 0.3);
+}
+
+.lesson-status.live {
+    background: rgba(255, 0, 0, 0.2);
+    color: #FF0000;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
 
 .viewer-frame { flex: 1; position: relative; }
 .viewer-frame iframe { width: 100%; height: calc(100% - 0px); border: none; background: rgba(0, 0, 0, 0.3); }
@@ -920,6 +1010,40 @@
         width: 20px;
         height: 20px;
         font-size: 10px;
+    }
+    
+    /* Viewer header responsive */
+    .viewer-header {
+        padding: 16px 20px;
+        min-height: 70px;
+        gap: 16px;
+    }
+    
+    .viewer-title {
+        gap: 8px;
+    }
+    
+    .crumb-course {
+        font-size: 1rem;
+    }
+    
+    .crumb-lesson {
+        font-size: 0.9rem;
+    }
+    
+    .viewer-tabs {
+        gap: 8px;
+    }
+    
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        min-height: 36px;
+    }
+    
+    .lesson-status {
+        font-size: 10px;
+        padding: 3px 6px;
     }
 }
 
