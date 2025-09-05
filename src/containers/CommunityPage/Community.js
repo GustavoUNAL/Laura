@@ -77,6 +77,8 @@ function Community() {
     const [sessionTimer, setSessionTimer] = useState(0);
     const [monthlyClassCount, setMonthlyClassCount] = useState(0);
     const [classReviews, setClassReviews] = useState({});
+    const [showReports, setShowReports] = useState(false);
+    const [reports, setReports] = useState([]);
     // In-app call state
     const videoRef = useRef(null);
     const mediaStreamRef = useRef(null);
@@ -213,21 +215,12 @@ function Community() {
     };
 
     const generateReport = () => {
-        const reports = JSON.parse(localStorage.getItem('session-reports') || '[]');
-        const reportData = {
-            generatedAt: new Date().toISOString(),
-            totalSessions: reports.length,
-            totalDuration: reports.reduce((sum, r) => sum + r.duration, 0),
-            sessions: reports
-        };
-        
-        const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `session-report-${new Date().toISOString().split('T')[0]}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
+        setShowReports(true);
+        loadReports();
+    };
+
+    const closeReports = () => {
+        setShowReports(false);
     };
 
     // Auto-save notes
@@ -252,7 +245,14 @@ function Community() {
         loadSessions();
         loadMonthlyStats();
         loadClassReviews();
+        loadReports();
     }, []);
+
+    // Load reports
+    const loadReports = () => {
+        const reports = JSON.parse(localStorage.getItem('session-reports') || '[]');
+        setReports(reports);
+    };
 
     // Load monthly statistics
     const loadMonthlyStats = () => {
@@ -293,6 +293,24 @@ function Community() {
             homework: '',
             nextTopics: ''
         };
+    };
+
+    // Check if lesson is in the past
+    const isLessonPast = (lesson) => {
+        if (!lesson || !lesson.scheduledAt) return false;
+        const now = new Date();
+        const lessonDate = new Date(lesson.scheduledAt);
+        return lessonDate < now;
+    };
+
+    // Check if lesson is live (within 30 minutes of scheduled time)
+    const isLessonLive = (lesson) => {
+        if (!lesson || !lesson.scheduledAt) return false;
+        const now = new Date();
+        const lessonDate = new Date(lesson.scheduledAt);
+        const timeDiff = Math.abs(now - lessonDate);
+        const thirtyMinutes = 30 * 60 * 1000;
+        return timeDiff <= thirtyMinutes;
     };
 
     // Session timer
@@ -559,15 +577,28 @@ function Community() {
                                     <div>
                                         <div className="crumb-course">{currentCourse ? currentCourse.name : 'No course selected'}</div>
                                         <div className="crumb-lesson">{currentLesson ? currentLesson.title : 'Select a lesson'}</div>
+                                        {currentLesson && isLessonPast(currentLesson) && (
+                                            <div className="lesson-status past">📅 Past Class</div>
+                                        )}
+                                        {currentLesson && isLessonLive(currentLesson) && (
+                                            <div className="lesson-status live">🔴 Live Now</div>
+                                        )}
                                     </div>
                                 </div>
                                 <div className="viewer-tabs">
-                                    <button className={`tab-btn ${liveMode ? 'active' : ''}`} onClick={() => { if (currentLesson) { setLiveLesson(currentLesson); setLiveMode(true); } }}>Live Mode</button>
+                                    {currentLesson && !isLessonPast(currentLesson) && (
+                                        <button className={`tab-btn ${liveMode ? 'active' : ''}`} onClick={() => { if (currentLesson) { setLiveLesson(currentLesson); setLiveMode(true); } }}>Live Mode</button>
+                                    )}
                                     <button className={`tab-btn ${activeResource === 'doc' ? 'active' : ''}`} onClick={() => setActiveResource('doc')}>Google Docs</button>
                                     <button className={`tab-btn ${activeResource === 'meet' ? 'active' : ''}`} onClick={() => setActiveResource('meet')}>Google Meet</button>
                                     <button className={`tab-btn ${activeResource === 'canva' ? 'active' : ''}`} onClick={() => setActiveResource('canva')}>Canva</button>
-            </div>
-          </div>
+                                    <button className="tab-btn fullscreen-btn" onClick={() => {
+                                        if (document.documentElement.requestFullscreen) {
+                                            document.documentElement.requestFullscreen();
+                                        }
+                                    }}>⛶ Fullscreen</button>
+                                </div>
+                            </div>
 
                             <div className="viewer-frame">
                                 {!currentLesson && (
@@ -760,6 +791,52 @@ function Community() {
                                     />
                                     <a className="open-btn" href={jitsiUrl} target="_blank" rel="noopener noreferrer">Open Jitsi</a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Reports Modal */}
+                {showReports && (
+                    <div className="reports-modal">
+                        <div className="reports-content">
+                            <div className="reports-header">
+                                <h3>📊 Session Reports</h3>
+                                <button onClick={closeReports} className="close-reports-btn">✕</button>
+                            </div>
+                            <div className="reports-stats">
+                                <div className="stat-item">
+                                    <span className="stat-label">Total Sessions:</span>
+                                    <span className="stat-value">{reports.length}</span>
+                                </div>
+                                <div className="stat-item">
+                                    <span className="stat-label">Total Duration:</span>
+                                    <span className="stat-value">{Math.floor(reports.reduce((sum, r) => sum + r.duration, 0) / 60)} min</span>
+                                </div>
+                                <div className="stat-item">
+                                    <span className="stat-label">This Month:</span>
+                                    <span className="stat-value">{monthlyClassCount}</span>
+                                </div>
+                            </div>
+                            <div className="reports-list">
+                                {reports.map((report, index) => (
+                                    <div key={report.id || index} className="report-item">
+                                        <div className="report-header">
+                                            <h4>{report.title}</h4>
+                                            <span className="report-date">
+                                                {new Date(report.startTime).toLocaleDateString()}
+                                            </span>
+                                        </div>
+                                        <div className="report-details">
+                                            <div className="report-duration">
+                                                ⏱️ {Math.floor(report.duration / 60)}m {report.duration % 60}s
+                                            </div>
+                                            <div className="report-notes">
+                                                <strong>Notes:</strong> {report.notes ? report.notes.substring(0, 100) + '...' : 'No notes'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
