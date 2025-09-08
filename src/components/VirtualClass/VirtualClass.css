@@ -197,6 +197,18 @@ body.virtual-class-active {
     background: #000;
 }
 
+/* Google Meet Embed Integration */
+.video-section .google-meet-embed {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-section.expanded .google-meet-embed {
+    border-radius: 0;
+}
+
 /* Hide Google Docs when video is expanded */
 .virtual-class-main.video-fullscreen .notes-section {
     display: none;
