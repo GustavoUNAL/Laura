@@ -18,9 +18,9 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(52, 152, 219, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(41, 128, 185, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(52, 73, 94, 0.15) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -195,14 +195,14 @@
 .action-btn.primary {
     background: rgba(255, 255, 255, 0.95);
     color: #2c3e50;
-    border: 2px solid #4CAF50;
+    border: 2px solid #2980b9;
 }
 
 .action-btn.primary:hover:not(:disabled) {
-    background: rgba(76, 175, 80, 0.1);
-    border-color: #4CAF50;
+    background: rgba(41, 128, 185, 0.1);
+    border-color: #2980b9;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 8px 25px rgba(41, 128, 185, 0.3);
 }
 
 .action-icon {
@@ -246,7 +246,7 @@
 }
 
 .class-badge {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -257,7 +257,7 @@
 }
 
 .class-badge.virtual {
-    background: linear-gradient(135deg, #2196F3, #1976D2);
+    background: linear-gradient(135deg, #3498db, #2980b9);
 }
 
 .next-class-content {
@@ -304,7 +304,7 @@
 }
 
 .topic-tag {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
@@ -313,7 +313,7 @@
 }
 
 .join-class-btn {
-    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+    background: linear-gradient(135deg, #2c3e50, #34495e);
     color: white;
     border: none;
     padding: 1rem 1.5rem;
@@ -322,13 +322,13 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
 }
 
 .join-class-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-    background: linear-gradient(135deg, #FF5252, #FF7979);
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.5);
+    background: linear-gradient(135deg, #22313f, #2c3e50);
 }
 
 /* Progress Overview */
@@ -487,8 +487,8 @@
 }
 
 .topic-tag {
-    background: #e3f2fd;
-    color: #1976d2;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -513,15 +513,15 @@
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
-    border: 1px solid rgba(76, 175, 80, 0.3);
+    border: 1px solid rgba(52, 152, 219, 0.3);
 }
 
 .btn-primary:hover:not(:disabled) {
-    background: linear-gradient(135deg, #45a049, #3d8b40);
+    background: linear-gradient(135deg, #2980b9, #2471a3);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
 }
 
 .btn-secondary {
@@ -571,7 +571,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4CAF50, #45a049);
+    background: linear-gradient(90deg, #3498db, #2980b9);
     border-radius: 6px;
     transition: width 0.3s ease;
 }
@@ -599,13 +599,13 @@
 }
 
 .lesson-item.completed {
-    background: #e8f5e8;
-    border-color: #4CAF50;
+    background: rgba(46, 204, 113, 0.1);
+    border-color: rgba(46, 204, 113, 0.4);
 }
 
 .lesson-item.current {
-    background: #e3f2fd;
-    border-color: #2196F3;
+    background: rgba(52, 152, 219, 0.1);
+    border-color: rgba(52, 152, 219, 0.5);
 }
 
 .lesson-item.locked {
@@ -618,7 +618,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #667eea;
+    background: #2980b9;
     color: white;
     display: flex;
     align-items: center;
@@ -684,7 +684,7 @@
     padding: 1rem;
     background: #f8f9fa;
     border-radius: 10px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #2980b9;
 }
 
 .assignment-info h4 {
@@ -735,7 +735,7 @@
 
 .btn-small {
     padding: 0.4rem 0.8rem;
-    background: linear-gradient(135deg, #2196F3, #1976D2);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     border: none;
     border-radius: 8px;
@@ -743,13 +743,13 @@
     font-size: 0.8rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+    box-shadow: 0 2px 8px rgba(52,152,219,0.3);
 }
 
 .btn-small:hover {
-    background: linear-gradient(135deg, #1976D2, #1565C0);
+    background: linear-gradient(135deg, #2980b9, #2471a3);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+    box-shadow: 0 4px 12px rgba(52,152,219,0.4);
 }
 
 /* Grades Section */
@@ -923,7 +923,7 @@
     padding: 1.25rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #2980b9;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
@@ -997,7 +997,7 @@
     margin: 0;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #4CAF50;
+    color: #3498db;
 }
 
 /* Resources Grid - Dark Mode */
@@ -1360,7 +1360,7 @@
 }
 
 .class-header h3 {
-    color: #4CAF50;
+    color: #3498db;
     font-size: 1.1rem;
     margin: 0;
     font-weight: 600;
@@ -1392,19 +1392,19 @@
 }
 
 .topic-tag {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     padding: 0.3rem 0.6rem;
     border-radius: 12px;
     font-size: 0.8rem;
     font-weight: 500;
-    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 2px 8px rgba(52,152,219,0.3);
     transition: all 0.3s ease;
 }
 
 .topic-tag:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 4px 12px rgba(52,152,219,0.4);
 }
 
 .class-content-info {
@@ -1438,13 +1438,13 @@
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
-    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 2px 8px rgba(52,152,219,0.3);
 }
 
 .view-all-btn {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -1455,13 +1455,13 @@
     transition: all 0.3s ease;
     display: block;
     margin: 0 auto;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 15px rgba(52,152,219,0.3);
 }
 
 .view-all-btn:hover {
-    background: linear-gradient(135deg, #45a049, #3d8b40);
+    background: linear-gradient(135deg, #2980b9, #2471a3);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 6px 20px rgba(52,152,219,0.4);
 }
 
 /* Modal Styles for Past Classes - Dark Mode */
@@ -1554,19 +1554,19 @@
 }
 
 .topics-list .topic-tag {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     padding: 0.4rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
-    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 2px 8px rgba(52,152,219,0.3);
     transition: all 0.3s ease;
 }
 
 .topics-list .topic-tag:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 4px 12px rgba(52,152,219,0.4);
 }
 
 .materials-list {
@@ -1593,7 +1593,7 @@
 
 .material-item span:first-child {
     font-size: 1.2rem;
-    color: #4CAF50;
+    color: #3498db;
 }
 
 .material-item span:nth-child(2) {
@@ -1603,7 +1603,7 @@
 }
 
 .material-item .btn-small {
-    background: linear-gradient(135deg, #2196F3, #1976D2);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     border: none;
     padding: 0.4rem 0.8rem;
@@ -1612,13 +1612,13 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+    box-shadow: 0 2px 8px rgba(52,152,219,0.3);
 }
 
 .material-item .btn-small:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
-    background: linear-gradient(135deg, #1976D2, #1565C0);
+    box-shadow: 0 4px 12px rgba(52,152,219,0.4);
+    background: linear-gradient(135deg, #2980b9, #2471a3);
 }
 
 /* Editable Content Styles */
@@ -1643,9 +1643,9 @@
 
 .student-notes-textarea:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #2980b9;
     background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 0 0 2px rgba(41,128,185,0.2);
 }
 
 .student-notes-textarea::placeholder {
@@ -1653,7 +1653,7 @@
 }
 
 .save-notes-btn {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     border: none;
     padding: 0.6rem 1.2rem;
@@ -1662,14 +1662,14 @@
     font-size: 0.8rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 2px 8px rgba(52,152,219,0.3);
     align-self: flex-start;
 }
 
 .save-notes-btn:hover {
-    background: linear-gradient(135deg, #45a049, #3d8b40);
+    background: linear-gradient(135deg, #2980b9, #2471a3);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 4px 12px rgba(52,152,219,0.4);
 }
 
 /* Course Objectives Styles */
@@ -1714,7 +1714,7 @@
 }
 
 .objective-item.completed {
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #2980b9;
 }
 
 .objective-item.in-progress {
@@ -1770,7 +1770,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4CAF50, #45a049);
+    background: linear-gradient(90deg, #3498db, #2980b9);
     border-radius: 10px;
     transition: width 0.3s ease;
 }
@@ -1852,7 +1852,7 @@
     color: white;
     font-size: 1.1rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     min-width: 60px;
@@ -1891,9 +1891,9 @@
 
 .modal-content .student-notes-textarea:focus {
     outline: none;
-    border-color: #4CAF50 !important;
+    border-color: #2980b9 !important;
     background: rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 0 0 2px rgba(41,128,185,0.2);
 }
 
 .modal-content .student-notes-textarea::placeholder {
@@ -1976,7 +1976,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: conic-gradient(#4CAF50 0deg, #4CAF50 calc(var(--progress) * 3.6deg), rgba(255, 255, 255, 0.1) calc(var(--progress) * 3.6deg));
+    background: conic-gradient(#3498db 0deg, #3498db calc(var(--progress) * 3.6deg), rgba(255, 255, 255, 0.1) calc(var(--progress) * 3.6deg));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2002,7 +2002,7 @@
 .big-number {
     font-size: 3rem;
     font-weight: 700;
-    color: #4CAF50;
+    color: #3498db;
     margin: 0;
     line-height: 1;
 }
@@ -2023,7 +2023,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, #4CAF50, rgba(255, 255, 255, 0.1));
+    background: linear-gradient(to bottom, #3498db, rgba(255,255,255,0.1));
 }
 
 .timeline-item {
@@ -2050,7 +2050,7 @@
 }
 
 .timeline-item.completed .timeline-marker {
-    background: #4CAF50;
+    background: #2980b9;
 }
 
 .timeline-item.current .timeline-marker {
@@ -2122,7 +2122,7 @@
 }
 
 .achievement-item.completed {
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #2980b9;
 }
 
 .achievement-item.pending {
@@ -2169,7 +2169,7 @@
 
 .progress-fill-large {
     height: 100%;
-    background: linear-gradient(90deg, #4CAF50, #45a049);
+    background: linear-gradient(90deg, #3498db, #2980b9);
     border-radius: 10px;
     transition: width 0.3s ease;
 }
@@ -2217,7 +2217,7 @@
 }
 
 .metric-value {
-    color: #4CAF50;
+    color: #3498db;
     font-size: 2rem;
     font-weight: 700;
     margin: 0;
@@ -2259,7 +2259,7 @@
 
 .bar-fill {
     width: 100%;
-    background: linear-gradient(to top, #4CAF50, #45a049);
+    background: linear-gradient(to top, #3498db, #2980b9);
     border-radius: 4px 4px 0 0;
     min-height: 20px;
     transition: height 0.3s ease;
@@ -2369,7 +2369,7 @@
 .big-time {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #4CAF50;
+    color: #3498db;
     margin: 0;
     line-height: 1;
 }
@@ -2407,7 +2407,7 @@
 }
 
 .session-item.completed {
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #2980b9;
 }
 
 .session-icon {
@@ -2470,7 +2470,7 @@
 
 .week-bar .bar-fill {
     width: 100%;
-    background: linear-gradient(to top, #4CAF50, #45a049);
+    background: linear-gradient(to top, #3498db, #2980b9);
     border-radius: 4px 4px 0 0;
     min-height: 20px;
     transition: height 0.3s ease;
@@ -2483,7 +2483,7 @@
 }
 
 .week-time {
-    color: #4CAF50;
+    color: #3498db;
     font-size: 0.7rem;
     font-weight: 600;
     margin-top: 0.2rem;
@@ -2516,7 +2516,7 @@
 }
 
 .goal-item.completed {
-    border-left: 4px solid #4CAF50;
+    border-left: 4px solid #2980b9;
 }
 
 .goal-item.in-progress {
@@ -2660,19 +2660,19 @@
 }
 
 .class-item-details .progress-indicator {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
     padding: 0.4rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
-    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 2px 8px rgba(52,152,219,0.3);
     transition: all 0.3s ease;
 }
 
 .class-item-details .progress-indicator:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 4px 12px rgba(52,152,219,0.4);
 }
 
 /* Responsive adjustments for past classes */
