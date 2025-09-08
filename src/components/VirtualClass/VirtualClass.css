@@ -13,6 +13,36 @@
     padding: 0;
 }
 
+/* Hide navbar and all top elements when virtual class is active */
+body.virtual-class-active .navbar,
+body.virtual-class-active nav,
+body.virtual-class-active header,
+body.virtual-class-active .header,
+body.virtual-class-active .navigation,
+body.virtual-class-active .top-bar,
+body.virtual-class-active [class*="navbar"],
+body.virtual-class-active [class*="Navbar"],
+body.virtual-class-active [class*="header"],
+body.virtual-class-active [class*="Header"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+body.virtual-class-active .main-content,
+body.virtual-class-active main,
+body.virtual-class-active .app {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Ensure virtual class takes full viewport */
+body.virtual-class-active {
+    overflow: hidden;
+}
+
 .virtual-class-container {
     width: 100vw;
     height: 100vh;

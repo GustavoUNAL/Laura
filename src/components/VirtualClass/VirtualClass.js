@@ -17,6 +17,9 @@ const VirtualClass = ({ classData, onClose }) => {
             setNotes(savedNotes);
         }
 
+        // Add virtual class active class to body
+        document.body.classList.add('virtual-class-active');
+
         // Add escape key listener
         const handleEscape = (event) => {
             if (event.key === 'Escape') {
@@ -29,6 +32,7 @@ const VirtualClass = ({ classData, onClose }) => {
         // Cleanup
         return () => {
             document.removeEventListener('keydown', handleEscape);
+            document.body.classList.remove('virtual-class-active');
         };
     }, [classData?.id, onClose]);
 
