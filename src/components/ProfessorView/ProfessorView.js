@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import './ProfessorView.css';
 import { professorData } from '../../data/professorData';
+import { useEnglishCourse } from '../../hooks/useEnglishCourse';
 
 const ProfessorView = () => {
     const [activeModal, setActiveModal] = useState(null);
     const [selectedStudent, setSelectedStudent] = useState(null);
     
     const { professor, course, students, upcomingClasses, recentActivity, statistics, resources } = professorData;
+    const {
+        currentLesson,
+        lessons,
+        isLoading,
+        completeLesson,
+        submitAssignment,
+        getUpcomingClasses: getStudentUpcomingClasses,
+        getStatistics: getStudentStatistics,
+        getPastClasses: getStudentPastClasses
+    } = useEnglishCourse();
 
     const openModal = (modalType, data = null) => {
         setActiveModal(modalType);
@@ -179,80 +190,121 @@ const ProfessorView = () => {
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
-                            <div className="course-details-section">
-                                <h4>📚 Información del Curso</h4>
-                                <div className="course-info-grid">
-                                    <div className="info-item">
-                                        <span className="info-label">Duración:</span>
-                                        <span className="info-value">5 semanas</span>
-                                    </div>
-                                    <div className="info-item">
-                                        <span className="info-label">Lecciones:</span>
-                                        <span className="info-value">12 lecciones</span>
-                                    </div>
-                                    <div className="info-item">
-                                        <span className="info-label">Progreso:</span>
-                                        <span className="info-value">33% completado</span>
-                                    </div>
-                                    <div className="info-item">
-                                        <span className="info-label">Estudiantes:</span>
-                                        <span className="info-value">1 estudiante</span>
+                            {/* Header Section */}
+                            <div className="course-header-section">
+                                <div className="course-header-content">
+                                    <h1>🎓 Mi Curso de Inglés</h1>
+                                    <p>Bienvenido de vuelta! Continúa tu aprendizaje del inglés.</p>
+                                    <div className="course-details">
+                                        <div className="course-detail-item">
+                                            <span className="detail-label">📅 Inicio del Curso</span>
+                                            <span className="detail-value">21 de Agosto, 2025</span>
+                                        </div>
+                                        <div className="course-detail-item">
+                                            <span className="detail-label">🏁 Fin del Curso</span>
+                                            <span className="detail-value">24 de Septiembre, 2025</span>
+                                        </div>
+                                        <div className="course-detail-item">
+                                            <span className="detail-label">⏱️ Duración</span>
+                                            <span className="detail-value">5 semanas</span>
+                                        </div>
+                                        <div className="course-detail-item">
+                                            <span className="detail-label">📚 Total de Lecciones</span>
+                                            <span className="detail-value">12 lecciones</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="course-actions">
-                                <h4>⚡ Acciones del Curso</h4>
-                                <div className="actions-grid">
-                                    <button className="action-btn" onClick={() => alert('📁 Subir Material\n\nFuncionalidad para subir:\n• Presentaciones\n• Documentos\n• Videos\n• Ejercicios\n• Recursos adicionales')}>
-                                        📁 Subir Material
-                                    </button>
-                                    <button className="action-btn" onClick={() => alert('📊 Ver Estadísticas\n\n• Progreso del estudiante\n• Asistencia\n• Calificaciones\n• Tiempo de estudio')}>
-                                        📊 Ver Estadísticas
-                                    </button>
-                                    <button className="action-btn" onClick={() => alert('📝 Crear Tarea\n\n• Asignar nueva tarea\n• Establecer fecha límite\n• Definir criterios de evaluación')}>
-                                        📝 Crear Tarea
-                                    </button>
-                                    <button className="action-btn" onClick={() => alert('📅 Programar Clase\n\n• Agendar nueva clase\n• Enviar recordatorio\n• Configurar modalidad')}>
-                                        📅 Programar Clase
-                                    </button>
+                            {/* Progress Overview */}
+                            <div className="progress-overview">
+                                <h2>📊 Mi Progreso en Inglés</h2>
+                                <div className="progress-cards">
+                                    <div className="progress-card clickable" onClick={() => alert('📚 Lecciones Completadas\n\n4 de 12 lecciones completadas\nProgreso: 33%')}>
+                                        <div className="progress-icon">📚</div>
+                                        <div className="progress-info">
+                                            <h3>4/12</h3>
+                                            <p>Lecciones Completadas</p>
+                                        </div>
+                                    </div>
+                                    <div className="progress-card clickable" onClick={() => alert('📈 Progreso del Curso\n\n33% del curso completado\n8 lecciones restantes')}>
+                                        <div className="progress-icon">📈</div>
+                                        <div className="progress-info">
+                                            <h3>33%</h3>
+                                            <p>Progreso del Curso</p>
+                                        </div>
+                                    </div>
+                                    <div className="progress-card clickable" onClick={() => alert('🎯 Objetivos Cumplidos\n\n1 de 5 objetivos completados\nObjetivo actual: Professional Interview')}>
+                                        <div className="progress-icon">🎯</div>
+                                        <div className="progress-info">
+                                            <h3>1</h3>
+                                            <p>Objetivos Cumplidos</p>
+                                        </div>
+                                    </div>
+                                    <div className="progress-card clickable" onClick={() => alert('⏱️ Tiempo de Estudio\n\n6 horas totales de estudio\nPromedio: 1.5 horas por semana')}>
+                                        <div className="progress-icon">⏱️</div>
+                                        <div className="progress-info">
+                                            <h3>6h</h3>
+                                            <p>Tiempo de Estudio</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="students-section">
-                                <h4>👥 Estudiante del Curso</h4>
-                                <div className="students-grid">
-                                    {students.map(student => (
-                                        <div key={student.id} className="student-card" onClick={() => openModal('student', student)}>
-                                            <div className="student-header">
-                                                <div className="student-avatar">
-                                                    {student.name.charAt(0)}
-                                                </div>
-                                                <div className="student-info">
-                                                    <h5>{student.name}</h5>
-                                                    <p>{student.email}</p>
-                                                </div>
-                                            </div>
-                                            <div className="student-progress">
-                                                <div className="progress-item">
-                                                    <span>Progreso: {student.progress}%</span>
-                                                    <div className="progress-bar">
-                                                        <div className="progress-fill" style={{width: `${student.progress}%`}}></div>
-                                                    </div>
-                                                </div>
-                                                <div className="student-stats">
-                                                    <div className="stat">
-                                                        <span className="stat-label">Promedio</span>
-                                                        <span className="stat-value">{student.averageGrade}%</span>
-                                                    </div>
-                                                    <div className="stat">
-                                                        <span className="stat-label">Lecciones</span>
-                                                        <span className="stat-value">{student.completedLessons}/{student.totalLessons}</span>
-                                                    </div>
-                                                </div>
+                            {/* Next Class */}
+                            <div className="next-class-section">
+                                <h2>🎯 Próxima Clase</h2>
+                                <div className="next-class-card">
+                                    <div className="next-class-info">
+                                        <div className="next-class-header">
+                                            <h3>Virtual Meet</h3>
+                                            <span className="class-type">Virtual</span>
+                                        </div>
+                                        <div className="next-class-details">
+                                            <p><strong>Fecha:</strong> 10 de Septiembre, 2025</p>
+                                            <p><strong>Hora:</strong> 7:00 AM</p>
+                                            <p><strong>Lección:</strong> Lección 6: Saludos y Presentaciones</p>
+                                        </div>
+                                        <div className="next-class-topics">
+                                            <h4>Temas a Cubrir:</h4>
+                                            <div className="topics-list">
+                                                <span className="topic-tag">Greetings</span>
+                                                <span className="topic-tag">Introductions</span>
+                                                <span className="topic-tag">Conversations</span>
                                             </div>
                                         </div>
-                                    ))}
+                                    </div>
+                                    <div className="next-class-actions">
+                                        <button className="btn-primary" onClick={() => alert('📖 Ver Contenido\n\nAcceso a materiales de la clase:\n• Presentación de saludos\n• Ejercicios de conversación\n• Lista de vocabulario')}>
+                                            📖 Ver Contenido
+                                        </button>
+                                        <button className="btn-secondary" onClick={() => alert('📝 Editar Notas\n\nAgregar notas personales:\n• Puntos importantes\n• Dudas\n• Recordatorios')}>
+                                            📝 Editar Notas
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Past Classes */}
+                            <div className="past-classes-section">
+                                <h2>📚 Clases Pasadas</h2>
+                                <div className="past-classes-grid">
+                                    <div className="past-class-card" onClick={() => alert('📖 Clase 4: Presentación Personal\n\nFecha: 1 de Septiembre, 2025\nHora: 7:00 AM\nModalidad: Virtual\n\nTemas cubiertos:\n• Presentación personal\n• Información básica\n• Conversación inicial')}>
+                                        <div className="class-header">
+                                            <div className="class-icon">📖</div>
+                                            <div className="class-info">
+                                                <h3>Clase 4: Presentación Personal</h3>
+                                                <p className="class-date">1 de Septiembre, 2025</p>
+                                            </div>
+                                        </div>
+                                        <div className="class-content-info">
+                                            <div className="class-details">
+                                                <p><strong>Modalidad:</strong> Virtual</p>
+                                                <p><strong>Hora:</strong> 7:00 AM</p>
+                                                <p><strong>Duración:</strong> 60 min</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
