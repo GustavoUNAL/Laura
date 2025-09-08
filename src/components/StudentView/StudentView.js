@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './StudentView.css';
 import { useEnglishCourse } from '../../hooks/useEnglishCourse';
+import VirtualClass from '../VirtualClass/VirtualClass';
 
 const StudentView = () => {
     const {
@@ -20,6 +21,8 @@ const StudentView = () => {
     const [studentNotes, setStudentNotes] = useState({});
     const [editingClass, setEditingClass] = useState(null);
     const [editForm, setEditForm] = useState({ id:'', title:'', date:'', time:'', mode:'', duration:'', notes:'', topics:'' });
+    const [showVirtualClass, setShowVirtualClass] = useState(false);
+    const [selectedClassForVirtual, setSelectedClassForVirtual] = useState(null);
 
     const statistics = getStatistics();
     const upcomingClasses = getUpcomingClasses();
@@ -67,6 +70,17 @@ const StudentView = () => {
         setActiveModal(null);
         setEditingClass(null);
         setEditForm({ id:'', title:'', date:'', time:'', mode:'', duration:'', notes:'', topics:'' });
+    };
+
+    // Función para abrir clase virtual
+    const openVirtualClass = (classData) => {
+        setSelectedClassForVirtual(classData);
+        setShowVirtualClass(true);
+    };
+
+    const closeVirtualClass = () => {
+        setShowVirtualClass(false);
+        setSelectedClassForVirtual(null);
     };
 
     // Funciones para acciones rápidas
@@ -622,7 +636,16 @@ const StudentView = () => {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button className="btn-primary" onClick={() => alert('🎥 Joining virtual class...\n\nClass: Lesson 6 - Greetings and Introductions\nDate: September 10\nTime: 7:00 AM\nPlatform: Virtual Meet\n\n🔗 Link: meet.google.com/abc-defg-hij')}>
+                            <button className="btn-primary" onClick={() => {
+                                closeModal();
+                                openVirtualClass({
+                                    id: 'next-class',
+                                    title: 'Class 6: Greetings and Introductions',
+                                    date: 'September 10, 2025',
+                                    time: '4:00 PM',
+                                    mode: 'Virtual'
+                                });
+                            }}>
                                 🎥 Join Class
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
@@ -1290,6 +1313,14 @@ const StudentView = () => {
                         </div>
                     </div>
                 </div>
+            )}
+
+            {/* Virtual Class Component */}
+            {showVirtualClass && (
+                <VirtualClass 
+                    classData={selectedClassForVirtual}
+                    onClose={closeVirtualClass}
+                />
             )}
         </div>
     );

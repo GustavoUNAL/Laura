@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ProfessorView.css';
 import { professorData } from '../../data/professorData';
 import { useEnglishCourse } from '../../hooks/useEnglishCourse';
+import VirtualClass from '../VirtualClass/VirtualClass';
 
 const ProfessorView = () => {
     const [activeModal, setActiveModal] = useState(null);
@@ -41,6 +42,19 @@ const ProfessorView = () => {
       level: 'Intermediate',
       status: 'Active'
     });
+    const [showVirtualClass, setShowVirtualClass] = useState(false);
+    const [selectedClassForVirtual, setSelectedClassForVirtual] = useState(null);
+
+    // Función para abrir clase virtual
+    const openVirtualClass = (classData) => {
+        setSelectedClassForVirtual(classData);
+        setShowVirtualClass(true);
+    };
+
+    const closeVirtualClass = () => {
+        setShowVirtualClass(false);
+        setSelectedClassForVirtual(null);
+    };
 
     // Seed local non-relational DB with Gustavo if empty
     useEffect(() => {
@@ -385,8 +399,14 @@ const ProfessorView = () => {
                                         </div>
                                     </div>
                                     <div className="next-class-actions">
-                                        <button className="btn-primary" onClick={() => alert('📖 View Content\n\nAccess to class materials:\n• Greetings presentation\n• Conversation exercises\n• Vocabulary list')}>
-                                            📖 View Content
+                                        <button className="btn-primary" onClick={() => openVirtualClass({
+                                            id: 'next-class',
+                                            title: 'Class 6: Greetings and Introductions',
+                                            date: 'September 10, 2025',
+                                            time: '4:00 PM',
+                                            mode: 'Virtual'
+                                        })}>
+                                            🎥 Join Class
                                         </button>
                                         <button className="btn-secondary" onClick={() => alert('📝 Edit Notes\n\nAdd personal notes:\n• Important points\n• Questions\n• Reminders')}>
                                             📝 Edit Notes
@@ -660,6 +680,14 @@ const ProfessorView = () => {
                         </div>
                     </div>
                 </div>
+            )}
+
+            {/* Virtual Class Component */}
+            {showVirtualClass && (
+                <VirtualClass 
+                    classData={selectedClassForVirtual}
+                    onClose={closeVirtualClass}
+                />
             )}
         </div>
     );
