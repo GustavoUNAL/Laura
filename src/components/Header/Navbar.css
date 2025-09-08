@@ -69,6 +69,12 @@
     border-color: var(--accent-blue);
 }
 
+.nav-link.active {
+    background: var(--accent-blue);
+    color: var(--text-primary);
+    border-color: var(--accent-blue);
+}
+
 .desktop-social {
     display: flex;
     align-items: center;

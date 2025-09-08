@@ -185,12 +185,13 @@
 }
 
 .topic-tag {
-    background: rgba(255, 0, 255, 0.2);
-    color: #0080FF;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #ffffff;
     padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    border: 1px solid rgba(255, 0, 255, 0.3);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
 }
 
 .next-class-actions {
