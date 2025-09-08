@@ -134,20 +134,22 @@ function Navbar() {
         {/* Logo */}
         <Link to="/" style={{
           color: '#ffffff',
-          fontSize: '24px',
+          fontSize: '22px',
           fontWeight: '700',
-          fontFamily: "'Orbitron', monospace",
+          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
           textDecoration: 'none',
           textShadow: 'none',
-          transition: 'all 0.3s ease'
+          transition: 'all 0.3s ease',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px'
         }} onMouseEnter={(e) => {
           e.target.style.color = '#ffffff';
-          e.target.style.textShadow = '0 0 8px rgba(52, 152, 219, 0.6)';
         }} onMouseLeave={(e) => {
           e.target.style.color = '#ffffff';
-          e.target.style.textShadow = 'none';
         }}>
-          {getPageTitle()}
+          <span role="img" aria-label="girl">👧</span>
+          <span>LMCT</span>
         </Link>
 
         {/* Desktop Menu - Hidden on mobile */}
