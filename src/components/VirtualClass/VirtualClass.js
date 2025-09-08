@@ -86,7 +86,7 @@ const VirtualClass = ({ classData, onClose }) => {
                     <div className={`video-section ${isVideoExpanded ? 'expanded' : ''}`}>
                         <div className="video-container">
                             {isVideoActive ? (
-                                <div className="video-placeholder">
+                                <div className="video-placeholder fullscreen-video">
                                     <div className="video-screen">
                                         <div className="video-content">
                                             <div className="teacher-video">
@@ -163,7 +163,7 @@ const VirtualClass = ({ classData, onClose }) => {
                         <div className="notes-container">
                             <div className="notes-toolbar">
                                 <button className="tool-btn" onClick={openGoogleDocs}>
-                                    📄 Class Document
+                                    📄 Open in New Tab
                                 </button>
                                 <button className="tool-btn" onClick={joinGoogleMeet}>
                                     📹 Google Meet
@@ -172,17 +172,31 @@ const VirtualClass = ({ classData, onClose }) => {
                                     📊 Share Screen
                                 </button>
                             </div>
-                            <textarea
-                                className="notes-textarea"
-                                value={notes}
-                                onChange={(e) => setNotes(e.target.value)}
-                                placeholder="Write your notes here... Click 'Class Document' to open the shared Google Docs for collaborative editing."
-                                rows={isNotesExpanded ? 20 : 8}
-                            />
-                            <div className="notes-footer">
-                                <span className="char-count">{notes.length} characters</span>
-                                <span className="timezone-info">🕐 America/Bogota</span>
-                                <span className="auto-save">Auto-save enabled</span>
+                            
+                            {/* Google Docs iframe */}
+                            <div className="google-docs-container">
+                                <iframe
+                                    src="https://docs.google.com/document/d/1vQnjfqr56yD5Kfc1lRAMj_VROvqVqPGayIdoczUARkg/edit?usp=sharing&embedded=true"
+                                    className="google-docs-iframe"
+                                    title="Class Document"
+                                />
+                            </div>
+                            
+                            {/* Local Notes */}
+                            <div className="local-notes-section">
+                                <h4>📝 Personal Notes</h4>
+                                <textarea
+                                    className="notes-textarea"
+                                    value={notes}
+                                    onChange={(e) => setNotes(e.target.value)}
+                                    placeholder="Write your personal notes here..."
+                                    rows={4}
+                                />
+                                <div className="notes-footer">
+                                    <span className="char-count">{notes.length} characters</span>
+                                    <span className="timezone-info">🕐 America/Bogota</span>
+                                    <span className="auto-save">Auto-save enabled</span>
+                                </div>
                             </div>
                         </div>
                     </div>
