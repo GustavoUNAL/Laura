@@ -51,7 +51,7 @@ const StudentView = () => {
                 }
                 break;
             default:
-                alert('Acción no disponible');
+                alert('Action not available');
         }
     };
 
@@ -87,7 +87,7 @@ const StudentView = () => {
                 ...prev,
                 [lessonId]: notes
             }));
-            alert('✅ Notas guardadas exitosamente!\n\nTus notas personales han sido guardadas para esta clase.');
+            alert('✅ Notes saved successfully!\n\nYour personal notes have been saved for this class.');
         }
     };
 
@@ -99,25 +99,25 @@ const StudentView = () => {
         <div className="student-view">
             <div className="student-header">
                 <div className="course-title-section">
-                    <h1>🎓 Mi Curso de Inglés</h1>
-                    <p>Bienvenido de vuelta! Continúa tu aprendizaje del inglés.</p>
+                    <h1>🎓 My English Course</h1>
+                    <p>Welcome back! Continue your English learning journey.</p>
                 </div>
                 <div className="course-dates">
                     <div className="date-item">
-                        <span className="date-label">📅 Inicio del Curso</span>
-                        <span className="date-value">21 de Agosto, 2025</span>
+                        <span className="date-label">📅 Course Start</span>
+                        <span className="date-value">August 21, 2025</span>
                     </div>
                     <div className="date-item">
-                        <span className="date-label">🏁 Fin del Curso</span>
-                        <span className="date-value">24 de Septiembre, 2025</span>
+                        <span className="date-label">🏁 Course End</span>
+                        <span className="date-value">September 24, 2025</span>
                     </div>
                     <div className="date-item">
-                        <span className="date-label">⏱️ Duración</span>
-                        <span className="date-value">5 semanas</span>
+                        <span className="date-label">⏱️ Duration</span>
+                        <span className="date-value">5 weeks</span>
                     </div>
                     <div className="date-item">
-                        <span className="date-label">📚 Total de Lecciones</span>
-                        <span className="date-value">12 lecciones</span>
+                        <span className="date-label">📚 Total Lessons</span>
+                        <span className="date-value">12 lessons</span>
                     </div>
                 </div>
             </div>
@@ -125,34 +125,34 @@ const StudentView = () => {
             <div className="student-dashboard">
                 {/* Progress Overview - Primero y con más indicadores */}
                 <div className="progress-overview">
-                    <h2>📊 Mi Progreso en Inglés</h2>
+                    <h2>📊 My English Progress</h2>
                     <div className="progress-cards">
                         <div className="progress-card clickable" onClick={() => openModal('lessons-progress')}>
                             <div className="progress-icon">📚</div>
                             <div className="progress-info">
                                 <h3>{statistics.completedLessons}/{statistics.totalLessons}</h3>
-                                <p>Lecciones Completadas</p>
+                                <p>Lessons Completed</p>
                             </div>
                         </div>
                         <div className="progress-card clickable" onClick={() => openModal('course-progress')}>
                             <div className="progress-icon">📈</div>
                             <div className="progress-info">
                                 <h3>{Math.round((statistics.completedLessons / statistics.totalLessons) * 100)}%</h3>
-                                <p>Progreso del Curso</p>
+                                <p>Course Progress</p>
                             </div>
                         </div>
                         <div className="progress-card clickable" onClick={() => openModal('objectives')}>
                             <div className="progress-icon">🎯</div>
                             <div className="progress-info">
                                 <h3>{statistics.objectivesCompleted}</h3>
-                                <p>Objetivos Cumplidos</p>
+                                <p>Objectives Achieved</p>
                             </div>
                         </div>
                         <div className="progress-card clickable" onClick={() => openModal('study-time')}>
                             <div className="progress-icon">⏱️</div>
                             <div className="progress-info">
                                 <h3>{statistics.totalStudyTime}</h3>
-                                <p>Tiempo de Estudio</p>
+                                <p>Study Time</p>
                             </div>
                         </div>
                     </div>
@@ -162,16 +162,16 @@ const StudentView = () => {
                 {/* Próxima Clase */}
                 <div className="next-class-card">
                     <div className="next-class-header">
-                        <h3>🎯 Próxima Clase</h3>
+                        <h3>🎯 Next Class</h3>
                         <span className="class-badge virtual">Virtual Meet</span>
                     </div>
                     <div className="next-class-content">
                         <div className="class-date">
-                            <span className="date">10 de Septiembre</span>
+                            <span className="date">September 10</span>
                             <span className="time">7:00 AM</span>
                         </div>
                         <div className="class-details">
-                            <h4>Lección 6: Saludos y Presentaciones</h4>
+                            <h4>Lesson 6: Greetings and Introductions</h4>
                             <div className="class-topics">
                                 <span className="topic-tag">Greetings</span>
                                 <span className="topic-tag">Introductions</span>
@@ -180,10 +180,10 @@ const StudentView = () => {
                         </div>
                         <div className="next-class-actions">
                             <button className="btn-primary" onClick={() => openModal('next-class')}>
-                                👁️ Ver Contenido
+                                👁️ View Content
                             </button>
                             <button className="btn-secondary" onClick={() => openModal('edit-notes')}>
-                                ✏️ Editar Notas
+                                ✏️ Edit Notes
                             </button>
                         </div>
                     </div>
@@ -191,12 +191,12 @@ const StudentView = () => {
 
                     {/* Clases Pasadas */}
                     <div className="past-classes">
-                        <h2>📚 Clases Pasadas</h2>
+                        <h2>📚 Past Classes</h2>
                         <div className="classes-grid">
                             {pastClasses.slice(0, 4).map((classItem) => (
                                 <div key={classItem.id} className="class-card" onClick={() => openModal('past-class', classItem)}>
                                     <div className="class-header">
-                                        <h3>Lección {classItem.lesson}</h3>
+                                        <h3>Lesson {classItem.lesson}</h3>
                                         <span className="class-date">{classItem.date}</span>
                                     </div>
                                     <div className="class-content">
@@ -207,7 +207,7 @@ const StudentView = () => {
                                                 <span key={index} className="topic-tag">{topic}</span>
                                             ))}
                                             {classItem.topics.length > 2 && (
-                                                <span className="topic-tag">+{classItem.topics.length - 2} más</span>
+                                                <span className="topic-tag">+{classItem.topics.length - 2} more</span>
                                             )}
                                         </div>
                                         <div className="class-content-info">
@@ -216,7 +216,7 @@ const StudentView = () => {
                                                 <p className="class-teacher">👨‍🏫 Prof. Laura Chaves</p>
                                             </div>
                                             <div className="class-progress">
-                                                <span className="progress-indicator">✅ Completada</span>
+                                                <span className="progress-indicator">✅ Completed</span>
                                             </div>
                                         </div>
                                     </div>
@@ -228,7 +228,7 @@ const StudentView = () => {
                                 className="view-all-btn"
                                 onClick={() => openModal('all-past-classes')}
                             >
-                                Ver Todas las Clases ({pastClasses.length})
+                                View All Classes ({pastClasses.length})
                             </button>
                         )}
                     </div>
@@ -248,7 +248,7 @@ const StudentView = () => {
                         <div className="modal-body">
                             <p>{selectedLesson.description}</p>
                             <div className="lesson-content">
-                                <h4>Temas a cubrir:</h4>
+                                <h4>Topics Covered:</h4>
                                 <ul>
                                     {selectedLesson.topics.map((topic, index) => (
                                         <li key={index}>{topic}</li>
@@ -258,10 +258,10 @@ const StudentView = () => {
                         </div>
                         <div className="modal-footer">
                             <button className="btn-primary" onClick={handleCompleteLesson}>
-                                Completar Lección
+                                Complete Lesson
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
-                                Cerrar
+                                Close
                             </button>
                         </div>
                     </div>
@@ -278,9 +278,9 @@ const StudentView = () => {
                         <div className="modal-body">
                             <p>{selectedAssignment.description}</p>
                             <div className="assignment-details">
-                                <p><strong>Tipo:</strong> {selectedAssignment.type}</p>
-                                <p><strong>Puntos:</strong> {selectedAssignment.points}</p>
-                                <p><strong>Fecha límite:</strong> {selectedAssignment.dueDate}</p>
+                                <p><strong>Type:</strong> {selectedAssignment.type}</p>
+                                <p><strong>Points:</strong> {selectedAssignment.points}</p>
+                                <p><strong>Due Date:</strong> {selectedAssignment.dueDate}</p>
                             </div>
                         </div>
                         <div className="modal-footer">
@@ -288,10 +288,10 @@ const StudentView = () => {
                                 className="btn-primary" 
                                 onClick={() => handleSubmitAssignment(selectedAssignment.id)}
                             >
-                                Enviar Tarea
+                                Submit Assignment
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
-                                Cerrar
+                                Close
                             </button>
                         </div>
                     </div>
@@ -302,7 +302,7 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>📅 Calendario de Clases</h3>
+                            <h3>📅 Class Calendar</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
@@ -329,25 +329,25 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>📊 Mis Estadísticas</h3>
+                            <h3>📊 My Statistics</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
                             <div className="stats-grid">
                                 <div className="stat-item">
-                                    <h4>Lecciones Completadas</h4>
-                                    <p>{statistics.completedLessons} de {statistics.totalLessons}</p>
+                                    <h4>Lessons Completed</h4>
+                                    <p>{statistics.completedLessons} of {statistics.totalLessons}</p>
                                 </div>
                                 <div className="stat-item">
-                                    <h4>Tiempo de Estudio</h4>
+                                    <h4>Study Time</h4>
                                     <p>{statistics.totalStudyTime}</p>
                                 </div>
                                 <div className="stat-item">
-                                    <h4>Objetivos Cumplidos</h4>
-                                    <p>{statistics.objectivesCompleted} de 7</p>
+                                    <h4>Objectives Achieved</h4>
+                                    <p>{statistics.objectivesCompleted} of 7</p>
                                 </div>
                                 <div className="stat-item">
-                                    <h4>Progreso del Curso</h4>
+                                    <h4>Course Progress</h4>
                                     <p>{Math.round((statistics.completedLessons / statistics.totalLessons) * 100)}%</p>
                                 </div>
                             </div>
@@ -360,30 +360,30 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>📖 Recursos de Aprendizaje</h3>
+                            <h3>📖 Learning Resources</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
                             <div className="resources-grid">
                                 <div className="resource-item">
-                                    <h4>Diccionario Oxford Online</h4>
-                                    <p>Diccionario completo con pronunciación</p>
-                                    <button className="btn-small">Acceder</button>
+                                    <h4>Oxford Online Dictionary</h4>
+                                    <p>Complete dictionary with pronunciation</p>
+                                    <button className="btn-small">Access</button>
                                 </div>
                                 <div className="resource-item">
-                                    <h4>Gramática Básica PDF</h4>
-                                    <p>Guía completa de gramática inglesa</p>
-                                    <button className="btn-small">Acceder</button>
+                                    <h4>Basic Grammar PDF</h4>
+                                    <p>Complete guide to English grammar</p>
+                                    <button className="btn-small">Access</button>
                                 </div>
                                 <div className="resource-item">
-                                    <h4>Videos de Pronunciación</h4>
-                                    <p>Serie de videos para mejorar pronunciación</p>
-                                    <button className="btn-small">Acceder</button>
+                                    <h4>Pronunciation Videos</h4>
+                                    <p>Series of videos to improve pronunciation</p>
+                                    <button className="btn-small">Access</button>
                                 </div>
                                 <div className="resource-item">
-                                    <h4>Ejercicios Interactivos</h4>
-                                    <p>Juegos y ejercicios para practicar</p>
-                                    <button className="btn-small">Acceder</button>
+                                    <h4>Interactive Exercises</h4>
+                                    <p>Games and exercises to practice</p>
+                                    <button className="btn-small">Access</button>
                                 </div>
                             </div>
                         </div>
@@ -402,29 +402,29 @@ const StudentView = () => {
                             <div className="class-details">
                                 <div className="class-info">
                                     <div className="info-row">
-                                        <span className="label">📅 Fecha:</span>
-                                        <span>{selectedLesson.date} a las {selectedLesson.time}</span>
+                                        <span className="label">📅 Date:</span>
+                                        <span>{selectedLesson.date} at {selectedLesson.time}</span>
                                     </div>
                                     <div className="info-row">
-                                        <span className="label">⏱️ Duración:</span>
+                                        <span className="label">⏱️ Duration:</span>
                                         <span>{selectedLesson.duration}</span>
                                     </div>
                                     <div className="info-row">
-                                        <span className="label">📖 Lección:</span>
-                                        <span>Lección {selectedLesson.lesson}</span>
+                                        <span className="label">📖 Lesson:</span>
+                                        <span>Lesson {selectedLesson.lesson}</span>
                                     </div>
                                     <div className="info-row">
-                                        <span className="label">👨‍🏫 Profesor:</span>
+                                        <span className="label">👨‍🏫 Teacher:</span>
                                         <span>Prof. Laura Chaves</span>
                                     </div>
                                     <div className="info-row">
-                                        <span className="label">📍 Ubicación:</span>
+                                        <span className="label">📍 Location:</span>
                                         <span>{selectedLesson.location}</span>
                                     </div>
                                 </div>
                                 
                                 <div className="topics-section">
-                                    <h4>🎯 Temas Cubiertos</h4>
+                                    <h4>🎯 Topics Covered</h4>
                                     <div className="topics-list">
                                         {selectedLesson.topics.map((topic, index) => (
                                             <span key={index} className="topic-tag">{topic}</span>
@@ -433,36 +433,36 @@ const StudentView = () => {
                                 </div>
 
                                 <div className="homework-section">
-                                    <h4>📝 Notas Estudiante</h4>
+                                    <h4>📝 Student Notes</h4>
                                     <div className="editable-content">
                                         <textarea 
                                             className="student-notes-textarea"
                                             defaultValue={getStudentNotes(selectedLesson.id) || selectedLesson.homework}
-                                            placeholder="Agrega tus notas personales sobre esta clase..."
+                                            placeholder="Add your personal notes for this class..."
                                             rows="3"
                                         />
                                         <button 
                                             className="save-notes-btn"
                                             onClick={() => handleSaveNotes(selectedLesson.id)}
                                         >
-                                            💾 Guardar Notas
+                                            💾 Save Notes
                                         </button>
                                     </div>
                                 </div>
 
                                 <div className="notes-section">
-                                    <h4>📝 Notas del Profesor</h4>
+                                    <h4>📝 Teacher Notes</h4>
                                     <p>{selectedLesson.notes}</p>
                                 </div>
 
                                 <div className="materials-section">
-                                    <h4>📁 Materiales</h4>
+                                    <h4>📁 Materials</h4>
                                     <div className="materials-list">
                                         <div className="material-item google-drive-item">
                                             <span>📁</span>
-                                            <span>Google Drive - Carpeta de la Clase</span>
-                                            <button className="btn-small google-drive-btn" onClick={() => alert('🔗 Abriendo Google Drive...\n\nCarpeta: Lección 1 - Introducción\nContenido:\n• Presentación de la clase\n• Materiales de apoyo\n• Ejercicios prácticos\n• Recursos adicionales')}>
-                                                📂 Abrir Carpeta
+                                            <span>Google Drive - Class Folder</span>
+                                            <button className="btn-small google-drive-btn" onClick={() => alert('🔗 Opening Google Drive...\n\nFolder: Lesson 1 - Introduction\nContent:\n• Class Presentation\n• Supporting Materials\n• Practical Exercises\n• Additional Resources')}>
+                                                📂 Open Folder
                                             </button>
                                         </div>
                                     </div>
@@ -477,7 +477,7 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content large" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>📚 Todas las Clases Pasadas</h3>
+                            <h3>📚 All Past Classes</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
@@ -488,13 +488,13 @@ const StudentView = () => {
                                         setActiveModal('past-class');
                                     }}>
                                         <div className="class-item-header">
-                                            <h4>Lección {classItem.lesson}: {classItem.title}</h4>
+                                            <h4>Lesson {classItem.lesson}: {classItem.title}</h4>
                                             <span className="class-date">{classItem.date}</span>
                                         </div>
                                         <div className="class-item-details">
                                             <span className="duration">⏱️ {classItem.duration}</span>
                                             <span className="location">📍 {classItem.location}</span>
-                                            <span className="progress-indicator">✅ Completada</span>
+                                            <span className="progress-indicator">✅ Completed</span>
                                         </div>
                                     </div>
                                 ))}
@@ -508,31 +508,31 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content large" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>🎯 Próxima Clase - Lección 6</h3>
+                            <h3>🎯 Next Class - Lesson 6</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
                             <div className="class-info">
                                 <div className="info-row">
-                                    <span className="label">📅 Fecha:</span>
-                                    <span>10 de Septiembre, 2025</span>
+                                    <span className="label">📅 Date:</span>
+                                    <span>September 10, 2025</span>
                                 </div>
                                 <div className="info-row">
-                                    <span className="label">🕐 Hora:</span>
+                                    <span className="label">🕐 Time:</span>
                                     <span>7:00 AM</span>
                                 </div>
                                 <div className="info-row">
-                                    <span className="label">💻 Plataforma:</span>
+                                    <span className="label">💻 Platform:</span>
                                     <span>Virtual Meet</span>
                                 </div>
                                 <div className="info-row">
-                                    <span className="label">👨‍🏫 Profesor:</span>
+                                    <span className="label">👨‍🏫 Teacher:</span>
                                     <span>Prof. Laura Chaves</span>
                                 </div>
                             </div>
 
                             <div className="topics-section">
-                                <h4>📝 Temas de la Clase</h4>
+                                <h4>📝 Class Topics</h4>
                                 <div className="topics-list">
                                     <span className="topic-tag">Greetings</span>
                                     <span className="topic-tag">Introductions</span>
@@ -541,39 +541,39 @@ const StudentView = () => {
                             </div>
 
                             <div className="class-description">
-                                <h4>📖 Descripción</h4>
-                                <p>En esta clase aprenderás saludos formales e informales, cómo presentarte correctamente y mantener conversaciones básicas en inglés. Practicaremos diálogos comunes y vocabulario esencial para situaciones cotidianas.</p>
+                                <h4>📖 Description</h4>
+                                <p>In this class, you will learn formal and informal greetings, how to introduce yourself correctly, and basic conversations in English. We will practice common dialogues and essential vocabulary for everyday situations.</p>
                             </div>
 
                             <div className="preparation-section">
-                                <h4>📋 Preparación Requerida</h4>
+                                <h4>📋 Required Preparation</h4>
                                 <ul>
-                                    <li>Revisar vocabulario de saludos básicos</li>
-                                    <li>Practicar pronunciación de frases comunes</li>
-                                    <li>Preparar una breve presentación personal</li>
-                                    <li>Verificar conexión a internet y micrófono</li>
+                                    <li>Review basic greeting vocabulary</li>
+                                    <li>Practice pronunciation of common phrases</li>
+                                    <li>Prepare a brief personal introduction</li>
+                                    <li>Check internet connection and microphone</li>
                                 </ul>
                             </div>
 
                             <div className="materials-section">
-                                <h4>📁 Materiales</h4>
+                                <h4>📁 Materials</h4>
                                 <div className="materials-list">
                                     <div className="material-item google-drive-item">
                                         <span>📁</span>
-                                        <span>Google Drive - Carpeta de la Clase</span>
-                                        <button className="btn-small google-drive-btn" onClick={() => alert('🔗 Abriendo Google Drive...\n\nCarpeta: Lección 6 - Saludos y Presentaciones\nContenido:\n• Presentación de la clase\n• Ejercicios de práctica\n• Vocabulario\n• Grabaciones de audio')}>
-                                            📂 Abrir Carpeta
+                                        <span>Google Drive - Class Folder</span>
+                                        <button className="btn-small google-drive-btn" onClick={() => alert('🔗 Opening Google Drive...\n\nFolder: Lesson 6 - Greetings and Introductions\nContent:\n• Class Presentation\n• Practice Exercises\n• Vocabulary\n• Audio recordings')}>
+                                            📂 Open Folder
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button className="btn-primary" onClick={() => alert('🎥 Uniéndose a la clase virtual...\n\nClase: Lección 6 - Saludos y Presentaciones\nFecha: 10 de Septiembre\nHora: 7:00 AM\nPlataforma: Virtual Meet\n\n🔗 Link: meet.google.com/abc-defg-hij')}>
-                                🎥 Unirse a la Clase
+                            <button className="btn-primary" onClick={() => alert('🎥 Joining virtual class...\n\nClass: Lesson 6 - Greetings and Introductions\nDate: September 10\nTime: 7:00 AM\nPlatform: Virtual Meet\n\n🔗 Link: meet.google.com/abc-defg-hij')}>
+                                🎥 Join Class
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
-                                Cerrar
+                                Close
                             </button>
                         </div>
                     </div>
@@ -584,14 +584,14 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content large" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>📚 Lecciones Completadas</h3>
+                            <h3>📚 Lessons Completed</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
                             <div className="progress-summary">
                                 <div className="progress-stats">
                                     <div className="stat-item">
-                                        <h4>Progreso General</h4>
+                                        <h4>Overall Progress</h4>
                                         <div className="progress-circle">
                                             <div className="circle-progress" style={{'--progress': `${(statistics.completedLessons / statistics.totalLessons) * 100}%`}}>
                                                 <span className="progress-text">{Math.round((statistics.completedLessons / statistics.totalLessons) * 100)}%</span>
@@ -599,20 +599,20 @@ const StudentView = () => {
                                         </div>
                                     </div>
                                     <div className="stat-item">
-                                        <h4>Lecciones Completadas</h4>
+                                        <h4>Lessons Completed</h4>
                                         <p className="big-number">{statistics.completedLessons}</p>
-                                        <p>de {statistics.totalLessons} lecciones</p>
+                                        <p>of {statistics.totalLessons} lessons</p>
                                     </div>
                                     <div className="stat-item">
-                                        <h4>Lecciones Restantes</h4>
+                                        <h4>Remaining Lessons</h4>
                                         <p className="big-number">{statistics.totalLessons - statistics.completedLessons}</p>
-                                        <p>lecciones por completar</p>
+                                        <p>lessons to complete</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="lessons-timeline">
-                                <h4>📅 Cronología de Lecciones</h4>
+                                <h4>📅 Lesson Timeline</h4>
                                 <div className="timeline">
                                     {lessons && lessons.length > 0 ? lessons.map((lesson, index) => (
                                         <div key={lesson.id} className={`timeline-item ${lesson.status}`}>
@@ -621,66 +621,66 @@ const StudentView = () => {
                                                  lesson.status === 'current' ? '🔄' : '⏳'}
                                             </div>
                                             <div className="timeline-content">
-                                                <h5>Lección {lesson.id}: {lesson.title}</h5>
+                                                <h5>Lesson {lesson.id}: {lesson.title}</h5>
                                                 <p>{lesson.description}</p>
                                                 <div className="lesson-details">
                                                     <span className="lesson-duration">⏱️ {lesson.duration}</span>
                                                     <span className="lesson-difficulty">📊 {lesson.difficulty}</span>
                                                     <span className="lesson-status">
-                                                        {lesson.status === 'completed' ? 'Completada' :
-                                                         lesson.status === 'current' ? 'En Progreso' : 'Pendiente'}
+                                                        {lesson.status === 'completed' ? 'Completed' :
+                                                         lesson.status === 'current' ? 'In Progress' : 'Pending'}
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
                                     )) : (
                                         <div className="no-lessons">
-                                            <p>No hay lecciones disponibles</p>
+                                            <p>No lessons available</p>
                                         </div>
                                     )}
                                 </div>
                             </div>
 
                             <div className="achievements-section">
-                                <h4>🏆 Logros Desbloqueados</h4>
+                                <h4>🏆 Unlocked Achievements</h4>
                                 <div className="achievements-grid">
                                     <div className="achievement-item completed">
                                         <div className="achievement-icon">🎯</div>
                                         <div className="achievement-content">
-                                            <h5>Primera Lección</h5>
-                                            <p>Completaste tu primera lección de inglés</p>
+                                            <h5>First Lesson</h5>
+                                            <p>You completed your first English lesson</p>
                                         </div>
                                     </div>
                                     <div className="achievement-item completed">
                                         <div className="achievement-icon">📚</div>
                                         <div className="achievement-content">
-                                            <h5>Estudiante Dedicado</h5>
-                                            <p>Completaste 4 lecciones consecutivas</p>
+                                            <h5>Dedicated Student</h5>
+                                            <p>You completed 4 consecutive lessons</p>
                                         </div>
                                     </div>
                                     <div className="achievement-item pending">
                                         <div className="achievement-icon">🔥</div>
                                         <div className="achievement-content">
-                                            <h5>Racha de Estudio</h5>
-                                            <p>Completa 8 lecciones para desbloquear</p>
+                                            <h5>Study Streak</h5>
+                                            <p>Complete 8 lessons to unlock</p>
                                         </div>
                                     </div>
                                     <div className="achievement-item pending">
                                         <div className="achievement-icon">🎓</div>
                                         <div className="achievement-content">
-                                            <h5>Graduado</h5>
-                                            <p>Completa todas las 12 lecciones</p>
+                                            <h5>Graduated</h5>
+                                            <p>Complete all 12 lessons</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button className="btn-primary" onClick={() => alert('📚 Progreso actualizado!\n\nTu progreso en las lecciones ha sido registrado correctamente.')}>
-                                💾 Actualizar Progreso
+                            <button className="btn-primary" onClick={() => alert('📚 Progress updated!\n\nYour progress in lessons has been recorded correctly.')}>
+                                💾 Update Progress
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
-                                Cerrar
+                                Close
                             </button>
                         </div>
                     </div>
@@ -691,17 +691,17 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content large" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>📈 Progreso del Curso</h3>
+                            <h3>📈 Course Progress</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
                             <div className="progress-overview">
                                 <div className="main-progress">
-                                    <h4>Progreso General del Curso</h4>
+                                    <h4>Overall Course Progress</h4>
                                     <div className="progress-bar-large">
                                         <div className="progress-fill-large" style={{width: `${(statistics.completedLessons / statistics.totalLessons) * 100}%`}}></div>
                                     </div>
-                                    <p className="progress-percentage">{Math.round((statistics.completedLessons / statistics.totalLessons) * 100)}% Completado</p>
+                                    <p className="progress-percentage">{Math.round((statistics.completedLessons / statistics.totalLessons) * 100)}% Completed</p>
                                 </div>
                             </div>
 
@@ -710,32 +710,32 @@ const StudentView = () => {
                                     <div className="metric-item">
                                         <div className="metric-icon">📚</div>
                                         <div className="metric-content">
-                                            <h5>Lecciones</h5>
+                                            <h5>Lessons</h5>
                                             <p className="metric-value">{statistics.completedLessons}/{statistics.totalLessons}</p>
-                                            <p className="metric-label">Completadas</p>
+                                            <p className="metric-label">Completed</p>
                                         </div>
                                     </div>
                                     <div className="metric-item">
                                         <div className="metric-icon">⏱️</div>
                                         <div className="metric-content">
-                                            <h5>Tiempo</h5>
+                                            <h5>Time</h5>
                                             <p className="metric-value">{statistics.totalStudyTime}</p>
-                                            <p className="metric-label">Estudiado</p>
+                                            <p className="metric-label">Studied</p>
                                         </div>
                                     </div>
                                     <div className="metric-item">
                                         <div className="metric-icon">🎯</div>
                                         <div className="metric-content">
-                                            <h5>Objetivos</h5>
+                                            <h5>Objectives</h5>
                                             <p className="metric-value">{statistics.objectivesCompleted}/7</p>
-                                            <p className="metric-label">Cumplidos</p>
+                                            <p className="metric-label">Achieved</p>
                                         </div>
                                     </div>
                                     <div className="metric-item">
                                         <div className="metric-icon">📅</div>
                                         <div className="metric-content">
-                                            <h5>Duración</h5>
-                                            <p className="metric-value">5 semanas</p>
+                                            <h5>Duration</h5>
+                                            <p className="metric-value">5 weeks</p>
                                             <p className="metric-label">Total</p>
                                         </div>
                                     </div>
@@ -743,69 +743,69 @@ const StudentView = () => {
                             </div>
 
                             <div className="progress-chart">
-                                <h4>📊 Progreso Semanal</h4>
+                                <h4>📊 Weekly Progress</h4>
                                 <div className="chart-container">
                                     <div className="chart-bars">
                                         <div className="chart-bar">
                                             <div className="bar-fill" style={{height: '20%'}}></div>
-                                            <span className="bar-label">Sem 1</span>
+                                            <span className="bar-label">Week 1</span>
                                         </div>
                                         <div className="chart-bar">
                                             <div className="bar-fill" style={{height: '40%'}}></div>
-                                            <span className="bar-label">Sem 2</span>
+                                            <span className="bar-label">Week 2</span>
                                         </div>
                                         <div className="chart-bar">
                                             <div className="bar-fill" style={{height: '60%'}}></div>
-                                            <span className="bar-label">Sem 3</span>
+                                            <span className="bar-label">Week 3</span>
                                         </div>
                                         <div className="chart-bar">
                                             <div className="bar-fill" style={{height: '33%'}}></div>
-                                            <span className="bar-label">Sem 4</span>
+                                            <span className="bar-label">Week 4</span>
                                         </div>
                                         <div className="chart-bar">
                                             <div className="bar-fill" style={{height: '0%'}}></div>
-                                            <span className="bar-label">Sem 5</span>
+                                            <span className="bar-label">Week 5</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="next-milestones">
-                                <h4>🎯 Próximos Hitos</h4>
+                                <h4>🎯 Next Milestones</h4>
                                 <div className="milestones-list">
                                     <div className="milestone-item">
                                         <div className="milestone-icon">📚</div>
                                         <div className="milestone-content">
-                                            <h5>Lección 6</h5>
-                                            <p>Saludos y Presentaciones</p>
-                                            <span className="milestone-status">Próxima</span>
+                                            <h5>Lesson 6</h5>
+                                            <p>Greetings and Introductions</p>
+                                            <span className="milestone-status">Upcoming</span>
                                         </div>
                                     </div>
                                     <div className="milestone-item">
                                         <div className="milestone-icon">🎯</div>
                                         <div className="milestone-content">
-                                            <h5>Objetivo 2</h5>
-                                            <p>Vocabulario Profesional</p>
-                                            <span className="milestone-status">En Progreso</span>
+                                            <h5>Objective 2</h5>
+                                            <p>Professional Vocabulary</p>
+                                            <span className="milestone-status">In Progress</span>
                                         </div>
                                     </div>
                                     <div className="milestone-item">
                                         <div className="milestone-icon">🏆</div>
                                         <div className="milestone-content">
-                                            <h5>50% del Curso</h5>
-                                            <p>6 lecciones completadas</p>
-                                            <span className="milestone-status">Pendiente</span>
+                                            <h5>50% of Course</h5>
+                                            <p>6 lessons completed</p>
+                                            <span className="milestone-status">Pending</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button className="btn-primary" onClick={() => alert('📈 Progreso actualizado!\n\nTu progreso del curso ha sido registrado correctamente.')}>
-                                💾 Actualizar Progreso
+                            <button className="btn-primary" onClick={() => alert('📈 Progress updated!\n\nYour course progress has been recorded correctly.')}>
+                                💾 Update Progress
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
-                                Cerrar
+                                Close
                             </button>
                         </div>
                     </div>
@@ -816,7 +816,7 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content large" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>⏱️ Tiempo de Estudio</h3>
+                            <h3>⏱️ Study Time</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
@@ -824,43 +824,43 @@ const StudentView = () => {
                                 <div className="time-summary">
                                     <div className="time-stats">
                                         <div className="time-item">
-                                            <h4>Tiempo Total</h4>
+                                            <h4>Total Time</h4>
                                             <p className="big-time">{statistics.totalStudyTime}</p>
-                                            <p>Horas estudiadas</p>
+                                            <p>Hours studied</p>
                                         </div>
                                         <div className="time-item">
-                                            <h4>Promedio Diario</h4>
+                                            <h4>Average Daily</h4>
                                             <p className="big-time">1.2h</p>
-                                            <p>Horas por día</p>
+                                            <p>Hours per day</p>
                                         </div>
                                         <div className="time-item">
-                                            <h4>Sesión Promedio</h4>
+                                            <h4>Average Session</h4>
                                             <p className="big-time">45min</p>
-                                            <p>Por sesión</p>
+                                            <p>Per session</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="study-sessions">
-                                <h4>📚 Sesiones de Estudio</h4>
+                                <h4>📚 Study Sessions</h4>
                                 <div className="sessions-list">
                                     <div className="session-item completed">
                                         <div className="session-icon">📖</div>
                                         <div className="session-content">
-                                            <h5>Lección 1 - Introducción</h5>
-                                            <p>21 de Agosto, 2025</p>
+                                            <h5>Lesson 1 - Introduction</h5>
+                                            <p>August 21, 2025</p>
                                             <div className="session-details">
                                                 <span className="session-duration">⏱️ 1h 15min</span>
-                                                <span className="session-type">Presencial</span>
+                                                <span className="session-type">In-Person</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="session-item completed">
                                         <div className="session-icon">💻</div>
                                         <div className="session-content">
-                                            <h5>Lección 2 - Saludos I</h5>
-                                            <p>28 de Agosto, 2025</p>
+                                            <h5>Lesson 2 - Greetings I</h5>
+                                            <p>August 28, 2025</p>
                                             <div className="session-details">
                                                 <span className="session-duration">⏱️ 1h 30min</span>
                                                 <span className="session-type">Virtual</span>
@@ -870,8 +870,8 @@ const StudentView = () => {
                                     <div className="session-item completed">
                                         <div className="session-icon">💻</div>
                                         <div className="session-content">
-                                            <h5>Lección 3 - Saludos II</h5>
-                                            <p>29 de Agosto, 2025</p>
+                                            <h5>Lesson 3 - Greetings II</h5>
+                                            <p>August 29, 2025</p>
                                             <div className="session-details">
                                                 <span className="session-duration">⏱️ 1h 45min</span>
                                                 <span className="session-type">Virtual</span>
@@ -881,8 +881,8 @@ const StudentView = () => {
                                     <div className="session-item completed">
                                         <div className="session-icon">💻</div>
                                         <div className="session-content">
-                                            <h5>Lección 4 - Presentación</h5>
-                                            <p>1 de Septiembre, 2025</p>
+                                            <h5>Lesson 4 - Presentation</h5>
+                                            <p>September 1, 2025</p>
                                             <div className="session-details">
                                                 <span className="session-duration">⏱️ 1h 30min</span>
                                                 <span className="session-type">Virtual</span>
@@ -893,32 +893,32 @@ const StudentView = () => {
                             </div>
 
                             <div className="study-chart">
-                                <h4>📊 Tiempo de Estudio por Semana</h4>
+                                <h4>📊 Study Time by Week</h4>
                                 <div className="chart-container">
                                     <div className="weekly-chart">
                                         <div className="week-bar">
                                             <div className="bar-fill" style={{height: '60%'}}></div>
-                                            <span className="week-label">Sem 1</span>
+                                            <span className="week-label">Week 1</span>
                                             <span className="week-time">1.5h</span>
                                         </div>
                                         <div className="week-bar">
                                             <div className="bar-fill" style={{height: '80%'}}></div>
-                                            <span className="week-label">Sem 2</span>
+                                            <span className="week-label">Week 2</span>
                                             <span className="week-time">2h</span>
                                         </div>
                                         <div className="week-bar">
                                             <div className="bar-fill" style={{height: '90%'}}></div>
-                                            <span className="week-label">Sem 3</span>
+                                            <span className="week-label">Week 3</span>
                                             <span className="week-time">2.5h</span>
                                         </div>
                                         <div className="week-bar">
                                             <div className="bar-fill" style={{height: '30%'}}></div>
-                                            <span className="week-label">Sem 4</span>
+                                            <span className="week-label">Week 4</span>
                                             <span className="week-time">1h</span>
                                         </div>
                                         <div className="week-bar">
                                             <div className="bar-fill" style={{height: '0%'}}></div>
-                                            <span className="week-label">Sem 5</span>
+                                            <span className="week-label">Week 5</span>
                                             <span className="week-time">0h</span>
                                         </div>
                                     </div>
@@ -926,41 +926,41 @@ const StudentView = () => {
                             </div>
 
                             <div className="study-goals">
-                                <h4>🎯 Metas de Estudio</h4>
+                                <h4>🎯 Study Goals</h4>
                                 <div className="goals-list">
                                     <div className="goal-item completed">
                                         <div className="goal-icon">✅</div>
                                         <div className="goal-content">
-                                            <h5>Estudio Diario</h5>
-                                            <p>Estudiar al menos 1 hora por día</p>
-                                            <span className="goal-status">Completado</span>
+                                            <h5>Daily Study</h5>
+                                            <p>Study at least 1 hour per day</p>
+                                            <span className="goal-status">Completed</span>
                                         </div>
                                     </div>
                                     <div className="goal-item in-progress">
                                         <div className="goal-icon">🔄</div>
                                         <div className="goal-content">
-                                            <h5>Consistencia</h5>
-                                            <p>Mantener 5 días consecutivos de estudio</p>
-                                            <span className="goal-status">En Progreso (3/5)</span>
+                                            <h5>Consistency</h5>
+                                            <p>Maintain 5 consecutive days of study</p>
+                                            <span className="goal-status">In Progress (3/5)</span>
                                         </div>
                                     </div>
                                     <div className="goal-item pending">
                                         <div className="goal-icon">⏳</div>
                                         <div className="goal-content">
-                                            <h5>Maratón de Estudio</h5>
-                                            <p>Estudiar 3 horas en un solo día</p>
-                                            <span className="goal-status">Pendiente</span>
+                                            <h5>Study Marathon</h5>
+                                            <p>Study 3 hours in one day</p>
+                                            <span className="goal-status">Pending</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button className="btn-primary" onClick={() => alert('⏱️ Tiempo de estudio actualizado!\n\nTu progreso de estudio ha sido registrado correctamente.')}>
-                                💾 Actualizar Progreso
+                            <button className="btn-primary" onClick={() => alert('⏱️ Study time updated!\n\nYour study progress has been recorded correctly.')}>
+                                💾 Update Progress
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
-                                Cerrar
+                                Close
                             </button>
                         </div>
                     </div>
@@ -971,7 +971,7 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content large" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>🎯 Objetivos del Curso de Inglés</h3>
+                            <h3>🎯 English Course Objectives</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
@@ -979,10 +979,10 @@ const StudentView = () => {
                                 <div className="objective-item completed">
                                     <div className="objective-icon">✅</div>
                                     <div className="objective-content">
-                                        <h4>Comunicación Básica</h4>
-                                        <p>Dominar saludos, presentaciones y conversaciones cotidianas en inglés</p>
+                                        <h4>Basic Communication</h4>
+                                        <p>Master greetings, introductions, and everyday conversations in English</p>
                                         <div className="objective-progress">
-                                            <span className="progress-text">Completado (100%)</span>
+                                            <span className="progress-text">Completed (100%)</span>
                                             <div className="progress-bar">
                                                 <div className="progress-fill" style={{width: '100%'}}></div>
                                             </div>
@@ -992,10 +992,10 @@ const StudentView = () => {
                                 <div className="objective-item in-progress">
                                     <div className="objective-icon">🔄</div>
                                     <div className="objective-content">
-                                        <h4>Vocabulario Profesional</h4>
-                                        <p>Ampliar vocabulario técnico y profesional para el entorno laboral</p>
+                                        <h4>Professional Vocabulary</h4>
+                                        <p>Expand professional and technical vocabulary for the workplace</p>
                                         <div className="objective-progress">
-                                            <span className="progress-text">En Progreso (75%)</span>
+                                            <span className="progress-text">In Progress (75%)</span>
                                             <div className="progress-bar">
                                                 <div className="progress-fill" style={{width: '75%'}}></div>
                                             </div>
@@ -1005,10 +1005,10 @@ const StudentView = () => {
                                 <div className="objective-item in-progress">
                                     <div className="objective-icon">🔄</div>
                                     <div className="objective-content">
-                                        <h4>Fluidez Conversacional</h4>
-                                        <p>Desarrollar confianza y naturalidad en conversaciones espontáneas</p>
+                                        <h4>Fluency</h4>
+                                        <p>Develop confidence and naturalness in spontaneous conversations</p>
                                         <div className="objective-progress">
-                                            <span className="progress-text">En Progreso (60%)</span>
+                                            <span className="progress-text">In Progress (60%)</span>
                                             <div className="progress-bar">
                                                 <div className="progress-fill" style={{width: '60%'}}></div>
                                             </div>
@@ -1018,10 +1018,10 @@ const StudentView = () => {
                                 <div className="objective-item pending">
                                     <div className="objective-icon">⏳</div>
                                     <div className="objective-content">
-                                        <h4>Entrevistas de Trabajo</h4>
-                                        <p>Preparación completa para entrevistas laborales en inglés</p>
+                                        <h4>Job Interviews</h4>
+                                        <p>Complete preparation for job interviews in English</p>
                                         <div className="objective-progress">
-                                            <span className="progress-text">Pendiente (0%)</span>
+                                            <span className="progress-text">Pending (0%)</span>
                                             <div className="progress-bar">
                                                 <div className="progress-fill" style={{width: '0%'}}></div>
                                             </div>
@@ -1031,10 +1031,10 @@ const StudentView = () => {
                                 <div className="objective-item pending">
                                     <div className="objective-icon">⏳</div>
                                     <div className="objective-content">
-                                        <h4>Presentaciones Ejecutivas</h4>
-                                        <p>Crear y realizar presentaciones profesionales impactantes</p>
+                                        <h4>Executive Presentations</h4>
+                                        <p>Create and deliver impactful executive presentations</p>
                                         <div className="objective-progress">
-                                            <span className="progress-text">Pendiente (0%)</span>
+                                            <span className="progress-text">Pending (0%)</span>
                                             <div className="progress-bar">
                                                 <div className="progress-fill" style={{width: '0%'}}></div>
                                             </div>
@@ -1044,10 +1044,10 @@ const StudentView = () => {
                                 <div className="objective-item pending">
                                     <div className="objective-icon">⏳</div>
                                     <div className="objective-content">
-                                        <h4>Comprensión Avanzada</h4>
-                                        <p>Entender diferentes acentos, velocidades y contextos profesionales</p>
+                                        <h4>Advanced Comprehension</h4>
+                                        <p>Understand different accents, speeds, and professional contexts</p>
                                         <div className="objective-progress">
-                                            <span className="progress-text">Pendiente (0%)</span>
+                                            <span className="progress-text">Pending (0%)</span>
                                             <div className="progress-bar">
                                                 <div className="progress-fill" style={{width: '0%'}}></div>
                                             </div>
@@ -1057,10 +1057,10 @@ const StudentView = () => {
                                 <div className="objective-item pending">
                                     <div className="objective-icon">⏳</div>
                                     <div className="objective-content">
-                                        <h4>Escritura Corporativa</h4>
-                                        <p>Desarrollar habilidades de escritura formal y empresarial</p>
+                                        <h4>Business Writing</h4>
+                                        <p>Develop formal and business writing skills</p>
                                         <div className="objective-progress">
-                                            <span className="progress-text">Pendiente (0%)</span>
+                                            <span className="progress-text">Pending (0%)</span>
                                             <div className="progress-bar">
                                                 <div className="progress-fill" style={{width: '0%'}}></div>
                                             </div>
@@ -1070,29 +1070,29 @@ const StudentView = () => {
                             </div>
                             
                             <div className="objectives-summary">
-                                <h4>📊 Resumen de Progreso</h4>
+                                <h4>📊 Progress Summary</h4>
                                 <div className="summary-stats">
                                     <div className="summary-item">
-                                        <span className="summary-label">Objetivos Completados:</span>
-                                        <span className="summary-value">1 de 7</span>
+                                        <span className="summary-label">Completed Objectives:</span>
+                                        <span className="summary-value">1 of 7</span>
                                     </div>
                                     <div className="summary-item">
-                                        <span className="summary-label">En Progreso:</span>
-                                        <span className="summary-value">2 de 7</span>
+                                        <span className="summary-label">In Progress:</span>
+                                        <span className="summary-value">2 of 7</span>
                                     </div>
                                     <div className="summary-item">
-                                        <span className="summary-label">Progreso General:</span>
+                                        <span className="summary-label">Overall Progress:</span>
                                         <span className="summary-value">14%</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button className="btn-primary" onClick={() => alert('🎯 Objetivos actualizados!\n\nTu progreso ha sido registrado correctamente. Continúa trabajando en los objetivos pendientes para completar tu curso de inglés.')}>
-                                💾 Actualizar Progreso
+                            <button className="btn-primary" onClick={() => alert('🎯 Objectives updated!\n\nYour progress has been recorded correctly. Continue working on the pending objectives to complete your English course.')}>
+                                💾 Update Progress
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
-                                Cerrar
+                                Close
                             </button>
                         </div>
                     </div>
@@ -1103,37 +1103,37 @@ const StudentView = () => {
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
                         <div className="modal-header">
-                            <h3>✏️ Editar Notas de la Próxima Clase</h3>
+                            <h3>✏️ Edit Notes for Next Class</h3>
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
                             <div className="notes-editor">
-                                <h4>📝 Notas Personales</h4>
+                                <h4>📝 Personal Notes</h4>
                                 <textarea 
                                     className="student-notes-textarea"
-                                    placeholder="Agrega tus notas, preguntas o recordatorios para la próxima clase..."
+                                    placeholder="Add your notes, questions, or reminders for the next class..."
                                     rows="6"
                                 />
-                                <h4>❓ Preguntas para el Profesor</h4>
+                                <h4>❓ Questions for the Teacher</h4>
                                 <textarea 
                                     className="student-notes-textarea"
-                                    placeholder="Escribe las preguntas que quieres hacer en la próxima clase..."
+                                    placeholder="Write down the questions you want to ask in the next class..."
                                     rows="4"
                                 />
-                                <h4>🎯 Objetivos Personales</h4>
+                                <h4>🎯 Personal Objectives</h4>
                                 <textarea 
                                     className="student-notes-textarea"
-                                    placeholder="Define tus objetivos específicos para esta clase..."
+                                    placeholder="Define your specific objectives for this class..."
                                     rows="3"
                                 />
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button className="btn-primary" onClick={() => alert('💾 Notas guardadas exitosamente!\n\nTus notas personales han sido guardadas y estarán disponibles durante la clase.')}>
-                                💾 Guardar Notas
+                            <button className="btn-primary" onClick={() => alert('💾 Notes saved successfully!\n\nYour personal notes have been saved and will be available during the class.')}>
+                                💾 Save Notes
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>
-                                Cancelar
+                                Cancel
                             </button>
                         </div>
                     </div>
@@ -1143,7 +1143,7 @@ const StudentView = () => {
             {isLoading && (
                 <div className="loading-overlay">
                     <div className="loading-spinner">⏳</div>
-                    <p>Procesando...</p>
+                    <p>Processing...</p>
                 </div>
             )}
         </div>
