@@ -201,8 +201,26 @@ const ProfessorView = () => {
                                 </div>
                             </div>
 
+                            <div className="course-actions">
+                                <h4>⚡ Acciones del Curso</h4>
+                                <div className="actions-grid">
+                                    <button className="action-btn" onClick={() => alert('📁 Subir Material\n\nFuncionalidad para subir:\n• Presentaciones\n• Documentos\n• Videos\n• Ejercicios\n• Recursos adicionales')}>
+                                        📁 Subir Material
+                                    </button>
+                                    <button className="action-btn" onClick={() => alert('📊 Ver Estadísticas\n\n• Progreso del estudiante\n• Asistencia\n• Calificaciones\n• Tiempo de estudio')}>
+                                        📊 Ver Estadísticas
+                                    </button>
+                                    <button className="action-btn" onClick={() => alert('📝 Crear Tarea\n\n• Asignar nueva tarea\n• Establecer fecha límite\n• Definir criterios de evaluación')}>
+                                        📝 Crear Tarea
+                                    </button>
+                                    <button className="action-btn" onClick={() => alert('📅 Programar Clase\n\n• Agendar nueva clase\n• Enviar recordatorio\n• Configurar modalidad')}>
+                                        📅 Programar Clase
+                                    </button>
+                                </div>
+                            </div>
+
                             <div className="students-section">
-                                <h4>👥 Estudiantes del Curso</h4>
+                                <h4>👥 Estudiante del Curso</h4>
                                 <div className="students-grid">
                                     {students.map(student => (
                                         <div key={student.id} className="student-card" onClick={() => openModal('student', student)}>
