@@ -111,7 +111,14 @@ export const useEnglishCourse = () => {
     };
 
     const getPastClasses = () => {
-        return courseData.pastClasses || [];
+        const overrides = JSON.parse(localStorage.getItem('courseOverrides') || '{}');
+        const baseClasses = courseData.pastClasses || [];
+        
+        // Aplicar overrides de localStorage
+        return baseClasses.map(classItem => {
+            const overrideKey = `class_${classItem.id}`;
+            return overrides[overrideKey] || classItem;
+        });
     };
 
     return {

@@ -18,10 +18,56 @@ const StudentView = () => {
     const [selectedLesson, setSelectedLesson] = useState(null);
     const [selectedAssignment, setSelectedAssignment] = useState(null);
     const [studentNotes, setStudentNotes] = useState({});
+    const [editingClass, setEditingClass] = useState(null);
+    const [editForm, setEditForm] = useState({ id:'', title:'', date:'', time:'', mode:'', duration:'', notes:'', topics:'' });
 
     const statistics = getStatistics();
     const upcomingClasses = getUpcomingClasses();
     const pastClasses = getPastClasses();
+
+    // Funciones para editar clases
+    const openEditClass = (classItem) => {
+        setEditingClass(classItem);
+        setEditForm({
+            id: classItem.id,
+            title: classItem.title,
+            date: classItem.date,
+            time: classItem.time,
+            mode: classItem.mode || (classItem.title.includes('Virtual') ? 'Virtual' : 'In-person'),
+            duration: classItem.duration,
+            notes: classItem.notes || '',
+            topics: Array.isArray(classItem.topics) ? classItem.topics.join(', ') : ''
+        });
+        setActiveModal('editClass');
+    };
+
+    const saveClassEdit = () => {
+        const updatedClass = {
+            ...editingClass,
+            title: editForm.title,
+            date: editForm.date,
+            time: editForm.time,
+            mode: editForm.mode,
+            duration: editForm.duration,
+            notes: editForm.notes,
+            topics: editForm.topics.split(',').map(t => t.trim()).filter(t => t)
+        };
+        
+        // Guardar en localStorage
+        const overrides = JSON.parse(localStorage.getItem('courseOverrides') || '{}');
+        overrides[`class_${editingClass.id}`] = updatedClass;
+        localStorage.setItem('courseOverrides', JSON.stringify(overrides));
+        
+        setActiveModal(null);
+        setEditingClass(null);
+        setEditForm({ id:'', title:'', date:'', time:'', mode:'', duration:'', notes:'', topics:'' });
+    };
+
+    const resetClassEdit = () => {
+        setActiveModal(null);
+        setEditingClass(null);
+        setEditForm({ id:'', title:'', date:'', time:'', mode:'', duration:'', notes:'', topics:'' });
+    };
 
     // Funciones para acciones rápidas
     const handleQuickAction = (action) => {
@@ -194,12 +240,12 @@ const StudentView = () => {
                         <h2>📚 Past Classes</h2>
                         <div className="classes-grid">
                             {pastClasses.slice(0, 4).map((classItem) => (
-                                <div key={classItem.id} className="class-card" onClick={() => openModal('past-class', classItem)}>
-                                    <div className="class-header">
+                                <div key={classItem.id} className="class-card">
+                                    <div className="class-header" onClick={() => openModal('past-class', classItem)}>
                                         <h3>Lesson {classItem.lesson}</h3>
                                         <span className="class-date">{classItem.date}</span>
                                     </div>
-                                    <div className="class-content">
+                                    <div className="class-content" onClick={() => openModal('past-class', classItem)}>
                                         <h4>{classItem.title}</h4>
                                         <p className="class-duration">⏱️ {classItem.duration}</p>
                                         <div className="class-topics">
@@ -212,13 +258,19 @@ const StudentView = () => {
                                         </div>
                                         <div className="class-content-info">
                                             <div className="class-details">
-                                                <p className="class-location">📍 {classItem.location}</p>
+                                                <p className="class-location">{classItem.location}</p>
                                                 <p className="class-teacher">👨‍🏫 Prof. Laura Chaves</p>
                                             </div>
                                             <div className="class-progress">
                                                 <span className="progress-indicator">✅ Completed</span>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div className="class-actions">
+                                        <button className="edit-btn" onClick={(e) => {
+                                            e.stopPropagation();
+                                            openEditClass(classItem);
+                                        }}>✏️ Edit</button>
                                     </div>
                                 </div>
                             ))}
@@ -417,10 +469,11 @@ const StudentView = () => {
                                         <span className="label">👨‍🏫 Teacher:</span>
                                         <span>Prof. Laura Chaves</span>
                                     </div>
-                                    <div className="info-row">
+                                    {/* Removed Location row per request */}
+                                    {/* <div className="info-row">
                                         <span className="label">📍 Location:</span>
                                         <span>{selectedLesson.location}</span>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 
                                 <div className="topics-section">
@@ -493,7 +546,7 @@ const StudentView = () => {
                                         </div>
                                         <div className="class-item-details">
                                             <span className="duration">⏱️ {classItem.duration}</span>
-                                            <span className="location">📍 {classItem.location}</span>
+                                            <span className="location">{classItem.location}</span>
                                             <span className="progress-indicator">✅ Completed</span>
                                         </div>
                                     </div>
@@ -1144,6 +1197,98 @@ const StudentView = () => {
                 <div className="loading-overlay">
                     <div className="loading-spinner">⏳</div>
                     <p>Processing...</p>
+                </div>
+            )}
+
+            {/* Modal de Edición de Clase */}
+            {activeModal === 'editClass' && (
+                <div className="modal-overlay" onClick={resetClassEdit}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>✏️ Edit Class</h3>
+                            <button className="close-btn" onClick={resetClassEdit}>×</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="edit-form">
+                                <div className="form-group">
+                                    <label>Class Title</label>
+                                    <input 
+                                        type="text" 
+                                        value={editForm.title}
+                                        onChange={(e) => setEditForm({...editForm, title: e.target.value})}
+                                        className="form-input"
+                                    />
+                                </div>
+                                <div className="form-row">
+                                    <div className="form-group">
+                                        <label>Date</label>
+                                        <input 
+                                            type="date" 
+                                            value={editForm.date}
+                                            onChange={(e) => setEditForm({...editForm, date: e.target.value})}
+                                            className="form-input"
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Time</label>
+                                        <input 
+                                            type="time" 
+                                            value={editForm.time}
+                                            onChange={(e) => setEditForm({...editForm, time: e.target.value})}
+                                            className="form-input"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-row">
+                                    <div className="form-group">
+                                        <label>Mode</label>
+                                        <select 
+                                            value={editForm.mode}
+                                            onChange={(e) => setEditForm({...editForm, mode: e.target.value})}
+                                            className="form-input"
+                                        >
+                                            <option value="Virtual">Virtual</option>
+                                            <option value="In-person">In-person</option>
+                                        </select>
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Duration</label>
+                                        <input 
+                                            type="text" 
+                                            value={editForm.duration}
+                                            onChange={(e) => setEditForm({...editForm, duration: e.target.value})}
+                                            placeholder="e.g., 60 min"
+                                            className="form-input"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label>Topics (comma-separated)</label>
+                                    <input 
+                                        type="text" 
+                                        value={editForm.topics}
+                                        onChange={(e) => setEditForm({...editForm, topics: e.target.value})}
+                                        placeholder="e.g., Greetings, Introductions, Basic Conversations"
+                                        className="form-input"
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Student Notes</label>
+                                    <textarea 
+                                        value={editForm.notes}
+                                        onChange={(e) => setEditForm({...editForm, notes: e.target.value})}
+                                        placeholder="Add your notes about this class..."
+                                        className="form-textarea"
+                                        rows="4"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn-secondary" onClick={resetClassEdit}>Cancel</button>
+                            <button className="btn-primary" onClick={saveClassEdit}>💾 Save Changes</button>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

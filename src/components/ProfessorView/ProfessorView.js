@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProfessorView.css';
 import { professorData } from '../../data/professorData';
 import { useEnglishCourse } from '../../hooks/useEnglishCourse';
@@ -6,6 +6,12 @@ import { useEnglishCourse } from '../../hooks/useEnglishCourse';
 const ProfessorView = () => {
     const [activeModal, setActiveModal] = useState(null);
     const [selectedStudent, setSelectedStudent] = useState(null);
+    const [progressExpanded, setProgressExpanded] = useState({
+        lessons: false,
+        course: false,
+        objectives: false,
+        time: false,
+    });
     
     const { professor, course, students, upcomingClasses, recentActivity, statistics, resources } = professorData;
     const {
@@ -19,6 +25,172 @@ const ProfessorView = () => {
         getPastClasses: getStudentPastClasses
     } = useEnglishCourse();
 
+    const [pastOverrides, setPastOverrides] = useState({});
+    const [editClass, setEditClass] = useState(null);
+    const [editForm, setEditForm] = useState({ id:'', title:'', date:'', time:'', mode:'', duration:'', notes:'', topics:'' });
+    const [selectedPast, setSelectedPast] = useState(null);
+
+    // Courses CRUD state
+    const [courses, setCourses] = useState([]);
+    const [isCreateOpen, setIsCreateOpen] = useState(false);
+    const [courseForm, setCourseForm] = useState({
+      title: '',
+      student: '',
+      durationWeeks: '5',
+      totalLessons: '12',
+      level: 'Intermediate',
+      status: 'Active'
+    });
+
+    // Seed local non-relational DB with Gustavo if empty
+    useEffect(() => {
+      try {
+        const saved = JSON.parse(localStorage.getItem('professor.courses') || '[]');
+        const list = Array.isArray(saved) ? saved : [];
+        const hasGustavo = list.some(c => c.id === 'gustavo-course');
+        const gustavoSeed = {
+          id: 'gustavo-course',
+          title: 'English Course - Gustavo Arteaga',
+          student: 'Gustavo Arteaga',
+          durationWeeks: 5,
+          totalLessons: 12,
+          level: 'Intermediate',
+          status: 'Active'
+        };
+        const next = hasGustavo ? list : [...list, gustavoSeed];
+        localStorage.setItem('professor.courses', JSON.stringify(next));
+        setCourses(next);
+      } catch {
+        const seed = [{
+          id: 'gustavo-course',
+          title: 'English Course - Gustavo Arteaga',
+          student: 'Gustavo Arteaga',
+          durationWeeks: 5,
+          totalLessons: 12,
+          level: 'Intermediate',
+          status: 'Active'
+        }];
+        localStorage.setItem('professor.courses', JSON.stringify(seed));
+        setCourses(seed);
+      }
+    }, []);
+
+    const persistCourses = (next) => {
+      setCourses(next);
+      localStorage.setItem('professor.courses', JSON.stringify(next));
+    };
+
+    const openCreateCourse = () => setIsCreateOpen(true);
+    const closeCreateCourse = () => setIsCreateOpen(false);
+
+    const handleCourseChange = (e) => {
+      const { name, value } = e.target;
+      setCourseForm(prev => ({ ...prev, [name]: value }));
+    };
+
+    const saveCourse = () => {
+      const newCourse = {
+        id: `c_${Date.now()}`,
+        title: courseForm.title.trim() || 'English Course',
+        student: courseForm.student.trim(),
+        durationWeeks: parseInt(courseForm.durationWeeks, 10) || 4,
+        totalLessons: parseInt(courseForm.totalLessons, 10) || 8,
+        level: courseForm.level,
+        status: courseForm.status
+      };
+      const next = [...courses, newCourse];
+      persistCourses(next);
+      setCourseForm({ title:'', student:'', durationWeeks:'5', totalLessons:'12', level:'Intermediate', status:'Active' });
+      closeCreateCourse();
+    };
+
+    const deleteCourse = (id) => {
+      if (id === 'gustavo-course') return; // protected course
+      const next = courses.filter(c => c.id !== id);
+      persistCourses(next);
+    };
+
+    const openCourse = (course) => {
+      if (course.id === 'gustavo-course') {
+        openModal('gustavo-course');
+      } else {
+        // Placeholder: could open a simplified modal later
+        // openModal('generic-course')
+      }
+    };
+
+    useEffect(() => {
+        try {
+            const saved = JSON.parse(localStorage.getItem('pastClassOverrides') || '{}');
+            setPastOverrides(saved);
+        } catch {}
+    }, []);
+
+    const saveOverrides = (updated) => {
+        const next = { ...pastOverrides, [updated.id]: updated };
+        setPastOverrides(next);
+        localStorage.setItem('pastClassOverrides', JSON.stringify(next));
+    };
+
+    const resetOverride = (id) => {
+        const next = { ...pastOverrides };
+        delete next[id];
+        setPastOverrides(next);
+        localStorage.setItem('pastClassOverrides', JSON.stringify(next));
+    };
+
+    // Base past classes (Gustavo)
+    const basePast = [
+        { id:'c4', title:'Class 4: Personal Introduction', date:'September 1, 2025', time:'7:00 AM', mode:'Virtual', duration:'60 min', notes:'', teacherNotes:'', topics:['Personal introduction','Basic information','Initial conversation'] },
+        { id:'c3', title:'Class 3: Greetings and Farewells II', date:'August 29, 2025', time:'7:00 AM', mode:'Virtual', duration:'60 min', notes:'', teacherNotes:'', topics:['Formal/Informal greetings','Common farewells','Polite expressions'] },
+        { id:'c2', title:'Class 2: Greetings and Farewells I', date:'August 28, 2025', time:'7:00 AM', mode:'Virtual', duration:'60 min', notes:'', teacherNotes:'', topics:['Basic greetings','Simple farewells','Common questions'] },
+        { id:'c1', title:'Class 1: Introduction', date:'August 21, 2025', time:'4:00 PM', mode:'In-person', duration:'60 min', notes:'', teacherNotes:'', topics:['Course overview','Learning objectives','Methodology','Initial evaluation'] },
+    ];
+
+    const pastClassesMerged = basePast.map(b => ({ ...b, ...(pastOverrides[b.id] || {}) }));
+
+    const openEdit = (cls) => {
+        setEditClass(cls.id);
+        setEditForm({
+            id: cls.id,
+            title: cls.title,
+            date: cls.date,
+            time: cls.time,
+            mode: cls.mode,
+            duration: cls.duration,
+            notes: cls.notes || '',
+            topics: (cls.topics || []).join(', '),
+        });
+    };
+
+    const closeEdit = () => { setEditClass(null); };
+
+    const handleEditChange = (e) => {
+        const { name, value } = e.target;
+        setEditForm(prev => ({ ...prev, [name]: value }));
+    };
+
+    const saveEdit = () => {
+        const updated = {
+            id: editForm.id,
+            title: editForm.title.trim(),
+            date: editForm.date.trim(),
+            time: editForm.time.trim(),
+            mode: editForm.mode.trim(),
+            duration: editForm.duration.trim(),
+            notes: editForm.notes.trim(),
+            topics: editForm.topics.split(',').map(t => t.trim()).filter(Boolean),
+        };
+        saveOverrides(updated);
+        setEditClass(null);
+    };
+
+    const resetEdit = () => {
+        if (!editClass) return;
+        resetOverride(editClass);
+        setEditClass(null);
+    };
+
     const openModal = (modalType, data = null) => {
         setActiveModal(modalType);
         if (modalType === 'student') setSelectedStudent(data);
@@ -27,6 +199,10 @@ const ProfessorView = () => {
     const closeModal = () => {
         setActiveModal(null);
         setSelectedStudent(null);
+    };
+
+    const toggleProgress = (key) => {
+        setProgressExpanded(prev => ({ ...prev, [key]: !prev[key] }));
     };
 
     const handleQuickAction = (action) => {
@@ -54,130 +230,41 @@ const ProfessorView = () => {
         }
     };
 
+    const openPastDetail = (cls) => setSelectedPast(cls);
+    const closePastDetail = () => setSelectedPast(null);
+
     return (
         <div className="professor-view">
             {/* Courses Overview */}
             <div className="courses-overview">
+                <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', margin:'0 0 16px 0'}}>
+                    <h2 style={{margin:0}}>📚 My Courses</h2>
+                    <button className="btn-primary" onClick={openCreateCourse}>+ Create Course</button>
+                </div>
                 <div className="courses-grid">
-                    {/* Curso de Gustavo */}
-                    <div className="course-card" onClick={() => openModal('gustavo-course')}>
-                        <div className="course-header">
-                            <div className="course-icon">🎓</div>
-                            <div className="course-info">
-                                <h3>English Course - Gustavo Arteaga</h3>
-                                <p className="course-subtitle">Personalized Course</p>
+                    {courses.map(course => (
+                        <div key={course.id} className="course-card" onClick={() => openCourse(course)}>
+                            <div className="course-header">
+                                <div className="course-icon">🎓</div>
+                                <div className="course-info">
+                                    <h3>{course.title}</h3>
+                                    <p className="course-subtitle">{course.level} · {course.durationWeeks} weeks</p>
+                                </div>
+                                <div style={{marginLeft:'auto'}} className="course-card__actions" onClick={(e)=>e.stopPropagation()}>
+                                    {course.id !== 'gustavo-course' && (
+                                        <button className="btn-ghost" onClick={() => deleteCourse(course.id)}>Delete</button>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                        <div className="course-content-info">
-                            <div className="course-details">
-                                <p><strong>Students:</strong> 1 student</p>
-                                <p><strong>Duration:</strong> 5 weeks</p>
-                                <p><strong>Progress:</strong> 33% completed</p>
-                            </div>
-                            <div className="course-progress">
-                                <div className="progress-indicator">
-                                    <span>Course Progress: 33%</span>
-                                    <div className="progress-bar">
-                                        <div className="progress-fill" style={{width: '33%'}}></div>
-                                    </div>
+                            <div className="course-content-info">
+                                <div className="course-details">
+                                    <p><strong>Student:</strong> {course.student || '—'}</p>
+                                    <p><strong>Lessons:</strong> {course.totalLessons}</p>
+                                    <p><strong>Status:</strong> {course.status}</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="course-stats">
-                            <div className="stat-item">
-                                <span className="stat-label">Classes</span>
-                                <span className="stat-value">4/12</span>
-                            </div>
-                            <div className="stat-item">
-                                <span className="stat-label">Average</span>
-                                <span className="stat-value">87.5%</span>
-                            </div>
-                            <div className="stat-item">
-                                <span className="stat-label">Active</span>
-                                <span className="stat-value">1</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Curso de Fernanda */}
-                    <div className="course-card" onClick={() => alert('📚 Fernanda\'s Course\n\nThis course is under development.\nComing soon.')}>
-                        <div className="course-header">
-                            <div className="course-icon">👩‍🎓</div>
-                            <div className="course-info">
-                                <h3>English Course - Fernanda</h3>
-                                <p className="course-subtitle">Beginner Course</p>
-                            </div>
-                        </div>
-                        <div className="course-content-info">
-                            <div className="course-details">
-                                <p><strong>Students:</strong> 1 student</p>
-                                <p><strong>Duration:</strong> 4 weeks</p>
-                                <p><strong>Progress:</strong> 0% completed</p>
-                            </div>
-                            <div className="course-progress">
-                                <div className="progress-indicator">
-                                    <span>Course Progress: 0%</span>
-                                    <div className="progress-bar">
-                                        <div className="progress-fill" style={{width: '0%'}}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="course-stats">
-                            <div className="stat-item">
-                                <span className="stat-label">Classes</span>
-                                <span className="stat-value">0/8</span>
-                            </div>
-                            <div className="stat-item">
-                                <span className="stat-label">Average</span>
-                                <span className="stat-value">-</span>
-                            </div>
-                            <div className="stat-item">
-                                <span className="stat-label">Active</span>
-                                <span className="stat-value">1</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Curso de Sebastián */}
-                    <div className="course-card" onClick={() => alert('📚 Sebastián\'s Course\n\nThis course is under development.\nComing soon.')}>
-                        <div className="course-header">
-                            <div className="course-icon">👨‍🎓</div>
-                            <div className="course-info">
-                                <h3>English Course - Sebastián</h3>
-                                <p className="course-subtitle">Intermediate Course</p>
-                            </div>
-                        </div>
-                        <div className="course-content-info">
-                            <div className="course-details">
-                                <p><strong>Students:</strong> 1 student</p>
-                                <p><strong>Duration:</strong> 6 weeks</p>
-                                <p><strong>Progress:</strong> 0% completed</p>
-                            </div>
-                            <div className="course-progress">
-                                <div className="progress-indicator">
-                                    <span>Course Progress: 0%</span>
-                                    <div className="progress-bar">
-                                        <div className="progress-fill" style={{width: '0%'}}></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="course-stats">
-                            <div className="stat-item">
-                                <span className="stat-label">Classes</span>
-                                <span className="stat-value">0/10</span>
-                            </div>
-                            <div className="stat-item">
-                                <span className="stat-label">Average</span>
-                                <span className="stat-value">-</span>
-                            </div>
-                            <div className="stat-item">
-                                <span className="stat-label">Active</span>
-                                <span className="stat-value">1</span>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
 
@@ -194,34 +281,82 @@ const ProfessorView = () => {
                             <div className="progress-overview">
                                 <h2>📊 His English Progress</h2>
                                 <div className="progress-cards">
-                                    <div className="progress-card clickable" onClick={() => alert('📚 Lessons Completed\n\n4 of 12 lessons completed\nProgress: 33%')}>
+                                    <div className="progress-card clickable" onClick={() => toggleProgress('lessons')}>
                                         <div className="progress-icon">📚</div>
                                         <div className="progress-info">
                                             <h3>4/12</h3>
                                             <p>Lessons Completed</p>
                                         </div>
                                     </div>
-                                    <div className="progress-card clickable" onClick={() => alert('📈 Course Progress\n\n33% of the course completed\n8 lessons remaining')}>
+                                    {/* Details: Lessons Completed */}
+                                    {progressExpanded.lessons && (
+                                    <div style={{gridColumn: '1 / -1', background:'rgba(0,0,0,0.35)', border:'1px solid rgba(0,0,0,0.5)', borderRadius:12, padding:'12px 14px', color:'#ecf0f1'}}>
+                                        <strong>Recent Lessons:</strong>
+                                        <ul style={{margin:'8px 0 0 18px'}}>
+                                            <li>Lesson 4: Personal Introduction (Sep 1, 2025)</li>
+                                            <li>Lesson 3: Greetings and Farewells II (Aug 29, 2025)</li>
+                                            <li>Lesson 2: Greetings and Farewells I (Aug 28, 2025)</li>
+                                        </ul>
+                                    </div>
+                                    )}
+
+                                    <div className="progress-card clickable" onClick={() => toggleProgress('course')}>
                                         <div className="progress-icon">📈</div>
                                         <div className="progress-info">
                                             <h3>33%</h3>
                                             <p>Course Progress</p>
                                         </div>
                                     </div>
-                                    <div className="progress-card clickable" onClick={() => alert('🎯 Objectives Achieved\n\n1 of 5 objectives achieved\nCurrent objective: Professional Interview')}>
+                                    {/* Details: Course Progress */}
+                                    {progressExpanded.course && (
+                                    <div style={{gridColumn: '1 / -1', background:'rgba(0,0,0,0.35)', border:'1px solid rgba(0,0,0,0.5)', borderRadius:12, padding:'12px 14px', color:'#ecf0f1'}}>
+                                        <div style={{display:'flex', gap:16, flexWrap:'wrap'}}>
+                                            <div><strong>Total Lessons:</strong> 12</div>
+                                            <div><strong>Completed:</strong> 4</div>
+                                            <div><strong>Remaining:</strong> 8</div>
+                                            <div><strong>Average:</strong> 87.5%</div>
+                                        </div>
+                                    </div>
+                                    )}
+
+                                    <div className="progress-card clickable" onClick={() => toggleProgress('objectives')}>
                                         <div className="progress-icon">🎯</div>
                                         <div className="progress-info">
                                             <h3>1</h3>
                                             <p>Objectives Achieved</p>
                                         </div>
                                     </div>
-                                    <div className="progress-card clickable" onClick={() => alert('⏱️ Study Time\n\n6 total study hours\nAverage: 1.5 hours per week')}>
+                                    {/* Details: Objectives */}
+                                    {progressExpanded.objectives && (
+                                    <div style={{gridColumn: '1 / -1', background:'rgba(0,0,0,0.35)', border:'1px solid rgba(0,0,0,0.5)', borderRadius:12, padding:'12px 14px', color:'#ecf0f1'}}>
+                                        <strong>Objectives:</strong>
+                                        <ul style={{margin:'8px 0 0 18px'}}>
+                                            <li>Professional Interview – In progress</li>
+                                            <li>Fluency in Greetings – Completed</li>
+                                            <li>Numbers and Dates – Upcoming</li>
+                                            <li>Daily Conversations – Upcoming</li>
+                                            <li>Presentation Skills – Upcoming</li>
+                                        </ul>
+                                    </div>
+                                    )}
+
+                                    <div className="progress-card clickable" onClick={() => toggleProgress('time')}>
                                         <div className="progress-icon">⏱️</div>
                                         <div className="progress-info">
                                             <h3>6h</h3>
                                             <p>Study Time</p>
                                         </div>
                                     </div>
+                                    {/* Details: Study Time */}
+                                    {progressExpanded.time && (
+                                    <div style={{gridColumn: '1 / -1', background:'rgba(0,0,0,0.35)', border:'1px solid rgba(0,0,0,0.5)', borderRadius:12, padding:'12px 14px', color:'#ecf0f1'}}>
+                                        <div style={{display:'flex', gap:16, flexWrap:'wrap'}}>
+                                            <div><strong>Total Time:</strong> 6h</div>
+                                            <div><strong>Avg/Week:</strong> 1.5h</div>
+                                            <div><strong>Sessions:</strong> 8</div>
+                                        </div>
+                                    </div>
+                                    )}
                                 </div>
                             </div>
 
@@ -263,86 +398,34 @@ const ProfessorView = () => {
                             {/* Past Classes */}
                             <div className="past-classes-section">
                                 <h2>📚 Past Classes</h2>
-                                <div className="past-classes-grid">
-                                    <div className="past-class-card" onClick={() => alert('📖 Class 4: Personal Introduction\n\nDate: September 1, 2025\nTime: 7:00 AM\nMode: Virtual\n\nCovered topics:\n• Personal introduction\n• Basic information\n• Initial conversation\n\nTeacher notes:\n• Excellent participation\n• Good vocabulary control\n• Improve pronunciation')}>
-                                        <div className="past-class-header">
-                                            <div className="past-class-icon">📖</div>
-                                            <div className="past-class-info">
-                                                <h3>Class 4: Personal Introduction</h3>
-                                                <p className="past-class-date">September 1, 2025</p>
+                                <div className="past-classes-grid classes-grid">
+                                    {pastClassesMerged.map(cls => (
+                                        <div key={cls.id} className="class-card" onClick={() => openPastDetail(cls)}>
+                                            <div className="class-header">
+                                                <h3>{cls.title.replace('Class', 'Lesson')}</h3>
+                                                <span className="class-date">{cls.date}</span>
+                                                <div style={{marginLeft:'auto'}} className="course-actions" onClick={(e)=>e.stopPropagation()}>
+                                                    <button className="btn-ghost" onClick={() => openEdit(cls)}>Edit</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="past-class-content-info">
-                                            <div className="past-class-details">
-                                                <p><strong>Mode:</strong> Virtual</p>
-                                                <p><strong>Time:</strong> 7:00 AM</p>
-                                                <p><strong>Duration:</strong> 60 min</p>
-                                                <div className="attendance-status">
-                                                    ✅
+                                            <div className="class-content">
+                                                <h4>{cls.mode === 'Virtual' ? 'Virtual Class' : cls.mode === 'In-person' ? 'In-person Class' : cls.mode}</h4>
+                                                <div className="class-duration">⏱️ {cls.duration}</div>
+                                                <div className="class-topics">
+                                                    {(cls.topics || []).slice(0,2).map((t, idx)=> (
+                                                        <span key={idx} className="topic-tag">{t}</span>
+                                                    ))}
+                                                    {(cls.topics || []).length > 2 && (
+                                                        <span className="topic-tag">+{(cls.topics.length - 2)} more</span>
+                                                    )}
+                                                </div>
+                                                <p className="class-teacher">👨‍🏫 Prof. Laura Chaves</p>
+                                                <div className="class-progress">
+                                                    <span className="progress-indicator">✅ Completed</span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div className="past-class-card" onClick={() => alert('📖 Class 3: Greetings and Farewells II\n\nDate: August 29, 2025\nTime: 7:00 AM\nMode: Virtual\n\nCovered topics:\n• Formal and informal greetings\n• Common farewells\n• Polite expressions\n\nTeacher notes:\n• Very participative\n• Good use of expressions\n• Practice more conversation')}>
-                                        <div className="past-class-header">
-                                            <div className="past-class-icon">📖</div>
-                                            <div className="past-class-info">
-                                                <h3>Class 3: Greetings and Farewells II</h3>
-                                                <p className="past-class-date">August 29, 2025</p>
-                                            </div>
-                                        </div>
-                                        <div className="past-class-content-info">
-                                            <div className="past-class-details">
-                                                <p><strong>Mode:</strong> Virtual</p>
-                                                <p><strong>Time:</strong> 7:00 AM</p>
-                                                <p><strong>Duration:</strong> 60 min</p>
-                                                <div className="attendance-status">
-                                                    ✅
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="past-class-card" onClick={() => alert('📖 Class 2: Greetings and Farewells I\n\nDate: August 28, 2025\nTime: 7:00 AM\nMode: Virtual\n\nCovered topics:\n• Basic greetings\n• Simple farewells\n• Common questions\n\nTeacher notes:\n• Good progress\n• Needs more practice\n• Very motivated')}>
-                                        <div className="past-class-header">
-                                            <div className="past-class-icon">📖</div>
-                                            <div className="past-class-info">
-                                                <h3>Class 2: Greetings and Farewells I</h3>
-                                                <p className="past-class-date">August 28, 2025</p>
-                                            </div>
-                                        </div>
-                                        <div className="past-class-content-info">
-                                            <div className="past-class-details">
-                                                <p><strong>Mode:</strong> Virtual</p>
-                                                <p><strong>Time:</strong> 7:00 AM</p>
-                                                <p><strong>Duration:</strong> 60 min</p>
-                                                <div className="attendance-status">
-                                                    ✅
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="past-class-card" onClick={() => alert('📖 Class 1: Introduction\n\nDate: August 21, 2025\nTime: 4:00 PM\nMode: In-person\n\nCovered topics:\n• Course overview\n• Learning objectives\n• Methodology\n• Initial evaluation\n\nTeacher notes:\n• Successful first class\n• Good initial level\n• Very enthusiastic')}>
-                                        <div className="past-class-header">
-                                            <div className="past-class-icon">📖</div>
-                                            <div className="past-class-info">
-                                                <h3>Class 1: Introduction</h3>
-                                                <p className="past-class-date">August 21, 2025</p>
-                                            </div>
-                                        </div>
-                                        <div className="past-class-content-info">
-                                            <div className="past-class-details">
-                                                <p><strong>Mode:</strong> In-person</p>
-                                                <p><strong>Time:</strong> 4:00 PM</p>
-                                                <p><strong>Duration:</strong> 60 min</p>
-                                                <div className="attendance-status">
-                                                    ✅
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -420,8 +503,167 @@ const ProfessorView = () => {
                     </div>
                 </div>
             )}
+
+            {selectedPast && (
+                <div className="modal-overlay" onClick={closePastDetail}>
+                    <div className="modal-content large" onClick={e=>e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>📚 Virtual Class</h3>
+                            <button className="close-btn" onClick={closePastDetail}>×</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="class-details">
+                                <div className="class-info">
+                                    <div className="info-row">
+                                        <span className="label">📅 Date:</span>
+                                        <span>{selectedPast.date} at {selectedPast.time}</span>
+                                    </div>
+                                    <div className="info-row">
+                                        <span className="label">⏱️ Duration:</span>
+                                        <span>{selectedPast.duration}</span>
+                                    </div>
+                                    <div className="info-row">
+                                        <span className="label">📖 Lesson:</span>
+                                        <span>{selectedPast.title.replace('Class ','Lesson ')}</span>
+                                    </div>
+                                    <div className="info-row">
+                                        <span className="label">👨‍🏫 Teacher:</span>
+                                        <span>Prof. Laura Chaves</span>
+                                    </div>
+                                </div>
+                                <div className="topics-section">
+                                    <h4>🎯 Topics Covered</h4>
+                                    <div className="topics-list">
+                                        {(selectedPast.topics || []).map((t, idx)=> (
+                                            <span key={idx} className="topic-tag">{t}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="notes-section">
+                                    <h4>📝 Student Notes</h4>
+                                    <p style={{color:'rgba(255,255,255,0.85)'}}>{selectedPast.notes || '—'}</p>
+                                </div>
+                                <div className="homework-section">
+                                    <h4>📝 Teacher Notes</h4>
+                                    <div className="editable-content">
+                                        <textarea
+                                            className="student-notes-textarea"
+                                            placeholder="Add teacher notes here"
+                                            defaultValue={selectedPast.teacherNotes || 'Arrived late to class. Requested the presentation afterwards. Work on punctuality.'}
+                                            onBlur={(e)=>{
+                                                const updated = { ...selectedPast, teacherNotes: e.target.value };
+                                                saveOverrides(updated);
+                                                setSelectedPast(updated);
+                                            }}
+                                        />
+                                        <button className="btn-primary" onClick={closePastDetail}>💾 Save Notes</button>
+                                    </div>
+                                </div>
+                                <div className="materials-section">
+                                    <h4>📁 Materials</h4>
+                                    <div className="materials-list">
+                                        <div className="material-item">
+                                            <span>📁</span>
+                                            <span>Google Drive - Class Folder</span>
+                                            <button className="btn-small" onClick={()=>window.open('https://drive.google.com', '_blank')}>📂 Open Folder</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Edit Past Class Modal */}
+            {editClass && (
+                <div className="modal-overlay" onClick={closeEdit}>
+                    <div className="modal-content" onClick={e=>e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>Edit Past Class</h3>
+                            <button className="close-btn" onClick={closeEdit}>×</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="info-item" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px', background:'transparent', border:'none', padding:0}}>
+                                <label>Title
+                                    <input name="title" value={editForm.title} onChange={handleEditChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Date
+                                    <input name="date" value={editForm.date} onChange={handleEditChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Time
+                                    <input name="time" value={editForm.time} onChange={handleEditChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Mode
+                                    <input name="mode" value={editForm.mode} onChange={handleEditChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Duration
+                                    <input name="duration" value={editForm.duration} onChange={handleEditChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Topics (comma separated)
+                                    <input name="topics" value={editForm.topics} onChange={handleEditChange} style={{width:'100%'}} />
+                                </label>
+                                <label style={{gridColumn:'1 / -1'}}>Notes
+                                    <textarea name="notes" value={editForm.notes} onChange={handleEditChange} style={{width:'100%'}} />
+                                </label>
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn-secondary" onClick={resetEdit}>Reset</button>
+                            <button className="btn-primary" onClick={saveEdit}>Save</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Create Course Modal */}
+            {isCreateOpen && (
+                <div className="modal-overlay" onClick={closeCreateCourse}>
+                    <div className="modal-content" onClick={e=>e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>Create Course</h3>
+                            <button className="close-btn" onClick={closeCreateCourse}>×</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="info-item" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px', background:'transparent', border:'none', padding:0}}>
+                                <label>Title
+                                    <input name="title" value={courseForm.title} onChange={handleCourseChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Student
+                                    <input name="student" value={courseForm.student} onChange={handleCourseChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Duration (weeks)
+                                    <input name="durationWeeks" value={courseForm.durationWeeks} onChange={handleCourseChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Total Lessons
+                                    <input name="totalLessons" value={courseForm.totalLessons} onChange={handleCourseChange} style={{width:'100%'}} />
+                                </label>
+                                <label>Level
+                                    <select name="level" value={courseForm.level} onChange={handleCourseChange} style={{width:'100%'}}>
+                                        <option>Beginner</option>
+                                        <option>Intermediate</option>
+                                        <option>Advanced</option>
+                                    </select>
+                                </label>
+                                <label>Status
+                                    <select name="status" value={courseForm.status} onChange={handleCourseChange} style={{width:'100%'}}>
+                                        <option>Active</option>
+                                        <option>Planned</option>
+                                        <option>Completed</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn-secondary" onClick={closeCreateCourse}>Cancel</button>
+                            <button className="btn-primary" onClick={saveCourse}>Save</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
 
 export default ProfessorView;
+

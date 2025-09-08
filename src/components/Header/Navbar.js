@@ -134,7 +134,7 @@ function Navbar() {
         {/* Logo */}
         <Link to="/" style={{
           color: '#ffffff',
-          fontSize: '22px',
+          fontSize: '24px',
           fontWeight: '700',
           fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
           textDecoration: 'none',
@@ -148,8 +148,7 @@ function Navbar() {
         }} onMouseLeave={(e) => {
           e.target.style.color = '#ffffff';
         }}>
-          <span role="img" aria-label="girl">👧</span>
-          <span>LMCT</span>
+          {getPageTitle()}
         </Link>
 
         {/* Desktop Menu - Hidden on mobile */}

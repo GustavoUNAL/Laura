@@ -9,7 +9,7 @@ export const englishCourseData = {
         totalLessons: 12,
         currentLesson: 5,
         progress: 33,
-        nextClass: '2025-09-08',
+        nextClass: '2025-09-10',
         time: '4:00 PM',
         status: 'En Progreso',
         color: '#4CAF50'
@@ -239,16 +239,16 @@ export const englishCourseData = {
         {
             id: 1,
             date: '2025-09-08',
-            time: '4:00 PM',
+            time: '7:30 AM',
             title: 'Clase Presencial - Edificio Murano',
             type: 'class',
-            description: 'Lección 5 - Vocabulario Básico'
+            description: 'Lección 4 - Repaso de Presentación Personal'
         },
         {
             id: 2,
             date: '2025-09-10',
-            time: '7:00 AM',
-            title: 'Clase Virtual - Google Meet',
+            time: '4:00 PM',
+            title: 'Class 6: Greetings and Introductions',
             type: 'class',
             description: 'Lección 6 - Saludos y Presentaciones'
         },
@@ -305,23 +305,23 @@ export const englishCourseData = {
     pastClasses: [
         {
             id: 1,
-            date: '2025-09-01',
-            time: '7:00 AM',
-            title: 'Clase Virtual - Google Meet',
+            date: '2025-09-08',
+            time: '7:30 AM',
+            title: 'Class 4: Personal Introduction Review',
             lesson: 4,
-            duration: '60 min',
+            duration: '45 min',
             status: 'completed',
             attendance: 'present',
-            topics: ['Virtual Class', 'Online Learning', 'Digital Tools'],
-            homework: 'Revisar material de la clase virtual',
-            notes: 'Excelente participación en la clase virtual. Muy adaptado al formato online.',
-            materials: ['Google Meet', 'Presentación digital', 'Material online']
+            topics: ['Presentation Review', 'Personal Introduction', 'Practice Exercise'],
+            homework: 'Practice presentation skills',
+            notes: 'Great participation in the review session. Good understanding of personal introduction concepts.',
+            materials: ['Edificio Murano', 'Review materials', 'Practice exercises']
         },
         {
             id: 2,
             date: '2025-08-29',
             time: '7:00 AM',
-            title: 'Clase Virtual - Google Meet',
+            title: 'Class 3: Greetings and Farewells II',
             lesson: 3,
             duration: '60 min',
             status: 'completed',
@@ -335,7 +335,7 @@ export const englishCourseData = {
             id: 3,
             date: '2025-08-28',
             time: '7:00 AM',
-            title: 'Clase Virtual - Google Meet',
+            title: 'Class 2: Greetings and Farewells I',
             lesson: 2,
             duration: '60 min',
             status: 'completed',
@@ -349,7 +349,7 @@ export const englishCourseData = {
             id: 4,
             date: '2025-08-21',
             time: '4:00 PM',
-            title: 'Primera Clase Presencial - Edificio Murano',
+            title: 'Class 1: Introduction',
             lesson: 1,
             duration: '60 min',
             status: 'completed',
