@@ -225,30 +225,6 @@ const ProfessorView = () => {
                                 </div>
                             </div>
 
-                            {/* Professor Actions */}
-                            <div className="professor-actions">
-                                <h2>⚡ Acciones del Profesor</h2>
-                                <div className="actions-grid">
-                                    <button className="action-btn" onClick={() => alert('📅 Agregar Nueva Clase\n\n• Programar fecha y hora\n• Seleccionar modalidad (presencial/virtual)\n• Definir temas y objetivos\n• Enviar recordatorio al estudiante')}>
-                                        📅 Agregar Clase
-                                    </button>
-                                    <button className="action-btn" onClick={() => alert('📝 Crear Tarea\n\n• Asignar nueva tarea\n• Establecer fecha límite\n• Definir criterios de evaluación\n• Enviar notificación')}>
-                                        📝 Crear Tarea
-                                    </button>
-                                    <button className="action-btn" onClick={() => alert('📊 Ver Estadísticas Detalladas\n\n• Progreso del estudiante\n• Asistencia y puntualidad\n• Calificaciones y rendimiento\n• Tiempo de estudio')}>
-                                        📊 Ver Estadísticas
-                                    </button>
-                                    <button className="action-btn" onClick={() => alert('📁 Subir Material\n\n• Presentaciones\n• Documentos\n• Videos\n• Ejercicios\n• Recursos adicionales')}>
-                                        📁 Subir Material
-                                    </button>
-                                    <button className="action-btn" onClick={() => alert('💬 Enviar Mensaje\n\n• Comunicación directa\n• Feedback personalizado\n• Recordatorios\n• Motivación')}>
-                                        💬 Enviar Mensaje
-                                    </button>
-                                    <button className="action-btn" onClick={() => alert('📋 Generar Reporte\n\n• Reporte de progreso\n• Evaluación del estudiante\n• Recomendaciones\n• Exportar PDF')}>
-                                        📋 Generar Reporte
-                                    </button>
-                                </div>
-                            </div>
 
                             {/* Next Class */}
                             <div className="next-class-section">
@@ -289,73 +265,81 @@ const ProfessorView = () => {
                                 <h2>📚 Clases Pasadas</h2>
                                 <div className="past-classes-grid">
                                     <div className="past-class-card" onClick={() => alert('📖 Clase 4: Presentación Personal\n\nFecha: 1 de Septiembre, 2025\nHora: 7:00 AM\nModalidad: Virtual\n\nTemas cubiertos:\n• Presentación personal\n• Información básica\n• Conversación inicial\n\nNotas del profesor:\n• Excelente participación\n• Buen dominio del vocabulario\n• Necesita mejorar pronunciación')}>
-                                        <div className="class-header">
-                                            <div className="class-icon">📖</div>
-                                            <div className="class-info">
+                                        <div className="past-class-header">
+                                            <div className="past-class-icon">📖</div>
+                                            <div className="past-class-info">
                                                 <h3>Clase 4: Presentación Personal</h3>
-                                                <p className="class-date">1 de Septiembre, 2025</p>
+                                                <p className="past-class-date">1 de Septiembre, 2025</p>
                                             </div>
                                         </div>
-                                        <div className="class-content-info">
-                                            <div className="class-details">
+                                        <div className="past-class-content-info">
+                                            <div className="past-class-details">
                                                 <p><strong>Modalidad:</strong> Virtual</p>
                                                 <p><strong>Hora:</strong> 7:00 AM</p>
                                                 <p><strong>Duración:</strong> 60 min</p>
-                                                <p><strong>Asistencia:</strong> ✅ Presente</p>
+                                                <div className="attendance-status">
+                                                    ✅ Presente
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="past-class-card" onClick={() => alert('📖 Clase 3: Saludos y Despedidas II\n\nFecha: 29 de Agosto, 2025\nHora: 7:00 AM\nModalidad: Virtual\n\nTemas cubiertos:\n• Saludos formales e informales\n• Despedidas comunes\n• Expresiones de cortesía\n\nNotas del profesor:\n• Muy participativo\n• Buen uso de expresiones\n• Practicar más conversación')}>
-                                        <div className="class-header">
-                                            <div className="class-icon">📖</div>
-                                            <div className="class-info">
+                                        <div className="past-class-header">
+                                            <div className="past-class-icon">📖</div>
+                                            <div className="past-class-info">
                                                 <h3>Clase 3: Saludos y Despedidas II</h3>
-                                                <p className="class-date">29 de Agosto, 2025</p>
+                                                <p className="past-class-date">29 de Agosto, 2025</p>
                                             </div>
                                         </div>
-                                        <div className="class-content-info">
-                                            <div className="class-details">
+                                        <div className="past-class-content-info">
+                                            <div className="past-class-details">
                                                 <p><strong>Modalidad:</strong> Virtual</p>
                                                 <p><strong>Hora:</strong> 7:00 AM</p>
                                                 <p><strong>Duración:</strong> 60 min</p>
-                                                <p><strong>Asistencia:</strong> ✅ Presente</p>
+                                                <div className="attendance-status">
+                                                    ✅ Presente
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="past-class-card" onClick={() => alert('📖 Clase 2: Saludos y Despedidas I\n\nFecha: 28 de Agosto, 2025\nHora: 7:00 AM\nModalidad: Virtual\n\nTemas cubiertos:\n• Saludos básicos\n• Despedidas simples\n• Preguntas comunes\n\nNotas del profesor:\n• Buen progreso\n• Necesita más práctica\n• Muy motivado')}>
-                                        <div className="class-header">
-                                            <div className="class-icon">📖</div>
-                                            <div className="class-info">
+                                        <div className="past-class-header">
+                                            <div className="past-class-icon">📖</div>
+                                            <div className="past-class-info">
                                                 <h3>Clase 2: Saludos y Despedidas I</h3>
-                                                <p className="class-date">28 de Agosto, 2025</p>
+                                                <p className="past-class-date">28 de Agosto, 2025</p>
                                             </div>
                                         </div>
-                                        <div className="class-content-info">
-                                            <div className="class-details">
+                                        <div className="past-class-content-info">
+                                            <div className="past-class-details">
                                                 <p><strong>Modalidad:</strong> Virtual</p>
                                                 <p><strong>Hora:</strong> 7:00 AM</p>
                                                 <p><strong>Duración:</strong> 60 min</p>
-                                                <p><strong>Asistencia:</strong> ✅ Presente</p>
+                                                <div className="attendance-status">
+                                                    ✅ Presente
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="past-class-card" onClick={() => alert('📖 Clase 1: Introducción\n\nFecha: 21 de Agosto, 2025\nHora: 4:00 PM\nModalidad: Presencial\n\nTemas cubiertos:\n• Presentación del curso\n• Objetivos de aprendizaje\n• Metodología\n• Evaluación inicial\n\nNotas del profesor:\n• Primera clase exitosa\n• Buen nivel inicial\n• Muy entusiasta')}>
-                                        <div className="class-header">
-                                            <div className="class-icon">📖</div>
-                                            <div className="class-info">
+                                        <div className="past-class-header">
+                                            <div className="past-class-icon">📖</div>
+                                            <div className="past-class-info">
                                                 <h3>Clase 1: Introducción</h3>
-                                                <p className="class-date">21 de Agosto, 2025</p>
+                                                <p className="past-class-date">21 de Agosto, 2025</p>
                                             </div>
                                         </div>
-                                        <div className="class-content-info">
-                                            <div className="class-details">
+                                        <div className="past-class-content-info">
+                                            <div className="past-class-details">
                                                 <p><strong>Modalidad:</strong> Presencial</p>
                                                 <p><strong>Hora:</strong> 4:00 PM</p>
                                                 <p><strong>Duración:</strong> 60 min</p>
-                                                <p><strong>Asistencia:</strong> ✅ Presente</p>
+                                                <div className="attendance-status">
+                                                    ✅ Presente
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
