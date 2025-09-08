@@ -48,14 +48,13 @@ const ProfessorView = () => {
             {/* Header Section */}
             <div className="course-header-section">
                 <div className="course-header-content">
-                    <h1>👨‍🏫 Mis Cursos de Inglés</h1>
+                    <h1>📚 Mis Cursos</h1>
                     <p>Bienvenido de vuelta! Gestiona tus cursos de inglés.</p>
                 </div>
             </div>
 
             {/* Courses Overview */}
             <div className="courses-overview">
-                <h2>📚 Mis Cursos</h2>
                 <div className="courses-grid">
                     {/* Curso de Gustavo */}
                     <div className="course-card" onClick={() => openModal('gustavo-course')}>
@@ -68,7 +67,7 @@ const ProfessorView = () => {
                         </div>
                         <div className="course-content-info">
                             <div className="course-details">
-                                <p><strong>Estudiantes:</strong> 3 estudiantes</p>
+                                <p><strong>Estudiantes:</strong> 1 estudiante</p>
                                 <p><strong>Duración:</strong> 5 semanas</p>
                                 <p><strong>Progreso:</strong> 33% completado</p>
                             </div>
@@ -92,7 +91,7 @@ const ProfessorView = () => {
                             </div>
                             <div className="stat-item">
                                 <span className="stat-label">Activos</span>
-                                <span className="stat-value">3</span>
+                                <span className="stat-value">1</span>
                             </div>
                         </div>
                     </div>
@@ -300,7 +299,7 @@ const ProfessorView = () => {
                                     </div>
                                     <div className="info-item">
                                         <span className="info-label">Estudiantes:</span>
-                                        <span className="info-value">3 estudiantes</span>
+                                        <span className="info-value">1 estudiante</span>
                                     </div>
                                 </div>
                             </div>

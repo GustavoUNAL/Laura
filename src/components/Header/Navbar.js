@@ -126,7 +126,7 @@ function Navbar() {
           e.target.style.color = '#00BFFF';
           e.target.style.textShadow = '0 0 20px rgba(0, 191, 255, 0.8)';
         }}>
-          L.M. CHAVES
+          Laura Chaves
         </Link>
 
         {/* Desktop Menu - Hidden on mobile */}

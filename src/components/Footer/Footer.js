@@ -13,10 +13,10 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-main">
-          <div className="footer-brand">
-            <h3>L.M. CHAVES</h3>
-            <p>Desarrolladora Full Stack & Profesora de Inglés</p>
-          </div>
+                <div className="footer-brand">
+                    <h3>Laura Chaves</h3>
+                    <p>Desarrolladora Full Stack & Profesora de Inglés</p>
+                </div>
           
           <div className="footer-contact">
             <button onClick={handleEmailClick} className="contact-button">
