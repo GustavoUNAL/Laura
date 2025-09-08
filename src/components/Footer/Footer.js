@@ -12,11 +12,10 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-main">
-                <div className="footer-bottom">
-                    <p className="copyright">Created by GRAP. 2025</p>
-                    <p className="tech-stack">grap-ingenieria.tech</p>
-                </div>
+        <div className="footer-bottom">
+          <p className="copyright">Created by GRAP. 2025</p>
+          <p className="tech-stack">grap-ingenieria.tech</p>
+        </div>
       </div>
     </footer>
   );
