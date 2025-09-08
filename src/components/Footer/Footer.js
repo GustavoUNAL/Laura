@@ -28,10 +28,10 @@ function Footer() {
           </div>
         </div>
         
-        <div className="footer-bottom">
-          <p className="copyright">© 2025 Laura María Chaves Timarán. Todos los derechos reservados.</p>
-          <p className="tech-stack">Desarrollado con React.js & CSS3</p>
-        </div>
+                <div className="footer-bottom">
+                    <p className="copyright">© 2025 Laura María Chaves Timarán. Todos los derechos reservados.</p>
+                    <p className="tech-stack">Desarrollado por GRAP®</p>
+                </div>
       </div>
     </footer>
   );

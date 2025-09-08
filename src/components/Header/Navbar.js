@@ -14,6 +14,27 @@ function Navbar() {
   const { user, logout } = useUser();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
+  // Get dynamic title based on current route
+  const getPageTitle = () => {
+    const path = location.pathname;
+    switch (path) {
+      case '/':
+        return 'Inicio';
+      case '/about':
+        return 'Acerca de';
+      case '/projects':
+        return 'Proyectos';
+      case '/community':
+        return 'Comunidad';
+      case '/student':
+        return 'Estudiante';
+      case '/professor':
+        return 'Profesor';
+      default:
+        return 'Portafolio';
+    }
+  };
+
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -126,7 +147,7 @@ function Navbar() {
           e.target.style.color = '#00BFFF';
           e.target.style.textShadow = '0 0 20px rgba(0, 191, 255, 0.8)';
         }}>
-          Portafolio
+          {getPageTitle()}
         </Link>
 
         {/* Desktop Menu - Hidden on mobile */}
@@ -315,36 +336,6 @@ function Navbar() {
             }} viewBox="0 0 24 24" fill="currentColor">
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
-          </button>
-          
-          {/* Dark Mode Toggle */}
-          <button onClick={toggleDarkMode} style={{
-            background: isDarkMode ? 'rgba(255, 193, 7, 0.2)' : 'rgba(108, 117, 125, 0.2)',
-            border: `2px solid ${isDarkMode ? 'rgba(255, 193, 7, 0.3)' : 'rgba(108, 117, 125, 0.3)'}`,
-            borderRadius: '50%',
-            cursor: 'pointer',
-            padding: '12px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            transition: 'all 0.3s ease',
-            boxShadow: isDarkMode ? '0 0 15px rgba(255, 193, 7, 0.3)' : '0 0 15px rgba(108, 117, 125, 0.3)',
-            width: '48px',
-            height: '48px'
-          }} onMouseEnter={(e) => {
-            e.target.style.transform = 'scale(1.1) rotate(5deg)';
-            e.target.style.boxShadow = isDarkMode ? '0 0 25px rgba(255, 193, 7, 0.6)' : '0 0 25px rgba(108, 117, 125, 0.6)';
-          }} onMouseLeave={(e) => {
-            e.target.style.transform = 'scale(1) rotate(0deg)';
-            e.target.style.boxShadow = isDarkMode ? '0 0 15px rgba(255, 193, 7, 0.3)' : '0 0 15px rgba(108, 117, 125, 0.3)';
-          }}>
-            <span style={{
-              fontSize: '20px',
-              color: isDarkMode ? '#ffc107' : '#6c757d',
-              transition: 'all 0.3s ease'
-            }}>
-              {isDarkMode ? '☀️' : '🌙'}
-            </span>
           </button>
         </div>
 

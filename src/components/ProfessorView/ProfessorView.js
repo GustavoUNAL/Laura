@@ -47,12 +47,6 @@ const ProfessorView = () => {
         <div className="professor-view">
             {/* Courses Overview */}
             <div className="courses-overview">
-                <div className="course-header-section">
-                    <div className="course-header-content">
-                        <h1>📚 Mis Cursos</h1>
-                        <p>Bienvenido de vuelta! Gestiona tus cursos de inglés.</p>
-                    </div>
-                </div>
                 <div className="courses-grid">
                     {/* Curso de Gustavo */}
                     <div className="course-card" onClick={() => openModal('gustavo-course')}>
