@@ -70,19 +70,15 @@ const VirtualClass = ({ classData, onClose }) => {
                     ✕
                 </button>
                 
+                {/* Floating Save Notes Button */}
+                <button className="floating-save-btn" onClick={saveNotes} title="Save Notes">
+                    💾
+                </button>
+                
                 {/* Main Content Area */}
                 <div className="virtual-class-main">
                     {/* Video Section */}
                     <div className={`video-section ${isVideoExpanded ? 'expanded' : ''}`}>
-                        <div className="video-header">
-                            <h3>📹 Video Call</h3>
-                            <button 
-                                className="toggle-btn"
-                                onClick={toggleVideoPanel}
-                            >
-                                {isVideoExpanded ? '📉 Minimize' : '📈 Maximize'}
-                            </button>
-                        </div>
                         <div className="video-container">
                             {isVideoActive ? (
                                 <div className="video-placeholder">
@@ -152,20 +148,6 @@ const VirtualClass = ({ classData, onClose }) => {
 
                     {/* Notes Section */}
                     <div className={`notes-section ${isNotesExpanded ? 'expanded' : ''}`}>
-                        <div className="notes-header">
-                            <h3>📝 Collaborative Notes</h3>
-                            <div className="notes-actions">
-                                <button 
-                                    className="toggle-btn"
-                                    onClick={toggleNotesPanel}
-                                >
-                                    {isNotesExpanded ? '📉 Minimize' : '📈 Maximize'}
-                                </button>
-                                <button className="btn-primary" onClick={saveNotes}>
-                                    💾 Save Notes
-                                </button>
-                            </div>
-                        </div>
                         <div className="notes-container">
                             <div className="notes-toolbar">
                                 <button className="tool-btn" onClick={openGoogleDocs}>
