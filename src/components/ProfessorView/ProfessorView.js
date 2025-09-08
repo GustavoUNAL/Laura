@@ -45,16 +45,14 @@ const ProfessorView = () => {
 
     return (
         <div className="professor-view">
-            {/* Header Section */}
-            <div className="course-header-section">
-                <div className="course-header-content">
-                    <h1>📚 Mis Cursos</h1>
-                    <p>Bienvenido de vuelta! Gestiona tus cursos de inglés.</p>
-                </div>
-            </div>
-
             {/* Courses Overview */}
             <div className="courses-overview">
+                <div className="course-header-section">
+                    <div className="course-header-content">
+                        <h1>📚 Mis Cursos</h1>
+                        <p>Bienvenido de vuelta! Gestiona tus cursos de inglés.</p>
+                    </div>
+                </div>
                 <div className="courses-grid">
                     {/* Curso de Gustavo */}
                     <div className="course-card" onClick={() => openModal('gustavo-course')}>
@@ -177,101 +175,6 @@ const ProfessorView = () => {
                     </div>
                 </div>
             </div>
-
-                {/* Upcoming Classes */}
-                <div className="upcoming-classes">
-                    <h2>📅 Próximas Clases del Curso</h2>
-                    <div className="classes-list">
-                        {upcomingClasses.map(classItem => (
-                            <div key={classItem.id} className="class-item">
-                                <div className="class-time">
-                                    <div className="class-date">{classItem.date}</div>
-                                    <div className="class-hour">{classItem.time}</div>
-                                </div>
-                                        <div className="class-info">
-                                            <h4>Lección {classItem.lesson}: {classItem.title}</h4>
-                                            <p><strong>Duración:</strong> {classItem.duration}</p>
-                                            <p><strong>Ubicación:</strong> {classItem.location}</p>
-                                            <p><strong>Estudiantes:</strong> {classItem.students}</p>
-                                            <div className="class-topics">
-                                                {classItem.topics.map((topic, index) => (
-                                                    <span key={index} className="topic-tag">{topic}</span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                        <div className="class-actions">
-                                            <button 
-                                                className="btn-primary" 
-                                                onClick={() => alert(`🎥 Iniciando clase: ${classItem.title}\n\nFecha: ${classItem.date}\nHora: ${classItem.time}\nDuración: ${classItem.duration}\nUbicación: ${classItem.location}\nEstudiantes: ${classItem.students}\n\nTemas a cubrir:\n${classItem.topics.map(topic => `• ${topic}`).join('\n')}`)}
-                                            >
-                                                🎥 Iniciar Clase
-                                            </button>
-                                            <button 
-                                                className="btn-secondary"
-                                                onClick={() => alert(`📝 Preparando clase: ${classItem.title}\n\nUbicación: ${classItem.location}\nMateriales necesarios:\n${classItem.materials.map(material => `• ${material}`).join('\n')}\n\nTemas a preparar:\n${classItem.topics.map(topic => `• ${topic}`).join('\n')}`)}
-                                            >
-                                                📝 Preparar
-                                            </button>
-                                        </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Recent Activity */}
-                <div className="recent-activity">
-                    <h2>🔄 Actividad Reciente del Curso</h2>
-                    <div className="activity-list">
-                        {recentActivity.map(activity => (
-                            <div 
-                                key={activity.id} 
-                                className="activity-item"
-                                onClick={() => {
-                                    const activityType = activity.type === 'assignment_submitted' ? 'Tarea Enviada' :
-                                                       activity.type === 'class_completed' ? 'Clase Completada' :
-                                                       'Tarea Calificada';
-                                    alert(`${activityType}\n\nEstudiante: ${activity.student}\nActividad: ${activity.assignment || activity.class}\nFecha: ${activity.date}\nHora: ${activity.time}${activity.grade ? `\nCalificación: ${activity.grade}` : ''}`);
-                                }}
-                            >
-                                <div className={`activity-icon ${activity.type}`}>
-                                    {activity.type === 'assignment_submitted' && '📝'}
-                                    {activity.type === 'class_completed' && '✅'}
-                                    {activity.type === 'assignment_graded' && '⭐'}
-                                </div>
-                                <div className="activity-content">
-                                    <h4>{activity.student} - {activity.assignment || activity.class}</h4>
-                                    <p>{activity.date} • {activity.time}</p>
-                                    {activity.grade && <p className="grade">Calificación: {activity.grade}</p>}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Quick Actions */}
-                <div className="quick-actions">
-                    <h2>⚡ Acciones Rápidas del Curso</h2>
-                    <div className="action-buttons">
-                        <button className="action-btn" onClick={() => handleQuickAction('create-assignment')}>
-                            📝 Crear Tarea
-                        </button>
-                        <button className="action-btn" onClick={() => handleQuickAction('grade-assignments')}>
-                            ⭐ Calificar Tareas
-                        </button>
-                        <button className="action-btn" onClick={() => handleQuickAction('student-progress')}>
-                            📊 Ver Progreso
-                        </button>
-                        <button className="action-btn" onClick={() => handleQuickAction('schedule-class')}>
-                            📅 Programar Clase
-                        </button>
-                        <button className="action-btn" onClick={() => handleQuickAction('resources')}>
-                            📚 Recursos
-                        </button>
-                        <button className="action-btn" onClick={() => handleQuickAction('settings')}>
-                            ⚙️ Configuración
-                        </button>
-                    </div>
-                </div>
 
             {/* Modals */}
             {activeModal === 'gustavo-course' && (
