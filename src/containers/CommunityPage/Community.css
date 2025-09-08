@@ -69,7 +69,7 @@
 
 .view-btn.active {
     background: rgba(255,255,255,0.9);
-    color: #667eea;
+    color: #3498db;
     border-color: white;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);

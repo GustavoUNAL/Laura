@@ -65,8 +65,8 @@ export const googleDriveUtils = {
 // Configuración de temas para el proyecto
 export const themeConfig = {
     colors: {
-        primary: '#667eea',
-        secondary: '#764ba2',
+        primary: '#3498db',
+        secondary: '#2980b9',
         success: '#4CAF50',
         warning: '#FF9800',
         error: '#f44336',
@@ -76,8 +76,8 @@ export const themeConfig = {
     },
     
     gradients: {
-        primary: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        success: 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)',
+        primary: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)',
+        success: 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)',
         warning: 'linear-gradient(135deg, #FF9800 0%, #f57c00 100%)',
         error: 'linear-gradient(135deg, #f44336 0%, #d32f2f 100%)'
     },
