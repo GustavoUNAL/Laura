@@ -7,6 +7,7 @@ const GoogleMeetEmbed = ({ meetingId, onClose, isFullscreen = false }) => {
     const [isMuted, setIsMuted] = useState(false);
     const [isVideoOn, setIsVideoOn] = useState(true);
     const [isScreenSharing, setIsScreenSharing] = useState(false);
+    const [showJoinOverlay, setShowJoinOverlay] = useState(true);
 
     useEffect(() => {
         // Add event listeners for iframe communication
@@ -37,8 +38,27 @@ const GoogleMeetEmbed = ({ meetingId, onClose, isFullscreen = false }) => {
             }
         };
 
+        // Handle iframe load
+        const handleIframeLoad = () => {
+            // Simulate connection after iframe loads
+            setTimeout(() => {
+                setIsConnected(true);
+            }, 2000);
+        };
+
+        const iframe = document.getElementById('google-meet-iframe');
+        if (iframe) {
+            iframe.addEventListener('load', handleIframeLoad);
+        }
+
         window.addEventListener('message', handleMessage);
-        return () => window.removeEventListener('message', handleMessage);
+        
+        return () => {
+            window.removeEventListener('message', handleMessage);
+            if (iframe) {
+                iframe.removeEventListener('load', handleIframeLoad);
+            }
+        };
     }, []);
 
     const toggleMute = () => {
@@ -71,10 +91,12 @@ const GoogleMeetEmbed = ({ meetingId, onClose, isFullscreen = false }) => {
     };
 
     const joinMeeting = () => {
-        const iframe = document.getElementById('google-meet-iframe');
-        if (iframe && iframe.contentWindow) {
-            iframe.contentWindow.postMessage({ action: 'join-meeting' }, 'https://meet.google.com');
-        }
+        setShowJoinOverlay(false);
+        setIsConnected(true);
+        
+        // Also open Google Meet in new tab as backup
+        const meetUrl = `https://meet.google.com/${meetingId}`;
+        window.open(meetUrl, '_blank');
     };
 
     return (
@@ -128,7 +150,7 @@ const GoogleMeetEmbed = ({ meetingId, onClose, isFullscreen = false }) => {
             </div>
 
             {/* Join Button (if not connected) */}
-            {!isConnected && (
+            {showJoinOverlay && (
                 <div className="join-overlay">
                     <div className="join-content">
                         <h3>Join Google Meet</h3>
