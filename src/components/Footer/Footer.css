@@ -1,9 +1,9 @@
 .footer {
-  background: linear-gradient(135deg, #2c3e50, #34495e);
+  background: linear-gradient(135deg, #1c1f24, #232a31);
   color: #ecf0f1;
-  padding: 40px 0;
-  border-top: 1px solid #34495e;
-  margin-top: 80px;
+  padding: 36px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 70px;
   width: 100vw !important;
   min-width: 100vw !important;
   max-width: none !important;
@@ -11,7 +11,7 @@
   margin-right: 0;
   left: 0;
   transform: translateX(0);
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -6px 26px rgba(0, 0, 0, 0.25);
 }
 
 .footer-content {
@@ -22,18 +22,28 @@
 }
 
 .footer-text {
-  color: #bdc3c7;
-  font-size: 16px;
-  font-weight: 400;
+  color: #cfd6dc;
+  font-size: 15px;
+  font-weight: 500;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
+}
+
+.footer-text .r-mark {
+  font-size: 12px;
+  vertical-align: super;
+  margin-left: 2px;
   opacity: 0.9;
 }
 
-.footer-text:hover {
-  color: #ecf0f1;
-  transition: color 0.3s ease;
+.footer-text a {
+  color: #9ec3e6;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  color: #cfe4f7;
 }
 
 /* Responsive */

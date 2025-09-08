@@ -138,14 +138,14 @@ function Navbar() {
           fontWeight: '700',
           fontFamily: "'Orbitron', monospace",
           textDecoration: 'none',
-          textShadow: '0 0 20px rgba(0, 191, 255, 0.8)',
+          textShadow: 'none',
           transition: 'all 0.3s ease'
         }} onMouseEnter={(e) => {
           e.target.style.color = '#ffffff';
-          e.target.style.textShadow = '0 0 30px rgba(0, 191, 255, 0.8)';
+          e.target.style.textShadow = '0 0 8px rgba(52, 152, 219, 0.6)';
         }} onMouseLeave={(e) => {
-          e.target.style.color = '#00BFFF';
-          e.target.style.textShadow = '0 0 20px rgba(0, 191, 255, 0.8)';
+          e.target.style.color = '#ffffff';
+          e.target.style.textShadow = 'none';
         }}>
           {getPageTitle()}
         </Link>
@@ -165,23 +165,23 @@ function Navbar() {
             padding: '10px 18px',
             borderRadius: '20px',
             transition: 'all 0.3s ease',
-            border: '2px solid rgba(255, 255, 255, 0.3)',
-            background: 'rgba(255, 255, 255, 0.1)',
-            textShadow: '0 0 10px rgba(255, 255, 255, 0.5)'
+            border: '2px solid rgba(255, 255, 255, 0.2)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            textShadow: 'none'
           }} onMouseEnter={(e) => {
-            e.target.style.color = '#ffffff';
-            e.target.style.backgroundColor = 'rgba(255, 0, 255, 0.2)';
-            e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
-            e.target.style.transform = 'scale(1.05)';
-            e.target.style.textShadow = '0 0 15px rgba(255, 0, 255, 0.8)';
+            e.target.style.color = '#0a0a0a';
+            e.target.style.backgroundColor = '#3498db';
+            e.target.style.borderColor = '#2980b9';
+            e.target.style.transform = 'scale(1.02)';
+            e.target.style.boxShadow = '0 6px 16px rgba(52, 152, 219, 0.35)';
           }} onMouseLeave={(e) => {
             e.target.style.color = '#ffffff';
-            e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.06)';
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
             e.target.style.transform = 'scale(1)';
-            e.target.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
+            e.target.style.boxShadow = 'none';
           }}>
-            ⚡ About
+            About
           </Link>
           <Link to="/community" style={{
             color: '#ffffff',
@@ -192,23 +192,23 @@ function Navbar() {
             padding: '10px 18px',
             borderRadius: '20px',
             transition: 'all 0.3s ease',
-            border: '2px solid rgba(255, 255, 255, 0.3)',
-            background: 'rgba(255, 255, 255, 0.1)',
-            textShadow: '0 0 10px rgba(255, 255, 255, 0.5)'
+            border: '2px solid rgba(255, 255, 255, 0.2)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            textShadow: 'none'
           }} onMouseEnter={(e) => {
-            e.target.style.color = '#ffffff';
-            e.target.style.backgroundColor = 'rgba(255, 0, 255, 0.2)';
-            e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
-            e.target.style.transform = 'scale(1.05)';
-            e.target.style.textShadow = '0 0 15px rgba(255, 0, 255, 0.8)';
+            e.target.style.color = '#0a0a0a';
+            e.target.style.backgroundColor = '#3498db';
+            e.target.style.borderColor = '#2980b9';
+            e.target.style.transform = 'scale(1.02)';
+            e.target.style.boxShadow = '0 6px 16px rgba(52, 152, 219, 0.35)';
           }} onMouseLeave={(e) => {
             e.target.style.color = '#ffffff';
-            e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.06)';
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
             e.target.style.transform = 'scale(1)';
-            e.target.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
+            e.target.style.boxShadow = 'none';
           }}>
-            🌐 Community
+            Community
           </Link>
           
           {/* User-specific buttons - Comentado para acceso directo */}
@@ -305,8 +305,8 @@ function Navbar() {
           gap: '20px'
         }} className="desktop-social">
           <button onClick={handleEmailClick} style={{
-            background: 'rgba(0, 191, 255, 0.2)',
-            border: '2px solid rgba(0, 191, 255, 0.3)',
+            background: 'rgba(52, 152, 219, 0.15)',
+            border: '2px solid rgba(52, 152, 219, 0.35)',
             borderRadius: '50%',
             cursor: 'pointer',
             padding: '12px',
@@ -314,19 +314,19 @@ function Navbar() {
             alignItems: 'center',
             justifyContent: 'center',
             transition: 'all 0.3s ease',
-            boxShadow: '0 0 15px rgba(0, 191, 255, 0.3)',
+            boxShadow: '0 0 12px rgba(52, 152, 219, 0.25)',
             width: '48px',
             height: '48px'
           }} onMouseEnter={(e) => {
-            e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-            e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
-            e.target.style.transform = 'scale(1.1) rotate(5deg)';
-            e.target.style.boxShadow = '0 0 25px rgba(255, 0, 255, 0.6)';
+            e.target.style.background = 'rgba(52, 152, 219, 0.35)';
+            e.target.style.borderColor = 'rgba(41, 128, 185, 0.6)';
+            e.target.style.transform = 'scale(1.06)';
+            e.target.style.boxShadow = '0 0 18px rgba(52, 152, 219, 0.45)';
           }} onMouseLeave={(e) => {
-            e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-            e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-            e.target.style.transform = 'scale(1) rotate(0deg)';
-            e.target.style.boxShadow = '0 0 15px rgba(0, 191, 255, 0.3)';
+            e.target.style.background = 'rgba(52, 152, 219, 0.15)';
+            e.target.style.borderColor = 'rgba(52, 152, 219, 0.35)';
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 0 12px rgba(52, 152, 219, 0.25)';
           }}>
             <svg style={{
               width: '24px',
@@ -486,9 +486,9 @@ function Navbar() {
               fontWeight: '600',
               margin: '0 0 10px 0',
               fontFamily: "'Orbitron', monospace",
-              textShadow: '0 0 10px rgba(0, 191, 255, 0.8)'
+              textShadow: 'none'
             }}>
-              ⚡ Navigation
+              Navigation
             </h2>
             <p style={{
               color: 'rgba(0, 191, 255, 0.8)',
@@ -517,8 +517,8 @@ function Navbar() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '20px 25px',
-                background: 'rgba(0, 191, 255, 0.2)',
-                border: '2px solid rgba(0, 191, 255, 0.3)',
+                background: 'rgba(52, 152, 219, 0.15)',
+                border: '2px solid rgba(52, 152, 219, 0.35)',
                 borderRadius: '20px',
                 textDecoration: 'none',
                 color: '#ffffff',
@@ -526,26 +526,23 @@ function Navbar() {
                 fontWeight: '500',
                 fontFamily: "'Orbitron', monospace",
                 transition: 'all 0.3s ease',
-                textShadow: '0 0 10px rgba(0, 191, 255, 0.5)'
+                textShadow: 'none'
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-                e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
+                e.target.style.background = 'rgba(52, 152, 219, 0.3)';
+                e.target.style.borderColor = 'rgba(41, 128, 185, 0.6)';
                 e.target.style.color = '#ffffff';
                 e.target.style.transform = 'translateX(5px) scale(1.02)';
-                e.target.style.boxShadow = '0 8px 25px rgba(255, 0, 255, 0.3)';
-                e.target.style.textShadow = '0 0 15px rgba(255, 0, 255, 0.8)';
+                e.target.style.boxShadow = '0 8px 25px rgba(52, 152, 219, 0.3)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-                e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
+                e.target.style.background = 'rgba(52, 152, 219, 0.15)';
+                e.target.style.borderColor = 'rgba(52, 152, 219, 0.35)';
                 e.target.style.color = '#ffffff';
                 e.target.style.transform = 'translateX(0) scale(1)';
                 e.target.style.boxShadow = 'none';
-                e.target.style.textShadow = '0 0 10px rgba(0, 191, 255, 0.5)';
               }}>
-              <span>⚡ About</span>
-              <span style={{color: 'rgba(0, 191, 255, 0.8)', fontSize: '20px'}}>🌐</span>
+              <span>About</span>
             </Link>
             <Link 
               to="/community" 
@@ -555,8 +552,8 @@ function Navbar() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '20px 25px',
-                background: 'rgba(0, 191, 255, 0.2)',
-                border: '2px solid rgba(0, 191, 255, 0.3)',
+                background: 'rgba(52, 152, 219, 0.15)',
+                border: '2px solid rgba(52, 152, 219, 0.35)',
                 borderRadius: '20px',
                 textDecoration: 'none',
                 color: '#ffffff',
@@ -564,26 +561,23 @@ function Navbar() {
                 fontWeight: '500',
                 fontFamily: "'Orbitron', monospace",
                 transition: 'all 0.3s ease',
-                textShadow: '0 0 10px rgba(0, 191, 255, 0.5)'
+                textShadow: 'none'
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-                e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
+                e.target.style.background = 'rgba(52, 152, 219, 0.3)';
+                e.target.style.borderColor = 'rgba(41, 128, 185, 0.6)';
                 e.target.style.color = '#ffffff';
                 e.target.style.transform = 'translateX(5px) scale(1.02)';
-                e.target.style.boxShadow = '0 8px 25px rgba(255, 0, 255, 0.3)';
-                e.target.style.textShadow = '0 0 15px rgba(255, 0, 255, 0.8)';
+                e.target.style.boxShadow = '0 8px 25px rgba(52, 152, 219, 0.3)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-                e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
+                e.target.style.background = 'rgba(52, 152, 219, 0.15)';
+                e.target.style.borderColor = 'rgba(52, 152, 219, 0.35)';
                 e.target.style.color = '#ffffff';
                 e.target.style.transform = 'translateX(0) scale(1)';
                 e.target.style.boxShadow = 'none';
-                e.target.style.textShadow = '0 0 10px rgba(0, 191, 255, 0.5)';
               }}>
-              <span>🌐 Community</span>
-              <span style={{color: 'rgba(0, 191, 255, 0.8)', fontSize: '20px'}}>⚡</span>
+              <span>Community</span>
             </Link>
             {/* User-specific mobile buttons - Comentado para acceso directo */}
             {/* {user ? (
@@ -737,28 +731,28 @@ function Navbar() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'rgba(0, 191, 255, 0.2)',
-                border: '2px solid rgba(0, 191, 255, 0.3)',
+                background: 'rgba(52, 152, 219, 0.15)',
+                border: '2px solid rgba(52, 152, 219, 0.35)',
                 borderRadius: '20px',
                 padding: '20px 30px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 0 15px rgba(0, 191, 255, 0.3)',
+                boxShadow: '0 0 12px rgba(52, 152, 219, 0.25)',
                 color: '#ffffff',
                 fontSize: '16px',
                 fontWeight: '500',
                 fontFamily: "'Orbitron', monospace",
                 gap: '10px'
               }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-                e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
+                e.target.style.background = 'rgba(52, 152, 219, 0.35)';
+                e.target.style.borderColor = 'rgba(41, 128, 185, 0.6)';
                 e.target.style.transform = 'translateY(-3px) scale(1.05)';
-                e.target.style.boxShadow = '0 8px 25px rgba(255, 0, 255, 0.4)';
+                e.target.style.boxShadow = '0 8px 25px rgba(52, 152, 219, 0.4)';
               }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-                e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
+                e.target.style.background = 'rgba(52, 152, 219, 0.15)';
+                e.target.style.borderColor = 'rgba(52, 152, 219, 0.35)';
                 e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = '0 0 15px rgba(0, 191, 255, 0.3)';
+                e.target.style.boxShadow = '0 0 12px rgba(52, 152, 219, 0.25)';
               }}>
                 <svg style={{
                   width: '20px',
