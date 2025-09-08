@@ -58,7 +58,7 @@
 .header-line {
     width: 200px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #ffffff, #FF00FF, #8A2BE2, transparent);
+    background: linear-gradient(90deg, transparent, #ffffff, #0080FF, #0066CC, transparent);
     margin: 0 auto;
     border-radius: 2px;
     animation: lineGlow 2s ease-in-out infinite alternate;

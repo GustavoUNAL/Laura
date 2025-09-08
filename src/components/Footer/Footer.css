@@ -46,7 +46,7 @@
   font-family: 'Orbitron', monospace;
   margin: 0 0 10px 0;
   text-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
-  background: linear-gradient(135deg, #00BFFF, #FF00FF);
+  background: linear-gradient(135deg, #00BFFF, #0080FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

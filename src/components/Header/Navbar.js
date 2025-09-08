@@ -19,19 +19,19 @@ function Navbar() {
     const path = location.pathname;
     switch (path) {
       case '/':
-        return 'Inicio';
+        return 'Home';
       case '/about':
-        return 'Acerca de';
+        return 'About';
       case '/projects':
-        return 'Proyectos';
+        return 'Projects';
       case '/community':
-        return 'Comunidad';
+        return 'Community';
       case '/student':
-        return 'Estudiante';
+        return 'Student';
       case '/professor':
-        return 'Profesor';
+        return 'Professor';
       default:
-        return 'Portafolio';
+        return 'Portfolio';
     }
   };
 
@@ -142,7 +142,7 @@ function Navbar() {
           transition: 'all 0.3s ease'
         }} onMouseEnter={(e) => {
           e.target.style.color = '#ffffff';
-          e.target.style.textShadow = '0 0 30px rgba(255, 0, 255, 0.8)';
+          e.target.style.textShadow = '0 0 30px rgba(0, 191, 255, 0.8)';
         }} onMouseLeave={(e) => {
           e.target.style.color = '#00BFFF';
           e.target.style.textShadow = '0 0 20px rgba(0, 191, 255, 0.8)';

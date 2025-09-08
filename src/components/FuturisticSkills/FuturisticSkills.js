@@ -9,10 +9,10 @@ const FuturisticSkills = () => {
 
     const skills = [
         { name: 'HISTORY', icon: '📚', color: '#00BFFF' },
-        { name: 'TEACHING', icon: '👩‍🏫', color: '#FF00FF' },
+        { name: 'TEACHING', icon: '👩‍🏫', color: '#0080FF' },
         { name: 'CREATIVITY', icon: '🎨', color: '#8A2BE2' },
         { name: 'RESEARCH', icon: '🔬', color: '#00BFFF' },
-        { name: 'COMMUNICATION', icon: '💬', color: '#FF00FF' },
+        { name: 'COMMUNICATION', icon: '💬', color: '#0080FF' },
         { name: 'LEADERSHIP', icon: '⭐', color: '#8A2BE2' }
     ];
 

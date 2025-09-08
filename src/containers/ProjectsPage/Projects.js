@@ -310,7 +310,7 @@ function Projects() {
         if (/(sfv|solar|fotovolta|pv|kwp)/.test(text)) return [baseDeep, baseDark, '#22d3ee']; // cyan accent
         if (/(microrred|microgrid)/.test(text)) return ['#0b1414', '#0f1f1f', '#4ecdc4']; // teal accent
         if (/(dnp3|gateway|scada)/.test(text)) return ['#0a1016', '#0f1a24', '#45b7d1']; // blue-cyan accent
-        if (/(vr|unity|quest|steam)/.test(text)) return ['#0d0a16', '#171225', '#a78bfa']; // violet accent
+        if (/(vr|unity|quest|steam)/.test(text)) return ['#0d0a16', '#171225', '#0080FF']; // blue accent
         if (/(confiabilidad|reliability|mtbf|mttr)/.test(text)) return ['#0a160d', '#0f1f17', '#34d399']; // green accent
         if (/(ai|ia|tensorflow|ml|machine)/.test(text)) return ['#07161a', '#0b1f24', '#22d3ee']; // cyan accent
         if (/(twin|gemelo|digital)/.test(text)) return ['#141821', '#1f2430', '#93a4b8']; // cool gray accent
