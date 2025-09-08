@@ -7,8 +7,8 @@ export const englishCourseData = {
         description: 'Curso personalizado de inglés con enfoque práctico y conversacional',
         level: 'A1-B2',
         totalLessons: 12,
-        currentLesson: 5,
-        progress: 33,
+        currentLesson: 6,
+        progress: 42,
         nextClass: '2025-09-10',
         time: '4:00 PM',
         status: 'En Progreso',
@@ -56,8 +56,8 @@ export const englishCourseData = {
             id: 5,
             title: 'Vocabulario Básico',
             description: 'Aprende vocabulario fundamental en inglés',
-            status: 'current',
-            duration: '60 min',
+            status: 'completed',
+            duration: '45 min',
             difficulty: 'Fácil',
             topics: ['Basic Vocabulary', 'Common Words', 'Pronunciation Practice']
         },
@@ -65,7 +65,7 @@ export const englishCourseData = {
             id: 6,
             title: 'Saludos y Presentaciones',
             description: 'Aprende a saludar y presentarte en inglés',
-            status: 'pending',
+            status: 'current',
             duration: '60 min',
             difficulty: 'Fácil',
             topics: ['Greetings', 'Introductions', 'Basic Conversations']
@@ -240,9 +240,9 @@ export const englishCourseData = {
             id: 1,
             date: '2025-09-08',
             time: '7:30 AM',
-            title: 'Clase Presencial - Edificio Murano',
+            title: 'Class 5: Basic Vocabulary',
             type: 'class',
-            description: 'Lección 4 - Repaso de Presentación Personal'
+            description: 'Lección 5 - Vocabulario Básico'
         },
         {
             id: 2,
@@ -307,18 +307,32 @@ export const englishCourseData = {
             id: 1,
             date: '2025-09-08',
             time: '7:30 AM',
-            title: 'Class 4: Personal Introduction Review',
-            lesson: 4,
+            title: 'Class 5: Basic Vocabulary',
+            lesson: 5,
             duration: '45 min',
             status: 'completed',
             attendance: 'present',
-            topics: ['Presentation Review', 'Personal Introduction', 'Practice Exercise'],
-            homework: 'Practice presentation skills',
-            notes: 'Great participation in the review session. Good understanding of personal introduction concepts.',
-            materials: ['Edificio Murano', 'Review materials', 'Practice exercises']
+            topics: ['Basic Vocabulary', 'Common Words', 'Pronunciation Practice'],
+            homework: 'Practice new vocabulary words',
+            notes: 'Excellent class today! Great progress with vocabulary and pronunciation.',
+            materials: ['Edificio Murano', 'Vocabulary sheets', 'Pronunciation exercises']
         },
         {
             id: 2,
+            date: '2025-09-01',
+            time: '7:00 AM',
+            title: 'Class 4: Personal Introduction',
+            lesson: 4,
+            duration: '60 min',
+            status: 'completed',
+            attendance: 'present',
+            topics: ['Personal Introduction', 'Self Description', 'Basic Information'],
+            homework: 'Practice personal introduction',
+            notes: 'Great participation in the virtual class. Very adapted to online format.',
+            materials: ['Google Meet', 'Digital presentation', 'Online materials']
+        },
+        {
+            id: 3,
             date: '2025-08-29',
             time: '7:00 AM',
             title: 'Class 3: Greetings and Farewells II',
@@ -332,7 +346,7 @@ export const englishCourseData = {
             materials: ['Google Meet', 'Presentación enviada', 'Material de repaso']
         },
         {
-            id: 3,
+            id: 4,
             date: '2025-08-28',
             time: '7:00 AM',
             title: 'Class 2: Greetings and Farewells I',
@@ -346,7 +360,7 @@ export const englishCourseData = {
             materials: ['Google Meet', 'Herramientas digitales', 'Ejercicios online']
         },
         {
-            id: 4,
+            id: 5,
             date: '2025-08-21',
             time: '4:00 PM',
             title: 'Class 1: Introduction',
@@ -363,8 +377,8 @@ export const englishCourseData = {
     
     statistics: {
         totalLessons: 12,
-        completedLessons: 4,
-        currentLesson: 5,
+        completedLessons: 5,
+        currentLesson: 6,
         averageGrade: 87.5,
         totalAssignments: 4,
         completedAssignments: 0,
