@@ -50,8 +50,13 @@ const VirtualClass = ({ classData, onClose }) => {
     };
 
     const openGoogleDocs = () => {
-        // Open Google Docs in a new tab
-        window.open('https://docs.google.com/document/create', '_blank');
+        // Open the specific Google Docs document
+        window.open('https://docs.google.com/document/d/1vQnjfqr56yD5Kfc1lRAMj_VROvqVqPGayIdoczUARkg/edit?usp=sharing', '_blank');
+    };
+
+    const joinGoogleMeet = () => {
+        // Open Google Meet with the specific link
+        window.open('https://meet.google.com/bqu-dieh-oor', '_blank');
     };
 
     const toggleNotesPanel = () => {
@@ -132,13 +137,20 @@ const VirtualClass = ({ classData, onClose }) => {
                             ) : (
                                 <div className="video-placeholder">
                                     <div className="join-video">
-                                        <h4>Join Video Call</h4>
-                                        <p>Click to start the video session</p>
+                                        <h4>Join Google Meet</h4>
+                                        <p>Click to join the video session</p>
                                         <button 
                                             className="btn-primary"
-                                            onClick={() => setIsVideoActive(true)}
+                                            onClick={joinGoogleMeet}
                                         >
-                                            📹 Join Video Call
+                                            📹 Join Google Meet
+                                        </button>
+                                        <button 
+                                            className="btn-secondary"
+                                            onClick={() => setIsVideoActive(true)}
+                                            style={{marginTop: '0.5rem'}}
+                                        >
+                                            📺 Preview Mode
                                         </button>
                                     </div>
                                 </div>
@@ -151,24 +163,25 @@ const VirtualClass = ({ classData, onClose }) => {
                         <div className="notes-container">
                             <div className="notes-toolbar">
                                 <button className="tool-btn" onClick={openGoogleDocs}>
-                                    📄 Google Docs
+                                    📄 Class Document
+                                </button>
+                                <button className="tool-btn" onClick={joinGoogleMeet}>
+                                    📹 Google Meet
                                 </button>
                                 <button className="tool-btn">
                                     📊 Share Screen
-                                </button>
-                                <button className="tool-btn">
-                                    📎 Attach File
                                 </button>
                             </div>
                             <textarea
                                 className="notes-textarea"
                                 value={notes}
                                 onChange={(e) => setNotes(e.target.value)}
-                                placeholder="Write your notes here... You can also open Google Docs for collaborative editing."
+                                placeholder="Write your notes here... Click 'Class Document' to open the shared Google Docs for collaborative editing."
                                 rows={isNotesExpanded ? 20 : 8}
                             />
                             <div className="notes-footer">
                                 <span className="char-count">{notes.length} characters</span>
+                                <span className="timezone-info">🕐 America/Bogota</span>
                                 <span className="auto-save">Auto-save enabled</span>
                             </div>
                         </div>

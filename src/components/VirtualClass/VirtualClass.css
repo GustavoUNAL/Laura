@@ -412,6 +412,11 @@
     color: rgba(255, 255, 255, 0.6);
 }
 
+.timezone-info {
+    color: #3498db;
+    font-weight: 500;
+}
+
 /* Footer */
 .virtual-class-footer {
     display: flex;
