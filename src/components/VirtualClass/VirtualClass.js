@@ -65,26 +65,11 @@ const VirtualClass = ({ classData, onClose }) => {
     return (
         <div className="virtual-class-overlay">
             <div className="virtual-class-container">
-                {/* Header */}
-                <div className="virtual-class-header">
-                    <div className="class-info">
-                        <h2>🎓 {classData?.title || 'Virtual Class'}</h2>
-                        <p>📅 {classData?.date} at {classData?.time}</p>
-                        <p>👨‍🏫 Prof. Laura Chaves</p>
-                    </div>
-                    <div className="header-actions">
-                        <button className="btn-secondary" onClick={openGoogleDocs}>
-                            📄 Open Google Docs
-                        </button>
-                        <div className="escape-hint">
-                            <span>Press <kbd>ESC</kbd> to exit</span>
-                        </div>
-                        <button className="btn-close" onClick={onClose}>
-                            ✕ Close Class
-                        </button>
-                    </div>
-                </div>
-
+                {/* Floating Close Button */}
+                <button className="floating-close-btn" onClick={onClose} title="Press ESC to exit">
+                    ✕
+                </button>
+                
                 {/* Main Content Area */}
                 <div className="virtual-class-main">
                     {/* Video Section */}
@@ -205,25 +190,6 @@ const VirtualClass = ({ classData, onClose }) => {
                                 <span className="auto-save">Auto-save enabled</span>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                {/* Bottom Controls */}
-                <div className="virtual-class-footer">
-                    <div className="class-status">
-                        <span className="status-indicator online">🟢 Online</span>
-                        <span>Class in progress</span>
-                    </div>
-                    <div className="footer-actions">
-                        <button className="btn-secondary">
-                            📊 Share Screen
-                        </button>
-                        <button className="btn-secondary">
-                            📎 Share Files
-                        </button>
-                        <button className="btn-primary">
-                            📝 Open Whiteboard
-                        </button>
                     </div>
                 </div>
             </div>
