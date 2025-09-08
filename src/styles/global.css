@@ -1,9 +1,9 @@
 /* 
- * Layout Styles - Estilos para ocupar todo el ancho de pantalla - Dark Mode
- * Asegura que navbar, mainlayout y footer ocupen correctamente el ancho completo
+ * Global Layout Styles - Production Optimized
+ * Consolidated styles for layout, responsive design, and dark mode
  */
 
-/* Estilos base para todos los elementos principales */
+/* Base styles for all main elements */
 .navbar,
 .main-navigation,
 .main-layout,
@@ -20,51 +20,27 @@
     color: #ffffff !important;
 }
 
-/* Navbar específico */
+/* Navbar specific */
 .navbar,
 .main-navigation {
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: none !important;
-    margin: 0 !important;
     padding: 0 40px !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
     overflow-x: hidden !important;
 }
 
-/* MainLayout específico */
+/* MainLayout specific */
 .main-layout {
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: none !important;
-    margin: 0 !important;
     padding: 0 !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
     overflow-x: hidden !important;
     overflow-y: auto !important;
 }
 
-/* Footer específico */
+/* Footer specific */
 .footer {
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: none !important;
-    margin: 0 !important;
     padding: 0 !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
     overflow-x: hidden !important;
 }
 
-/* Contenedores raíz */
+/* Root containers */
 html, body {
     width: 100vw !important;
     min-width: 100vw !important;
@@ -85,7 +61,21 @@ html, body {
     overflow-x: hidden !important;
 }
 
-/* Responsive para dispositivos móviles */
+/* Home sections */
+.featured-projects,
+.featured-technologies,
+.home-about {
+    width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
     .navbar,
     .main-navigation {
@@ -124,17 +114,13 @@ html, body {
     }
 }
 
-/* Asegurar que todos los elementos usen border-box */
+/* Global box-sizing and overflow prevention */
 * {
     box-sizing: border-box !important;
-}
-
-/* Prevenir overflow horizontal en todos los elementos */
-* {
     max-width: 100% !important;
 }
 
-/* Excepciones para elementos que necesitan ancho completo */
+/* Exceptions for full-width elements */
 .navbar,
 .main-navigation,
 .main-layout,

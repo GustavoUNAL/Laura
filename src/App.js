@@ -1,16 +1,21 @@
 
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './styles/theme.css';
+import './styles/global.css';
+
+// Pages
 import ContentApp from './containers/HomePage/ContentApp';
-import ErrorPage from './components/ErrorPage/ErrorPage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './containers/AboutPage/About';
 import Community from './containers/CommunityPage/Community';
 import StudentPage from './containers/StudentPage/StudentPage';
 import ProfessorPage from './containers/ProfessorPage/ProfessorPage';
 import UserSelection from './components/UserSelection/UserSelection';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+
+// Contexts
 import { ThemeProvider } from './contexts/ThemeContext';
 import { UserProvider } from './contexts/UserContext';
 import { DarkModeProvider } from './contexts/DarkModeContext';

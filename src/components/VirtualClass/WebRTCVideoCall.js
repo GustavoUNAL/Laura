@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './WebRTCVideoCall.css';
 
 const WebRTCVideoCall = ({ onClose, isFullscreen = false }) => {
-    const [isConnected, setIsConnected] = useState(false);
+    const [, setIsConnected] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const [isVideoOn, setIsVideoOn] = useState(true);
     const [isScreenSharing, setIsScreenSharing] = useState(false);
@@ -16,23 +16,24 @@ const WebRTCVideoCall = ({ onClose, isFullscreen = false }) => {
     const peerConnectionRef = useRef(null);
 
     useEffect(() => {
-        // Initialize WebRTC
         initializeWebRTC();
 
         return () => {
-            // Cleanup
-            if (localStream) {
-                localStream.getTracks().forEach(track => track.stop());
-            }
-            if (peerConnectionRef.current) {
-                peerConnectionRef.current.close();
-            }
+            cleanup();
         };
     }, []);
 
+    const cleanup = () => {
+        if (localStream) {
+            localStream.getTracks().forEach(track => track.stop());
+        }
+        if (peerConnectionRef.current) {
+            peerConnectionRef.current.close();
+        }
+    };
+
     const initializeWebRTC = async () => {
         try {
-            // Get user media (camera and microphone)
             const stream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true
@@ -40,12 +41,10 @@ const WebRTCVideoCall = ({ onClose, isFullscreen = false }) => {
             
             setLocalStream(stream);
             
-            // Set local video source
             if (localVideoRef.current) {
                 localVideoRef.current.srcObject = stream;
             }
 
-            // Create peer connection
             const peerConnection = new RTCPeerConnection({
                 iceServers: [
                     { urls: 'stun:stun.l.google.com:19302' },
@@ -55,7 +54,6 @@ const WebRTCVideoCall = ({ onClose, isFullscreen = false }) => {
 
             peerConnectionRef.current = peerConnection;
 
-            // Handle remote stream
             peerConnection.ontrack = (event) => {
                 const remoteStream = event.streams[0];
                 setRemoteStream(remoteStream);
@@ -64,17 +62,11 @@ const WebRTCVideoCall = ({ onClose, isFullscreen = false }) => {
                 }
             };
 
-            // Handle connection state changes
             peerConnection.onconnectionstatechange = () => {
                 setConnectionStatus(peerConnection.connectionState);
-                if (peerConnection.connectionState === 'connected') {
-                    setIsConnected(true);
-                } else if (peerConnection.connectionState === 'disconnected') {
-                    setIsConnected(false);
-                }
+                setIsConnected(peerConnection.connectionState === 'connected');
             };
 
-            // Add local stream to peer connection
             stream.getTracks().forEach(track => {
                 peerConnection.addTrack(track, stream);
             });
@@ -119,16 +111,14 @@ const WebRTCVideoCall = ({ onClose, isFullscreen = false }) => {
     const toggleScreenShare = async () => {
         try {
             if (!isScreenSharing) {
-                // Start screen sharing
                 const screenStream = await navigator.mediaDevices.getDisplayMedia({
                     video: true,
                     audio: true
                 });
                 
-                // Replace video track
                 const videoTrack = screenStream.getVideoTracks()[0];
-                const sender = peerConnectionRef.current.getSenders().find(s => 
-                    s.track && s.track.kind === 'video'
+                const sender = peerConnectionRef.current?.getSenders().find(s => 
+                    s.track?.kind === 'video'
                 );
                 
                 if (sender) {
@@ -136,21 +126,16 @@ const WebRTCVideoCall = ({ onClose, isFullscreen = false }) => {
                 }
                 
                 setIsScreenSharing(true);
-                
-                // Handle screen share end
-                videoTrack.onended = () => {
-                    setIsScreenSharing(false);
-                };
+                videoTrack.onended = () => setIsScreenSharing(false);
             } else {
-                // Stop screen sharing and return to camera
                 const cameraStream = await navigator.mediaDevices.getUserMedia({
                     video: true,
                     audio: true
                 });
                 
                 const videoTrack = cameraStream.getVideoTracks()[0];
-                const sender = peerConnectionRef.current.getSenders().find(s => 
-                    s.track && s.track.kind === 'video'
+                const sender = peerConnectionRef.current?.getSenders().find(s => 
+                    s.track?.kind === 'video'
                 );
                 
                 if (sender) {
@@ -165,12 +150,7 @@ const WebRTCVideoCall = ({ onClose, isFullscreen = false }) => {
     };
 
     const endCall = () => {
-        if (localStream) {
-            localStream.getTracks().forEach(track => track.stop());
-        }
-        if (peerConnectionRef.current) {
-            peerConnectionRef.current.close();
-        }
+        cleanup();
         setIsConnected(false);
         setConnectionStatus('disconnected');
         onClose();

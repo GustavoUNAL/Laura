@@ -4,9 +4,6 @@ import Footer from '../../components/Footer/Footer';
 import MainLayout from '../../components/MainLayout/MainLayout';
 import HomeAbout from '../../components/HomeAbout/HomeAbout';
 
-import '../../home-layout.css';
-import '../../layout-styles.css';
-
 function ContentApp() {
     return (
         <>
