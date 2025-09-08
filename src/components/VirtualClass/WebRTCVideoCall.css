@@ -1,14 +1,16 @@
-/* Google Meet Embed Styles */
-.google-meet-embed {
+/* WebRTC Video Call Styles */
+.webrtc-video-call {
     position: relative;
     width: 100%;
     height: 100%;
     background: #000;
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.google-meet-embed.fullscreen {
+.webrtc-video-call.fullscreen {
     position: fixed;
     top: 0;
     left: 0;
@@ -18,8 +20,86 @@
     border-radius: 0;
 }
 
-/* Meet Controls */
-.meet-controls {
+/* Video Container */
+.video-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+}
+
+/* Remote Video (Main) */
+.remote-video-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remote-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+.no-remote-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+}
+
+.waiting-for-participant {
+    text-align: center;
+    color: white;
+    padding: 40px;
+}
+
+.waiting-for-participant .avatar {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.waiting-for-participant p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* Local Video (Picture-in-Picture) */
+.local-video-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: 150px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.local-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+/* Video Controls */
+.video-controls {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -77,7 +157,7 @@
 .connection-status {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -92,22 +172,12 @@
     background: rgba(46, 204, 113, 0.8);
 }
 
+.connection-status.connecting {
+    background: rgba(241, 196, 15, 0.8);
+}
+
 .connection-status.disconnected {
     background: rgba(231, 76, 60, 0.8);
-}
-
-/* Meet Iframe Container */
-.meet-iframe-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.meet-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: #000;
 }
 
 /* Join Overlay */
@@ -165,7 +235,7 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .meet-controls {
+    .video-controls {
         bottom: 10px;
         padding: 8px 15px;
         gap: 8px;
@@ -179,9 +249,16 @@
     
     .connection-status {
         top: 10px;
-        right: 10px;
+        left: 10px;
         padding: 6px 12px;
         font-size: 0.8rem;
+    }
+    
+    .local-video-container {
+        top: 10px;
+        right: 10px;
+        width: 150px;
+        height: 110px;
     }
     
     .join-content {
@@ -200,7 +277,7 @@
 }
 
 @media (max-width: 480px) {
-    .meet-controls {
+    .video-controls {
         bottom: 5px;
         padding: 6px 12px;
         gap: 6px;
@@ -210,6 +287,11 @@
         width: 40px;
         height: 40px;
         font-size: 0.9rem;
+    }
+    
+    .local-video-container {
+        width: 120px;
+        height: 90px;
     }
     
     .join-content {

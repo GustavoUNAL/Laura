@@ -197,15 +197,15 @@ body.virtual-class-active {
     background: #000;
 }
 
-/* Google Meet Embed Integration */
-.video-section .google-meet-embed {
+/* WebRTC Video Call Integration */
+.video-section .webrtc-video-call {
     width: 100%;
     height: 100%;
     border-radius: 8px;
     overflow: hidden;
 }
 
-.video-section.expanded .google-meet-embed {
+.video-section.expanded .webrtc-video-call {
     border-radius: 0;
 }
 

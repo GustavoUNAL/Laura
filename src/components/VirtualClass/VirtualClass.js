@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import GoogleMeetEmbed from './GoogleMeetEmbed';
+import WebRTCVideoCall from './WebRTCVideoCall';
 import './VirtualClass.css';
 
 const VirtualClass = ({ classData, onClose }) => {
@@ -40,10 +40,9 @@ const VirtualClass = ({ classData, onClose }) => {
                 
                 {/* Main Content Area */}
                 <div className={`virtual-class-main ${isVideoExpanded ? 'video-fullscreen' : ''}`}>
-                    {/* Google Meet Section */}
+                    {/* WebRTC Video Call Section */}
                     <div className={`video-section ${isVideoExpanded ? 'expanded' : ''}`}>
-                        <GoogleMeetEmbed 
-                            meetingId="bqu-dieh-oor"
+                        <WebRTCVideoCall 
                             onClose={onClose}
                             isFullscreen={isVideoExpanded}
                         />
