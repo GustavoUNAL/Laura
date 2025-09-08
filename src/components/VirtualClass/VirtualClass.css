@@ -355,12 +355,14 @@ body.virtual-class-active {
 
 /* Notes Section */
 .notes-section {
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 12px;
-    border: 1px solid rgba(52, 152, 219, 0.2);
+    background: white;
+    border: none;
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
 }
 
 .notes-section.expanded {
@@ -392,7 +394,8 @@ body.virtual-class-active {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
 .notes-toolbar {
@@ -455,11 +458,13 @@ body.virtual-class-active {
 
 /* Google Docs iframe */
 .google-docs-container {
-    flex: 1;
-    margin-bottom: 1rem;
-    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid rgba(52, 152, 219, 0.2);
+    margin: 0;
+    padding: 0;
 }
 
 .google-docs-iframe {
@@ -467,22 +472,10 @@ body.virtual-class-active {
     height: 100%;
     border: none;
     background: white;
+    margin: 0;
+    padding: 0;
 }
 
-/* Local Notes Section */
-.local-notes-section {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 1rem;
-    border: 1px solid rgba(52, 152, 219, 0.1);
-}
-
-.local-notes-section h4 {
-    color: white;
-    margin: 0 0 0.5rem 0;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
 
 /* Footer */
 .virtual-class-footer {
@@ -554,11 +547,7 @@ body.virtual-class-active {
     }
     
     .google-docs-container {
-        min-height: 300px;
-    }
-    
-    .local-notes-section {
-        margin-top: 1rem;
+        min-height: 50vh;
     }
 }
 
