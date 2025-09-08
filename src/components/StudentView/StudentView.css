@@ -1194,6 +1194,33 @@
             flex-direction: column;
             text-align: center;
         }
+        
+        .time-stats {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .big-time {
+            font-size: 2rem;
+        }
+        
+        .weekly-chart {
+            height: 150px;
+        }
+        
+        .week-bar {
+            max-width: 60px;
+        }
+        
+        .session-item {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .goal-item {
+            flex-direction: column;
+            text-align: center;
+        }
     }
     
     .action-buttons {
@@ -2298,6 +2325,243 @@
     border-radius: 15px;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.9);
+}
+
+/* Study Time Modal Styles */
+.study-time-overview {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time-summary {
+    text-align: center;
+}
+
+.time-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.time-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.time-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.time-item h4 {
+    color: white;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+}
+
+.big-time {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4CAF50;
+    margin: 0;
+    line-height: 1;
+}
+
+.time-item p:last-child {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+}
+
+.study-sessions {
+    margin-bottom: 2rem;
+}
+
+.sessions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.session-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.session-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.session-item.completed {
+    border-left: 4px solid #4CAF50;
+}
+
+.session-icon {
+    font-size: 1.5rem;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.session-content {
+    flex: 1;
+}
+
+.session-content h5 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.session-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+}
+
+.session-details {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.session-details span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.study-chart {
+    margin-bottom: 2rem;
+}
+
+.weekly-chart {
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+    height: 200px;
+    padding: 1rem 0;
+    justify-content: center;
+}
+
+.week-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    max-width: 80px;
+}
+
+.week-bar .bar-fill {
+    width: 100%;
+    background: linear-gradient(to top, #4CAF50, #45a049);
+    border-radius: 4px 4px 0 0;
+    min-height: 20px;
+    transition: height 0.3s ease;
+}
+
+.week-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.week-time {
+    color: #4CAF50;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+}
+
+.study-goals {
+    margin-bottom: 2rem;
+}
+
+.goals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.goal-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.goal-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.goal-item.completed {
+    border-left: 4px solid #4CAF50;
+}
+
+.goal-item.in-progress {
+    border-left: 4px solid #FF9800;
+}
+
+.goal-item.pending {
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
+    opacity: 0.6;
+}
+
+.goal-icon {
+    font-size: 1.5rem;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.goal-content {
+    flex: 1;
+}
+
+.goal-content h5 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.goal-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.goal-status {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.no-lessons {
+    text-align: center;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* Google Drive Item Styles */

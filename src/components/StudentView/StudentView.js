@@ -148,7 +148,7 @@ const StudentView = () => {
                                 <p>Objetivos Cumplidos</p>
                             </div>
                         </div>
-                        <div className="progress-card">
+                        <div className="progress-card clickable" onClick={() => openModal('study-time')}>
                             <div className="progress-icon">⏱️</div>
                             <div className="progress-info">
                                 <h3>{statistics.totalStudyTime}</h3>
@@ -614,7 +614,7 @@ const StudentView = () => {
                             <div className="lessons-timeline">
                                 <h4>📅 Cronología de Lecciones</h4>
                                 <div className="timeline">
-                                    {lessons.map((lesson, index) => (
+                                    {lessons && lessons.length > 0 ? lessons.map((lesson, index) => (
                                         <div key={lesson.id} className={`timeline-item ${lesson.status}`}>
                                             <div className="timeline-marker">
                                                 {lesson.status === 'completed' ? '✅' : 
@@ -633,7 +633,11 @@ const StudentView = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    ))}
+                                    )) : (
+                                        <div className="no-lessons">
+                                            <p>No hay lecciones disponibles</p>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
@@ -798,6 +802,161 @@ const StudentView = () => {
                         </div>
                         <div className="modal-footer">
                             <button className="btn-primary" onClick={() => alert('📈 Progreso actualizado!\n\nTu progreso del curso ha sido registrado correctamente.')}>
+                                💾 Actualizar Progreso
+                            </button>
+                            <button className="btn-secondary" onClick={closeModal}>
+                                Cerrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {activeModal === 'study-time' && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="modal-content large" onClick={e => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>⏱️ Tiempo de Estudio</h3>
+                            <button className="close-btn" onClick={closeModal}>×</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="study-time-overview">
+                                <div className="time-summary">
+                                    <div className="time-stats">
+                                        <div className="time-item">
+                                            <h4>Tiempo Total</h4>
+                                            <p className="big-time">{statistics.totalStudyTime}</p>
+                                            <p>Horas estudiadas</p>
+                                        </div>
+                                        <div className="time-item">
+                                            <h4>Promedio Diario</h4>
+                                            <p className="big-time">1.2h</p>
+                                            <p>Horas por día</p>
+                                        </div>
+                                        <div className="time-item">
+                                            <h4>Sesión Promedio</h4>
+                                            <p className="big-time">45min</p>
+                                            <p>Por sesión</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="study-sessions">
+                                <h4>📚 Sesiones de Estudio</h4>
+                                <div className="sessions-list">
+                                    <div className="session-item completed">
+                                        <div className="session-icon">📖</div>
+                                        <div className="session-content">
+                                            <h5>Lección 1 - Introducción</h5>
+                                            <p>21 de Agosto, 2025</p>
+                                            <div className="session-details">
+                                                <span className="session-duration">⏱️ 1h 15min</span>
+                                                <span className="session-type">Presencial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="session-item completed">
+                                        <div className="session-icon">💻</div>
+                                        <div className="session-content">
+                                            <h5>Lección 2 - Saludos I</h5>
+                                            <p>28 de Agosto, 2025</p>
+                                            <div className="session-details">
+                                                <span className="session-duration">⏱️ 1h 30min</span>
+                                                <span className="session-type">Virtual</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="session-item completed">
+                                        <div className="session-icon">💻</div>
+                                        <div className="session-content">
+                                            <h5>Lección 3 - Saludos II</h5>
+                                            <p>29 de Agosto, 2025</p>
+                                            <div className="session-details">
+                                                <span className="session-duration">⏱️ 1h 45min</span>
+                                                <span className="session-type">Virtual</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="session-item completed">
+                                        <div className="session-icon">💻</div>
+                                        <div className="session-content">
+                                            <h5>Lección 4 - Presentación</h5>
+                                            <p>1 de Septiembre, 2025</p>
+                                            <div className="session-details">
+                                                <span className="session-duration">⏱️ 1h 30min</span>
+                                                <span className="session-type">Virtual</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="study-chart">
+                                <h4>📊 Tiempo de Estudio por Semana</h4>
+                                <div className="chart-container">
+                                    <div className="weekly-chart">
+                                        <div className="week-bar">
+                                            <div className="bar-fill" style={{height: '60%'}}></div>
+                                            <span className="week-label">Sem 1</span>
+                                            <span className="week-time">1.5h</span>
+                                        </div>
+                                        <div className="week-bar">
+                                            <div className="bar-fill" style={{height: '80%'}}></div>
+                                            <span className="week-label">Sem 2</span>
+                                            <span className="week-time">2h</span>
+                                        </div>
+                                        <div className="week-bar">
+                                            <div className="bar-fill" style={{height: '90%'}}></div>
+                                            <span className="week-label">Sem 3</span>
+                                            <span className="week-time">2.5h</span>
+                                        </div>
+                                        <div className="week-bar">
+                                            <div className="bar-fill" style={{height: '30%'}}></div>
+                                            <span className="week-label">Sem 4</span>
+                                            <span className="week-time">1h</span>
+                                        </div>
+                                        <div className="week-bar">
+                                            <div className="bar-fill" style={{height: '0%'}}></div>
+                                            <span className="week-label">Sem 5</span>
+                                            <span className="week-time">0h</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="study-goals">
+                                <h4>🎯 Metas de Estudio</h4>
+                                <div className="goals-list">
+                                    <div className="goal-item completed">
+                                        <div className="goal-icon">✅</div>
+                                        <div className="goal-content">
+                                            <h5>Estudio Diario</h5>
+                                            <p>Estudiar al menos 1 hora por día</p>
+                                            <span className="goal-status">Completado</span>
+                                        </div>
+                                    </div>
+                                    <div className="goal-item in-progress">
+                                        <div className="goal-icon">🔄</div>
+                                        <div className="goal-content">
+                                            <h5>Consistencia</h5>
+                                            <p>Mantener 5 días consecutivos de estudio</p>
+                                            <span className="goal-status">En Progreso (3/5)</span>
+                                        </div>
+                                    </div>
+                                    <div className="goal-item pending">
+                                        <div className="goal-icon">⏳</div>
+                                        <div className="goal-content">
+                                            <h5>Maratón de Estudio</h5>
+                                            <p>Estudiar 3 horas en un solo día</p>
+                                            <span className="goal-status">Pendiente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn-primary" onClick={() => alert('⏱️ Tiempo de estudio actualizado!\n\nTu progreso de estudio ha sido registrado correctamente.')}>
                                 💾 Actualizar Progreso
                             </button>
                             <button className="btn-secondary" onClick={closeModal}>

@@ -1,234 +1,203 @@
-# Portafolio Laura - Sistema de Gestión de Usuarios
+# 🎓 Portafolio Laura - Sistema de Gestión Educativa
 
-Portafolio profesional desarrollado en React con sistema de gestión de usuarios que permite acceso diferenciado para estudiantes y profesores. Arquitectura modular y componentes reutilizables.
+Un sistema completo de gestión educativa desarrollado por **Laura María Chaves Timarán**, que combina un portafolio profesional con una plataforma de enseñanza de inglés interactiva.
 
-## 🏗️ Estructura del Proyecto
+## ✨ Características Principales
 
-### **Componentes Principales**
+### 🎯 **Vistas Especializadas**
+- **Vista de Estudiante**: Dashboard interactivo con seguimiento de progreso, lecciones, y objetivos
+- **Vista de Profesor**: Panel de gestión de cursos, estudiantes y clases
+- **Portafolio Personal**: Showcase de proyectos y habilidades técnicas
 
-#### **Header & Navegación**
-- `src/components/Header/` - Barra de navegación principal
-  - `Navbar.js` - Componente principal del header
-  - `NavLinks.js` - Enlaces de navegación
-  - `MobileNavigation.js` - Navegación móvil
-  - `NormalNavigation.js` - Navegación desktop
+### 📊 **Funcionalidades del Estudiante**
+- **Progreso en Tiempo Real**: Seguimiento de lecciones completadas, objetivos cumplidos y tiempo de estudio
+- **Clases Interactivas**: Acceso a materiales, notas personales y contenido de clases
+- **Sistema de Objetivos**: 7 objetivos profesionales con seguimiento de progreso
+- **Calendario de Clases**: Próximas clases y historial de clases pasadas
+- **Modales Detallados**: Información completa sobre progreso, lecciones y objetivos
 
-#### **Página Principal (Home)**
-- `src/components/HomeAbout/` - Sección "Acerca de" de la página principal
-  - `HomeAbout.js` - Componente de presentación
-  - `HomeAbout.css` - Estilos específicos
-- `src/components/FeaturedProjects/` - Proyectos destacados
-  - `FeaturedProjects.js` - Grid de proyectos principales
-  - `FeaturedProjects.css` - Estilos de las tarjetas
-- `src/components/Background/` - Sección de experiencia
-  - `Background.js` - Métricas y estadísticas
-  - `Background.css` - Estilos de la experiencia
+### 👨‍🏫 **Funcionalidades del Profesor**
+- **Gestión de Estudiantes**: Vista completa del progreso de cada estudiante
+- **Control de Clases**: Programación y seguimiento de clases virtuales y presenciales
+- **Estadísticas Avanzadas**: Métricas de rendimiento y asistencia
+- **Recursos Educativos**: Gestión de materiales y contenido del curso
 
-#### **Layout & Estructura**
-- `src/components/MainLayout/` - Layout principal
-  - `MainLayout.js` - Contenedor principal
-  - `MainLayout.css` - Estilos del layout
-
-#### **Página de Proyectos**
-- `src/components/ProjectsHeader/` - Header de la página de proyectos
-  - `ProjectsHeader.js` - Título y descripción
-  - `ProjectsHeader.css` - Estilos del header
-- `src/components/ProjectCategory/` - Categorías de proyectos
-  - `ProjectCategory.js` - Grid de proyectos por categoría
-  - `ProjectCategory.css` - Estilos de las categorías
-- `src/components/ProjectDialog/` - Popup de detalles del proyecto
-  - `ProjectDialog.js` - Modal con información completa
-  - `ProjectDialog.css` - Estilos del popup
-
-#### **Páginas Completas**
-- `src/containers/HomePage/` - Página principal
-  - `ContentApp.js` - Orquestador de componentes
-- `src/containers/AboutPage/` - Página "Acerca de"
-  - `About.js` - Información personal completa
-  - `About.css` - Estilos de la página
-- `src/containers/ProjectsPage/` - Página de proyectos
-  - `Projects.js` - Lista completa de proyectos
-  - `Projects.css` - Estilos generales de la página
-- `src/containers/CommunityPage/` - Comunidad (Login)
-  - `Community.js` - Vista de inicio de sesión
-  - `Community.css` - Estilos del login
-
-#### **Componentes de UI**
-- `src/components/Footer/` - Pie de página
-  - `Footer.js` - Información de contacto
-  - `Footer.css` - Estilos del footer
-- `src/components/ErrorPage/` - Página de error 404
-  - `ErrorPage.js` - Manejo de rutas no encontradas
-  - `ErrorPage.css` - Estilos de la página de error
-
-## 🎨 Sistema de Estilos
-
-### **Colores Principales**
-- **Header/Footer**: `#121212` (negro oscuro)
-- **Página Principal**: `#1E1E1E` (negro medio)
-- **Páginas Secundarias**: `#808080` (gris)
-- **Acentos**: `#4ecdc4` (turquesa), `#ff6b6b` (coral)
-
-### **Tipografías**
-- **Títulos**: Helvetica Neue (300, 400)
-- **Texto**: Montserrat, Roboto
-- **Responsive**: Tamaños adaptativos para móvil, tablet y desktop
-
-## 📱 Características Responsive
-
-### **Breakpoints**
-- **Desktop**: > 768px
-- **Tablet**: ≤ 768px
-- **Móvil**: ≤ 500px
-
-### **Adaptaciones**
-- Navegación hamburguesa en móviles
-- Grids adaptativos para proyectos
-- Imágenes y textos escalables
-- Espaciado optimizado por dispositivo
-
-## 🚀 Funcionalidades
-
-### **Sistema de Usuarios** 🆕
-- **Vistas Diferenciadas**: Selector entre Vista de Estudiante y Vista de Profesor
-- **Acceso Directo**: Sin necesidad de login para demo
-- **Dashboards Especializados**: Interfaces específicas para cada rol
-- **Navegación Dinámica**: Menú adaptado según el rol del usuario
-- **Rutas Protegidas**: Acceso controlado a dashboards específicos
-
-### **Navegación**
-- Header fijo con navegación suave
-- Menú responsive para móviles
-- Enlaces a todas las secciones
-- Botones dinámicos según estado de usuario
-
-### **Proyectos**
-- Categorización automática
-- Popups con información detallada
-- Botones de contacto WhatsApp
-- Grid responsive de tarjetas
-- Imágenes únicas generadas por tarjeta (SVG temáticos, colores en armonía con el tema)
-
-### **Dashboards Especializados**
-- **Dashboard Estudiante**: Acceso a recursos de aprendizaje
-- **Dashboard Profesor**: Herramientas de gestión académica
-- **Protección de Rutas**: Redirección automática si no está autenticado
-
-### **Experiencia**
-- Métricas destacadas
-- Iconos animados
-- Botón de contacto directo
+### 🎨 **Diseño y UX**
+- **Modo Oscuro Completo**: Interfaz elegante con tema oscuro por defecto
+- **Diseño Responsivo**: Optimizado para desktop, tablet y móvil
+- **Animaciones Suaves**: Transiciones y efectos visuales modernos
+- **Iconografía Intuitiva**: Emojis y iconos para mejor experiencia de usuario
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Frontend**: React 18
-- **Routing**: React Router DOM
-- **UI Components**: Material-UI (MUI)
-- **Estilos**: CSS3 con variables y media queries
-- **Iconos**: Material Icons
-- **Build**: Create React App
+### **Frontend**
+- **React.js 18+** - Framework principal
+- **React Router DOM** - Navegación entre vistas
+- **CSS3** - Estilos avanzados con variables y gradientes
+- **JavaScript ES6+** - Lógica de la aplicación
 
-## 📁 Organización de Archivos
+### **Arquitectura**
+- **Component-Based Architecture** - Componentes reutilizables
+- **Context API** - Gestión de estado global
+- **Custom Hooks** - Lógica reutilizable
+- **Local Storage** - Persistencia de datos
+
+### **Estilos**
+- **CSS Variables** - Sistema de temas dinámico
+- **Flexbox & Grid** - Layouts modernos
+- **Media Queries** - Diseño responsivo
+- **Glassmorphism** - Efectos visuales modernos
+
+## 🚀 Instalación y Uso
+
+### **Prerrequisitos**
+- Node.js 16+ 
+- npm o yarn
+
+### **Instalación**
+```bash
+# Clonar el repositorio
+git clone https://github.com/GustavoUNAL/Laura.git
+
+# Navegar al directorio
+cd Laura
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en modo desarrollo
+npm start
+```
+
+### **Scripts Disponibles**
+```bash
+npm start          # Servidor de desarrollo
+npm run build      # Build de producción
+npm test           # Ejecutar tests
+npm run eject      # Eject (no recomendado)
+```
+
+## 📱 Vistas del Sistema
+
+### **🏠 Página Principal**
+- Presentación personal y profesional
+- Navegación a diferentes secciones
+- Enlaces a redes sociales y contacto
+
+### **👨‍🎓 Vista de Estudiante**
+- **Header del Curso**: Información del curso de inglés
+- **Progreso General**: 4 tarjetas clickeables con métricas
+- **Próxima Clase**: Detalles de la siguiente clase
+- **Clases Pasadas**: Historial con información detallada
+- **Modales Interactivos**: Información detallada de progreso
+
+### **👨‍🏫 Vista de Profesor**
+- **Dashboard de Gestión**: Vista general del curso
+- **Gestión de Estudiantes**: Progreso individual de cada estudiante
+- **Control de Clases**: Programación y seguimiento
+- **Estadísticas**: Métricas de rendimiento del curso
+
+## 🎯 Objetivos del Curso de Inglés
+
+1. **Comunicación Básica** - Fundamentos del idioma
+2. **Vocabulario Profesional** - Términos empresariales
+3. **Fluidez Conversacional** - Práctica de conversación
+4. **Entrevistas de Trabajo** - Preparación profesional
+5. **Presentaciones Ejecutivas** - Habilidades de presentación
+6. **Comprensión Avanzada** - Escucha y lectura
+7. **Escritura Corporativa** - Redacción profesional
+
+## 📊 Datos del Sistema
+
+### **Curso de Inglés**
+- **Duración**: 5 semanas (21 Agosto - 24 Septiembre, 2025)
+- **Total de Lecciones**: 12 lecciones
+- **Modalidad**: Virtual y Presencial
+- **Estudiantes**: 3 estudiantes activos
+
+### **Progreso Actual**
+- **Lecciones Completadas**: 4/12 (33%)
+- **Objetivos Cumplidos**: 1/7
+- **Tiempo de Estudio**: 6 horas
+- **Promedio General**: 87.5%
+
+## 🔧 Estructura del Proyecto
 
 ```
 src/
-├── components/           # Componentes reutilizables
+├── components/          # Componentes reutilizables
+│   ├── StudentView/     # Vista del estudiante
+│   ├── ProfessorView/   # Vista del profesor
 │   ├── Header/          # Navegación
-│   ├── UserSelection/   # Selección de rol de usuario 🆕
-│   ├── ProtectedRoute/  # Rutas protegidas 🆕
-│   ├── HomeAbout/       # Sección principal
-│   ├── FeaturedProjects/ # Proyectos destacados
-│   ├── Background/      # Experiencia
-│   ├── ProjectsHeader/  # Header de proyectos
-│   ├── ProjectCategory/ # Categorías
-│   ├── ProjectDialog/   # Popups
-│   ├── MainLayout/      # Layout principal
-│   ├── Footer/          # Pie de página
-│   └── ErrorPage/       # Página de error
-├── containers/           # Páginas completas
-│   ├── HomePage/        # Página principal
-│   ├── AboutPage/       # Acerca de
-│   ├── ProjectsPage/    # Proyectos
-│   ├── StudentPage/     # Dashboard estudiante 🆕
-│   └── ProfessorPage/   # Dashboard profesor 🆕
-├── contexts/            # Contextos de React 🆕
-│   ├── UserContext.js   # Gestión de usuarios
-│   └── ThemeContext.js  # Gestión de temas
-├── img/                 # Imágenes estáticas
-└── index.js             # Punto de entrada
+│   └── Footer/          # Pie de página
+├── data/               # Datos simulados
+│   ├── englishCourseData.js
+│   └── professorData.js
+├── hooks/              # Custom hooks
+│   └── useEnglishCourse.js
+├── contexts/           # Context API
+│   ├── UserContext.js
+│   └── DarkModeContext.js
+└── styles/            # Estilos globales
+    └── theme.css
 ```
 
-## 🔧 Instalación y Uso
+## 🎨 Personalización
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone [url-del-repositorio]
-   cd portafolio
-   ```
+### **Temas**
+El sistema utiliza CSS variables para fácil personalización:
+```css
+:root {
+  --primary-color: #00BFFF;
+  --secondary-color: #FF00FF;
+  --background: #0a0a0a;
+  --text: #ffffff;
+}
+```
 
-2. **Instalar dependencias**
-   ```bash
-   npm install
-   ```
+### **Datos**
+Los datos se pueden modificar en:
+- `src/data/englishCourseData.js` - Datos del curso
+- `src/data/professorData.js` - Datos del profesor
 
-3. **Ejecutar en desarrollo**
-   ```bash
-   npm start
-   ```
+## 🚀 Despliegue
 
-4. **Construir para producción**
-   ```bash
-   npm run build
-   ```
+### **GitHub Pages**
+```bash
+npm run build
+npm install -g gh-pages
+gh-pages -d build
+```
 
-5. **Despliegue**
-   - Realiza commit de cambios finales y push a `main`.
-   - Sirve la carpeta `build/` en tu hosting (Netlify/Vercel/GH Pages o servidor propio).
+### **Netlify/Vercel**
+El proyecto está configurado para despliegue automático con GitHub Actions.
 
-## 📝 Notas de Implementación Reciente
+## 🤝 Contribuciones
 
-### **Sistema de Usuarios** 🆕
-- **Vistas Diferenciadas**: Selector entre Vista de Estudiante y Vista de Profesor
-- **Acceso Directo**: Sin necesidad de login para demo
-- **Dashboards Especializados**: Interfaces específicas para cada rol
-- **Navegación Dinámica**: Menú adaptado según el rol del usuario
-- **Optimización**: Eliminadas 87 dependencias innecesarias para mejor rendimiento
+Las contribuciones son bienvenidas. Por favor:
 
-### **Mejoras Anteriores**
-- Generador SVG por proyecto: ahora cada tarjeta tiene una imagen distinta basada en su contenido (paleta y iconografía temáticas), mejor integrada al esquema de color general.
-- Comunidad: nueva vista de login en `/community`, con tarjeta reducida al 50% de ancho (responsive), avatar genérico SVG y estilos consistentes con el tema.
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-## ✨ Ventajas de la Nueva Estructura
+## 📄 Licencia
 
-### **Modularidad**
-- Cada componente tiene su propio archivo CSS
-- Fácil mantenimiento y actualización
-- Componentes reutilizables
+Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 
-### **Organización**
-- Estructura de carpetas clara y lógica
-- Separación de responsabilidades
-- Fácil navegación del código
+## 👩‍💻 Autor
 
-### **Escalabilidad**
-- Fácil agregar nuevos componentes
-- Estructura preparada para crecimiento
-- Patrones consistentes
+**Laura María Chaves Timarán**
+- Desarrolladora Full Stack
+- Profesora de Inglés
+- Especialista en React.js y Node.js
 
-### **Mantenimiento**
-- Código más limpio y legible
-- Fácil debugging
-- Actualizaciones localizadas
+## 📞 Contacto
 
-## 🎯 Próximos Pasos
-
-- [ ] Agregar tests unitarios
-- [ ] Implementar lazy loading
-- [ ] Optimizar imágenes
-- [ ] Agregar PWA capabilities
-- [ ] Implementar CMS para proyectos
+- **Email**: laurachavez@email.com
+- **LinkedIn**: [Laura Chaves Timarán](https://www.linkedin.com/in/laura-chaves-timaran/)
 
 ---
 
-**Desarrollado por Gustavo Arteaga**  
-*Ingeniero en Sistemas Energéticos y Desarrollo de Software*
+⭐ **¡Dale una estrella al proyecto si te gusta!** ⭐

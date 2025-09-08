@@ -45,147 +45,139 @@ const ProfessorView = () => {
 
     return (
         <div className="professor-view">
-            <div className="professor-header">
-                <div className="professor-info">
-                    <div className="professor-avatar">{professor.avatar}</div>
-                    <div className="professor-details">
-                        <h1>👨‍🏫 {professor.name}</h1>
-                        <p className="professor-title">{professor.title}</p>
-                        <p className="professor-bio">{professor.bio}</p>
-                    </div>
+            {/* Header Section */}
+            <div className="course-header-section">
+                <div className="course-header-content">
+                    <h1>👨‍🏫 Mis Cursos de Inglés</h1>
+                    <p>Bienvenido de vuelta! Gestiona tus cursos de inglés.</p>
                 </div>
             </div>
 
-            <div className="professor-dashboard">
-                {/* Course Overview */}
-                <div className="course-overview">
-                    <h2>📚 Curso de Inglés - Gustavo Arteaga</h2>
-                    <div className="course-card-main">
+            {/* Courses Overview */}
+            <div className="courses-overview">
+                <h2>📚 Mis Cursos</h2>
+                <div className="courses-grid">
+                    {/* Curso de Gustavo */}
+                    <div className="course-card" onClick={() => openModal('gustavo-course')}>
                         <div className="course-header">
-                            <h3>Curso Personalizado de Inglés</h3>
-                            <span className="course-code">{course.code}</span>
-                        </div>
-                        <div className="course-details">
+                            <div className="course-icon">🎓</div>
                             <div className="course-info">
-                                <p><strong>Semestre:</strong> {course.semester}</p>
-                                <p><strong>Nivel:</strong> {course.level}</p>
-                                <p><strong>Estudiantes:</strong> {course.totalStudents}</p>
-                                <p><strong>Próxima Clase:</strong> {course.nextClass} a las {course.time}</p>
-                                <p><strong>Descripción:</strong> Curso personalizado enfocado en comunicación práctica y desarrollo de confianza en el idioma inglés.</p>
+                                <h3>Curso de Inglés - Gustavo Arteaga</h3>
+                                <p className="course-subtitle">Curso Personalizado</p>
+                            </div>
+                        </div>
+                        <div className="course-content-info">
+                            <div className="course-details">
+                                <p><strong>Estudiantes:</strong> 3 estudiantes</p>
+                                <p><strong>Duración:</strong> 5 semanas</p>
+                                <p><strong>Progreso:</strong> 33% completado</p>
                             </div>
                             <div className="course-progress">
-                                <div className="progress-label">
-                                    <span>Progreso del Curso</span>
-                                    <span>{course.progress}%</span>
+                                <div className="progress-indicator">
+                                    <span>Progreso del Curso: 33%</span>
+                                    <div className="progress-bar">
+                                        <div className="progress-fill" style={{width: '33%'}}></div>
+                                    </div>
                                 </div>
-                                <div className="progress-track">
-                                    <div 
-                                        className="progress-fill" 
-                                        style={{width: `${course.progress}%`}}
-                                    ></div>
+                            </div>
+                        </div>
+                        <div className="course-stats">
+                            <div className="stat-item">
+                                <span className="stat-label">Clases</span>
+                                <span className="stat-value">4/12</span>
+                            </div>
+                            <div className="stat-item">
+                                <span className="stat-label">Promedio</span>
+                                <span className="stat-value">87.5%</span>
+                            </div>
+                            <div className="stat-item">
+                                <span className="stat-label">Activos</span>
+                                <span className="stat-value">3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Curso de Fernanda */}
+                    <div className="course-card" onClick={() => alert('📚 Curso de Fernanda\n\nEste curso está en desarrollo.\nPróximamente disponible.')}>
+                        <div className="course-header">
+                            <div className="course-icon">👩‍🎓</div>
+                            <div className="course-info">
+                                <h3>Curso de Inglés - Fernanda</h3>
+                                <p className="course-subtitle">Curso Básico</p>
+                            </div>
+                        </div>
+                        <div className="course-content-info">
+                            <div className="course-details">
+                                <p><strong>Estudiantes:</strong> 1 estudiante</p>
+                                <p><strong>Duración:</strong> 4 semanas</p>
+                                <p><strong>Progreso:</strong> 0% completado</p>
+                            </div>
+                            <div className="course-progress">
+                                <div className="progress-indicator">
+                                    <span>Progreso del Curso: 0%</span>
+                                    <div className="progress-bar">
+                                        <div className="progress-fill" style={{width: '0%'}}></div>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="course-stats">
+                            <div className="stat-item">
+                                <span className="stat-label">Clases</span>
+                                <span className="stat-value">0/8</span>
+                            </div>
+                            <div className="stat-item">
+                                <span className="stat-label">Promedio</span>
+                                <span className="stat-value">-</span>
+                            </div>
+                            <div className="stat-item">
+                                <span className="stat-label">Activos</span>
+                                <span className="stat-value">1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Curso de Sebastián */}
+                    <div className="course-card" onClick={() => alert('📚 Curso de Sebastián\n\nEste curso está en desarrollo.\nPróximamente disponible.')}>
+                        <div className="course-header">
+                            <div className="course-icon">👨‍🎓</div>
+                            <div className="course-info">
+                                <h3>Curso de Inglés - Sebastián</h3>
+                                <p className="course-subtitle">Curso Intermedio</p>
+                            </div>
+                        </div>
+                        <div className="course-content-info">
+                            <div className="course-details">
+                                <p><strong>Estudiantes:</strong> 1 estudiante</p>
+                                <p><strong>Duración:</strong> 6 semanas</p>
+                                <p><strong>Progreso:</strong> 0% completado</p>
+                            </div>
+                            <div className="course-progress">
+                                <div className="progress-indicator">
+                                    <span>Progreso del Curso: 0%</span>
+                                    <div className="progress-bar">
+                                        <div className="progress-fill" style={{width: '0%'}}></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="course-stats">
+                            <div className="stat-item">
+                                <span className="stat-label">Clases</span>
+                                <span className="stat-value">0/10</span>
+                            </div>
+                            <div className="stat-item">
+                                <span className="stat-label">Promedio</span>
+                                <span className="stat-value">-</span>
+                            </div>
+                            <div className="stat-item">
+                                <span className="stat-label">Activos</span>
+                                <span className="stat-value">1</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {/* Statistics Overview */}
-                <div className="stats-overview">
-                    <h2>📊 Resumen del Curso</h2>
-                    <div className="stats-cards">
-                        <div className="stat-card" onClick={() => alert(`👥 Información de Estudiantes\n\nTotal: ${statistics.totalStudents} estudiantes\nActivos: ${statistics.activeStudents} estudiantes\nAsistencia promedio: ${statistics.averageAttendance}%`)}>
-                            <div className="stat-icon">👥</div>
-                            <div className="stat-info">
-                                <h3>{statistics.totalStudents}</h3>
-                                <p>Estudiantes</p>
-                            </div>
-                        </div>
-                        <div className="stat-card" onClick={() => alert(`📚 Progreso de Clases\n\nCompletadas: ${statistics.completedClasses} clases\nTotal: ${course.totalLessons} lecciones\nProgreso: ${course.progress}%`)}>
-                            <div className="stat-icon">📚</div>
-                            <div className="stat-info">
-                                <h3>{statistics.completedClasses}</h3>
-                                <p>Clases Completadas</p>
-                            </div>
-                        </div>
-                        <div className="stat-card" onClick={() => alert(`⭐ Rendimiento Académico\n\nPromedio general: ${statistics.averageGrade}%\nTareas calificadas: ${statistics.gradedAssignments}\nTareas pendientes: ${statistics.pendingGrading}`)}>
-                            <div className="stat-icon">⭐</div>
-                            <div className="stat-info">
-                                <h3>{statistics.averageGrade}</h3>
-                                <p>Promedio General</p>
-                            </div>
-                        </div>
-                        <div className="stat-card" onClick={() => alert(`📝 Tareas Pendientes\n\nPor calificar: ${statistics.pendingGrading} tareas\nTotal asignadas: ${statistics.totalAssignments} tareas\nCalificadas: ${statistics.gradedAssignments} tareas`)}>
-                            <div className="stat-icon">📝</div>
-                            <div className="stat-info">
-                                <h3>{statistics.pendingGrading}</h3>
-                                <p>Tareas por Calificar</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                {/* Students Management */}
-                <div className="students-section">
-                    <h2>👥 Mis Cursos de Inglés</h2>
-                    <div className="courses-grid">
-                        {students.map(student => (
-                            <div key={student.id} className="course-card" onClick={() => openModal('student', student)}>
-                                <div className="course-header">
-                                    <div className="student-avatar">
-                                        {student.name.charAt(0)}
-                                    </div>
-                                    <div className="course-title">
-                                        <h3>{student.course}</h3>
-                                        <p className="student-name">{student.name}</p>
-                                    </div>
-                                </div>
-                                <div className="course-info">
-                                    <div className="course-details">
-                                        <p><strong>Nivel:</strong> {student.level}</p>
-                                        <p><strong>Email:</strong> {student.email}</p>
-                                        <p><strong>Última Actividad:</strong> {student.lastActivity}</p>
-                                    </div>
-                                    <div className="course-progress">
-                                        <div className="progress-label">
-                                            <span>Progreso del Estudiante</span>
-                                            <span>{student.progress}%</span>
-                                        </div>
-                                        <div className="progress-track">
-                                            <div
-                                                className="progress-fill"
-                                                style={{width: `${student.progress}%`}}
-                                            ></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="course-stats">
-                                    <div className="stat-item">
-                                        <span className="stat-label">Progreso</span>
-                                        <span className="stat-value">{student.progress}%</span>
-                                    </div>
-                                    <div className="stat-item">
-                                        <span className="stat-label">Promedio</span>
-                                        <span className="stat-value">{student.averageGrade}%</span>
-                                    </div>
-                                    <div className="stat-item">
-                                        <span className="stat-label">Lecciones</span>
-                                        <span className="stat-value">{student.completedLessons}/{student.totalLessons}</span>
-                                    </div>
-                                </div>
-                                <div className="course-content">
-                                    <h4>📚 Contenido de la Clase</h4>
-                                    <div className="content-topics">
-                                        {student.currentTopics.map((topic, index) => (
-                                            <span key={index} className="content-tag">{topic}</span>
-                                        ))}
-                                    </div>
-                                    <p className="content-description">{student.classDescription}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+            </div>
 
                 {/* Upcoming Classes */}
                 <div className="upcoming-classes">
@@ -281,9 +273,79 @@ const ProfessorView = () => {
                         </button>
                     </div>
                 </div>
-            </div>
 
             {/* Modals */}
+            {activeModal === 'gustavo-course' && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="modal-content large" onClick={e => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>🎓 Curso de Inglés - Gustavo Arteaga</h3>
+                            <button className="close-btn" onClick={closeModal}>×</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="course-details-section">
+                                <h4>📚 Información del Curso</h4>
+                                <div className="course-info-grid">
+                                    <div className="info-item">
+                                        <span className="info-label">Duración:</span>
+                                        <span className="info-value">5 semanas</span>
+                                    </div>
+                                    <div className="info-item">
+                                        <span className="info-label">Lecciones:</span>
+                                        <span className="info-value">12 lecciones</span>
+                                    </div>
+                                    <div className="info-item">
+                                        <span className="info-label">Progreso:</span>
+                                        <span className="info-value">33% completado</span>
+                                    </div>
+                                    <div className="info-item">
+                                        <span className="info-label">Estudiantes:</span>
+                                        <span className="info-value">3 estudiantes</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="students-section">
+                                <h4>👥 Estudiantes del Curso</h4>
+                                <div className="students-grid">
+                                    {students.map(student => (
+                                        <div key={student.id} className="student-card" onClick={() => openModal('student', student)}>
+                                            <div className="student-header">
+                                                <div className="student-avatar">
+                                                    {student.name.charAt(0)}
+                                                </div>
+                                                <div className="student-info">
+                                                    <h5>{student.name}</h5>
+                                                    <p>{student.email}</p>
+                                                </div>
+                                            </div>
+                                            <div className="student-progress">
+                                                <div className="progress-item">
+                                                    <span>Progreso: {student.progress}%</span>
+                                                    <div className="progress-bar">
+                                                        <div className="progress-fill" style={{width: `${student.progress}%`}}></div>
+                                                    </div>
+                                                </div>
+                                                <div className="student-stats">
+                                                    <div className="stat">
+                                                        <span className="stat-label">Promedio</span>
+                                                        <span className="stat-value">{student.averageGrade}%</span>
+                                                    </div>
+                                                    <div className="stat">
+                                                        <span className="stat-label">Lecciones</span>
+                                                        <span className="stat-value">{student.completedLessons}/{student.totalLessons}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {activeModal === 'student' && selectedStudent && (
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content large" onClick={e => e.stopPropagation()}>

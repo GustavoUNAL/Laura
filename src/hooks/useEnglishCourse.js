@@ -117,6 +117,7 @@ export const useEnglishCourse = () => {
     return {
         courseData,
         currentLesson,
+        lessons: courseData.lessons,
         isLoading,
         completeLesson,
         submitAssignment,

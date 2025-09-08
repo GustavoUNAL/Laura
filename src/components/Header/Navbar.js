@@ -283,62 +283,36 @@ function Navbar() {
           alignItems: 'center',
           gap: '20px'
         }} className="desktop-social">
-          <div style={{
-            width: '36px',
-            height: '36px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'rgba(0, 191, 255, 0.2)',
-            borderRadius: '50%',
-            boxShadow: '0 0 10px rgba(0, 191, 255, 0.3)',
-            transition: 'all 0.3s ease',
-            cursor: 'pointer'
-          }} onMouseEnter={(e) => {
-            e.target.style.transform = 'scale(1.2) rotate(10deg)';
-            e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-            e.target.style.boxShadow = '0 0 20px rgba(255, 0, 255, 0.6)';
-          }} onMouseLeave={(e) => {
-            e.target.style.transform = 'scale(1) rotate(0deg)';
-            e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-            e.target.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
-          }}>
-            <span style={{
-              fontSize: '20px',
-              color: '#ffffff',
-              transition: 'all 0.3s ease'
-            }} onMouseEnter={(e) => {
-              e.target.style.color = '#ffffff';
-            }} onMouseLeave={(e) => {
-              e.target.style.color = '#ffffff';
-            }}>
-              📷
-            </span>
-          </div>
           <button onClick={handleEmailClick} style={{
             background: 'rgba(0, 191, 255, 0.2)',
             border: '2px solid rgba(0, 191, 255, 0.3)',
             borderRadius: '50%',
             cursor: 'pointer',
-            padding: '8px',
+            padding: '12px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             transition: 'all 0.3s ease',
-            boxShadow: '0 0 10px rgba(0, 191, 255, 0.3)'
+            boxShadow: '0 0 15px rgba(0, 191, 255, 0.3)',
+            width: '48px',
+            height: '48px'
+          }} onMouseEnter={(e) => {
+            e.target.style.background = 'rgba(255, 0, 255, 0.4)';
+            e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
+            e.target.style.transform = 'scale(1.1) rotate(5deg)';
+            e.target.style.boxShadow = '0 0 25px rgba(255, 0, 255, 0.6)';
+          }} onMouseLeave={(e) => {
+            e.target.style.background = 'rgba(0, 191, 255, 0.2)';
+            e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
+            e.target.style.transform = 'scale(1) rotate(0deg)';
+            e.target.style.boxShadow = '0 0 15px rgba(0, 191, 255, 0.3)';
           }}>
             <svg style={{
               width: '24px',
               height: '24px',
               color: '#ffffff',
               transition: 'all 0.3s ease'
-            }} viewBox="0 0 24 24" fill="currentColor" onMouseEnter={(e) => {
-              e.target.style.color = '#ffffff';
-              e.target.style.transform = 'scale(1.2)';
-            }} onMouseLeave={(e) => {
-              e.target.style.color = '#ffffff';
-              e.target.style.transform = 'scale(1)';
-            }}>
+            }} viewBox="0 0 24 24" fill="currentColor">
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
           </button>
@@ -349,13 +323,20 @@ function Navbar() {
             border: `2px solid ${isDarkMode ? 'rgba(255, 193, 7, 0.3)' : 'rgba(108, 117, 125, 0.3)'}`,
             borderRadius: '50%',
             cursor: 'pointer',
-            padding: '8px',
+            padding: '12px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             transition: 'all 0.3s ease',
-            boxShadow: isDarkMode ? '0 0 10px rgba(255, 193, 7, 0.3)' : '0 0 10px rgba(108, 117, 125, 0.3)',
-            marginLeft: '10px'
+            boxShadow: isDarkMode ? '0 0 15px rgba(255, 193, 7, 0.3)' : '0 0 15px rgba(108, 117, 125, 0.3)',
+            width: '48px',
+            height: '48px'
+          }} onMouseEnter={(e) => {
+            e.target.style.transform = 'scale(1.1) rotate(5deg)';
+            e.target.style.boxShadow = isDarkMode ? '0 0 25px rgba(255, 193, 7, 0.6)' : '0 0 25px rgba(108, 117, 125, 0.6)';
+          }} onMouseLeave={(e) => {
+            e.target.style.transform = 'scale(1) rotate(0deg)';
+            e.target.style.boxShadow = isDarkMode ? '0 0 15px rgba(255, 193, 7, 0.3)' : '0 0 15px rgba(108, 117, 125, 0.3)';
           }}>
             <span style={{
               fontSize: '20px',
@@ -365,28 +346,6 @@ function Navbar() {
               {isDarkMode ? '☀️' : '🌙'}
             </span>
           </button>
-          <a href="https://www.linkedin.com/in/laura-chaves-timaran/" target="_blank" rel="noopener noreferrer">
-            <img src={linkedin} alt="LinkedIn" style={{
-              width: '28px',
-              height: '28px',
-              filter: 'brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(200deg)',
-              transition: 'all 0.3s ease',
-              borderRadius: '50%',
-              padding: '4px',
-              background: 'rgba(0, 191, 255, 0.2)',
-              boxShadow: '0 0 10px rgba(0, 191, 255, 0.3)'
-            }} onMouseEnter={(e) => {
-              e.target.style.transform = 'scale(1.2) rotate(10deg)';
-              e.target.style.filter = 'brightness(0) invert(1) sepia(1) saturate(8) hue-rotate(280deg)';
-              e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-              e.target.style.boxShadow = '0 0 20px rgba(255, 0, 255, 0.6)';
-            }} onMouseLeave={(e) => {
-              e.target.style.transform = 'scale(1) rotate(0deg)';
-              e.target.style.filter = 'brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(200deg)';
-              e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-              e.target.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
-            }} />
-          </a>
         </div>
 
       </div>
@@ -780,106 +739,45 @@ function Navbar() {
           }}>
             <div style={{
               display: 'flex',
-              justifyContent: 'space-between',
-              gap: '12px'
+              justifyContent: 'center',
+              gap: '20px'
             }}>
-              <div style={{
-                flex: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: 'rgba(0, 191, 255, 0.2)',
-                border: '2px solid rgba(0, 191, 255, 0.3)',
-                borderRadius: '15px',
-                padding: '15px',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 0 10px rgba(0, 191, 255, 0.3)',
-                cursor: 'pointer'
-              }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-                e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
-                e.target.style.transform = 'translateY(-3px) scale(1.05)';
-                e.target.style.boxShadow = '0 8px 20px rgba(255, 0, 255, 0.3)';
-              }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-                e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-                e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
-              }}>
-                <span style={{
-                  fontSize: '24px',
-                  color: '#ffffff',
-                  transition: 'all 0.3s ease'
-                }} onMouseEnter={(e) => {
-                  e.target.style.color = '#ffffff';
-                }} onMouseLeave={(e) => {
-                  e.target.style.color = '#ffffff';
-                }}>
-                  📷
-                </span>
-              </div>
-              
               <button onClick={handleEmailClick} style={{
-                flex: 1,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 background: 'rgba(0, 191, 255, 0.2)',
                 border: '2px solid rgba(0, 191, 255, 0.3)',
-                borderRadius: '15px',
-                padding: '15px',
+                borderRadius: '20px',
+                padding: '20px 30px',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 0 10px rgba(0, 191, 255, 0.3)'
+                boxShadow: '0 0 15px rgba(0, 191, 255, 0.3)',
+                color: '#ffffff',
+                fontSize: '16px',
+                fontWeight: '500',
+                fontFamily: "'Orbitron', monospace",
+                gap: '10px'
               }} onMouseEnter={(e) => {
                 e.target.style.background = 'rgba(255, 0, 255, 0.4)';
                 e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
                 e.target.style.transform = 'translateY(-3px) scale(1.05)';
-                e.target.style.boxShadow = '0 8px 20px rgba(255, 0, 255, 0.3)';
+                e.target.style.boxShadow = '0 8px 25px rgba(255, 0, 255, 0.4)';
               }} onMouseLeave={(e) => {
                 e.target.style.background = 'rgba(0, 191, 255, 0.2)';
                 e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
                 e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
+                e.target.style.boxShadow = '0 0 15px rgba(0, 191, 255, 0.3)';
               }}>
                 <svg style={{
-                  width: '26px',
-                  height: '26px',
+                  width: '20px',
+                  height: '20px',
                   color: '#ffffff'
                 }} viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
+                <span>Contactar</span>
               </button>
-              
-              <a href="https://www.linkedin.com/in/laura-chaves-timaran/" target="_blank" rel="noopener noreferrer" style={{
-                flex: 1,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: 'rgba(0, 191, 255, 0.2)',
-                border: '2px solid rgba(0, 191, 255, 0.3)',
-                borderRadius: '15px',
-                padding: '15px',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 0 10px rgba(0, 191, 255, 0.3)'
-              }} onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(255, 0, 255, 0.4)';
-                e.target.style.borderColor = 'rgba(255, 0, 255, 0.6)';
-                e.target.style.transform = 'translateY(-3px) scale(1.05)';
-                e.target.style.boxShadow = '0 8px 20px rgba(255, 0, 255, 0.3)';
-              }} onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-                e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-                e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = '0 0 10px rgba(0, 191, 255, 0.3)';
-              }}>
-                <img src={linkedin} alt="LinkedIn" style={{
-                  width: '26px',
-                  height: '26px',
-                  filter: 'brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(200deg)'
-                }} />
-              </a>
             </div>
           </div>
         </div>
