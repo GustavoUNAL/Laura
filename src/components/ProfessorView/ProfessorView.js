@@ -190,32 +190,6 @@ const ProfessorView = () => {
                             <button className="close-btn" onClick={closeModal}>×</button>
                         </div>
                         <div className="modal-body">
-                            {/* Header Section */}
-                            <div className="course-header-section">
-                                <div className="course-header-content">
-                                    <h1>🎓 Mi Curso de Inglés</h1>
-                                    <p>Bienvenido de vuelta! Continúa tu aprendizaje del inglés.</p>
-                                    <div className="course-details">
-                                        <div className="course-detail-item">
-                                            <span className="detail-label">📅 Inicio del Curso</span>
-                                            <span className="detail-value">21 de Agosto, 2025</span>
-                                        </div>
-                                        <div className="course-detail-item">
-                                            <span className="detail-label">🏁 Fin del Curso</span>
-                                            <span className="detail-value">24 de Septiembre, 2025</span>
-                                        </div>
-                                        <div className="course-detail-item">
-                                            <span className="detail-label">⏱️ Duración</span>
-                                            <span className="detail-value">5 semanas</span>
-                                        </div>
-                                        <div className="course-detail-item">
-                                            <span className="detail-label">📚 Total de Lecciones</span>
-                                            <span className="detail-value">12 lecciones</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             {/* Progress Overview */}
                             <div className="progress-overview">
                                 <h2>📊 Mi Progreso en Inglés</h2>

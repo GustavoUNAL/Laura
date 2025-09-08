@@ -1,11 +1,9 @@
 .footer {
-  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-  color: #ffffff;
-  padding: 40px 0;
-  border-top: 1px solid rgba(0, 191, 255, 0.3);
-  margin-top: 80px;
-  position: relative;
-  overflow: hidden;
+  background: #f8f9fa;
+  color: #6c757d;
+  padding: 30px 0;
+  border-top: 1px solid #e9ecef;
+  margin-top: 60px;
   width: 100vw !important;
   min-width: 100vw !important;
   max-width: none !important;
@@ -13,16 +11,6 @@
   margin-right: 0;
   left: 0;
   transform: translateX(0);
-}
-
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.5), transparent);
 }
 
 .footer-content {
@@ -33,108 +21,40 @@
 }
 
 .footer-text {
-  color: #00BFFF;
-  font-size: 18px;
-  font-weight: 600;
+  color: #495057;
+  font-size: 16px;
+  font-weight: 500;
   margin: 0;
-  font-family: 'Orbitron', monospace;
-  text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
-  letter-spacing: 1px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.5px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .footer {
-    padding: 40px 0 30px;
-    margin-top: 60px;
+    padding: 25px 0;
+    margin-top: 50px;
   }
   
   .footer-content {
     padding: 0 20px;
   }
   
-  .footer-main {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-    margin-bottom: 30px;
-  }
-  
-  .footer-brand h3 {
-    font-size: 24px;
-  }
-  
-  .footer-brand p {
-    font-size: 14px;
-  }
-  
-  .contact-button {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
-  
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-    padding-top: 20px;
-  }
-  
-  .copyright {
-    font-size: 12px;
-  }
-  
-  .tech-stack {
-    font-size: 11px;
+  .footer-text {
+    font-size: 15px;
   }
 }
 
 @media (max-width: 500px) {
   .footer {
-    padding: 30px 0 20px;
+    padding: 20px 0;
   }
   
   .footer-content {
     padding: 0 15px;
   }
   
-  .footer-brand h3 {
-    font-size: 20px;
-  }
-  
-  .footer-brand p {
-    font-size: 12px;
-  }
-  
-  .contact-button {
-    padding: 10px 20px;
-    font-size: 13px;
-  }
-  
-  .copyright {
-    font-size: 11px;
-  }
-  
-  .tech-stack {
-    font-size: 10px;
-  }
-}
-
-/* Soporte para iPhone con notch */
-@supports (padding: max(0px)) {
-  .footer {
-    padding-left: max(20px, env(safe-area-inset-left) + 10px);
-    padding-right: max(20px, env(safe-area-inset-right) + 10px);
-  }
-}
-
-/* Mejoras para dispositivos táctiles */
-@media (hover: none) and (pointer: coarse) {
-  .contact-button:hover {
-    transform: none;
-  }
-  
-  .contact-button:active {
-    transform: scale(0.95);
+  .footer-text {
+    font-size: 14px;
   }
 }
