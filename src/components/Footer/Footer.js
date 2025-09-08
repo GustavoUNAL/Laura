@@ -27,7 +27,7 @@ function Footer() {
             <img src={linkedin} alt="LinkedIn" className="icons-footer" />
           </a>
         </div>
-        <p className="copyright">© Gustavo Arteaga, Colombia.</p>
+        <p className="copyright">Created by GRAP®</p>
       </div>
     </footer>
   );

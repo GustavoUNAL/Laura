@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useTheme } from '../../contexts/ThemeContext';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+// import { useTheme } from '../../contexts/ThemeContext'; // Comentado - no se usa
+import { useUser } from '../../contexts/UserContext';
+import { useDarkMode } from '../../contexts/DarkModeContext';
 import linkedin from '../../img/linkedin.png';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const { isDarkMode, toggleTheme } = useTheme();
+  const navigate = useNavigate();
+  // const { isDarkMode, toggleTheme } = useTheme(); // Comentado - no se usa
+  const { user, logout } = useUser();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -40,6 +45,23 @@ function Navbar() {
     const body = 'Hola Laura,\n\nMe gustaría contactarme contigo para discutir posibles oportunidades de colaboración o proyectos.\n\nSaludos cordiales.';
     const mailtoUrl = `mailto:laurachavez@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
+  };
+
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
+  const handleRoleNavigation = () => {
+    if (user?.role === 'student') {
+      navigate('/student');
+    } else if (user?.role === 'professor') {
+      navigate('/professor');
+    }
   };
 
   const toggleMobileMenu = () => {
@@ -167,6 +189,91 @@ function Navbar() {
           }}>
             🌐 Community
           </Link>
+          
+          {/* User-specific buttons - Comentado para acceso directo */}
+          {/* {user ? (
+            <>
+              <button onClick={handleRoleNavigation} style={{
+                color: '#ffffff',
+                textDecoration: 'none',
+                fontSize: '16px',
+                fontWeight: '500',
+                fontFamily: "'Orbitron', monospace",
+                padding: '10px 18px',
+                borderRadius: '20px',
+                transition: 'all 0.3s ease',
+                border: user.role === 'student' ? '2px solid rgba(0, 255, 136, 0.3)' : '2px solid rgba(255, 165, 0, 0.3)',
+                background: user.role === 'student' ? 'rgba(0, 255, 136, 0.1)' : 'rgba(255, 165, 0, 0.1)',
+                textShadow: user.role === 'student' ? '0 0 10px rgba(0, 255, 136, 0.5)' : '0 0 10px rgba(255, 165, 0, 0.5)',
+                cursor: 'pointer'
+              }} onMouseEnter={(e) => {
+                e.target.style.backgroundColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.2)' : 'rgba(255, 165, 0, 0.2)';
+                e.target.style.borderColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.6)' : 'rgba(255, 165, 0, 0.6)';
+                e.target.style.transform = 'scale(1.05)';
+                e.target.style.textShadow = user.role === 'student' ? '0 0 15px rgba(0, 255, 136, 0.8)' : '0 0 15px rgba(255, 165, 0, 0.8)';
+              }} onMouseLeave={(e) => {
+                e.target.style.backgroundColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.1)' : 'rgba(255, 165, 0, 0.1)';
+                e.target.style.borderColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.3)' : 'rgba(255, 165, 0, 0.3)';
+                e.target.style.transform = 'scale(1)';
+                e.target.style.textShadow = user.role === 'student' ? '0 0 10px rgba(0, 255, 136, 0.5)' : '0 0 10px rgba(255, 165, 0, 0.5)';
+              }}>
+                {user.role === 'student' ? '🎓 Dashboard' : '👨‍🏫 Dashboard'}
+              </button>
+              <button onClick={handleLogout} style={{
+                color: '#ffffff',
+                textDecoration: 'none',
+                fontSize: '16px',
+                fontWeight: '500',
+                fontFamily: "'Orbitron', monospace",
+                padding: '10px 18px',
+                borderRadius: '20px',
+                transition: 'all 0.3s ease',
+                border: '2px solid rgba(255, 0, 0, 0.3)',
+                background: 'rgba(255, 0, 0, 0.1)',
+                textShadow: '0 0 10px rgba(255, 0, 0, 0.5)',
+                cursor: 'pointer'
+              }} onMouseEnter={(e) => {
+                e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+                e.target.style.borderColor = 'rgba(255, 0, 0, 0.6)';
+                e.target.style.transform = 'scale(1.05)';
+                e.target.style.textShadow = '0 0 15px rgba(255, 0, 0, 0.8)';
+              }} onMouseLeave={(e) => {
+                e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
+                e.target.style.borderColor = 'rgba(255, 0, 0, 0.3)';
+                e.target.style.transform = 'scale(1)';
+                e.target.style.textShadow = '0 0 10px rgba(255, 0, 0, 0.5)';
+              }}>
+                🚪 Salir
+              </button>
+            </>
+          ) : (
+            <button onClick={handleLoginClick} style={{
+              color: '#ffffff',
+              textDecoration: 'none',
+              fontSize: '16px',
+              fontWeight: '500',
+              fontFamily: "'Orbitron', monospace",
+              padding: '10px 18px',
+              borderRadius: '20px',
+              transition: 'all 0.3s ease',
+              border: '2px solid rgba(0, 191, 255, 0.3)',
+              background: 'rgba(0, 191, 255, 0.1)',
+              textShadow: '0 0 10px rgba(0, 191, 255, 0.5)',
+              cursor: 'pointer'
+            }} onMouseEnter={(e) => {
+              e.target.style.backgroundColor = 'rgba(0, 191, 255, 0.2)';
+              e.target.style.borderColor = 'rgba(0, 191, 255, 0.6)';
+              e.target.style.transform = 'scale(1.05)';
+              e.target.style.textShadow = '0 0 15px rgba(0, 191, 255, 0.8)';
+            }} onMouseLeave={(e) => {
+              e.target.style.backgroundColor = 'rgba(0, 191, 255, 0.1)';
+              e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
+              e.target.style.transform = 'scale(1)';
+              e.target.style.textShadow = '0 0 10px rgba(0, 191, 255, 0.5)';
+            }}>
+              🔐 Iniciar Sesión
+            </button>
+          )} */}
         </div>
 
 
@@ -235,6 +342,29 @@ function Navbar() {
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
           </button>
+          
+          {/* Dark Mode Toggle */}
+          <button onClick={toggleDarkMode} style={{
+            background: isDarkMode ? 'rgba(255, 193, 7, 0.2)' : 'rgba(108, 117, 125, 0.2)',
+            border: `2px solid ${isDarkMode ? 'rgba(255, 193, 7, 0.3)' : 'rgba(108, 117, 125, 0.3)'}`,
+            borderRadius: '50%',
+            cursor: 'pointer',
+            padding: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.3s ease',
+            boxShadow: isDarkMode ? '0 0 10px rgba(255, 193, 7, 0.3)' : '0 0 10px rgba(108, 117, 125, 0.3)',
+            marginLeft: '10px'
+          }}>
+            <span style={{
+              fontSize: '20px',
+              color: isDarkMode ? '#ffc107' : '#6c757d',
+              transition: 'all 0.3s ease'
+            }}>
+              {isDarkMode ? '☀️' : '🌙'}
+            </span>
+          </button>
           <a href="https://www.linkedin.com/in/laura-chaves-timaran/" target="_blank" rel="noopener noreferrer">
             <img src={linkedin} alt="LinkedIn" style={{
               width: '28px',
@@ -267,13 +397,13 @@ function Navbar() {
         style={{
           display: 'flex',
           position: 'fixed',
-          top: '15px',
-          right: '15px',
-          background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.9))',
-          border: '2px solid rgba(0, 191, 255, 0.7)',
-          borderRadius: '18px',
-          width: '70px',
-          height: '55px',
+          top: '20px',
+          right: '20px',
+          background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.95))',
+          border: '2px solid rgba(255, 255, 255, 0.3)',
+          borderRadius: '20px',
+          width: '60px',
+          height: '60px',
           cursor: 'pointer',
           alignItems: 'center',
           justifyContent: 'center',
@@ -283,28 +413,27 @@ function Navbar() {
           WebkitTouchCallout: 'none',
           WebkitUserSelect: 'none',
           userSelect: 'none',
-          boxShadow: '0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 191, 255, 0.4)',
-          backdropFilter: 'blur(25px)',
-          WebkitBackdropFilter: 'blur(25px)',
-          position: 'relative',
+          boxShadow: '0 8px 25px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(30px)',
+          WebkitBackdropFilter: 'blur(30px)',
           overflow: 'hidden'
         }} className="mobile-hamburger-global"
         onMouseEnter={(e) => {
-          e.target.style.background = 'linear-gradient(135deg, rgba(0, 191, 255, 0.25), rgba(255, 0, 255, 0.25))';
-          e.target.style.borderColor = 'rgba(255, 0, 255, 0.9)';
-          e.target.style.transform = 'scale(1.1) translateY(-4px)';
-          e.target.style.boxShadow = '0 15px 35px rgba(0, 191, 255, 0.5), 0 0 25px rgba(255, 0, 255, 0.7)';
+          e.target.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))';
+          e.target.style.borderColor = 'rgba(255, 255, 255, 0.6)';
+          e.target.style.transform = 'scale(1.05) translateY(-2px)';
+          e.target.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.2)';
         }} onMouseLeave={(e) => {
-          e.target.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.9))';
-          e.target.style.borderColor = 'rgba(0, 191, 255, 0.7)';
+          e.target.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.95))';
+          e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
           e.target.style.transform = 'scale(1) translateY(0)';
-          e.target.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 191, 255, 0.4)';
+          e.target.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.1)';
         }}>
         
         {/* Menu Icon */}
         <div style={{
-          width: '26px',
-          height: '20px',
+          width: '28px',
+          height: '22px',
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
@@ -313,34 +442,31 @@ function Navbar() {
           <span style={{
             width: '100%',
             height: '3px',
-            background: 'var(--bg-secondary)',
-            borderRadius: '2px',
+            background: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '3px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-            transform: isMobileMenuOpen ? 'rotate(45deg) translate(7px, 7px)' : 'none',
+            transform: isMobileMenuOpen ? 'rotate(45deg) translate(8px, 8px)' : 'none',
             transformOrigin: 'center',
-            boxShadow: '0 0 12px rgba(0, 191, 255, 0.8)',
-            filter: 'drop-shadow(0 0 5px rgba(255, 0, 255, 0.6))'
+            boxShadow: '0 0 8px rgba(255, 255, 255, 0.3)'
           }}></span>
           <span style={{
             width: '100%',
             height: '3px',
-            background: isMobileMenuOpen ? 'transparent' : 'var(--bg-secondary)',
-            borderRadius: '2px',
+            background: isMobileMenuOpen ? 'transparent' : 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '3px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
             opacity: isMobileMenuOpen ? 0 : 1,
-            boxShadow: isMobileMenuOpen ? 'none' : '0 0 12px rgba(0, 191, 255, 0.8)',
-            filter: isMobileMenuOpen ? 'none' : 'drop-shadow(0 0 5px rgba(255, 0, 255, 0.6))'
+            boxShadow: isMobileMenuOpen ? 'none' : '0 0 8px rgba(255, 255, 255, 0.3)'
           }}></span>
           <span style={{
             width: '100%',
             height: '3px',
-            background: 'var(--bg-secondary)',
-            borderRadius: '2px',
+            background: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: '3px',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-            transform: isMobileMenuOpen ? 'rotate(-45deg) translate(7px, -7px)' : 'none',
+            transform: isMobileMenuOpen ? 'rotate(-45deg) translate(8px, -8px)' : 'none',
             transformOrigin: 'center',
-            boxShadow: '0 0 12px rgba(0, 191, 255, 0.8)',
-            filter: 'drop-shadow(0 0 5px rgba(255, 0, 255, 0.6))'
+            boxShadow: '0 0 8px rgba(255, 255, 255, 0.3)'
           }}></span>
         </div>
       </button>
@@ -509,6 +635,140 @@ function Navbar() {
               <span>🌐 Community</span>
               <span style={{color: 'rgba(0, 191, 255, 0.8)', fontSize: '20px'}}>⚡</span>
             </Link>
+            {/* User-specific mobile buttons - Comentado para acceso directo */}
+            {/* {user ? (
+              <>
+                <button 
+                  onClick={() => {
+                    handleRoleNavigation();
+                    closeMobileMenu();
+                  }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '20px 25px',
+                    background: user.role === 'student' ? 'rgba(0, 255, 136, 0.2)' : 'rgba(255, 165, 0, 0.2)',
+                    border: user.role === 'student' ? '2px solid rgba(0, 255, 136, 0.3)' : '2px solid rgba(255, 165, 0, 0.3)',
+                    borderRadius: '20px',
+                    textDecoration: 'none',
+                    color: '#ffffff',
+                    fontSize: '18px',
+                    fontWeight: '500',
+                    fontFamily: "'Orbitron', monospace",
+                    transition: 'all 0.3s ease',
+                    textShadow: user.role === 'student' ? '0 0 10px rgba(0, 255, 136, 0.5)' : '0 0 10px rgba(255, 165, 0, 0.5)',
+                    cursor: 'pointer',
+                    width: '100%'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = user.role === 'student' ? 'rgba(0, 255, 136, 0.4)' : 'rgba(255, 165, 0, 0.4)';
+                    e.target.style.borderColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.6)' : 'rgba(255, 165, 0, 0.6)';
+                    e.target.style.color = '#ffffff';
+                    e.target.style.transform = 'translateX(5px) scale(1.02)';
+                    e.target.style.boxShadow = user.role === 'student' ? '0 8px 25px rgba(0, 255, 136, 0.3)' : '0 8px 25px rgba(255, 165, 0, 0.3)';
+                    e.target.style.textShadow = user.role === 'student' ? '0 0 15px rgba(0, 255, 136, 0.8)' : '0 0 15px rgba(255, 165, 0, 0.8)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = user.role === 'student' ? 'rgba(0, 255, 136, 0.2)' : 'rgba(255, 165, 0, 0.2)';
+                    e.target.style.borderColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.3)' : 'rgba(255, 165, 0, 0.3)';
+                    e.target.style.color = '#ffffff';
+                    e.target.style.transform = 'translateX(0) scale(1)';
+                    e.target.style.boxShadow = 'none';
+                    e.target.style.textShadow = user.role === 'student' ? '0 0 10px rgba(0, 255, 136, 0.5)' : '0 0 10px rgba(255, 165, 0, 0.5)';
+                  }}>
+                  <span>{user.role === 'student' ? '🎓 Dashboard' : '👨‍🏫 Dashboard'}</span>
+                  <span style={{color: user.role === 'student' ? 'rgba(0, 255, 136, 0.8)' : 'rgba(255, 165, 0, 0.8)', fontSize: '20px'}}>
+                    {user.role === 'student' ? '📚' : '📊'}
+                  </span>
+                </button>
+                <button 
+                  onClick={() => {
+                    handleLogout();
+                    closeMobileMenu();
+                  }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '20px 25px',
+                    background: 'rgba(255, 0, 0, 0.2)',
+                    border: '2px solid rgba(255, 0, 0, 0.3)',
+                    borderRadius: '20px',
+                    textDecoration: 'none',
+                    color: '#ffffff',
+                    fontSize: '18px',
+                    fontWeight: '500',
+                    fontFamily: "'Orbitron', monospace",
+                    transition: 'all 0.3s ease',
+                    textShadow: '0 0 10px rgba(255, 0, 0, 0.5)',
+                    cursor: 'pointer',
+                    width: '100%'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(255, 0, 0, 0.4)';
+                    e.target.style.borderColor = 'rgba(255, 0, 0, 0.6)';
+                    e.target.style.color = '#ffffff';
+                    e.target.style.transform = 'translateX(5px) scale(1.02)';
+                    e.target.style.boxShadow = '0 8px 25px rgba(255, 0, 0, 0.3)';
+                    e.target.style.textShadow = '0 0 15px rgba(255, 0, 0, 0.8)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(255, 0, 0, 0.2)';
+                    e.target.style.borderColor = 'rgba(255, 0, 0, 0.3)';
+                    e.target.style.color = '#ffffff';
+                    e.target.style.transform = 'translateX(0) scale(1)';
+                    e.target.style.boxShadow = 'none';
+                    e.target.style.textShadow = '0 0 10px rgba(255, 0, 0, 0.5)';
+                  }}>
+                  <span>🚪 Salir</span>
+                  <span style={{color: 'rgba(255, 0, 0, 0.8)', fontSize: '20px'}}>❌</span>
+                </button>
+              </>
+            ) : (
+              <button 
+                onClick={() => {
+                  handleLoginClick();
+                  closeMobileMenu();
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '20px 25px',
+                  background: 'rgba(0, 191, 255, 0.2)',
+                  border: '2px solid rgba(0, 191, 255, 0.3)',
+                  borderRadius: '20px',
+                  textDecoration: 'none',
+                  color: '#ffffff',
+                  fontSize: '18px',
+                  fontWeight: '500',
+                  fontFamily: "'Orbitron', monospace",
+                  transition: 'all 0.3s ease',
+                  textShadow: '0 0 10px rgba(0, 191, 255, 0.5)',
+                  cursor: 'pointer',
+                  width: '100%'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(0, 191, 255, 0.4)';
+                  e.target.style.borderColor = 'rgba(0, 191, 255, 0.6)';
+                  e.target.style.color = '#ffffff';
+                  e.target.style.transform = 'translateX(5px) scale(1.02)';
+                  e.target.style.boxShadow = '0 8px 25px rgba(0, 191, 255, 0.3)';
+                  e.target.style.textShadow = '0 0 15px rgba(0, 191, 255, 0.8)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(0, 191, 255, 0.2)';
+                  e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
+                  e.target.style.color = '#ffffff';
+                  e.target.style.transform = 'translateX(0) scale(1)';
+                  e.target.style.boxShadow = 'none';
+                  e.target.style.textShadow = '0 0 10px rgba(0, 191, 255, 0.5)';
+                }}>
+                <span>🔐 Iniciar Sesión</span>
+                <span style={{color: 'rgba(0, 191, 255, 0.8)', fontSize: '20px'}}>🔑</span>
+              </button>
+            )} */}
           </div>
 
 

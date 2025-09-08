@@ -1,5 +1,5 @@
 /* 
- * Layout Styles - Estilos para ocupar todo el ancho de pantalla
+ * Layout Styles - Estilos para ocupar todo el ancho de pantalla - Dark Mode
  * Asegura que navbar, mainlayout y footer ocupen correctamente el ancho completo
  */
 
@@ -16,6 +16,8 @@
     position: relative !important;
     left: 0 !important;
     right: 0 !important;
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
 }
 
 /* Navbar específico */

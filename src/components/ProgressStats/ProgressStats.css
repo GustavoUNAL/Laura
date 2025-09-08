@@ -1,0 +1,296 @@
+.progress-stats {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress-stats h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.overall-progress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.progress-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(var(--text-secondary) 0deg 234deg, var(--border-primary) 234deg 360deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.progress-circle::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: var(--bg-card);
+    border-radius: 50%;
+}
+
+.progress-percentage {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    z-index: 1;
+}
+
+.progress-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    z-index: 1;
+    margin-top: 5px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    background: var(--bg-hover);
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.stat-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+.stat-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.stat-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.stat-numbers {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.stat-percentage {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--border-primary);
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--text-secondary);
+    transition: width 0.3s ease;
+}
+
+.grades-section {
+    margin-bottom: 25px;
+}
+
+.grades-section h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+}
+
+.grades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.grade-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.grade-item:hover {
+    background: var(--bg-hover);
+}
+
+.grade-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.grade-value {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+}
+
+.grade-value.excellent {
+    color: var(--accent-green);
+}
+
+.grade-value.good {
+    color: var(--accent-blue);
+}
+
+.grade-value.average {
+    color: var(--accent-orange);
+}
+
+.grade-value.poor {
+    color: var(--accent-red);
+}
+
+.recent-activities h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+}
+
+.activities-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background: var(--bg-hover);
+}
+
+.activity-icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.activity-date {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.activity-grade {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 0;
+}
+
+.activity-grade.excellent {
+    color: var(--accent-green);
+    background: rgba(129, 199, 132, 0.1);
+    border: 1px solid var(--accent-green);
+}
+
+.activity-grade.good {
+    color: var(--accent-blue);
+    background: rgba(100, 181, 246, 0.1);
+    border: 1px solid var(--accent-blue);
+}
+
+.activity-grade.average {
+    color: var(--accent-orange);
+    background: rgba(255, 183, 77, 0.1);
+    border: 1px solid var(--accent-orange);
+}
+
+.activity-grade.poor {
+    color: var(--accent-red);
+    background: rgba(229, 115, 115, 0.1);
+    border: 1px solid var(--accent-red);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .grades-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-circle::before {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .progress-percentage {
+        font-size: 1.2rem;
+    }
+}

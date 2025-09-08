@@ -87,51 +87,141 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    animation: skillAppear 0.8s ease-out forwards;
 }
 
 .icon-bg {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     background: var(--bg-card);
-    border: 1px solid var(--border-primary);
-    border-radius: 12px;
+    border: 2px solid var(--border-primary);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px var(--shadow-primary);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px var(--shadow-primary);
 }
 
 .icon-bg::before {
-    display: none;
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.skill-icon:hover .icon-bg::before {
+    opacity: 1;
+    animation: shine 0.6s ease-in-out;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 .skill-icon:hover .icon-bg {
-    background: var(--accent-blue);
+    background: var(--text-secondary);
+    color: var(--bg-primary);
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-color: var(--text-primary);
+}
+
+.skill-icon:hover .skill-name {
     color: var(--text-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(100, 181, 246, 0.3);
 }
 
 .icon {
-    font-size: 32px;
+    font-size: 40px;
     position: relative;
     z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .skill-name {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--text-secondary);
     text-align: center;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Animations removed for minimal design */
+/* Beautiful Animations */
+@keyframes skillAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8) rotate(-10deg);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.05) rotate(2deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+}
+
+@keyframes skillFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes skillPulse {
+    0%, 100% {
+        box-shadow: 0 2px 8px var(--shadow-primary);
+    }
+    50% {
+        box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Add floating animation to icons after they appear */
+.skill-icon:nth-child(1) {
+    animation: skillAppear 0.8s ease-out forwards, skillFloat 3s ease-in-out 1.5s infinite;
+}
+
+.skill-icon:nth-child(2) {
+    animation: skillAppear 0.8s ease-out 0.2s forwards, skillFloat 3s ease-in-out 1.7s infinite;
+}
+
+.skill-icon:nth-child(3) {
+    animation: skillAppear 0.8s ease-out 0.4s forwards, skillFloat 3s ease-in-out 1.9s infinite;
+}
+
+.skill-icon:nth-child(4) {
+    animation: skillAppear 0.8s ease-out 0.6s forwards, skillFloat 3s ease-in-out 2.1s infinite;
+}
+
+.skill-icon:nth-child(5) {
+    animation: skillAppear 0.8s ease-out 0.8s forwards, skillFloat 3s ease-in-out 2.3s infinite;
+}
+
+.skill-icon:nth-child(6) {
+    animation: skillAppear 0.8s ease-out 1s forwards, skillFloat 3s ease-in-out 2.5s infinite;
+}
 
 /* Responsive Skills */
 @media (max-width: 768px) {
@@ -146,16 +236,45 @@
     }
     
     .icon-bg {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
     }
     
     .icon {
-        font-size: 28px;
+        font-size: 32px;
     }
     
     .skill-name {
-        font-size: 12px;
+        font-size: 14px;
+    }
+    
+    /* Maintain animations on mobile */
+    .skill-icon {
+        animation: skillAppear 0.6s ease-out forwards, skillFloat 4s ease-in-out 2s infinite;
+    }
+    
+    .skill-icon:nth-child(1) {
+        animation: skillAppear 0.6s ease-out forwards, skillFloat 4s ease-in-out 2s infinite;
+    }
+    
+    .skill-icon:nth-child(2) {
+        animation: skillAppear 0.6s ease-out 0.1s forwards, skillFloat 4s ease-in-out 2.2s infinite;
+    }
+    
+    .skill-icon:nth-child(3) {
+        animation: skillAppear 0.6s ease-out 0.2s forwards, skillFloat 4s ease-in-out 2.4s infinite;
+    }
+    
+    .skill-icon:nth-child(4) {
+        animation: skillAppear 0.6s ease-out 0.3s forwards, skillFloat 4s ease-in-out 2.6s infinite;
+    }
+    
+    .skill-icon:nth-child(5) {
+        animation: skillAppear 0.6s ease-out 0.4s forwards, skillFloat 4s ease-in-out 2.8s infinite;
+    }
+    
+    .skill-icon:nth-child(6) {
+        animation: skillAppear 0.6s ease-out 0.5s forwards, skillFloat 4s ease-in-out 3s infinite;
     }
 }
 

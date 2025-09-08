@@ -73,8 +73,9 @@ body {
 }
 
 .professional-card:hover {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+  border-color: var(--text-secondary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
 }
 
 .professional-title {
@@ -113,8 +114,9 @@ body {
 }
 
 .professional-button:hover {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+  border-color: var(--text-secondary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
 }
 
 /* Animations - Disabled for minimal design */

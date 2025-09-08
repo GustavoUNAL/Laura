@@ -4,7 +4,7 @@ import './About.css';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { useTheme } from '../../contexts/ThemeContext';
-import profile3 from '../../img/profile3.jpeg';
+// import profile3 from '../../img/profile3.jpeg'; // Unused
 
 function About() {
     const { isDarkMode } = useTheme();

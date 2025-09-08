@@ -1,4 +1,4 @@
-/* Home Layout Specific Styles - MacBook Air M1 Optimized */
+/* Home Layout Specific Styles - MacBook Air M1 Optimized - Dark Mode */
 
 /* Ensure all home sections have proper width constraints */
 .featured-projects,
@@ -11,6 +11,8 @@
     left: 0 !important;
     right: 0 !important;
     margin: 0 !important;
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
 }
 
 /* Fix any potential overflow issues */

@@ -1,6 +1,6 @@
-# Portafolio Personal - Gustavo Arteaga
+# Portafolio Laura - Sistema de Gestión de Usuarios
 
-Portafolio profesional desarrollado en React con una arquitectura modular y componentes reutilizables.
+Portafolio profesional desarrollado en React con sistema de gestión de usuarios que permite acceso diferenciado para estudiantes y profesores. Arquitectura modular y componentes reutilizables.
 
 ## 🏗️ Estructura del Proyecto
 
@@ -89,10 +89,18 @@ Portafolio profesional desarrollado en React con una arquitectura modular y comp
 
 ## 🚀 Funcionalidades
 
+### **Sistema de Usuarios** 🆕
+- **Vistas Diferenciadas**: Selector entre Vista de Estudiante y Vista de Profesor
+- **Acceso Directo**: Sin necesidad de login para demo
+- **Dashboards Especializados**: Interfaces específicas para cada rol
+- **Navegación Dinámica**: Menú adaptado según el rol del usuario
+- **Rutas Protegidas**: Acceso controlado a dashboards específicos
+
 ### **Navegación**
 - Header fijo con navegación suave
 - Menú responsive para móviles
 - Enlaces a todas las secciones
+- Botones dinámicos según estado de usuario
 
 ### **Proyectos**
 - Categorización automática
@@ -101,9 +109,10 @@ Portafolio profesional desarrollado en React con una arquitectura modular y comp
 - Grid responsive de tarjetas
 - Imágenes únicas generadas por tarjeta (SVG temáticos, colores en armonía con el tema)
 
-### **Comunidad**
-- Página `/community` con formulario de login (usuario/contraseña)
-- Avatar genérico SVG y tarjeta compacta, centrada y coherente con la paleta
+### **Dashboards Especializados**
+- **Dashboard Estudiante**: Acceso a recursos de aprendizaje
+- **Dashboard Profesor**: Herramientas de gestión académica
+- **Protección de Rutas**: Redirección automática si no está autenticado
 
 ### **Experiencia**
 - Métricas destacadas
@@ -125,6 +134,8 @@ Portafolio profesional desarrollado en React con una arquitectura modular y comp
 src/
 ├── components/           # Componentes reutilizables
 │   ├── Header/          # Navegación
+│   ├── UserSelection/   # Selección de rol de usuario 🆕
+│   ├── ProtectedRoute/  # Rutas protegidas 🆕
 │   ├── HomeAbout/       # Sección principal
 │   ├── FeaturedProjects/ # Proyectos destacados
 │   ├── Background/      # Experiencia
@@ -137,7 +148,12 @@ src/
 ├── containers/           # Páginas completas
 │   ├── HomePage/        # Página principal
 │   ├── AboutPage/       # Acerca de
-│   └── ProjectsPage/    # Proyectos
+│   ├── ProjectsPage/    # Proyectos
+│   ├── StudentPage/     # Dashboard estudiante 🆕
+│   └── ProfessorPage/   # Dashboard profesor 🆕
+├── contexts/            # Contextos de React 🆕
+│   ├── UserContext.js   # Gestión de usuarios
+│   └── ThemeContext.js  # Gestión de temas
 ├── img/                 # Imágenes estáticas
 └── index.js             # Punto de entrada
 ```
@@ -171,6 +187,14 @@ src/
 
 ## 📝 Notas de Implementación Reciente
 
+### **Sistema de Usuarios** 🆕
+- **Vistas Diferenciadas**: Selector entre Vista de Estudiante y Vista de Profesor
+- **Acceso Directo**: Sin necesidad de login para demo
+- **Dashboards Especializados**: Interfaces específicas para cada rol
+- **Navegación Dinámica**: Menú adaptado según el rol del usuario
+- **Optimización**: Eliminadas 87 dependencias innecesarias para mejor rendimiento
+
+### **Mejoras Anteriores**
 - Generador SVG por proyecto: ahora cada tarjeta tiene una imagen distinta basada en su contenido (paleta y iconografía temáticas), mejor integrada al esquema de color general.
 - Comunidad: nueva vista de login en `/community`, con tarjeta reducida al 50% de ancho (responsive), avatar genérico SVG y estilos consistentes con el tema.
 
