@@ -50,7 +50,7 @@ const VirtualClass = ({ classData, onClose }) => {
                     </div>
 
                     {/* Google Docs Section */}
-                    <div className={`notes-section ${isNotesExpanded ? 'expanded' : ''}`}>
+                    <div className="notes-section">
                         <div className="google-docs-container">
                             <iframe
                                 src="https://docs.google.com/document/d/1vQnjfqr56yD5Kfc1lRAMj_VROvqVqPGayIdoczUARkg/edit?usp=sharing&embedded=true"
