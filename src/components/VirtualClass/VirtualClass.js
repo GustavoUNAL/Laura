@@ -16,7 +16,21 @@ const VirtualClass = ({ classData, onClose }) => {
         if (savedNotes) {
             setNotes(savedNotes);
         }
-    }, [classData?.id]);
+
+        // Add escape key listener
+        const handleEscape = (event) => {
+            if (event.key === 'Escape') {
+                onClose();
+            }
+        };
+
+        document.addEventListener('keydown', handleEscape);
+        
+        // Cleanup
+        return () => {
+            document.removeEventListener('keydown', handleEscape);
+        };
+    }, [classData?.id, onClose]);
 
     const saveNotes = () => {
         localStorage.setItem(`class_notes_${classData?.id}`, notes);
@@ -62,6 +76,9 @@ const VirtualClass = ({ classData, onClose }) => {
                         <button className="btn-secondary" onClick={openGoogleDocs}>
                             📄 Open Google Docs
                         </button>
+                        <div className="escape-hint">
+                            <span>Press <kbd>ESC</kbd> to exit</span>
+                        </div>
                         <button className="btn-close" onClick={onClose}>
                             ✕ Close Class
                         </button>
