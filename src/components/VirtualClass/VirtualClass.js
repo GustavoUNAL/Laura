@@ -8,7 +8,7 @@ const VirtualClass = ({ classData, onClose }) => {
     const [isScreenSharing, setIsScreenSharing] = useState(false);
     const [notes, setNotes] = useState('');
     const [isNotesExpanded, setIsNotesExpanded] = useState(false);
-    const [isVideoExpanded, setIsVideoExpanded] = useState(false);
+    const [isVideoExpanded, setIsVideoExpanded] = useState(true);
 
     useEffect(() => {
         // Load saved notes from localStorage
@@ -79,13 +79,13 @@ const VirtualClass = ({ classData, onClose }) => {
                     ✕
                 </button>
                 
-                {/* Floating Save Notes Button */}
-                <button className="floating-save-btn" onClick={saveNotes} title="Save Notes">
-                    💾
+                {/* Floating Toggle Button */}
+                <button className="floating-toggle-btn" onClick={() => setIsVideoExpanded(!isVideoExpanded)} title="Toggle Video Size">
+                    {isVideoExpanded ? '📉' : '📈'}
                 </button>
                 
                 {/* Main Content Area */}
-                <div className="virtual-class-main">
+                <div className={`virtual-class-main ${isVideoExpanded ? 'video-fullscreen' : ''}`}>
                     {/* Video Section */}
                     <div className={`video-section ${isVideoExpanded ? 'expanded' : ''}`}>
                         <div className="video-container">

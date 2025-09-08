@@ -142,7 +142,7 @@ body.virtual-class-active {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-.floating-save-btn {
+.floating-toggle-btn {
     position: fixed;
     top: 20px;
     right: 80px;
@@ -159,7 +159,7 @@ body.virtual-class-active {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.floating-save-btn:hover {
+.floating-toggle-btn:hover {
     background: rgba(52, 152, 219, 1);
     transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
@@ -188,6 +188,18 @@ body.virtual-class-active {
 
 .video-section.expanded {
     grid-column: 1 / -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: #000;
+}
+
+/* Hide Google Docs when video is expanded */
+.virtual-class-main.video-fullscreen .notes-section {
+    display: none;
 }
 
 .video-header {
@@ -538,7 +550,7 @@ body.virtual-class-active {
         font-size: 1.3rem;
     }
     
-    .floating-save-btn {
+    .floating-toggle-btn {
         top: 15px;
         right: 70px;
         width: 45px;
