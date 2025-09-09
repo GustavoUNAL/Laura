@@ -28,10 +28,10 @@ function Community() {
                     window.location.href = '/professor';
                 }
             } else {
-                setError(result.message || 'Credenciales inválidas');
+                setError(result.message || 'Invalid credentials');
             }
         } catch (err) {
-            setError('Error al iniciar sesión. Inténtalo de nuevo.');
+            setError('Error signing in. Please try again.');
         } finally {
             setIsLoading(false);
         }
@@ -44,30 +44,30 @@ function Community() {
                 {/* Login Form */}
                 <div className="view-selector">
                     <div className="selector-container">
-                        <h1>🌟 Portal de la Comunidad</h1>
-                        <p>Inicia sesión para acceder al portal</p>
+                        <h1>🌟 Community Portal</h1>
+                        <p>Sign in to access the portal</p>
                         
                         <form onSubmit={handleLogin} className="login-form">
                             <div className="form-group">
-                                <label htmlFor="username">Usuario:</label>
+                                <label htmlFor="username">Username:</label>
                                 <input
                                     type="text"
                                     id="username"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
-                                    placeholder="Ingresa tu usuario"
+                                    placeholder="Enter your username"
                                     required
                                 />
                             </div>
                             
                             <div className="form-group">
-                                <label htmlFor="password">Contraseña:</label>
+                                <label htmlFor="password">Password:</label>
                                 <input
                                     type="password"
                                     id="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    placeholder="Ingresa tu contraseña"
+                                    placeholder="Enter your password"
                                     required
                                 />
                             </div>
@@ -83,22 +83,22 @@ function Community() {
                                 className="login-btn"
                                 disabled={isLoading}
                             >
-                                {isLoading ? 'Iniciando sesión...' : '🔐 Iniciar Sesión'}
+                                {isLoading ? 'Signing in...' : '🔐 Sign In'}
                             </button>
                         </form>
                         
                         <div className="demo-credentials">
-                            <h3>Credenciales de Prueba:</h3>
+                            <h3>Demo Credentials:</h3>
                             <div className="credentials-grid">
                                 <div className="credential-item">
-                                    <strong>Estudiante:</strong>
-                                    <p>Usuario: <code>estudiante</code></p>
-                                    <p>Contraseña: <code>123456</code></p>
+                                    <strong>Student:</strong>
+                                    <p>Username: <code>student</code></p>
+                                    <p>Password: <code>student123</code></p>
                                 </div>
                                 <div className="credential-item">
-                                    <strong>Profesor:</strong>
-                                    <p>Usuario: <code>profesor</code></p>
-                                    <p>Contraseña: <code>123456</code></p>
+                                    <strong>Professor:</strong>
+                                    <p>Username: <code>professor</code></p>
+                                    <p>Password: <code>professor123</code></p>
                                 </div>
                             </div>
                         </div>

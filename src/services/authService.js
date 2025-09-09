@@ -4,25 +4,25 @@
 // Mock user database (in production, this would be an API)
 const USERS_DATABASE = {
   // Students
-  'gustavo': {
-    id: 'student_gustavo',
-    username: 'gustavo',
-    password: '123456',
+  'student': {
+    id: 'student_001',
+    username: 'student',
+    password: 'student123',
     role: 'student',
-    name: 'Gustavo Arteaga',
-    email: 'gustavo@example.com',
+    name: 'John Student',
+    email: 'student@example.com',
     avatar: '👨‍🎓',
     course: 'English Course',
     lastLogin: null,
     isActive: true
   },
-  'maria': {
-    id: 'student_maria',
-    username: 'maria',
-    password: 'student123',
+  'alex': {
+    id: 'student_alex',
+    username: 'alex',
+    password: 'alex2024',
     role: 'student',
-    name: 'María González',
-    email: 'maria@example.com',
+    name: 'Alex Johnson',
+    email: 'alex@example.com',
     avatar: '👩‍🎓',
     course: 'English Course',
     lastLogin: null,
@@ -30,25 +30,25 @@ const USERS_DATABASE = {
   },
   
   // Professors
-  'laura': {
-    id: 'professor_laura',
-    username: 'laura',
-    password: 'prof123',
+  'professor': {
+    id: 'professor_001',
+    username: 'professor',
+    password: 'professor123',
     role: 'professor',
-    name: 'Laura Chaves',
-    email: 'laura@example.com',
+    name: 'Dr. Laura Chaves',
+    email: 'professor@example.com',
     avatar: '👨‍🏫',
     department: 'English Department',
     lastLogin: null,
     isActive: true
   },
-  'carlos': {
-    id: 'professor_carlos',
-    username: 'carlos',
-    password: 'teacher456',
+  'teacher': {
+    id: 'professor_teacher',
+    username: 'teacher',
+    password: 'teacher2024',
     role: 'professor',
-    name: 'Carlos Rodríguez',
-    email: 'carlos@example.com',
+    name: 'Prof. Michael Smith',
+    email: 'teacher@example.com',
     avatar: '👨‍🏫',
     department: 'English Department',
     lastLogin: null,
@@ -66,15 +66,15 @@ class AuthService {
     const user = USERS_DATABASE[username];
     
     if (!user) {
-      return { success: false, error: 'Usuario no encontrado' };
+      return { success: false, error: 'User not found' };
     }
     
     if (!user.isActive) {
-      return { success: false, error: 'Usuario inactivo' };
+      return { success: false, error: 'User account is inactive' };
     }
     
     if (user.password !== password) {
-      return { success: false, error: 'Contraseña incorrecta' };
+      return { success: false, error: 'Incorrect password' };
     }
     
     return { success: true, user: { ...user } };
@@ -171,7 +171,7 @@ class AuthService {
       USERS_DATABASE[username] = { ...USERS_DATABASE[username], ...updates };
       return { success: true, user: USERS_DATABASE[username] };
     }
-    return { success: false, error: 'Usuario no encontrado' };
+    return { success: false, error: 'User not found' };
   }
 
   // Check if user is authenticated
