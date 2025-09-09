@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './StudentPage.css';
-import StudentDashboard from '../../components/StudentDashboard/StudentDashboard';
+import StudentView from '../../components/StudentView/StudentView';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 import AuthService from '../../services/authService';
@@ -24,11 +24,6 @@ function StudentPage() {
         setIsLoading(false);
     }, []);
 
-    const handleLogout = () => {
-        AuthService.logout();
-        window.location.href = '/community';
-    };
-
     if (isLoading) {
         return (
             <>
@@ -36,7 +31,7 @@ function StudentPage() {
                 <div className="student-page">
                     <div className="loading-container">
                         <div className="loading-spinner"></div>
-                        <p>Loading student dashboard...</p>
+                        <p>Loading student view...</p>
                     </div>
                 </div>
                 <Footer />
@@ -48,7 +43,7 @@ function StudentPage() {
         <>
             <Navbar />
             <div className="student-page">
-                <StudentDashboard student={student} onLogout={handleLogout} />
+                <StudentView />
             </div>
             <Footer />
         </>
