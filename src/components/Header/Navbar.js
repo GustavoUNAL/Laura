@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import { useTheme } from '../../contexts/ThemeContext'; // Comentado - no se usa
-import { useUser } from '../../contexts/UserContext';
+import { Link, useLocation } from 'react-router-dom';
 import { useDarkMode } from '../../contexts/DarkModeContext';
 import linkedin from '../../img/linkedin.png';
 
@@ -9,9 +7,6 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  // const { isDarkMode, toggleTheme } = useTheme(); // Comentado - no se usa
-  const { user, logout } = useUser();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   // Get dynamic title based on current route
@@ -68,22 +63,6 @@ function Navbar() {
     window.location.href = mailtoUrl;
   };
 
-  const handleLoginClick = () => {
-    navigate('/login');
-  };
-
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
-
-  const handleRoleNavigation = () => {
-    if (user?.role === 'student') {
-      navigate('/student');
-    } else if (user?.role === 'professor') {
-      navigate('/professor');
-    }
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -212,90 +191,6 @@ function Navbar() {
             Community
           </Link>
           
-          {/* User-specific buttons */}
-          {user ? (
-            <>
-              <button onClick={handleRoleNavigation} style={{
-                color: '#ffffff',
-                textDecoration: 'none',
-                fontSize: '16px',
-                fontWeight: '500',
-                fontFamily: "'Orbitron', monospace",
-                padding: '10px 18px',
-                borderRadius: '20px',
-                transition: 'all 0.3s ease',
-                border: user.role === 'student' ? '2px solid rgba(0, 255, 136, 0.3)' : '2px solid rgba(255, 165, 0, 0.3)',
-                background: user.role === 'student' ? 'rgba(0, 255, 136, 0.1)' : 'rgba(255, 165, 0, 0.1)',
-                textShadow: user.role === 'student' ? '0 0 10px rgba(0, 255, 136, 0.5)' : '0 0 10px rgba(255, 165, 0, 0.5)',
-                cursor: 'pointer'
-              }} onMouseEnter={(e) => {
-                e.target.style.backgroundColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.2)' : 'rgba(255, 165, 0, 0.2)';
-                e.target.style.borderColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.6)' : 'rgba(255, 165, 0, 0.6)';
-                e.target.style.transform = 'scale(1.05)';
-                e.target.style.textShadow = user.role === 'student' ? '0 0 15px rgba(0, 255, 136, 0.8)' : '0 0 15px rgba(255, 165, 0, 0.8)';
-              }} onMouseLeave={(e) => {
-                e.target.style.backgroundColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.1)' : 'rgba(255, 165, 0, 0.1)';
-                e.target.style.borderColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.3)' : 'rgba(255, 165, 0, 0.3)';
-                e.target.style.transform = 'scale(1)';
-                e.target.style.textShadow = user.role === 'student' ? '0 0 10px rgba(0, 255, 136, 0.5)' : '0 0 10px rgba(255, 165, 0, 0.5)';
-              }}>
-                {user.role === 'student' ? '🎓 Dashboard' : '👨‍🏫 Dashboard'}
-              </button>
-              <button onClick={handleLogout} style={{
-                color: '#ffffff',
-                textDecoration: 'none',
-                fontSize: '16px',
-                fontWeight: '500',
-                fontFamily: "'Orbitron', monospace",
-                padding: '10px 18px',
-                borderRadius: '20px',
-                transition: 'all 0.3s ease',
-                border: '2px solid rgba(255, 0, 0, 0.3)',
-                background: 'rgba(255, 0, 0, 0.1)',
-                textShadow: '0 0 10px rgba(255, 0, 0, 0.5)',
-                cursor: 'pointer'
-              }} onMouseEnter={(e) => {
-                e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
-                e.target.style.borderColor = 'rgba(255, 0, 0, 0.6)';
-                e.target.style.transform = 'scale(1.05)';
-                e.target.style.textShadow = '0 0 15px rgba(255, 0, 0, 0.8)';
-              }} onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
-                e.target.style.borderColor = 'rgba(255, 0, 0, 0.3)';
-                e.target.style.transform = 'scale(1)';
-                e.target.style.textShadow = '0 0 10px rgba(255, 0, 0, 0.5)';
-              }}>
-                🚪 Salir
-              </button>
-            </>
-          ) : (
-            <button onClick={handleLoginClick} style={{
-              color: '#ffffff',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '500',
-              fontFamily: "'Orbitron', monospace",
-              padding: '10px 18px',
-              borderRadius: '20px',
-              transition: 'all 0.3s ease',
-              border: '2px solid rgba(0, 191, 255, 0.3)',
-              background: 'rgba(0, 191, 255, 0.1)',
-              textShadow: '0 0 10px rgba(0, 191, 255, 0.5)',
-              cursor: 'pointer'
-            }} onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'rgba(0, 191, 255, 0.2)';
-              e.target.style.borderColor = 'rgba(0, 191, 255, 0.6)';
-              e.target.style.transform = 'scale(1.05)';
-              e.target.style.textShadow = '0 0 15px rgba(0, 191, 255, 0.8)';
-            }} onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'rgba(0, 191, 255, 0.1)';
-              e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-              e.target.style.transform = 'scale(1)';
-              e.target.style.textShadow = '0 0 10px rgba(0, 191, 255, 0.5)';
-            }}>
-              🔐 Iniciar Sesión
-            </button>
-          )}
         </div>
 
 
@@ -580,140 +475,6 @@ function Navbar() {
               }}>
               <span>Community</span>
             </Link>
-            {/* User-specific mobile buttons */}
-            {user ? (
-              <>
-                <button 
-                  onClick={() => {
-                    handleRoleNavigation();
-                    closeMobileMenu();
-                  }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '20px 25px',
-                    background: user.role === 'student' ? 'rgba(0, 255, 136, 0.2)' : 'rgba(255, 165, 0, 0.2)',
-                    border: user.role === 'student' ? '2px solid rgba(0, 255, 136, 0.3)' : '2px solid rgba(255, 165, 0, 0.3)',
-                    borderRadius: '20px',
-                    textDecoration: 'none',
-                    color: '#ffffff',
-                    fontSize: '18px',
-                    fontWeight: '500',
-                    fontFamily: "'Orbitron', monospace",
-                    transition: 'all 0.3s ease',
-                    textShadow: user.role === 'student' ? '0 0 10px rgba(0, 255, 136, 0.5)' : '0 0 10px rgba(255, 165, 0, 0.5)',
-                    cursor: 'pointer',
-                    width: '100%'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = user.role === 'student' ? 'rgba(0, 255, 136, 0.4)' : 'rgba(255, 165, 0, 0.4)';
-                    e.target.style.borderColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.6)' : 'rgba(255, 165, 0, 0.6)';
-                    e.target.style.color = '#ffffff';
-                    e.target.style.transform = 'translateX(5px) scale(1.02)';
-                    e.target.style.boxShadow = user.role === 'student' ? '0 8px 25px rgba(0, 255, 136, 0.3)' : '0 8px 25px rgba(255, 165, 0, 0.3)';
-                    e.target.style.textShadow = user.role === 'student' ? '0 0 15px rgba(0, 255, 136, 0.8)' : '0 0 15px rgba(255, 165, 0, 0.8)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = user.role === 'student' ? 'rgba(0, 255, 136, 0.2)' : 'rgba(255, 165, 0, 0.2)';
-                    e.target.style.borderColor = user.role === 'student' ? 'rgba(0, 255, 136, 0.3)' : 'rgba(255, 165, 0, 0.3)';
-                    e.target.style.color = '#ffffff';
-                    e.target.style.transform = 'translateX(0) scale(1)';
-                    e.target.style.boxShadow = 'none';
-                    e.target.style.textShadow = user.role === 'student' ? '0 0 10px rgba(0, 255, 136, 0.5)' : '0 0 10px rgba(255, 165, 0, 0.5)';
-                  }}>
-                  <span>{user.role === 'student' ? '🎓 Dashboard' : '👨‍🏫 Dashboard'}</span>
-                  <span style={{color: user.role === 'student' ? 'rgba(0, 255, 136, 0.8)' : 'rgba(255, 165, 0, 0.8)', fontSize: '20px'}}>
-                    {user.role === 'student' ? '📚' : '📊'}
-                  </span>
-                </button>
-                <button 
-                  onClick={() => {
-                    handleLogout();
-                    closeMobileMenu();
-                  }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '20px 25px',
-                    background: 'rgba(255, 0, 0, 0.2)',
-                    border: '2px solid rgba(255, 0, 0, 0.3)',
-                    borderRadius: '20px',
-                    textDecoration: 'none',
-                    color: '#ffffff',
-                    fontSize: '18px',
-                    fontWeight: '500',
-                    fontFamily: "'Orbitron', monospace",
-                    transition: 'all 0.3s ease',
-                    textShadow: '0 0 10px rgba(255, 0, 0, 0.5)',
-                    cursor: 'pointer',
-                    width: '100%'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(255, 0, 0, 0.4)';
-                    e.target.style.borderColor = 'rgba(255, 0, 0, 0.6)';
-                    e.target.style.color = '#ffffff';
-                    e.target.style.transform = 'translateX(5px) scale(1.02)';
-                    e.target.style.boxShadow = '0 8px 25px rgba(255, 0, 0, 0.3)';
-                    e.target.style.textShadow = '0 0 15px rgba(255, 0, 0, 0.8)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(255, 0, 0, 0.2)';
-                    e.target.style.borderColor = 'rgba(255, 0, 0, 0.3)';
-                    e.target.style.color = '#ffffff';
-                    e.target.style.transform = 'translateX(0) scale(1)';
-                    e.target.style.boxShadow = 'none';
-                    e.target.style.textShadow = '0 0 10px rgba(255, 0, 0, 0.5)';
-                  }}>
-                  <span>🚪 Salir</span>
-                  <span style={{color: 'rgba(255, 0, 0, 0.8)', fontSize: '20px'}}>❌</span>
-                </button>
-              </>
-            ) : (
-              <button 
-                onClick={() => {
-                  handleLoginClick();
-                  closeMobileMenu();
-                }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '20px 25px',
-                  background: 'rgba(0, 191, 255, 0.2)',
-                  border: '2px solid rgba(0, 191, 255, 0.3)',
-                  borderRadius: '20px',
-                  textDecoration: 'none',
-                  color: '#ffffff',
-                  fontSize: '18px',
-                  fontWeight: '500',
-                  fontFamily: "'Orbitron', monospace",
-                  transition: 'all 0.3s ease',
-                  textShadow: '0 0 10px rgba(0, 191, 255, 0.5)',
-                  cursor: 'pointer',
-                  width: '100%'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(0, 191, 255, 0.4)';
-                  e.target.style.borderColor = 'rgba(0, 191, 255, 0.6)';
-                  e.target.style.color = '#ffffff';
-                  e.target.style.transform = 'translateX(5px) scale(1.02)';
-                  e.target.style.boxShadow = '0 8px 25px rgba(0, 191, 255, 0.3)';
-                  e.target.style.textShadow = '0 0 15px rgba(0, 191, 255, 0.8)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(0, 191, 255, 0.2)';
-                  e.target.style.borderColor = 'rgba(0, 191, 255, 0.3)';
-                  e.target.style.color = '#ffffff';
-                  e.target.style.transform = 'translateX(0) scale(1)';
-                  e.target.style.boxShadow = 'none';
-                  e.target.style.textShadow = '0 0 10px rgba(0, 191, 255, 0.5)';
-                }}>
-                <span>🔐 Iniciar Sesión</span>
-                <span style={{color: 'rgba(0, 191, 255, 0.8)', fontSize: '20px'}}>🔑</span>
-              </button>
-            )}
           </div>
 
 
