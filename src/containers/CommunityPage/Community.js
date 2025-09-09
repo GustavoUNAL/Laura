@@ -86,22 +86,6 @@ function Community() {
                                 {isLoading ? 'Signing in...' : '🔐 Sign In'}
                             </button>
                         </form>
-                        
-                        <div className="demo-credentials">
-                            <h3>Demo Credentials:</h3>
-                            <div className="credentials-grid">
-                                <div className="credential-item">
-                                    <strong>Student:</strong>
-                                    <p>Username: <code>student</code></p>
-                                    <p>Password: <code>student123</code></p>
-                                </div>
-                                <div className="credential-item">
-                                    <strong>Professor:</strong>
-                                    <p>Username: <code>professor</code></p>
-                                    <p>Password: <code>professor123</code></p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
