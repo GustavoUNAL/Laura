@@ -82,7 +82,10 @@ class AuthService {
 
   // Login user
   static login(username, password) {
+    console.log('AuthService.login called with:', username); // Debug log
+    
     const validation = this.validateCredentials(username, password);
+    console.log('Validation result:', validation); // Debug log
     
     if (!validation.success) {
       return validation;
@@ -97,6 +100,8 @@ class AuthService {
     
     // Remove password from session data
     delete sessionData.password;
+    
+    console.log('Session data created:', sessionData); // Debug log
     
     // Save session to localStorage
     localStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
