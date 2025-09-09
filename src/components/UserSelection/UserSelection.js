@@ -38,10 +38,12 @@ const UserSelection = () => {
         // Redirigir según el rol del usuario
         if (result.user.role === 'student') {
           console.log('Redirecting to student page'); // Debug log
-          navigate('/student');
+          // Usar window.location para forzar la redirección
+          window.location.href = '/student';
         } else if (result.user.role === 'professor') {
           console.log('Redirecting to professor page'); // Debug log
-          navigate('/professor');
+          // Usar window.location para forzar la redirección
+          window.location.href = '/professor';
         } else {
           console.log('Unknown role:', result.user.role); // Debug log
           setError('Rol de usuario no válido');
