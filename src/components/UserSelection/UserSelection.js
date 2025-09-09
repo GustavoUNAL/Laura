@@ -30,12 +30,21 @@ const UserSelection = () => {
     try {
       const result = await login(credentials.username, credentials.password);
       
+      console.log('Login result:', result); // Debug log
+      
       if (result.success) {
+        console.log('User role:', result.user.role); // Debug log
+        
         // Redirigir según el rol del usuario
         if (result.user.role === 'student') {
+          console.log('Redirecting to student page'); // Debug log
           navigate('/student');
         } else if (result.user.role === 'professor') {
+          console.log('Redirecting to professor page'); // Debug log
           navigate('/professor');
+        } else {
+          console.log('Unknown role:', result.user.role); // Debug log
+          setError('Rol de usuario no válido');
         }
       } else {
         setError(result.error || 'Error de autenticación');
