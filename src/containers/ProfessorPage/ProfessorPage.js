@@ -1,80 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProfessorPage.css';
 import ProfessorDashboard from '../../components/ProfessorDashboard/ProfessorDashboard';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
+import AuthService from '../../services/authService';
 
 function ProfessorPage() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const [professor, setProfessor] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const handleLogin = () => {
-        setIsLoading(true);
-        // Simular proceso de login del profesor
-        setTimeout(() => {
-            setIsLoggedIn(true);
-            setIsLoading(false);
-        }, 1500);
-    };
+    useEffect(() => {
+        // Check if user is authenticated and has professor role
+        const session = AuthService.getCurrentSession();
+        
+        if (session && session.role === 'professor') {
+            setProfessor(session);
+        } else {
+            // Redirect to Community for login
+            window.location.href = '/community';
+            return;
+        }
+        
+        setIsLoading(false);
+    }, []);
 
     const handleLogout = () => {
-        setIsLoggedIn(false);
+        AuthService.logout();
+        window.location.href = '/community';
     };
+
+    if (isLoading) {
+        return (
+            <>
+                <Navbar />
+                <div className="professor-page">
+                    <div className="loading-container">
+                        <div className="loading-spinner"></div>
+                        <p>Loading professor dashboard...</p>
+                    </div>
+                </div>
+                <Footer />
+            </>
+        );
+    }
 
     return (
         <>
             <Navbar />
             <div className="professor-page">
-                {isLoading ? (
-                    <div className="loading-container">
-                        <div className="loading-spinner"></div>
-                        <p>Iniciando sesión como profesor...</p>
-                    </div>
-                ) : isLoggedIn ? (
-                    <ProfessorDashboard onLogout={handleLogout} />
-                ) : (
-                    <div className="professor-login">
-                        <div className="login-container">
-                            <div className="login-header">
-                                <h1>Acceso Profesor</h1>
-                                <p>Ingresa al panel de gestión de estudiantes</p>
-                            </div>
-                            
-                            <div className="login-form">
-                                <div className="form-group">
-                                    <label htmlFor="professor-email">Email del Profesor</label>
-                                    <input 
-                                        type="email" 
-                                        id="professor-email"
-                                        placeholder="profesor@universidad.edu"
-                                        className="form-input"
-                                    />
-                                </div>
-                                
-                                <div className="form-group">
-                                    <label htmlFor="professor-password">Contraseña</label>
-                                    <input 
-                                        type="password" 
-                                        id="professor-password"
-                                        placeholder="••••••••"
-                                        className="form-input"
-                                    />
-                                </div>
-                                
-                                <button 
-                                    onClick={handleLogin}
-                                    className="login-button"
-                                >
-                                    Iniciar Sesión
-                                </button>
-                            </div>
-                            
-                            <div className="login-info">
-                                <p>Para propósitos de demostración, puedes usar cualquier email y contraseña.</p>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                <ProfessorDashboard professor={professor} onLogout={handleLogout} />
             </div>
             <Footer />
         </>

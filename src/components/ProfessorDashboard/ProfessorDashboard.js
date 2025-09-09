@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ProfessorDashboard.css';
 import StudentCard from '../StudentCard/StudentCard';
 
-function ProfessorDashboard({ onLogout }) {
+function ProfessorDashboard({ professor, onLogout }) {
     const [students, setStudents] = useState([]);
     const [courses, setCourses] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState(null);
