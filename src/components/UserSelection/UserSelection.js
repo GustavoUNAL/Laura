@@ -11,12 +11,7 @@ const UserSelection = () => {
     password: ''
   });
   const [error, setError] = useState('');
-
-  // Credenciales válidas (en producción esto vendría de una API)
-  const validCredentials = {
-    student: { username: 'gustavo', password: '123456' },
-    professor: { username: 'laura', password: 'prof123' }
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,35 +22,30 @@ const UserSelection = () => {
     setError(''); // Limpiar error al escribir
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
-    // Verificar credenciales de estudiante
-    if (credentials.username === validCredentials.student.username && 
-        credentials.password === validCredentials.student.password) {
-      login({
-        role: 'student',
-        name: 'Gustavo Arteaga',
-        id: 'student_gustavo'
-      });
-      navigate('/student');
-      return;
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const result = await login(credentials.username, credentials.password);
+      
+      if (result.success) {
+        // Redirigir según el rol del usuario
+        if (result.user.role === 'student') {
+          navigate('/student');
+        } else if (result.user.role === 'professor') {
+          navigate('/professor');
+        }
+      } else {
+        setError(result.error || 'Error de autenticación');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError('Error interno del servidor');
+    } finally {
+      setIsLoading(false);
     }
-    
-    // Verificar credenciales de profesor
-    if (credentials.username === validCredentials.professor.username && 
-        credentials.password === validCredentials.professor.password) {
-      login({
-        role: 'professor',
-        name: 'Laura Chaves',
-        id: 'professor_laura'
-      });
-      navigate('/professor');
-      return;
-    }
-    
-    // Credenciales inválidas
-    setError('Usuario o contraseña incorrectos');
   };
 
   return (
@@ -93,18 +83,34 @@ const UserSelection = () => {
           
           {error && <div className="error-message">{error}</div>}
           
-          <button type="submit" className="login-button">
-            Iniciar Sesión
+          <button 
+            type="submit" 
+            className={`login-button ${isLoading ? 'loading' : ''}`}
+            disabled={isLoading}
+          >
+            {isLoading ? 'Iniciando Sesión...' : 'Iniciar Sesión'}
           </button>
         </form>
         
         <div className="demo-credentials">
           <h4>Credenciales de Demo:</h4>
           <div className="credential-item">
-            <strong>Estudiante:</strong> gustavo / 123456
+            <strong>Estudiantes:</strong>
           </div>
           <div className="credential-item">
-            <strong>Profesor:</strong> laura / prof123
+            • gustavo / 123456
+          </div>
+          <div className="credential-item">
+            • maria / student123
+          </div>
+          <div className="credential-item">
+            <strong>Profesores:</strong>
+          </div>
+          <div className="credential-item">
+            • laura / prof123
+          </div>
+          <div className="credential-item">
+            • carlos / teacher456
           </div>
         </div>
       </div>

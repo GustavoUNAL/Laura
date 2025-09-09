@@ -212,8 +212,8 @@ function Navbar() {
             Community
           </Link>
           
-          {/* User-specific buttons - Comentado para acceso directo */}
-          {/* {user ? (
+          {/* User-specific buttons */}
+          {user ? (
             <>
               <button onClick={handleRoleNavigation} style={{
                 color: '#ffffff',
@@ -295,7 +295,7 @@ function Navbar() {
             }}>
               🔐 Iniciar Sesión
             </button>
-          )} */}
+          )}
         </div>
 
 
@@ -580,8 +580,8 @@ function Navbar() {
               }}>
               <span>Community</span>
             </Link>
-            {/* User-specific mobile buttons - Comentado para acceso directo */}
-            {/* {user ? (
+            {/* User-specific mobile buttons */}
+            {user ? (
               <>
                 <button 
                   onClick={() => {
@@ -713,7 +713,7 @@ function Navbar() {
                 <span>🔐 Iniciar Sesión</span>
                 <span style={{color: 'rgba(0, 191, 255, 0.8)', fontSize: '20px'}}>🔑</span>
               </button>
-            )} */}
+            )}
           </div>
 
 
