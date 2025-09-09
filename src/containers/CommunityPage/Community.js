@@ -3,7 +3,7 @@ import './Community.css';
 import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { useTheme } from '../../contexts/ThemeContext';
-import { AuthService } from '../../services/authService';
+import AuthService from '../../services/authService';
 
 function Community() {
     const [username, setUsername] = useState('');
